@@ -1,0 +1,22 @@
+﻿@using Ext.Net
+@using Ext.Net.MVC
+@model PSIMP.Web.Models.StoreFor.PersonModel
+@{
+    Layout = null;
+}
+@(Html.X()
+    .Window()
+    .Title("人员信息")
+    .CloseAction(CloseAction.Destroy)
+    .Width(300)
+    .Layout(Ext.Net.LayoutType.Fit)
+    .Items(Html.X()
+            .FormPanelFor(m => m)
+            .BodyPadding(5)
+            .DefaultAnchor("100%")
+            .Width(300)
+            .Buttons(Html.X().Button()
+                .Text("Submit")
+                .DirectClickUrl(Url.Action("Submit"))
+  ))
+)

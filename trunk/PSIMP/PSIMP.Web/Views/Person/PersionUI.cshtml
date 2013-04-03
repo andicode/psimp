@@ -1,0 +1,17 @@
+﻿@model PSIMP.Web.Models.StoreFor.PersonModel
+@using Ext.Net.MVC
+@{
+    Layout = null;
+}
+@(Html.X()
+    .GridPanelFor<PSIMP.Web.Models.StoreFor.PersonModel>()
+    .Frame(true)
+    .TopBar(Html.X().Toolbar().Items(items => {
+        items.Add(Html.X()
+                    .Button()
+                    .Text("新增人员")
+                    .DirectClickUrl(Url.Action("Create"))
+             );
+    }))
+    .BottomBar(Html.X().PagingToolbar())
+)
