@@ -12,7 +12,7 @@
     .SelectedIndex(0)
     .Menu(menus =>
     {
-        menus.Items.Add(Html.X().MenuItem().Text("基础信息").Listeners(l => l.Click.Handler = "App.Person_Card.getLayout().setActiveItem(0)"));
+        menus.Items.Add(Html.X().MenuItem().Text("基本信息").Listeners(l => l.Click.Handler = "App.Person_Card.getLayout().setActiveItem(0)"));
         menus.Items.Add(Html.X().MenuItem().Text("注册信息").Listeners(l => l.Click.Handler = "App.Person_Card.getLayout().setActiveItem(1)"));
         menus.Items.Add(Html.X().MenuItem().Text("教育背景").Listeners(l => l.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
         menus.Items.Add(Html.X().MenuItem().Text("培训经历").Listeners(l => l.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
@@ -28,28 +28,48 @@
     .ActiveIndex(0)
     .Items(
         Html.X()
-            .Panel()
-            .Title("基础信息")
-            .ItemsFromPartial("_BaseInfo",Model),
+            .FormPanel()
+            .Title("基本信息")
+            .Layout( LayoutType.Border)
+            .Url(Url.Action("Save"))
+            .TopBar(Html.X()
+                .Toolbar().Items(toolbarItems =>
+                {
+                    toolbarItems.Add(Html.X()
+                                        .Button()
+                                        .Text("保存")
+                                        .Icon(Icon.Disk)
+                                        .Handler("this.up('form').submit();")
+                                    );
+                }))
+            .Defaults(defaults => {
+                defaults.Add(new { MsgTarget = "under" });
+            })
+            .ItemsFromPartial("_BaseInfo", Model),
         Html.X()
             .Panel()
             .Title("注册信息")
-            .ItemsFromPartial("_RegisterInfo",Model),
+            .BodyPadding(10)
+            .ItemsFromPartial("_RegisterInfo", Model),
         Html.X()
             .Panel()
             .Title("教育背景")
-            .ItemsFromPartial("_EducationInfo",Model),
+            .BodyPadding(10)
+            .ItemsFromPartial("_EducationInfo", Model),
         Html.X()
             .Panel()
             .Title("培训经历")
-            .ItemsFromPartial("_TrainInfo",Model),
+            .BodyPadding(10)
+            .ItemsFromPartial("_TrainInfo", Model),
         Html.X()
             .Panel()
             .Title("工作经历")
-            .ItemsFromPartial("_WorkInfo",Model),
+            .BodyPadding(10)
+            .ItemsFromPartial("_WorkInfo", Model),
         Html.X()
             .Panel()
             .Title("证书证件")
-            .ItemsFromPartial("_CertInfo",Model)
+            .BodyPadding(10)
+            .ItemsFromPartial("_CertInfo", Model)
     )
 )
