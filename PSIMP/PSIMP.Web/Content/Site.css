@@ -1,0 +1,31 @@
+﻿
+
+
+
+/*桌面图标*/
+.shortcut-label { height: auto !important; }
+.ux-desktop-shortcut-icon { width: 32px; height: 32px; margin: 0 auto; }
+.default-shortcut { 
+    background: url(../Images/ModuleIcon/default.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/default.png', sizingMethod='scale')\9; 
+}
+.default-shortcut16 { 
+    background: url(../Images/ModuleIcon/default.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/default.png', sizingMethod='scale')\9;
+}
+.person-shortcut32 { 
+    background: url(../images/moduleicon/person.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9; 
+}
+.person-shortcut16 { 
+    background: url(../Images/ModuleIcon/Person.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9;
+}

@@ -1,0 +1,46 @@
+﻿@using Ext.Net
+@using Ext.Net.MVC
+@model IEnumerable<DesktopItem>
+@(Html.X().Desktop(DesktopFrame.Config.Desktop())
+.DesktopConfig(Html.X().DesktopConfig()
+    .ContextMenu(menu =>
+    {
+        menu.Add(Html.X().Menu().ItemsFromPage(this, DesktopFrame.Config.ContextMenuPath));
+    })
+    .ShortcutContextMenu(menu =>
+    {
+        menu.Add(Html.X().Menu().ItemsFromPage(this, DesktopFrame.Config.ShortcutContextMenuPath));
+    })
+    .ShortcutDefaults(defaults =>
+    {
+        defaults.IconCls = "default-shortcut";
+        defaults.TextCls = "shortcut-label";
+    })
+)
+.Modules(modules =>
+{
+    foreach (var item in Model)
+    {
+        var module = Html.X()
+            .DesktopModule()
+            .AutoRun(item.AutoRun)
+            .ModuleID(item.ModuleID)
+            .Shortcut(Html.X().DesktopShortcut(item.Shortcut));
+        if (item.Launcher != null)
+        {
+            module.Launcher(item.Launcher);
+        }
+        if (item.Window != null)
+        {
+            module.Window(window =>
+            {
+                var win = Html.X().Window(item.Window);
+                win.ItemsFromAction(item.Action, item.Controller, item.RouteValues);
+                window.Add(win);
+            });
+        }
+        modules.Add(module);
+
+    }
+})
+)
