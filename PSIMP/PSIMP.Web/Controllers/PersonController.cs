@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ext.Net.MVC;
-using PSIMP.Web.Models.StoreFor;
+using PSIMP.Web.Models;
 namespace PSIMP.Web.Controllers
 {
     public class PersonController : Controller
@@ -31,7 +31,7 @@ namespace PSIMP.Web.Controllers
         }
         public ActionResult GetPersons(StoreRequestParameters parameters)
         {
-            return this.Store(PSIMP.Web.Models.StoreFor.PersonModel.GetAll(), 6);
+            return this.Store(PSIMP.Web.Models.PersonModel.GetAll(), 6);
         }
 
     }
