@@ -1,10 +1,10 @@
-﻿@model PSIMP.Web.Models.StoreFor.PersonModel
+﻿@model PSIMP.Web.Models.PersonModel
 @using Ext.Net.MVC
 @{
     Layout = null;
 }
 @(Html.X()
-    .GridPanelFor<PSIMP.Web.Models.StoreFor.PersonModel>()
+    .GridPanelFor<PSIMP.Web.Models.PersonModel>()
     .Frame(true)
     .TopBar(Html.X().Toolbar().Items(items => {
         items.Add(Html.X()

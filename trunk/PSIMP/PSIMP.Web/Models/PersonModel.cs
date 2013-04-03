@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace PSIMP.Web.Models.StoreFor
+namespace PSIMP.Web.Models
 {
     [Proxy(Read = "~/Person/GetPersons")]
     [JsonReader(Root = "data")]
