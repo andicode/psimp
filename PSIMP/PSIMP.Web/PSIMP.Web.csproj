@@ -177,6 +177,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\Test.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -197,6 +198,13 @@
     <Content Include="Views\Person\PersionUI.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Person\_PersonForm.cshtml" />
+    <Content Include="Views\Person\_BaseInfo.cshtml" />
+    <Content Include="Views\Person\_RegisterInfo.cshtml" />
+    <Content Include="Views\Person\_EducationInfo.cshtml" />
+    <Content Include="Views\Person\_TrainInfo.cshtml" />
+    <Content Include="Views\Person\_WorkInfo.cshtml" />
+    <Content Include="Views\Person\_CertInfo.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -10,7 +10,10 @@
         items.Add(Html.X()
                     .Button()
                     .Text("新增人员")
-                    .DirectClickUrl(Url.Action("Create"))
+                    .DirectEvents(events => {
+                        events.Click.DisableControl = true;
+                        events.Click.Url = Url.Action("Create");
+                    })
              );
     }))
     .BottomBar(Html.X().PagingToolbar())
