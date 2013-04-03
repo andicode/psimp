@@ -125,6 +125,8 @@ namespace System.Web
                 Width = int.Parse(element.Attribute("Width").Value),
                 Height = int.Parse(element.Attribute("Height").Value),
                 ConstrainHeader = true,
+                Plain=true,
+                Frame=true,
                 Layout = "fit",
                 IconCls = element.Attribute("IconCls").Value
             };
