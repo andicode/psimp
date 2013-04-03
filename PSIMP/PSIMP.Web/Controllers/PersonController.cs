@@ -29,6 +29,12 @@ namespace PSIMP.Web.Controllers
         {
             return this.PartialExtView();
         }
+        [HttpPost]
+        public ActionResult Save()
+        {
+            X.Msg.Alert("保存成功", "已经添加到成功").Show();
+            return this.Direct();
+        }
         public ActionResult GetPersons(StoreRequestParameters parameters)
         {
             return this.Store(PSIMP.Web.Models.PersonModel.GetAll(), 6);

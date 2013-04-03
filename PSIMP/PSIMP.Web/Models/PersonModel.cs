@@ -28,16 +28,16 @@ namespace PSIMP.Web.Models
             [Field(FieldLabel = "性别")]
             public string Sex { get; set; }
 
-            [Column(Text = "身高")]
-            [Field(FieldLabel = "身高")]
+            [Column(Text = "身高(CM)")]
+            [Field(FieldLabel = "身高(CM)")]
             public int? Height { get; set; }
 
             [Column(Text = "户籍地")]
             [Field(FieldLabel = "户籍地")]
             public string Census { get; set; }
 
-            [Column(Text = "省份证号")]
-            [Field(FieldLabel = "省份证号")]
+            [Column(Text = "身份证号")]
+            [Field(FieldLabel = "身份证号")]
             public string IDCard { get; set; }
 
             [Column(Text = "年龄")]
@@ -49,7 +49,7 @@ namespace PSIMP.Web.Models
             public string Telephone { get; set; }
 
             [Column(Text = "电子邮件")]
-            [Field(FieldLabel = "电子邮件")]
+            [Field(FieldLabel = "电子邮件" ,StandardVtype=ValidationType.Email)]
             public string Email { get; set; }
 
             [TemplateColumn(Text = "照片", Order = 0, TemplateString = "<img src=\"{Picture}\" alt=\"\">")]
