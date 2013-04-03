@@ -23,7 +23,7 @@ namespace PSIMP.Web.Controllers
         }
         public ActionResult Create()
         {
-            return this.PartialExtView();
+            return this.PartialExtView(new PersonModel());
         }
         public ActionResult Edit()
         {
