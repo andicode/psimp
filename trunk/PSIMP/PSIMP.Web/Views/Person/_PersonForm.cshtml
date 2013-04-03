@@ -45,28 +45,28 @@
             .Defaults(defaults => {
                 defaults.Add(new { MsgTarget = "under" });
             })
-            .ItemsFromPartial("_BaseInfo", Model),
-        Html.X()
+            .ItemsFromPartial("_BaseInfo", Model)
+        ,Html.X()
             .Panel()
             .Title("注册信息")
             .BodyPadding(10)
-            .ItemsFromPartial("_RegisterInfo", Model),
-        Html.X()
+            .ItemsFromPartial("_RegisterInfo", Model)
+        ,Html.X()
             .Panel()
             .Title("教育背景")
             .BodyPadding(10)
-            .ItemsFromPartial("_EducationInfo", Model),
-        Html.X()
+            .ItemsFromPartial("_EducationInfo", Model)
+        ,Html.X()
             .Panel()
             .Title("培训经历")
             .BodyPadding(10)
-            .ItemsFromPartial("_TrainInfo", Model),
-        Html.X()
+            .ItemsFromPartial("_TrainInfo", Model)
+        ,Html.X()
             .Panel()
             .Title("工作经历")
             .BodyPadding(10)
-            .ItemsFromPartial("_WorkInfo", Model),
-        Html.X()
+            .ItemsFromPartial("_WorkInfo", Model)
+        ,Html.X()
             .Panel()
             .Title("证书证件")
             .BodyPadding(10)
