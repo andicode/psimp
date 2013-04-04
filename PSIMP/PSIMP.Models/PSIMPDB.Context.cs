@@ -18,6 +18,7 @@ namespace PSIMP.Models
         public PSIMPDBContainer()
             : base("name=PSIMPDBContainer")
         {
+                this.Database.CreateIfNotExists();
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

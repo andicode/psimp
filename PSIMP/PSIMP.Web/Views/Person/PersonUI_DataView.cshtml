@@ -1,0 +1,49 @@
+﻿@using Ext.Net.MVC
+@using Ext.Net
+
+@(Html.X().DataView()
+      .Region(Region.Center)
+      .ID("PersonView")
+      .AutoScroll(true)
+      .Store(Html.X().StoreFor<PSIMP.Models.Person>().ID("Person_Store"))
+      .MultiSelect(true)
+      .OverItemCls("x-item-over")
+      .ItemSelector("div.user-card")
+      .EmptyText("No images to display")
+      .TrackOver(true)
+      .Tpl(
+           Html.X().XTemplate()
+               .Html(
+                   @<text>
+                       <tpl for=".">
+                            <div class="user-card">
+                                  <div class="img" style="height: 100px; width: 75px;">
+                                    <img style="width:75px;height:100px" src="@Url.Action("Picture")/{Id}" alt="{Name}">
+                                  </div>
+                                  <div class="img-txt">
+                                        <h4>{Name}</h4>
+                                        <p class="ellipsis">{[values.Sex==0?'男':'女']} {Age}岁</p>    
+                                        <p class="ellipsis">电话:{Telphone}</p>
+                                        <p class="ellipsis">邮箱:<a href="mailto:{Email}">{Email}</a></p>
+                                        <div class="actions">
+                                        <a href="javascript:;" class="btn-add-friend">
+                                            <s class="icon sp-mk-add"></s>
+                                            <span class="txt">加为好友</span>
+                                        </a>
+                                        </div>
+                                  </div>
+                             </div>
+			                @*<div class="thumb-wrap" id="person-{Id}">
+				                <div class="thumb"><img  style="width:85px;height:120px" src="@Url.Action("Picture")/{Id}" title="{Name}"></div>
+				                <span class="x-editable">{Name}</span>
+			                </div>*@
+		                </tpl>
+                       <div class="x-clear"></div>
+                   </text>
+               )
+      )
+      .Listeners(events =>
+      {
+          events.SelectionChange.Handler = "if(selections[0]){App.Person_Summary.loadRecord(selections[0])}";
+      })
+)

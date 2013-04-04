@@ -40,6 +40,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Ext.Net, Version=2.1.1.20225, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Ext.Net.dll</HintPath>
@@ -68,9 +72,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -147,7 +148,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Enums.cs" />
-    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,8 +159,11 @@
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\default_image_female.jpg" />
     <Content Include="Images\default_image_male.jpg" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Images\ModuleIcon\default.png" />
     <Content Include="Images\ModuleIcon\Person.png" />
+    <Content Include="Images\row-over.gif" />
+    <Content Include="Images\selected.gif" />
     <Content Include="Images\Userpicture\default.png" />
     <Content Include="Lib\Ext.Net.dll" />
     <Content Include="Lib\Ext.Net.Utilities.dll" />
@@ -210,6 +213,9 @@
     <Content Include="Views\Person\_TrainInfo.cshtml" />
     <Content Include="Views\Person\_WorkInfo.cshtml" />
     <Content Include="Views\Person\_CertInfo.cshtml" />
+    <Content Include="Views\Person\PersonUI_DataView.cshtml" />
+    <Content Include="Views\Person\PersonUI_Toolbar.cshtml" />
+    <Content Include="Views\Person\PersonUI_Summary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
