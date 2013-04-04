@@ -13,7 +13,7 @@
     <Module ModuleID="PersonModule" Action="Index" Controller="Person">
       <Shortcut Name="人员管理" SortIndex="0" IconCls="person-shortcut32"/>
       <Launcher Text="人员管理" IconCls="person-shortcut16"/>
-      <Window Title="人员管理" Width="940" Height="500" IconCls="person-shortcut16" CloseAction="hide"/>
+      <Window Title="人员管理" Width="960" Height="500" IconCls="person-shortcut16" CloseAction="hide"/>
     </Module>
     <Module ModuleID="test1" Action="Test" Controller="">
       <Shortcut Name="测试图标" SortIndex="0" IconCls=""/>

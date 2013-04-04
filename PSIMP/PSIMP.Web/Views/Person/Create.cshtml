@@ -10,9 +10,13 @@
     .Title("人员信息")
     .CloseAction(CloseAction.Destroy)
     .ConstrainHeader(true)
-    .Modal(true)
+    .ConstrainToElement("mainBody")
     .Width(768)
     .Height(520)
     .Layout(Ext.Net.LayoutType.Border)
     .ItemsFromPartial("_PersonForm", Model)
+    .Listeners(events => {
+        events.Show.Handler = "this.up('window').mask()";
+        events.Close.Handler = "this.up('window').unmask()";
+    })
 )

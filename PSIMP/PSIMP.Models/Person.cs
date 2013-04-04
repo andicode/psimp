@@ -14,9 +14,14 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Person
+    public partial class Person : Psimp
     {
-        public long Id { get; set; }
+        public Person()
+        {
+            this.Education = new HashSet<Education>();
+            this.Train = new HashSet<Train>();
+        }
+    
         public string Name { get; set; }
         public string Sex { get; set; }
         public Nullable<int> Height { get; set; }
@@ -27,5 +32,8 @@ namespace PSIMP.Models
         public string Email { get; set; }
         [JsonIgnore]
         public byte[] Picture { get; set; }
+    
+        public virtual ICollection<Education> Education { get; set; }
+        public virtual ICollection<Train> Train { get; set; }
     }
 }

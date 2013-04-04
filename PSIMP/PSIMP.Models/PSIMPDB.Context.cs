@@ -26,6 +26,6 @@ namespace PSIMP.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Person> PersonSet { get; set; }
+        internal DbSet<Psimp> PsimpSet { get; set; }
     }
 }

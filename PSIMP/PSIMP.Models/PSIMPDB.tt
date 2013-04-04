@@ -323,7 +323,9 @@ public class CodeStringGenerator
             Accessibility.ForType(entity),
             _code.SpaceAfter(_code.AbstractOption(entity)),
             _code.Escape(entity),
-            _code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType)));
+            _code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType))
+			//_code.StringBefore(" : ", "BaseEntity")
+			);
     }
     
     public string EnumOpening(SimpleType enumType)

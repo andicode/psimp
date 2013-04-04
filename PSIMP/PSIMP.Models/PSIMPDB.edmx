@@ -6,13 +6,27 @@
     <edmx:StorageModels>
     <Schema Namespace="PSIMPDB.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="PSIMPDBStoreContainer">
-    <EntitySet Name="PersonSet" EntityType="PSIMPDB.Store.PersonSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PsimpSet" EntityType="PSIMPDB.Store.PsimpSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PsimpSet_Person" EntityType="PSIMPDB.Store.PsimpSet_Person" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Person_inherits_Psimp" Association="PSIMPDB.Store.FK_Person_inherits_Psimp">
+      <End Role="Psimp" EntitySet="PsimpSet" />
+      <End Role="Person" EntitySet="PsimpSet_Person" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="PersonSet">
+  <EntityType Name="PsimpSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="CreateUser" Type="nvarchar" Nullable="true" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PsimpSet_Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
     <Property Name="Name" Type="nvarchar" Nullable="false" />
     <Property Name="Sex" Type="nvarchar" Nullable="false" />
     <Property Name="Height" Type="int" Nullable="true" />
@@ -21,20 +35,39 @@
     <Property Name="Age" Type="int" Nullable="true" />
     <Property Name="Telephone" Type="nvarchar" Nullable="true" />
     <Property Name="Email" Type="nvarchar" Nullable="true" />
-    <Property Name="Picture" Type="image" Nullable="false" />
+    <Property Name="Picture" Type="image" Nullable="true" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Person_inherits_Psimp">
+    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Person" Type="PSIMPDB.Store.PsimpSet_Person" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Psimp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PSIMPDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
         <EntityContainer Name="PSIMPDBContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="PersonSet" EntityType="PSIMPDB.Person" />
+          <EntitySet Name="PsimpSet" EntityType="PSIMPDB.Psimp" cg:GetterAccess="Internal" />
+          <AssociationSet Name="PersonEducation" Association="PSIMPDB.PersonEducation">
+            <End Role="Person" EntitySet="PsimpSet" />
+            <End Role="Education" EntitySet="PsimpSet" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTrain" Association="PSIMPDB.PersonTrain">
+            <End Role="Person" EntitySet="PsimpSet" />
+            <End Role="Train" EntitySet="PsimpSet" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Person">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        <EntityType Name="Person" BaseType="PSIMPDB.Psimp">
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Sex" Nullable="false" />
           <Property Type="Int32" Name="Height" Nullable="true" />
@@ -43,17 +76,99 @@
           <Property Type="Int32" Name="Age" Nullable="true" />
           <Property Type="String" Name="Telephone" Nullable="true" />
           <Property Type="String" Name="Email" Nullable="true" />
-          <Property Type="Binary" Name="Picture" Nullable="false" MaxLength="Max" />
+          <Property Type="Binary" Name="Picture" MaxLength="Max" Nullable="true" />
+          <NavigationProperty Name="Education" Relationship="PSIMPDB.PersonEducation" FromRole="Person" ToRole="Education" />
+          <NavigationProperty Name="Train" Relationship="PSIMPDB.PersonTrain" FromRole="Person" ToRole="Train" />
         </EntityType>
+        <EntityType Name="Psimp" Abstract="true" cg:TypeAccess="Public" >
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="DateTime" Name="CreateTime" Nullable="true" />
+          <Property Type="DateTime" Name="UpdateTime" Nullable="true" />
+          <Property Type="String" Name="CreateUser" Nullable="true" />
+          <Property Type="String" Name="UpdateUser" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Education" BaseType="PSIMPDB.Psimp" >
+          <NavigationProperty Name="Person" Relationship="PSIMPDB.PersonEducation" FromRole="Education" ToRole="Person" />
+          <Property Type="Int64" Name="PersonId" Nullable="false" />
+          <Property Type="String" Name="SchoolName" Nullable="false" >
+            <Documentation>
+              <Summary>学校名</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="BeginDate" Nullable="false" />
+          <Property Type="String" Name="EndDate" Nullable="false" />
+          <Property Type="String" Name="Discipline" Nullable="false" >
+            <Documentation>
+              <Summary>专业</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Degree" Nullable="false" >
+            <Documentation>
+              <Summary>学位</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Remark" Nullable="false" />
+        </EntityType>
+        <Association Name="PersonEducation">
+          <End Type="PSIMPDB.Person" Role="Person" Multiplicity="1" />
+          <End Type="PSIMPDB.Education" Role="Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Train" BaseType="PSIMPDB.Psimp" >
+          <Property Type="String" Name="Agency" Nullable="false" >
+            <Documentation>
+              <Summary>培训机构</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="DateTime" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" />
+          <Property Type="String" Name="Curriculum" Nullable="false" />
+          <Property Type="String" Name="Certificate" Nullable="false" />
+          <Property Type="String" Name="Details" Nullable="false" />
+          <Property Type="String" Name="CertDetails" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="PSIMPDB.PersonTrain" FromRole="Train" ToRole="Person" />
+          <Property Type="Int64" Name="PersonId" Nullable="false" />
+        </EntityType>
+        <Association Name="PersonTrain">
+          <End Type="PSIMPDB.Person" Role="Person" Multiplicity="1" />
+          <End Type="PSIMPDB.Train" Role="Train" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Train">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PSIMPDBStoreContainer" CdmEntityContainer="PSIMPDBContainer">
-    <EntitySetMapping Name="PersonSet">
+    <EntitySetMapping Name="PsimpSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Psimp)">
+        <MappingFragment StoreEntitySet="PsimpSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Person)">
-        <MappingFragment StoreEntitySet="PersonSet">
+        <MappingFragment StoreEntitySet="PsimpSet_Person">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
@@ -80,7 +195,7 @@
     <edmx:Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </edmx:Options>

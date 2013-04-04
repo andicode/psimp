@@ -7,11 +7,18 @@ using System.Web.Mvc;
 using Ext.Net.MVC;
 using PSIMP.Models;
 using PSIMP.Repository;
+using System.IO;
 namespace PSIMP.Web.Controllers
 {
     public class PersonController : Controller
     {
-        DBContext db = new DBContext();
+        public DBContext<Person> PersonService { get; set; }
+
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            PersonService = new DBContext<Person>();
+            base.Initialize(requestContext);
+        }
         //
         // GET: /Person/
 
@@ -25,7 +32,12 @@ namespace PSIMP.Web.Controllers
         }
         public ActionResult Create()
         {
-            return this.PartialExtView(new Person());
+            return new Ext.Net.MVC.PartialViewResult
+            {
+                ContainerId = "win_PersonModule",
+                RenderMode = RenderMode.AddTo,
+                WrapByScriptTag = false
+            };
         }
         public ActionResult Edit()
         {
@@ -41,20 +53,26 @@ namespace PSIMP.Web.Controllers
                 stream.Read(buff, 0, (int)stream.Length);
                 person.Picture = buff;
             }
-
-            db.Add(person);
-            X.Msg.Alert("保存成功", "已经添加到成功").Show();
+            else
+            {
+                person.Picture = System.IO.File.ReadAllBytes(Server.MapPath("~/Images/default_image_male.jpg"));
+            }
+            PersonService.Add(person);
             X.GetCmp<Hidden>("person_Info_Id").SetValue(person.Id);
-            return this.Direct();
+            X.GetCmp<Store>("Person_Store").Reload();
+            var result= this.Direct();
+            result.IsUpload = true;
+            return result;
         }
         public ActionResult GetPersons(StoreRequestParameters parameters)
         {
-            return this.Store(db.GetAll<Person>(), 6);
+            var persons = PersonService.GetPagesData(parameters.Start, parameters.Limit);
+            return this.Store(persons, PersonService.Count());
         }
 
         public ActionResult Picture(long id)
         {
-            var person= db.Get<Person>(id);
+            var person= PersonService.Get(id);
             if (person != null && person.Picture != null)
             {
                 return File(person.Picture, "image/jpeg");

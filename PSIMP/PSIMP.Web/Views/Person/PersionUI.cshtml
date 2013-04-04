@@ -21,21 +21,28 @@
 )*@
 @(Html.X()
     .Panel()
+    .ID("Person_View")
     .Header(false)
     .Layout(LayoutType.Border)
-    .Cls("images-view")
+    .Cls("person-view")
     .Items(
            Html.X()
                    .Panel()
                    .Title("人员列表")
                    .Frame(true)
                    .Region(Region.Center)
+                   .Layout(LayoutType.Fit)
                    .Padding(0)
                    .TopBar(
                         Html.X().Toolbar().ItemsFromPartial("PersonUI_Toolbar")
                    )
                    .ItemsFromPartial("PersonUI_DataView")
-           ,Html.X()
+                   .BottomBar(Html.X()
+                                  .PagingToolbar()
+                                  .Listeners(events => {
+                                      events.Render.Handler = "this.bindStore(App.Person_Store)";
+                                  }))
+           , Html.X()
                   .Panel()
                   .ID("Person_Summary")
                   .Width(180)
@@ -80,5 +87,4 @@
                        )
                   )
     )
-    .BottomBar(Html.X().PagingToolbar().StoreID("Person_Store").HideRefresh(true))
 )
