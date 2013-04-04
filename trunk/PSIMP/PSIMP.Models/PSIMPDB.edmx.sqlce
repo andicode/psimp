@@ -1,0 +1,57 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 04/04/2013 09:04:23
+-- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'PersonSet'
+CREATE TABLE [PersonSet] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NOT NULL,
+    [Sex] nvarchar(4000)  NOT NULL,
+    [Height] int  NULL,
+    [Census] nvarchar(4000)  NOT NULL,
+    [IDCard] nvarchar(4000)  NOT NULL,
+    [Age] int  NULL,
+    [Telephone] nvarchar(4000)  NOT NULL,
+    [Email] nvarchar(4000)  NOT NULL,
+    [Picture] varbinary(8000)  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [Id] in table 'PersonSet'
+ALTER TABLE [PersonSet]
+ADD CONSTRAINT [PK_PersonSet]
+    PRIMARY KEY ([Id] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

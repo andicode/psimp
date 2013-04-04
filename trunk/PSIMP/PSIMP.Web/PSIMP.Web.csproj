@@ -54,6 +54,8 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -209,9 +211,21 @@
     <Content Include="Views\Person\_WorkInfo.cshtml" />
     <Content Include="Views\Person\_CertInfo.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSIMP.Models\PSIMP.Models.csproj">
+      <Project>{daa958fb-abca-4262-a20a-f8aae806d247}</Project>
+      <Name>PSIMP.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIMP.Repository\PSIMP.Repository.csproj">
+      <Project>{2d8a1185-a844-45d4-a0b3-2e01cf9fcb32}</Project>
+      <Name>PSIMP.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
