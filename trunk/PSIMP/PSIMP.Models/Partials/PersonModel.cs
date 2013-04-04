@@ -1,24 +1,25 @@
 ﻿using Ext.Net;
 using Ext.Net.MVC;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace PSIMP.Web.Models
+namespace PSIMP.Models
 {
     [Proxy(Read = "~/Person/GetPersons")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PersonModel_MetaData))]
-    public partial class PersonModel
+    public partial class Person
     {        
         [Model(IDProperty = "Id")]
         public class PersonModel_MetaData
         {
             [Column(Hidden = true)]
             [Field(FieldType = typeof(Hidden))]
-            public int Id { get; set; }
+            public long Id { get; set; }
 
             [Column(Text = "姓名")]
             [Field(FieldLabel = "姓名")]
@@ -52,33 +53,10 @@ namespace PSIMP.Web.Models
             [Field(FieldLabel = "电子邮件" ,StandardVtype=ValidationType.Email)]
             public string Email { get; set; }
 
-            [TemplateColumn(Text = "照片", Order = 0, TemplateString = "<img src=\"{Picture}\" alt=\"\">")]
+            [TemplateColumn(Text = "照片", Order = 0, TemplateString = "<img style=\"width:85px;height:120px\" src=\"/person/picture/{Id}\" alt=\"{Name}\">")]
             [Field(FieldLabel = "照片")]
-            public string Picture { get; set; }
+            [JsonIgnore]
+            public byte[] Picture { get; set; }
         }
-    }
-    public partial class PersonModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Sex { get; set; }
-        public int? Height { get; set; }
-        public string Census { get; set; }
-        public string IDCard { get; set; }
-        public int? Age { get; set; }
-        public string Telephone { get; set; }
-        public string Email { get; set; }
-        public string Picture { get; set; }
-
-        public static List<PersonModel> GetAll()
-        {
-            return new List<PersonModel> 
-            { 
-                new PersonModel{ Id = 1, Name = "张三", Picture="/Images/Userpicture/default.png"},
-                new PersonModel{ Id = 2, Name = "Fred", Picture="/Images/Userpicture/default.png"},
-                new PersonModel{ Id = 3, Name = "Andrew", Picture="/Images/Userpicture/default.png"}
-            };
-        }
-
     }
 }

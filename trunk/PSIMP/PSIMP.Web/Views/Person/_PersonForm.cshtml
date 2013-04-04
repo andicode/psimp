@@ -1,6 +1,6 @@
 ﻿@using Ext.Net.MVC
 @using Ext.Net
-@model PSIMP.Web.Models.PersonModel
+@model PSIMP.Models.Person
 @{
     Layout = null;
 }
@@ -39,7 +39,10 @@
                                         .Button()
                                         .Text("保存")
                                         .Icon(Icon.Disk)
-                                        .Handler("this.up('form').submit();")
+                                        .DirectEvents(events => {
+                                            events.Click.EventMask.ShowMask = true;
+                                            events.Click.Url=Url.Action("Save");
+                                        })
                                     );
                 }))
             .Defaults(defaults => {

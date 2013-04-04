@@ -19,9 +19,9 @@
     <Property Name="Census" Type="nvarchar" Nullable="false" />
     <Property Name="IDCard" Type="nvarchar" Nullable="false" />
     <Property Name="Age" Type="int" Nullable="true" />
-    <Property Name="Telephone" Type="nvarchar" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" Nullable="false" />
-    <Property Name="Picture" Type="varbinary" Nullable="false" />
+    <Property Name="Telephone" Type="nvarchar" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" />
+    <Property Name="Picture" Type="image" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -41,9 +41,9 @@
           <Property Type="String" Name="Census" Nullable="false" />
           <Property Type="String" Name="IDCard" Nullable="false" />
           <Property Type="Int32" Name="Age" Nullable="true" />
-          <Property Type="String" Name="Telephone" Nullable="false" />
-          <Property Type="String" Name="Email" Nullable="false" />
-          <Property Type="Binary" Name="Picture" Nullable="false" />
+          <Property Type="String" Name="Telephone" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="Binary" Name="Picture" Nullable="false" MaxLength="Max" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

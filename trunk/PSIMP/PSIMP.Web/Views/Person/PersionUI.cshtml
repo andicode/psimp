@@ -1,10 +1,11 @@
-﻿@model PSIMP.Web.Models.PersonModel
+﻿@model PSIMP.Models.Person
 @using Ext.Net.MVC
+@using Ext.Net
 @{
     Layout = null;
 }
-@(Html.X()
-    .GridPanelFor<PSIMP.Web.Models.PersonModel>()
+@*@(Html.X()
+    .GridPanelFor<PSIMP.Models.Person>()
     .Frame(true)
     .TopBar(Html.X().Toolbar().Items(items => {
         items.Add(Html.X()
@@ -17,4 +18,67 @@
              );
     }))
     .BottomBar(Html.X().PagingToolbar())
+)*@
+@(Html.X()
+    .Panel()
+    .Header(false)
+    .Layout(LayoutType.Border)
+    .Cls("images-view")
+    .Items(
+           Html.X()
+                   .Panel()
+                   .Title("人员列表")
+                   .Frame(true)
+                   .Region(Region.Center)
+                   .Padding(0)
+                   .TopBar(
+                        Html.X().Toolbar().ItemsFromPartial("PersonUI_Toolbar")
+                   )
+                   .ItemsFromPartial("PersonUI_DataView")
+           ,Html.X()
+                  .Panel()
+                  .ID("Person_Summary")
+                  .Width(180)
+                  .MinWidth(180)
+                  .Split(true)
+                  .Frame(true)
+                  .Region(Region.East)
+                  .Title("人员简要信息")
+                  .CustomConfig(config =>
+                  {
+                      config.Add(new ConfigItem
+                      {
+                          Name = "loadRecord",
+                          Value = "function(person){" +
+                              "this.body.hide();" +
+                              "this.tpl.overwrite(this.body, person.data);" +
+                              "this.body.slideIn('l', {duration: 250 });}",
+                          Mode = ParameterMode.Raw
+                      });
+                  }).Tpl(
+                       Html.X().XTemplate().Html(
+                           @<text>
+                               <div class="details">
+                                   <tpl for=".">                        
+                                           <tpl if="!Ext.isIE6">
+                                               <img style="width:85px;height:120px" src="@Url.Action("Picture")/{Id}" />
+                                           </tpl>
+                                           <tpl if="Ext.isIE6">
+                                               <div style="width:74px;height:74px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="@Url.Action("Picture")/{Id}")"></div>
+                                           </tpl>
+                                           <div class="details-info">
+                                               <b>File Name:</b>
+                                               <span>{Name}</span>
+                                               <b>File URL:</b>
+                                               <span><a href="@Url.Action("Picture")/{Id}" target="_blank">{Name}</a></span>
+                                               <b>Size:</b>
+                                               <span>{Name}</span>
+                                           </div>
+                                    </tpl>
+                               </div>
+                           </text>
+                       )
+                  )
+    )
+    .BottomBar(Html.X().PagingToolbar().StoreID("Person_Store").HideRefresh(true))
 )

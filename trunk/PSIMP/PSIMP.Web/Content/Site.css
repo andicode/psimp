@@ -29,3 +29,79 @@
     background: none\9; 
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9;
 }
+
+
+
+.images-view .user-card {
+    color: rgb(85, 85, 85);
+    display: block;
+    font-size: 12px;
+    height: 102px;
+    text-align: left;
+    width: 236px;
+    float:left;
+    border:1px solid;
+    margin:5px;
+    border-color:transparent;
+}
+    .images-view .user-card .img {
+        display: block;
+        float: left;
+        height: 100px;      
+        margin-right: 10px;     
+        position: relative;
+        text-align: left;
+        width: 75px;
+    }
+    .images-view .user-card .img-txt {
+            display: block;
+            height: 100px;
+            position: relative;
+            text-align: left;
+            width: 146px;
+    }
+
+
+
+.images-view .x-panel-body {
+    background: white;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.images-view .x-item-over{
+    border-color:#ddd;
+    background: #efefef url(../images/row-over.gif) repeat-x left top;
+}
+
+.images-view .x-item-selected{
+    background: #eff5fb url(../images/selected.gif) no-repeat right bottom;
+    border-color:#99bbe8;
+}
+
+
+.images-view .loading-indicator {
+    font-size: 11px;
+    background-image : url('../images/loading.gif');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 20px;
+    margin: 10px;
+}
+
+.x-view-selector {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    border: 1px dotted;
+    opacity: .5;
+    -moz-opacity: .5;
+    filter: alpha(opacity=50);
+    zoom: 1;
+    background-color: #c3daf9;
+    border-color: #3399bb;
+}
+
+.ext-strict .ext-ie .x-tree .x-panel-bwrap {
+    position: relative;
+    overflow: hidden;
+}

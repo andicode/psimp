@@ -59,6 +59,7 @@ using System.Linq;
     public <#=code.Escape(container)#>()
         : base("name=<#=container.Name#>")
     {
+            this.Database.CreateIfNotExists();
 <#
 if (!loader.IsLazyLoadingEnabled(container))
 {

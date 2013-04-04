@@ -1,0 +1,44 @@
+﻿@using Ext.Net.MVC
+@using Ext.Net
+@(Html.X()
+      .Button()
+      .Text("新增人员")
+      .DirectEvents(events =>
+      {
+          events.Click.DisableControl = true;
+          events.Click.Url = Url.Action("Create");
+      })
+)
+@Html.X().ToolbarFill()
+@(Html.X()
+      .TextField()
+      .FieldLabel("姓名")
+      .Width(150)
+      .LabelAlign(LabelAlign.Right)
+      .LabelWidth(35)
+      .Listeners(events =>
+      {
+          events.Change.Handler = "var dataview = App.PersonView," +
+                                      "store = dataview.store;" +
+                                      "store.suspendEvents();" +
+                                      "store.clearFilter();" +
+                                      "dataview.getSelectionModel().clearSelections();" +
+                                      "store.resumeEvents();" +
+                                      "store.filter({property: 'Name',anyMatch: true, value : newValue});";
+      })
+)
+@(Html.X().ComboBox()
+      .FieldLabel("排序")
+      .Width(150)
+      .Editable(false)
+      .LabelAlign(LabelAlign.Right)
+      .LabelWidth(35)
+      .Items(new List<ListItem> { 
+          new ListItem{ Text="姓名", Value="Name"},
+          new ListItem{ Text="性别", Value="Sex"},
+      })
+      .Listeners(events =>
+      {
+          events.Select.Handler = "App.PersonView.store.sort(this.getValue());";
+      })
+)

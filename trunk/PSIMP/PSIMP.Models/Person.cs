@@ -7,8 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace PSIMP.Models
 {
+	using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -23,6 +25,7 @@ namespace PSIMP.Models
         public Nullable<int> Age { get; set; }
         public string Telephone { get; set; }
         public string Email { get; set; }
+        [JsonIgnore]
         public byte[] Picture { get; set; }
     }
 }
