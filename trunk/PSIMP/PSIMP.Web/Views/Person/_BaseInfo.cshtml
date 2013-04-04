@@ -22,14 +22,15 @@
                        .ID("person_info_image")
                        .ImageUrl(Url.Content("~/Images/default_image_male.jpg"))
             )
-            , Html.X()
-                .FileUploadField()
-                .Name("TempPicture")
-                .ButtonText("选择文件")
-                .ButtonOnly(true)
-                .Listeners(events => {
-                    events.Change.Handler = "App.FileStatus_Label.setText(this.getValue())";
-                })
+                , Html.X()
+                    .FileUploadField()
+                    .Name("TempPicture")
+                    .ButtonText("选择文件")
+                    .ButtonOnly(true)
+                    .Listeners(events =>
+                    {
+                        events.Change.Handler = "App.FileStatus_Label.setText(this.getValue())";
+                    })
             ,Html.X().Label().ID("FileStatus_Label").EmptyText("未选择文件")
     )
 )

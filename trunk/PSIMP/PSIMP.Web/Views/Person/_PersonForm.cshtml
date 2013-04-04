@@ -32,6 +32,7 @@
             .Title("基本信息")
             .Layout( LayoutType.Border)
             .Url(Url.Action("Save"))
+            .JsonSubmit(true)
             .TopBar(Html.X()
                 .Toolbar().Items(toolbarItems =>
                 {
@@ -39,9 +40,8 @@
                                         .Button()
                                         .Text("保存")
                                         .Icon(Icon.Disk)
-                                        .DirectEvents(events => {
-                                            events.Click.EventMask.ShowMask = true;
-                                            events.Click.Url=Url.Action("Save");
+                                        .Listeners(events => {
+                                            events.Click.Handler ="this.up('form').submit()";// Url.Action("Save");
                                         })
                                     );
                 }))

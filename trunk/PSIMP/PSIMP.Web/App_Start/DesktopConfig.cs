@@ -101,7 +101,7 @@ namespace System.Web
                 desktopItem.Controller = item.Attribute("Controller").Value;
                 desktopItem.Shortcut = Shortcut(item.Element("Shortcut"));
                 desktopItem.Launcher = Launcher(item.Element("Launcher"));
-                desktopItem.Window = Window(item.Element("Window"));
+                desktopItem.Window = Window(item.Element("Window"), item.Attribute("ModuleID").Value);
                 result.Add(desktopItem);
             }
 
@@ -117,7 +117,7 @@ namespace System.Web
                 IconCls = element.Attribute("IconCls").Value
             };
         }
-        private  Window Window(XElement element)
+        private  Window Window(XElement element,string moduleId)
         {
             return new Window
             {
@@ -125,6 +125,7 @@ namespace System.Web
                 Width = int.Parse(element.Attribute("Width").Value),
                 Height = int.Parse(element.Attribute("Height").Value),
                 ConstrainHeader = true,
+                ID="win_"+moduleId,
                 Plain=true,
                 Frame=true,
                 Layout = "fit",
