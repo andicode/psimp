@@ -64,9 +64,6 @@
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Psimp.cs">
-      <DependentUpon>PSIMPDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="PSIMPDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
