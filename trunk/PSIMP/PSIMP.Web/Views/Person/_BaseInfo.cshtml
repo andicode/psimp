@@ -20,7 +20,7 @@
             .Items(Html.X()
                        .Image()
                        .ID("person_info_image")
-                       .ImageUrl(Url.Content("~/Images/default_image_male.jpg"))
+                       .ImageUrl(Url.Content("~/Images/person/default.jpg"))
             )
                 , Html.X()
                     .FileUploadField()
@@ -29,7 +29,7 @@
                     .ButtonOnly(true)
                     .Listeners(events =>
                     {
-                        events.Change.Handler = "App.FileStatus_Label.setText(this.getValue())";
+                        events.Change.Handler = "App.FileStatus_Label.setText('已选择文件')";
                     })
             ,Html.X().Label().ID("FileStatus_Label").EmptyText("未选择文件")
     )
@@ -43,13 +43,16 @@
     .Region(Region.Center)
     .Items(
             Html.X().HiddenFor(m => m.Id).ID("person_Info_Id").Listeners(events => {
-                events.Change.Handler = "if(this.getValue()==''){ return; } App.person_info_image.setImageUrl('" + Url.Action("Picture") + "/'+ this.getValue())";
+                events.Change.Fn = "person.setFormState";
+            })
+            , Html.X().HiddenFor(m=>m.Picture).ID("person_info_picture").Listeners(events => {
+                events.Change.Fn = "person.setFormState";
             })
             , Html.X().TextFieldFor(m => m.Name)
             , Html.X().ComboBoxFor(m => m.Sex).Editable(false).ItemsFromEnum(typeof(PSIMP.Web.Models.Enums.Sex))
-            , Html.X().NumberFieldFor(m => m.Height)
-            , Html.X().TextFieldFor(m => m.Census)
             , Html.X().TextFieldFor(m => m.IDCard)
+            , Html.X().TextFieldFor(m => m.Census)
+            , Html.X().NumberFieldFor(m => m.Height)
             , Html.X().NumberFieldFor(m => m.Age)
             , Html.X().TextFieldFor(m => m.Telephone)
             , Html.X().TextFieldFor(m => m.Email)
