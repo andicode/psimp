@@ -30,8 +30,7 @@ namespace PSIMP.Models
         public Nullable<int> Age { get; set; }
         public string Telephone { get; set; }
         public string Email { get; set; }
-        [JsonIgnore]
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
     
         public virtual ICollection<Education> Education { get; set; }
         public virtual ICollection<Train> Train { get; set; }

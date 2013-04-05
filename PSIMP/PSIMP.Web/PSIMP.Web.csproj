@@ -144,6 +144,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DesktopController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Extensions\ExtExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,8 +158,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="Images\default_image_female.jpg" />
-    <Content Include="Images\default_image_male.jpg" />
+    <Content Include="Images\Person\default.jpg" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\ModuleIcon\default.png" />
     <Content Include="Images\ModuleIcon\Person.png" />
@@ -171,6 +171,8 @@
     <Content Include="Lib\Newtonsoft.Json.dll" />
     <Content Include="Lib\Transformer.NET.dll" />
     <Content Include="Lib\Wilco.SyntaxHighlighter.dll" />
+    <Content Include="Scripts\business.js" />
+    <Content Include="Scripts\ext-all-debug-w-comments.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -205,7 +207,6 @@
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Person\PersionUI.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
-    <Content Include="Views\Person\Create.cshtml" />
     <Content Include="Views\Person\_PersonForm.cshtml" />
     <Content Include="Views\Person\_BaseInfo.cshtml" />
     <Content Include="Views\Person\_RegisterInfo.cshtml" />
@@ -233,6 +234,7 @@
       <Name>PSIMP.Repository</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

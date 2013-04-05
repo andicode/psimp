@@ -10,8 +10,18 @@ using System.Text;
 
 namespace PSIMP.Repository
 {
-    public class DBContext<T> where T:Psimp
+    public class DBContext<T> where T : Psimp
     {
+        public DBContext()
+        {
+            //test
+            AccountUserId = "1";
+        }
+        public DBContext(string userId)
+        {
+            AccountUserId = userId;
+        }
+        public string AccountUserId { get; set; }
         private PSIMPDBContainer _context = null;
         public PSIMPDBContainer Context
         {
@@ -29,22 +39,12 @@ namespace PSIMP.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public T Add(T entity) 
+        public T Add(T entity)
         {
-            try
-            {
-                entity.CreateTime = DateTime.Now;
-                Context.Set<T>().Add(entity);
-                Context.SaveChanges();
-            }
-            catch (DbEntityValidationException e)
-            {
-
-            }
-            catch (Exception e)
-            {
- 
-            }
+            entity.CreateTime = DateTime.Now;
+            entity.CreateUser = AccountUserId;
+            Context.Set<T>().Add(entity);
+            Context.SaveChanges();
             return entity;
         }
         /// <summary>
@@ -55,11 +55,11 @@ namespace PSIMP.Repository
         /// <returns></returns>
         public T Update(T entity)
         {
-            if(!Context.Set<T>().Contains(entity))
-            {
-               Context.Set<T>().Attach(entity);
-            }
+            
+            Context.Set<T>().Attach(entity);
+            
             entity.UpdateTime = DateTime.Now;
+            entity.UpdateUser = AccountUserId;
             Context.Entry<T>(entity).State = EntityState.Modified;
             Context.SaveChanges();
             return entity;
@@ -70,7 +70,7 @@ namespace PSIMP.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="Id">实体主键</param>
         /// <returns></returns>
-        public bool CompletelyDelete(object Id) 
+        public bool CompletelyDelete(object Id)
         {
             return CompletelyDelete(Context.Set<T>().Find(Id));
         } /// <summary>
@@ -79,7 +79,7 @@ namespace PSIMP.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="entity">实体</param>
         /// <returns></returns>
-        public bool CompletelyDelete(T entity) 
+        public bool CompletelyDelete(T entity)
         {
             Context.Set<T>().Remove(entity);
             return Context.SaveChanges() == 1;
@@ -95,9 +95,9 @@ namespace PSIMP.Repository
             return Context.Set<T>().Where(m => true);
         }
 
-        public IQueryable<T> GetPagesData(int start, int limit) 
+        public IQueryable<T> GetPagesData(int start, int limit)
         {
-            return Context.Set<T>().OrderByDescending(m=>m.CreateTime).Skip(start).Take(limit);
+            return Context.Set<T>().OrderByDescending(m => m.CreateTime).Skip(start).Take(limit);
         }
 
         public int Count(Expression<Func<T, bool>> expr = null)

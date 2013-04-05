@@ -60,6 +60,7 @@
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Partials\PersonModel.cs" />
+    <Compile Include="Partials\Psimp.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>

@@ -53,7 +53,7 @@
     <Property Name="Age" Type="int" Nullable="true" />
     <Property Name="Telephone" Type="nvarchar" Nullable="true" />
     <Property Name="Email" Type="nvarchar" Nullable="true" />
-    <Property Name="Picture" Type="image" Nullable="true" />
+    <Property Name="Picture" Type="nvarchar" Nullable="true" />
     <Property Name="Id" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="PsimpSet_Education">
@@ -173,7 +173,7 @@
           <Property Type="Int32" Name="Age" Nullable="true" />
           <Property Type="String" Name="Telephone" Nullable="true" />
           <Property Type="String" Name="Email" Nullable="true" />
-          <Property Type="Binary" Name="Picture" MaxLength="Max" Nullable="true" />
+          <Property Type="String" Name="Picture" Nullable="true" />
           <NavigationProperty Name="Education" Relationship="PSIMPDB.PersonEducation" FromRole="Person" ToRole="Education" />
           <NavigationProperty Name="Train" Relationship="PSIMPDB.PersonTrain" FromRole="Person" ToRole="Train" />
         </EntityType>

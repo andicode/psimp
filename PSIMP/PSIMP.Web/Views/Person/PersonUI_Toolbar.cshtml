@@ -3,10 +3,9 @@
 @(Html.X()
       .Button()
       .Text("新增人员")
-      .DirectEvents(events =>
-      {
-          events.Click.DisableControl = true;
-          events.Click.Url = Url.Action("Create");
+      .Icon(Icon.Add)
+      .Listeners(events => {
+          events.Click.Fn = "person.create";
       })
 )
 @Html.X().ToolbarFill()

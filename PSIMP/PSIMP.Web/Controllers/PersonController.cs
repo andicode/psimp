@@ -30,37 +30,59 @@ namespace PSIMP.Web.Controllers
         {
             return this.ComponentConfig();
         }
-        public ActionResult Create()
-        {
-            return new Ext.Net.MVC.PartialViewResult
-            {
-                ContainerId = "win_PersonModule",
-                RenderMode = RenderMode.AddTo,
-                WrapByScriptTag = false
-            };
-        }
+
         public ActionResult Edit()
         {
             return this.PartialExtView();
         }
+
+        public ActionResult Delete(long id,string picture)
+        {
+            DeletePicture(picture);
+            PersonService.CompletelyDelete(id);
+            X.GetCmp<Store>("Person_Store").Reload();
+            return this.Direct();
+        }
         [HttpPost]
         public ActionResult Save(Person person, HttpPostedFileBase TempPicture)
         {
-            if (TempPicture != null)
+            if (person.IsAdd())
             {
-                var stream = TempPicture.InputStream;
-                byte[] buff = new byte[stream.Length];
-                stream.Read(buff, 0, (int)stream.Length);
-                person.Picture = buff;
+                #region onCreate
+                if (TempPicture != null)
+                {
+                    var newImage = Guid.NewGuid().ToString() + TempPicture.FileName;
+                    TempPicture.SaveAs(Server.MapPath("~/Images/Person/" + newImage));
+                    person.Picture = newImage;
+                }
+                else
+                {
+                    person.Picture = "default.jpg";
+                }
+                PersonService.Add(person);
+                X.GetCmp<Hidden>("person_Info_Id").SetValue(person.Id);
+                X.GetCmp<Hidden>("person_info_picture").SetValue(person.Picture);
+                X.GetCmp<Store>("Person_Store").Reload();
+                #endregion
             }
             else
             {
-                person.Picture = System.IO.File.ReadAllBytes(Server.MapPath("~/Images/default_image_male.jpg"));
+                #region onEdit
+                if (TempPicture != null)
+                {
+                    var newImage = Guid.NewGuid().ToString() + TempPicture.FileName;
+                    TempPicture.SaveAs(Server.MapPath("~/Images/Person/" + newImage));
+                    
+                        DeletePicture(person.Picture);
+                    
+                    person.Picture = newImage;
+                }
+                PersonService.Update(person);
+                X.GetCmp<Hidden>("person_info_picture").SetValue(person.Picture);
+                X.GetCmp<Store>("Person_Store").Reload();
+                #endregion
             }
-            PersonService.Add(person);
-            X.GetCmp<Hidden>("person_Info_Id").SetValue(person.Id);
-            X.GetCmp<Store>("Person_Store").Reload();
-            var result= this.Direct();
+            var result = this.Direct();
             result.IsUpload = true;
             return result;
         }
@@ -70,15 +92,18 @@ namespace PSIMP.Web.Controllers
             return this.Store(persons, PersonService.Count());
         }
 
-        public ActionResult Picture(long id)
-        {
-            var person= PersonService.Get(id);
-            if (person != null && person.Picture != null)
-            {
-                return File(person.Picture, "image/jpeg");
-            }
-            return File(Server.MapPath("~/Images/default_image_male.jpg"), "image/png");
-        }
 
+
+        private void DeletePicture(string picture)
+        {
+            if (string.IsNullOrEmpty(picture) || picture == "default.jpg")
+            {
+                return;
+            }
+            if (System.IO.File.Exists(Server.MapPath("~/Images/Person/" + picture)))
+            {
+                System.IO.File.Delete(Server.MapPath("~/Images/Person/" + picture));
+            }
+        }
     }
 }

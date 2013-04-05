@@ -6,18 +6,19 @@
 }
 @(Html.X()
     .MenuPanel()
-    .ID("Person_MenuPanel")
+    .ID("PersonForm_MenuPanel")
     .Width(150)
     .Region(Region.West)
     .SelectedIndex(0)
     .Menu(menus =>
     {
+        menus.ID = "PersonForm_Menu";
         menus.Items.Add(Html.X().MenuItem().Text("基本信息").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(0)"));
-        menus.Items.Add(Html.X().MenuItem().Text("注册信息").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(1)"));
-        menus.Items.Add(Html.X().MenuItem().Text("教育背景").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
-        menus.Items.Add(Html.X().MenuItem().Text("培训经历").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
-        menus.Items.Add(Html.X().MenuItem().Text("工作经历").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(4)"));
-        menus.Items.Add(Html.X().MenuItem().Text("证书证件").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(5)"));
+        menus.Items.Add(Html.X().MenuItem().Text("注册信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(1)"));
+        menus.Items.Add(Html.X().MenuItem().Text("教育背景").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
+        menus.Items.Add(Html.X().MenuItem().Text("培训经历").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
+        menus.Items.Add(Html.X().MenuItem().Text("工作经历").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(4)"));
+        menus.Items.Add(Html.X().MenuItem().Text("证书证件").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(5)"));
     })
 )
 @(Html.X()
@@ -29,8 +30,9 @@
     .Items(
         Html.X()
             .FormPanel()
+            .ID("Person_Basic_Info")
             .Title("基本信息")
-            .Layout( LayoutType.Border)
+            .Layout(LayoutType.Border)
             .Url(Url.Action("Save"))
             .JsonSubmit(true)
             .TopBar(Html.X()

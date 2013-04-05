@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/05/2013 15:12:41
+-- Date Created: 04/05/2013 21:57:57
 -- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE [PsimpSet_Person] (
     [Age] int  NULL,
     [Telephone] nvarchar(4000)  NULL,
     [Email] nvarchar(4000)  NULL,
-    [Picture] image  NULL,
+    [Picture] nvarchar(4000)  NULL,
     [Id] bigint  NOT NULL
 );
 GO

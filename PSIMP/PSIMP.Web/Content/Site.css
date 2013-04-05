@@ -61,8 +61,20 @@
             width: 146px;
             float:left;
     }
-
-
+        .person-view .user-card .img-txt .actions {
+            padding-top:5px;
+        }
+        .person-view .user-card .img-txt .actions a{
+            cursor:pointer;
+            color:#99bbe8;
+            text-decoration:underline;
+            padding:3px;
+            margin:4px 2px;
+            border:1px solid;
+        }
+        .person-view .user-card .img-txt .actions a:hover{
+            color:#00ff21;
+        }
 
 .person-view .x-panel-body {
     background: white;
