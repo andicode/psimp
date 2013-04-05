@@ -158,10 +158,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="Images\Person\default.jpg" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\ModuleIcon\default.png" />
     <Content Include="Images\ModuleIcon\Person.png" />
+    <Content Include="Images\Person\default.jpg" />
     <Content Include="Images\row-over.gif" />
     <Content Include="Images\selected.gif" />
     <Content Include="Images\Userpicture\default.png" />

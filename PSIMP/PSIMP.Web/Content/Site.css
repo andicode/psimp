@@ -60,6 +60,7 @@
             text-align: left;
             width: 146px;
             float:left;
+            overflow:hidden;
     }
         .person-view .user-card .img-txt .actions {
             padding-top:5px;
