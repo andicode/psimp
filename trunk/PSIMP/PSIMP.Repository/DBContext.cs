@@ -33,6 +33,7 @@ namespace PSIMP.Repository
         {
             try
             {
+                entity.CreateTime = DateTime.Now;
                 Context.Set<T>().Add(entity);
                 Context.SaveChanges();
             }
@@ -58,6 +59,7 @@ namespace PSIMP.Repository
             {
                Context.Set<T>().Attach(entity);
             }
+            entity.UpdateTime = DateTime.Now;
             Context.Entry<T>(entity).State = EntityState.Modified;
             Context.SaveChanges();
             return entity;
@@ -95,7 +97,7 @@ namespace PSIMP.Repository
 
         public IQueryable<T> GetPagesData(int start, int limit) 
         {
-            return Context.Set<T>().OrderBy(m=>m.Id).Skip(start).Take(limit);
+            return Context.Set<T>().OrderByDescending(m=>m.CreateTime).Skip(start).Take(limit);
         }
 
         public int Count(Expression<Func<T, bool>> expr = null)

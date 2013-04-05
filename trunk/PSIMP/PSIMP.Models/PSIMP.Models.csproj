@@ -82,6 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PSIMPDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PSIMPDB.Partial.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSIMPDB.Partial.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Train.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
@@ -104,6 +109,11 @@
       <DependentUpon>PSIMPDB.edmx</DependentUpon>
     </None>
     <None Include="PSIMPDB.edmx.sqlce" />
+    <None Include="PSIMPDB.Partial.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PSIMPDB.Partial.Context.cs</LastGenOutput>
+      <DependentUpon>PSIMPDB.edmx</DependentUpon>
+    </None>
     <None Include="PSIMPDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PSIMPDB.edmx</DependentUpon>

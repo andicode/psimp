@@ -56,28 +56,12 @@ using System.Linq;
 
 <#=Accessibility.ForType(container)#> partial class <#=code.Escape(container)#> : DbContext
 {
-    public <#=code.Escape(container)#>()
-        : base("name=<#=container.Name#>")
-    {
-            this.Database.CreateIfNotExists();
 <#
-if (!loader.IsLazyLoadingEnabled(container))
-{
+    foreach (var entityType in itemCollection.OfType<EntityType>())
+    {
 #>
-        this.Configuration.LazyLoadingEnabled = false;
+     public DbSet<<#= entityType.ToString().Split('.')[1] #>> <#= entityType.ToString().Split('.')[1] #>Set { get; set; }
 <#
-}
-#>
-    }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        throw new UnintentionalCodeFirstException();
-    }
-<#
-    foreach (var edmFunction in container.FunctionImports)
-    {
-        WriteFunctionImport(typeMapper, codeStringGenerator, edmFunction, modelNamespace, includeMergeOption: false);
     }
 #>
 }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/05/2013 00:24:16
+-- Date Created: 04/05/2013 15:12:41
 -- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -12,7 +12,15 @@
 -- NOTE: if the constraint does not exist, an ignorable error will be reported.
 -- --------------------------------------------------
 
+    ALTER TABLE [PsimpSet_Education] DROP CONSTRAINT [FK_PersonEducation];
+GO
+    ALTER TABLE [PsimpSet_Train] DROP CONSTRAINT [FK_PersonTrain];
+GO
     ALTER TABLE [PsimpSet_Person] DROP CONSTRAINT [FK_Person_inherits_Psimp];
+GO
+    ALTER TABLE [PsimpSet_Education] DROP CONSTRAINT [FK_Education_inherits_Psimp];
+GO
+    ALTER TABLE [PsimpSet_Train] DROP CONSTRAINT [FK_Train_inherits_Psimp];
 GO
 
 -- --------------------------------------------------
@@ -24,6 +32,10 @@ GO
 GO
     DROP TABLE [PsimpSet_Person];
 GO
+    DROP TABLE [PsimpSet_Education];
+GO
+    DROP TABLE [PsimpSet_Train];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -31,7 +43,7 @@ GO
 
 -- Creating table 'PsimpSet'
 CREATE TABLE [PsimpSet] (
-    [Id] bigint  NOT NULL,
+    [Id] bigint IDENTITY(1,1) NOT NULL,
     [CreateTime] datetime  NULL,
     [UpdateTime] datetime  NULL,
     [CreateUser] nvarchar(4000)  NULL,
@@ -54,6 +66,33 @@ CREATE TABLE [PsimpSet_Person] (
 );
 GO
 
+-- Creating table 'PsimpSet_Education'
+CREATE TABLE [PsimpSet_Education] (
+    [PersonId] bigint  NOT NULL,
+    [SchoolName] nvarchar(4000)  NOT NULL,
+    [BeginDate] nvarchar(4000)  NOT NULL,
+    [EndDate] nvarchar(4000)  NOT NULL,
+    [Discipline] nvarchar(4000)  NOT NULL,
+    [Degree] nvarchar(4000)  NOT NULL,
+    [Remark] nvarchar(4000)  NOT NULL,
+    [Id] bigint  NOT NULL
+);
+GO
+
+-- Creating table 'PsimpSet_Train'
+CREATE TABLE [PsimpSet_Train] (
+    [Agency] nvarchar(4000)  NOT NULL,
+    [DateTime] nvarchar(4000)  NOT NULL,
+    [Location] nvarchar(4000)  NOT NULL,
+    [Curriculum] nvarchar(4000)  NOT NULL,
+    [Certificate] nvarchar(4000)  NOT NULL,
+    [Details] nvarchar(4000)  NOT NULL,
+    [CertDetails] nvarchar(4000)  NOT NULL,
+    [PersonId] bigint  NOT NULL,
+    [Id] bigint  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -70,13 +109,71 @@ ADD CONSTRAINT [PK_PsimpSet_Person]
     PRIMARY KEY ([Id] );
 GO
 
+-- Creating primary key on [Id] in table 'PsimpSet_Education'
+ALTER TABLE [PsimpSet_Education]
+ADD CONSTRAINT [PK_PsimpSet_Education]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'PsimpSet_Train'
+ALTER TABLE [PsimpSet_Train]
+ADD CONSTRAINT [PK_PsimpSet_Train]
+    PRIMARY KEY ([Id] );
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
+-- Creating foreign key on [PersonId] in table 'PsimpSet_Education'
+ALTER TABLE [PsimpSet_Education]
+ADD CONSTRAINT [FK_PersonEducation]
+    FOREIGN KEY ([PersonId])
+    REFERENCES [PsimpSet_Person]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PersonEducation'
+CREATE INDEX [IX_FK_PersonEducation]
+ON [PsimpSet_Education]
+    ([PersonId]);
+GO
+
+-- Creating foreign key on [PersonId] in table 'PsimpSet_Train'
+ALTER TABLE [PsimpSet_Train]
+ADD CONSTRAINT [FK_PersonTrain]
+    FOREIGN KEY ([PersonId])
+    REFERENCES [PsimpSet_Person]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PersonTrain'
+CREATE INDEX [IX_FK_PersonTrain]
+ON [PsimpSet_Train]
+    ([PersonId]);
+GO
+
 -- Creating foreign key on [Id] in table 'PsimpSet_Person'
 ALTER TABLE [PsimpSet_Person]
 ADD CONSTRAINT [FK_Person_inherits_Psimp]
+    FOREIGN KEY ([Id])
+    REFERENCES [PsimpSet]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Id] in table 'PsimpSet_Education'
+ALTER TABLE [PsimpSet_Education]
+ADD CONSTRAINT [FK_Education_inherits_Psimp]
+    FOREIGN KEY ([Id])
+    REFERENCES [PsimpSet]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Id] in table 'PsimpSet_Train'
+ALTER TABLE [PsimpSet_Train]
+ADD CONSTRAINT [FK_Train_inherits_Psimp]
     FOREIGN KEY ([Id])
     REFERENCES [PsimpSet]
         ([Id])
