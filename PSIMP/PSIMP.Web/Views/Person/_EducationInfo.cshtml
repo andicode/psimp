@@ -1,7 +1,35 @@
 ﻿@using Ext.Net.MVC
 @using Ext.Net
-@model PSIMP.Models.Person
+@model PSIMP.Models.Education
 @{
     Layout = null;
 }
-@Html.X().TextField()
+@(Html.X()
+      .GridPanel()
+      .Store(Html.X().StoreFor<PSIMP.Models.Education>()
+                .ID("Person_Edu_Store")
+                .AutoLoad(false) 
+                .ShowWarningOnFailure(false)    
+                .AutoSync(true)
+                .Parameters(parameters =>
+                {
+                    parameters.Add(new { id = JRawValue.From("App.person_Info_Id.getValue()") });
+                })
+      )
+      .ColumnModel(
+           Html.X().ColumnFor(m => m.Id)
+           , Html.X().ColumnFor(m => m.SchoolName).ToBuilder<Column.Builder>().Editor(Html.X().TextField())
+           , Html.X().ColumnFor(m => m.BeginDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateField().Format("yyyy-MM-dd"))
+           , Html.X().ColumnFor(m => m.EndDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateField().Format("yyyy-MM-dd"))
+           , Html.X().ColumnFor(m => m.Discipline).ToBuilder<Column.Builder>().Editor(Html.X().TextField())
+           , Html.X().ColumnFor(m => m.Degree).ToBuilder<Column.Builder>().Editor(Html.X().TextField())
+           , Html.X().ColumnFor(m => m.Remark).ToBuilder<Column.Builder>().Editor(Html.X().TextArea())
+      )
+      .Plugins(Html.X()
+                   .RowEditing()
+                   .Listeners(l => {
+                        l.CancelEdit.Handler = "if(e.record.phantom){e.store.remove(e.record);}";
+                   })
+                   .SaveBtnText("保存")
+                   .CancelBtnText("取消"))
+)  

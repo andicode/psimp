@@ -62,11 +62,11 @@
     </Key>
     <Property Name="PersonId" Type="bigint" Nullable="false" />
     <Property Name="SchoolName" Type="nvarchar" Nullable="false" />
-    <Property Name="BeginDate" Type="nvarchar" Nullable="false" />
-    <Property Name="EndDate" Type="nvarchar" Nullable="false" />
-    <Property Name="Discipline" Type="nvarchar" Nullable="false" />
-    <Property Name="Degree" Type="nvarchar" Nullable="false" />
-    <Property Name="Remark" Type="nvarchar" Nullable="false" />
+    <Property Name="BeginDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="Discipline" Type="nvarchar" Nullable="true" />
+    <Property Name="Degree" Type="nvarchar" Nullable="true" />
+    <Property Name="Remark" Type="nvarchar" Nullable="true" />
     <Property Name="Id" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="PsimpSet_Train">
@@ -195,19 +195,19 @@
               <Summary>学校名</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="BeginDate" Nullable="false" />
-          <Property Type="String" Name="EndDate" Nullable="false" />
-          <Property Type="String" Name="Discipline" Nullable="false" >
+          <Property Type="DateTime" Name="BeginDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" />
+          <Property Type="String" Name="Discipline" Nullable="true" >
             <Documentation>
               <Summary>专业</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Degree" Nullable="false" >
+          <Property Type="String" Name="Degree" Nullable="true" >
             <Documentation>
               <Summary>学位</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Remark" Nullable="false" />
+          <Property Type="String" Name="Remark" Nullable="true" />
         </EntityType>
         <Association Name="PersonEducation">
           <End Type="PSIMPDB.Person" Role="Person" Multiplicity="1" />

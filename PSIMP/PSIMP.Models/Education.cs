@@ -18,8 +18,8 @@ namespace PSIMP.Models
     {
         public long PersonId { get; set; }
         public string SchoolName { get; set; }
-        public string BeginDate { get; set; }
-        public string EndDate { get; set; }
+        public System.DateTime BeginDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public string Discipline { get; set; }
         public string Degree { get; set; }
         public string Remark { get; set; }

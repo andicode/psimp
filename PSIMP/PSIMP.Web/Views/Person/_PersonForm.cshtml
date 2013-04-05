@@ -42,36 +42,41 @@
                                         .Button()
                                         .Text("保存")
                                         .Icon(Icon.Disk)
-                                        .Listeners(events => {
-                                            events.Click.Handler ="this.up('form').submit()";// Url.Action("Save");
+                                        .Listeners(events =>
+                                        {
+                                            events.Click.Handler = "this.up('form').submit()";// Url.Action("Save");
                                         })
                                     );
                 }))
-            .Defaults(defaults => {
+            .Defaults(defaults =>
+            {
                 defaults.Add(new { MsgTarget = "under" });
             })
             .ItemsFromPartial("_BaseInfo", Model)
-        ,Html.X()
+        , Html.X()
             .Panel()
             .Title("注册信息")
             .BodyPadding(10)
             .ItemsFromPartial("_RegisterInfo", Model)
-        ,Html.X()
+        , Html.X()
             .Panel()
             .Title("教育背景")
-            .BodyPadding(10)
-            .ItemsFromPartial("_EducationInfo", Model)
-        ,Html.X()
+            .Layout(LayoutType.Fit)
+            .ItemsFromPartial("_EducationInfo")
+            .Listeners(events => {
+                events.Activate.Handler = "App.Person_Edu_Store.reload()";
+            })
+        , Html.X()
             .Panel()
             .Title("培训经历")
             .BodyPadding(10)
             .ItemsFromPartial("_TrainInfo", Model)
-        ,Html.X()
+        , Html.X()
             .Panel()
             .Title("工作经历")
             .BodyPadding(10)
             .ItemsFromPartial("_WorkInfo", Model)
-        ,Html.X()
+        , Html.X()
             .Panel()
             .Title("证书证件")
             .BodyPadding(10)
