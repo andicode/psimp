@@ -21,7 +21,7 @@
                                         <h4>{Name}</h4>
                                         <p class="ellipsis">{[values.Sex==0?'男':'女']} {Age}岁</p>    
                                         <p class="ellipsis">电话:{Telephone}</p>
-                                        <p class="ellipsis">邮箱:<a href="mailto:{Email}">{Email}</a></p>
+                                        <p class="ellipsis" style="word-break:normal;white-space:nowrap;text-overflow:ellipsis; ">邮箱:<a href="mailto:{Email}">{Email}</a></p>
                                         <div class="actions">
                                             <a onclick="person.edit({Id})" class="btn-edit">
                                                 <s class="icon sp-mk-edit"></s>

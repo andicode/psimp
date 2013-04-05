@@ -4,16 +4,16 @@ var person = {
     create: function () {
         App.PersonForm_MenuPanel.setSelectedIndex(0)
         App.Person_Card.getLayout().setActiveItem(0)
-
         App.person_Info_Id.setValue("");
         App.person_info_picture.setValue("");
+        App.person_info_image.setImageUrl("/images/person/default.jpg");
+        person.setDisabledMenuItem(true);
         App.Person_Basic_Info.getForm().reset();
         App.Person_Window.show();
     },
     edit: function (id) {
         App.PersonForm_MenuPanel.setSelectedIndex(0)
         App.Person_Card.getLayout().setActiveItem(0)
-
         var record = App.Person_Store.getById(id);
         App.Person_Basic_Info.getForm().setValues(record.data);
         App.Person_Window.show();
@@ -45,7 +45,6 @@ var person = {
     setFormState: function () {
         if (App.person_info_picture.getValue() == '') {
             App.person_info_image.setImageUrl("/images/person/default.jpg");
-            person. setDisabledMenuItem(true);
             return;
         }
         App.person_info_image.setImageUrl('/images/person/' + App.person_info_picture.getValue());
