@@ -59,7 +59,8 @@
     <Compile Include="Education.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\PersonModel.cs" />
+    <Compile Include="Partials\Education.cs" />
+    <Compile Include="Partials\Person.cs" />
     <Compile Include="Partials\Psimp.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>

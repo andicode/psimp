@@ -13,10 +13,11 @@ namespace PSIMP.Web.Controllers
     public class PersonController : Controller
     {
         public DBContext<Person> PersonService { get; set; }
-
+        public DBContext<Education> EducationService { get; set; }
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             PersonService = new DBContext<Person>();
+            EducationService = new DBContext<Education>();
             base.Initialize(requestContext);
         }
         //
@@ -92,6 +93,30 @@ namespace PSIMP.Web.Controllers
             return this.Store(persons, PersonService.Count());
         }
 
+        public ActionResult GetEducations(StoreRequestParameters parameters)
+        {
+            var educations = EducationService.GetPagesData(parameters.Start, parameters.Limit);
+            return this.Store(educations, EducationService.Count());
+ 
+        }
+
+        public ActionResult SyncEdu(StoreDataHandler handler)
+        {
+            return this.Content("");
+        }
+
+        public ActionResult CreateEdu()
+        {
+            return View();
+        }
+        public ActionResult UpdateEdu()
+        {
+            return View();
+        }
+        public ActionResult DeleteEdu()
+        {
+            return View();
+        }
 
 
         private void DeletePicture(string picture)

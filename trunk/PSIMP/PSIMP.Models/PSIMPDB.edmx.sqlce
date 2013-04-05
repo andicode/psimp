@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/05/2013 21:57:57
+-- Date Created: 04/06/2013 00:33:55
 -- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -70,11 +70,11 @@ GO
 CREATE TABLE [PsimpSet_Education] (
     [PersonId] bigint  NOT NULL,
     [SchoolName] nvarchar(4000)  NOT NULL,
-    [BeginDate] nvarchar(4000)  NOT NULL,
-    [EndDate] nvarchar(4000)  NOT NULL,
-    [Discipline] nvarchar(4000)  NOT NULL,
-    [Degree] nvarchar(4000)  NOT NULL,
-    [Remark] nvarchar(4000)  NOT NULL,
+    [BeginDate] datetime  NOT NULL,
+    [EndDate] datetime  NULL,
+    [Discipline] nvarchar(4000)  NULL,
+    [Degree] nvarchar(4000)  NULL,
+    [Remark] nvarchar(4000)  NULL,
     [Id] bigint  NOT NULL
 );
 GO

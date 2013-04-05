@@ -15,11 +15,11 @@ namespace PSIMP.Models
     public partial class Person
     {        
         [Model(IDProperty = "Id")]
-        public class PersonModel_MetaData
+        public class PersonModel_MetaData : Psimp_MetaData
         {
             [Column(Hidden = true)]
             [Field(FieldType = typeof(Hidden))]
-            public long Id { get; set; }
+            public  override long Id { get; set; }
 
             [Column(Text = "姓名")]
             [Field(FieldLabel = "姓名",AllowBlank=false,BlankText="请输入人员姓名")]
