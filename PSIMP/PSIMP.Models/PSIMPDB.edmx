@@ -8,16 +8,34 @@
   <EntityContainer Name="PSIMPDBStoreContainer">
     <EntitySet Name="PsimpSet" EntityType="PSIMPDB.Store.PsimpSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PsimpSet_Person" EntityType="PSIMPDB.Store.PsimpSet_Person" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PsimpSet_Education" EntityType="PSIMPDB.Store.PsimpSet_Education" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PsimpSet_Train" EntityType="PSIMPDB.Store.PsimpSet_Train" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PersonEducation" Association="PSIMPDB.Store.PersonEducation">
+      <End Role="Person" EntitySet="PsimpSet_Person" />
+      <End Role="Education" EntitySet="PsimpSet_Education" />
+    </AssociationSet>
+    <AssociationSet Name="PersonTrain" Association="PSIMPDB.Store.PersonTrain">
+      <End Role="Person" EntitySet="PsimpSet_Person" />
+      <End Role="Train" EntitySet="PsimpSet_Train" />
+    </AssociationSet>
     <AssociationSet Name="FK_Person_inherits_Psimp" Association="PSIMPDB.Store.FK_Person_inherits_Psimp">
       <End Role="Psimp" EntitySet="PsimpSet" />
       <End Role="Person" EntitySet="PsimpSet_Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Education_inherits_Psimp" Association="PSIMPDB.Store.FK_Education_inherits_Psimp">
+      <End Role="Psimp" EntitySet="PsimpSet" />
+      <End Role="Education" EntitySet="PsimpSet_Education" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Train_inherits_Psimp" Association="PSIMPDB.Store.FK_Train_inherits_Psimp">
+      <End Role="Psimp" EntitySet="PsimpSet" />
+      <End Role="Train" EntitySet="PsimpSet_Train" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="PsimpSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" Nullable="true" />
     <Property Name="UpdateTime" Type="datetime" Nullable="true" />
     <Property Name="CreateUser" Type="nvarchar" Nullable="true" />
@@ -38,6 +56,57 @@
     <Property Name="Picture" Type="image" Nullable="true" />
     <Property Name="Id" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="PsimpSet_Education">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="PersonId" Type="bigint" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar" Nullable="false" />
+    <Property Name="BeginDate" Type="nvarchar" Nullable="false" />
+    <Property Name="EndDate" Type="nvarchar" Nullable="false" />
+    <Property Name="Discipline" Type="nvarchar" Nullable="false" />
+    <Property Name="Degree" Type="nvarchar" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PsimpSet_Train">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Agency" Type="nvarchar" Nullable="false" />
+    <Property Name="DateTime" Type="nvarchar" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" Nullable="false" />
+    <Property Name="Curriculum" Type="nvarchar" Nullable="false" />
+    <Property Name="Certificate" Type="nvarchar" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" Nullable="false" />
+    <Property Name="CertDetails" Type="nvarchar" Nullable="false" />
+    <Property Name="PersonId" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="PersonEducation">
+    <End Role="Person" Type="PSIMPDB.Store.PsimpSet_Person" Multiplicity="1" />
+    <End Role="Education" Type="PSIMPDB.Store.PsimpSet_Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonTrain">
+    <End Role="Person" Type="PSIMPDB.Store.PsimpSet_Person" Multiplicity="1" />
+    <End Role="Train" Type="PSIMPDB.Store.PsimpSet_Train" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Train">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Person_inherits_Psimp">
     <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -48,6 +117,34 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Person">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Education_inherits_Psimp">
+    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Education" Type="PSIMPDB.Store.PsimpSet_Education" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Psimp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Train_inherits_Psimp">
+    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Train" Type="PSIMPDB.Store.PsimpSet_Train" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Psimp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Train">
         <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
@@ -84,7 +181,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="CreateTime" Nullable="true" />
           <Property Type="DateTime" Name="UpdateTime" Nullable="true" />
           <Property Type="String" Name="CreateUser" Nullable="true" />
@@ -179,6 +276,31 @@
           <ScalarProperty Name="Telephone" ColumnName="Telephone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Education)">
+        <MappingFragment StoreEntitySet="PsimpSet_Education">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Train)">
+        <MappingFragment StoreEntitySet="PsimpSet_Train">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Agency" ColumnName="Agency" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Curriculum" ColumnName="Curriculum" />
+          <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="CertDetails" ColumnName="CertDetails" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

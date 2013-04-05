@@ -15,15 +15,9 @@ namespace PSIMP.Models
     
     public partial class PSIMPDBContainer : DbContext
     {
-        public PSIMPDBContainer()
-            : base("name=PSIMPDBContainer")
-        {
-                this.Database.CreateIfNotExists();
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
+         public DbSet<Psimp> PsimpSet { get; set; }
+         public DbSet<Person> PersonSet { get; set; }
+         public DbSet<Education> EducationSet { get; set; }
+         public DbSet<Train> TrainSet { get; set; }
     }
 }
