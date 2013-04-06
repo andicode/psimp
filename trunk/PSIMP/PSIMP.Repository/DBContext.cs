@@ -23,7 +23,7 @@ namespace PSIMP.Repository
         }
         public string AccountUserId { get; set; }
         private PSIMPDBContainer _context = null;
-        public PSIMPDBContainer Context
+        public PSIMPDBContainer db
         {
             get
             {
@@ -43,8 +43,8 @@ namespace PSIMP.Repository
         {
             entity.CreateTime = DateTime.Now;
             entity.CreateUser = AccountUserId;
-            Context.Set<T>().Add(entity);
-            Context.SaveChanges();
+            db.Set<T>().Add(entity);
+            db.SaveChanges();
             return entity;
         }
         /// <summary>
@@ -55,13 +55,15 @@ namespace PSIMP.Repository
         /// <returns></returns>
         public T Update(T entity)
         {
-            
-            Context.Set<T>().Attach(entity);
-            
+            db.Set<T>().Attach(entity);    
             entity.UpdateTime = DateTime.Now;
             entity.UpdateUser = AccountUserId;
-            Context.Entry<T>(entity).State = EntityState.Modified;
-            Context.SaveChanges();
+            var saveEntity = db.Entry<T>(entity);
+            saveEntity.State = EntityState.Modified;
+            //修改时候忽略创建时间和创建人的修改
+            saveEntity.Property(m => m.CreateTime).CurrentValue = saveEntity.GetDatabaseValues().GetValue<DateTime?>("CreateTime");
+            saveEntity.Property(m => m.CreateUser).CurrentValue = saveEntity.GetDatabaseValues().GetValue<string>("CreateUser");
+            db.SaveChanges();
             return entity;
         }
         /// <summary>
@@ -72,7 +74,7 @@ namespace PSIMP.Repository
         /// <returns></returns>
         public bool CompletelyDelete(long Id)
         {
-            return CompletelyDelete(Context.Set<T>().SingleOrDefault(m=>m.Id==Id));
+            return CompletelyDelete(db.Set<T>().SingleOrDefault(m=>m.Id==Id));
         } /// <summary>
         /// 测底从据库数据库删除
         /// </summary>
@@ -81,33 +83,33 @@ namespace PSIMP.Repository
         /// <returns></returns>
         public bool CompletelyDelete(T entity)
         {
-            Context.Set<T>().Remove(entity);
-            return Context.SaveChanges() == 1;
+            db.Set<T>().Remove(entity);
+            return db.SaveChanges() == 1;
         }
 
         public T Get(object id)
         {
-            return Context.Set<T>().Find(id);
+            return db.Set<T>().Find(id);
         }
 
         public IQueryable<T> GetAll()
         {
-            return Context.Set<T>().Where(m => true);
+            return db.Set<T>().Where(m => true);
         }
         public IQueryable<T> Where(Expression<Func<T,bool>> expr)
         {
-            return Context.Set<T>().Where(expr);
+            return db.Set<T>().Where(expr);
         }
         public IQueryable<T> GetPagesData(int start, int limit)
         {
-            return Context.Set<T>().OrderByDescending(m => m.CreateTime).Skip(start).Take(limit);
+            return db.Set<T>().OrderByDescending(m => m.CreateTime).Skip(start).Take(limit);
         }
 
         public int Count(Expression<Func<T, bool>> expr = null)
         {
             if (expr != null)
-                return Context.Set<T>().Count(expr);
-            return Context.Set<T>().Count();
+                return db.Set<T>().Count(expr);
+            return db.Set<T>().Count();
         }
     }
 }

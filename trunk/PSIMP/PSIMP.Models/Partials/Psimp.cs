@@ -1,6 +1,7 @@
 ﻿using Ext.Net.MVC;
 using System;
 using System.Collections.Generic;
+using System.Data.Metadata.Edm;
 using System.Linq;
 using System.Text;
 
@@ -11,7 +12,7 @@ namespace PSIMP.Models
         public bool IsAdd()
         {
             return this.Id == default(long);
-        }
+        }       
     }
 
     public class Psimp_MetaData

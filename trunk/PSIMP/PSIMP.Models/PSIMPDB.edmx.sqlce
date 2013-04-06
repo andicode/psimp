@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/06/2013 00:33:55
+-- Date Created: 04/06/2013 17:19:32
 -- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -47,7 +47,8 @@ CREATE TABLE [PsimpSet] (
     [CreateTime] datetime  NULL,
     [UpdateTime] datetime  NULL,
     [CreateUser] nvarchar(4000)  NULL,
-    [UpdateUser] nvarchar(4000)  NULL
+    [UpdateUser] nvarchar(4000)  NULL,
+    [IsDelete] bit  NOT NULL
 );
 GO
 

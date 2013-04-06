@@ -40,6 +40,7 @@
     <Property Name="UpdateTime" Type="datetime" Nullable="true" />
     <Property Name="CreateUser" Type="nvarchar" Nullable="true" />
     <Property Name="UpdateUser" Type="nvarchar" Nullable="true" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="PsimpSet_Person">
     <Key>
@@ -182,10 +183,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="CreateTime" Nullable="true" />
-          <Property Type="DateTime" Name="UpdateTime" Nullable="true" />
+          <Property Type="DateTime" Name="CreateTime" Nullable="true" cg:SetterAccess="Public" />
+          <Property Type="DateTime" Name="UpdateTime" Nullable="true" cg:SetterAccess="Public" />
           <Property Type="String" Name="CreateUser" Nullable="true" />
           <Property Type="String" Name="UpdateUser" Nullable="true" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="false" />
         </EntityType>
         <EntityType Name="Education" BaseType="PSIMPDB.Psimp" >
           <NavigationProperty Name="Person" Relationship="PSIMPDB.PersonEducation" FromRole="Education" ToRole="Person" />
@@ -262,6 +264,7 @@
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
           <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Person)">
