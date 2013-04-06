@@ -96,8 +96,11 @@ namespace PSIMP.Web.Controllers
 
         public ActionResult GetEducations(long id,StoreRequestParameters parameters)
         {
-            var educations = EducationService.Where(m=>m.PersonId==id).GetPagesData(parameters.Start, parameters.Limit);
-            return this.Store(educations, EducationService.Count());
+            var educations = EducationService
+                .Where(m=>m.PersonId==id)
+                .GetPagesData(parameters.Start, parameters.Limit);
+            return this.Store(educations, 
+                EducationService.Count(m => m.PersonId == id));
  
         }
         [DirectMethod]
@@ -113,7 +116,7 @@ namespace PSIMP.Web.Controllers
             {
                 EducationService.Update(edu);
             }
-            return Json(new { valid = true });
+            return Json(new {Id=edu.Id, valid = true });
         }
         [AcceptVerbs(HttpVerbs.Post)]   
         public ActionResult DeleteEdu(long id)

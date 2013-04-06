@@ -51,12 +51,12 @@ var person = {
         App.person_info_image.setImageUrl('/images/person/' + App.person_info_picture.getValue());
         person.setDisabledMenuItem(false);
     },
-    edu: {
-        create: function () {
+    edu:new function() {
+        this.create= function () {
             this.up('grid').store.insert(0, {});
             this.up('grid').editingPlugin.startEdit(0, 0);
         },
-        "delete": function () {
+        this.delete= function () {
             var grid = this.up('grid');
             var record = grid.getSelectionModel().getSelection()[0];
             if (record) {
@@ -73,16 +73,20 @@ var person = {
                 })
             }
         },
-        validateSave: function () {
+        this.validateSave = function () {
+            
             var plugin = this.editingPlugin;
-            if (this.getForm().isValid()) {                     
+            var form = this.getForm();
+            if (form.isValid()) {
                 App.direct.SaveEdu(plugin.context.record.phantom, App.person_Info_Id.getValue(), this.getValues(false, false, false, true), {
                     success: function (result) {
                         if (!result.valid) {
                             Ext.Msg.alert("Error", result.msg);
                             return;
                         }
-                        plugin.completeEdit();
+                        //plugin.editor.items.items[0].setValue(result.Id);
+                        //plugin.completeEdit();
+                        App.Person_Edu_Store.reload();
                     }
                 });
             }

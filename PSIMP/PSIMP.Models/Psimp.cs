@@ -21,5 +21,6 @@ namespace PSIMP.Models
         public Nullable<System.DateTime> UpdateTime { get; set; }
         public string CreateUser { get; set; }
         public string UpdateUser { get; set; }
+        public bool IsDelete { get; set; }
     }
 }
