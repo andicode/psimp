@@ -4,21 +4,6 @@
 @{
     Layout = null;
 }
-@*@(Html.X()
-    .GridPanelFor<PSIMP.Models.Person>()
-    .Frame(true)
-    .TopBar(Html.X().Toolbar().Items(items => {
-        items.Add(Html.X()
-                    .Button()
-                    .Text("新增人员")
-                    .DirectEvents(events => {
-                        events.Click.DisableControl = true;
-                        events.Click.Url = Url.Action("Create");
-                    })
-             );
-    }))
-    .BottomBar(Html.X().PagingToolbar())
-)*@
 @(Html.X()
     .Panel()
     .ID("Person_View")

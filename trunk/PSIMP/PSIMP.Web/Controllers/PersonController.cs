@@ -10,6 +10,7 @@ using PSIMP.Repository;
 using System.IO;
 namespace PSIMP.Web.Controllers
 {
+    [DirectController(GenerateProxyForOtherAreas=true,GenerateProxyForOtherControllers=true)]
     public class PersonController : Controller
     {
         public DBContext<Person> PersonService { get; set; }
@@ -93,29 +94,32 @@ namespace PSIMP.Web.Controllers
             return this.Store(persons, PersonService.Count());
         }
 
-        public ActionResult GetEducations(StoreRequestParameters parameters)
+        public ActionResult GetEducations(long id,StoreRequestParameters parameters)
         {
-            var educations = EducationService.GetPagesData(parameters.Start, parameters.Limit);
+            var educations = EducationService.Where(m=>m.PersonId==id).GetPagesData(parameters.Start, parameters.Limit);
             return this.Store(educations, EducationService.Count());
  
         }
-
-        public ActionResult SyncEdu(StoreDataHandler handler)
+        [DirectMethod]
+        public ActionResult SaveEdu(bool isPhantom,long personId, string values)
         {
-            return this.Content("");
+            var edu = JSON.Deserialize<Education>(values);
+            edu.PersonId = personId;
+            if (isPhantom)
+            {
+                EducationService.Add(edu);
+            }
+            else
+            {
+                EducationService.Update(edu);
+            }
+            return Json(new { valid = true });
         }
-
-        public ActionResult CreateEdu()
+        [AcceptVerbs(HttpVerbs.Post)]   
+        public ActionResult DeleteEdu(long id)
         {
-            return View();
-        }
-        public ActionResult UpdateEdu()
-        {
-            return View();
-        }
-        public ActionResult DeleteEdu()
-        {
-            return View();
+            EducationService.CompletelyDelete(id);
+            return this.Direct();
         }
 
 
