@@ -2,13 +2,14 @@
 
 var person = {
     create: function () {
-        App.PersonForm_MenuPanel.setSelectedIndex(0)
-        App.Person_Card.getLayout().setActiveItem(0)
+        App.PersonForm_MenuPanel.setSelectedIndex(0);
+        App.Person_Card.getLayout().setActiveItem(0);
+        App.Person_Basic_Info.getForm().reset();
         App.person_Info_Id.setValue("");
         App.person_info_picture.setValue("");
         App.person_info_image.setImageUrl("/images/person/default.jpg");
         person.setDisabledMenuItem(true);
-        App.Person_Basic_Info.getForm().reset();
+       
         App.Person_Window.show();
     },
     edit: function (id) {
@@ -49,5 +50,42 @@ var person = {
         }
         App.person_info_image.setImageUrl('/images/person/' + App.person_info_picture.getValue());
         person.setDisabledMenuItem(false);
+    },
+    edu: {
+        create: function () {
+            this.up('grid').store.insert(0, {});
+            this.up('grid').editingPlugin.startEdit(0, 0);
+        },
+        "delete": function () {
+            var grid = this.up('grid');
+            var record = grid.getSelectionModel().getSelection()[0];
+            if (record) {
+                Ext.Msg.confirm("提示信息", "确定要删除记录“" + record.data.SchoolName + "”吗？", function (r) {
+                    if (r == "yes") {
+                        Ext.net.DirectMethod.request({
+                            url: "/person/deleteEdu/" + record.data.Id,
+                            cleanRequest: true,
+                            success: function () {
+                                grid.deleteSelected();
+                            }
+                        });
+                    }
+                })
+            }
+        },
+        validateSave: function () {
+            var plugin = this.editingPlugin;
+            if (this.getForm().isValid()) {                     
+                App.direct.SaveEdu(plugin.context.record.phantom, App.person_Info_Id.getValue(), this.getValues(false, false, false, true), {
+                    success: function (result) {
+                        if (!result.valid) {
+                            Ext.Msg.alert("Error", result.msg);
+                            return;
+                        }
+                        plugin.completeEdit();
+                    }
+                });
+            }
+        }
     }
 }

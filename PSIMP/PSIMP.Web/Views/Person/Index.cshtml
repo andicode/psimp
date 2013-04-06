@@ -7,14 +7,15 @@
 @(Html.X()
     .Container()
     .Layout(LayoutType.Fit)
-    .Loader(Html.X().ComponentLoader()
-                .Url(Url.Action("PersionUI"))
-                .Mode(LoadMode.Component)               
-                .Params(new { containerId=JRawValue.From("this.id") })
-                .LoadMask(mask =>
-                {
-                    mask.ShowMask = true;
-                    mask.Msg = "加载中...";
-                })
-    )
+    //.ItemsFromPartial("PersionUI")
+        .Loader(Html.X().ComponentLoader()
+                    .Url(Url.Action("PersionUI"))
+                    .Mode(LoadMode.Component)
+                    .Params(new { containerId = JRawValue.From("this.id") })
+                    .LoadMask(mask =>
+                    {
+                        mask.ShowMask = true;
+                        mask.Msg = "加载中...";
+                    })
+        )
 )

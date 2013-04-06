@@ -70,9 +70,9 @@ namespace PSIMP.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="Id">实体主键</param>
         /// <returns></returns>
-        public bool CompletelyDelete(object Id)
+        public bool CompletelyDelete(long Id)
         {
-            return CompletelyDelete(Context.Set<T>().Find(Id));
+            return CompletelyDelete(Context.Set<T>().SingleOrDefault(m=>m.Id==Id));
         } /// <summary>
         /// 测底从据库数据库删除
         /// </summary>
@@ -94,7 +94,10 @@ namespace PSIMP.Repository
         {
             return Context.Set<T>().Where(m => true);
         }
-
+        public IQueryable<T> Where(Expression<Func<T,bool>> expr)
+        {
+            return Context.Set<T>().Where(expr);
+        }
         public IQueryable<T> GetPagesData(int start, int limit)
         {
             return Context.Set<T>().OrderByDescending(m => m.CreateTime).Skip(start).Take(limit);

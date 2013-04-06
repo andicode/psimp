@@ -1,4 +1,5 @@
-﻿using Ext.Net.MVC;
+﻿using Ext.Net;
+using Ext.Net.MVC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,22 +8,17 @@ using System.Text;
 
 namespace PSIMP.Models
 {
-    [Proxy(Read = "~/Person/GetEducations",
-        Create="~/Person/CreateEdu",
-        Update="~/Person/UpdateEdu",
-        Destroy="~/Person/DeleteEdu")]
+    [Proxy(Read = "~/Person/GetEducations")]
     [JsonReader(Root = "data")]
-    [JsonWriter(AllowSingle=true)]
-    [MetadataType(typeof(Education_MetaData))]
+    [MetadataType(typeof(Education_MetaData))]    
     public partial class Education
     {
-        [Model(IDProperty = "Id")]
+        [Model(IDProperty="Id")]
         public class Education_MetaData:Psimp_MetaData
         {
-            [Column(Hidden=true)]
+            [Column(Hidden = true)]
             public long PersonId { get; set; }
             [Column(Text = "学校名称")]
-            [Field(AllowBlank=false)]
             public string SchoolName { get; set; }
             [DateColumn(Text = "入学时间",Format="yyyy-MM-dd")]
             public DateTime? BeginDate { get; set; }
