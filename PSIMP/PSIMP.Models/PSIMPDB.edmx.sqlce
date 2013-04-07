@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/06/2013 17:19:32
--- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 04/07/2013 11:23:37
+-- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 
@@ -83,12 +83,12 @@ GO
 -- Creating table 'PsimpSet_Train'
 CREATE TABLE [PsimpSet_Train] (
     [Agency] nvarchar(4000)  NOT NULL,
-    [DateTime] nvarchar(4000)  NOT NULL,
-    [Location] nvarchar(4000)  NOT NULL,
-    [Curriculum] nvarchar(4000)  NOT NULL,
-    [Certificate] nvarchar(4000)  NOT NULL,
-    [Details] nvarchar(4000)  NOT NULL,
-    [CertDetails] nvarchar(4000)  NOT NULL,
+    [DateTime] datetime  NOT NULL,
+    [Location] nvarchar(4000)  NULL,
+    [Curriculum] nvarchar(4000)  NULL,
+    [Certificate] nvarchar(4000)  NULL,
+    [Details] nvarchar(4000)  NULL,
+    [CertDetails] nvarchar(4000)  NULL,
     [PersonId] bigint  NOT NULL,
     [Id] bigint  NOT NULL
 );

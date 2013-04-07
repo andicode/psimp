@@ -18,8 +18,8 @@
       .ColumnModel(
            Html.X().ColumnFor(m => m.Id).ToBuilder<Column.Builder>().Editor(Html.X().Hidden())
            , Html.X().ColumnFor(m => m.SchoolName).ToBuilder<Column.Builder>().Editor(Html.X().TextField().AllowBlank(false).BlankText("请输入学校名称").MsgTarget(MessageTarget.Qtip))
-           , Html.X().ColumnFor(m => m.BeginDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateField().Format("yyyy-MM-dd").AllowBlank(false).BlankText("请选择入学时间").MsgTarget(MessageTarget.Qtip))
-           , Html.X().ColumnFor(m => m.EndDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateField().Format("yyyy-MM-dd"))
+           , Html.X().ColumnFor(m => m.BeginDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateField().Editable(false).Format("yyyy-MM-dd").AllowBlank(false).BlankText("请选择入学时间").MsgTarget(MessageTarget.Qtip))
+           , Html.X().ColumnFor(m => m.EndDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateField().Editable(false).Format("yyyy-MM-dd"))
            , Html.X().ColumnFor(m => m.Discipline).ToBuilder<Column.Builder>().Editor(Html.X().TextField())
            , Html.X().ColumnFor(m => m.Degree).ToBuilder<Column.Builder>().Editor(Html.X().TextField())
            , Html.X().ColumnFor(m => m.Remark).ToBuilder<Column.Builder>().Editor(Html.X().TextArea())
@@ -41,7 +41,7 @@
                             .Icon(Icon.Exclamation)
                             .Listeners(events =>
                             {
-                                events.Click.Fn = "person.edu.delete";
+                                events.Click.Fn = "person.edu.del";
                             })
                     )
       )

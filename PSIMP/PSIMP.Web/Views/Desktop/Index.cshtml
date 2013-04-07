@@ -2,6 +2,13 @@
 @using Ext.Net.MVC
 @model IEnumerable<DesktopItem>
 @(Html.X().Desktop(DesktopFrame.Config.Desktop())
+.Control(desktop=>{
+        desktop.StartMenu.Frame = true;
+        desktop.StartMenu.ToolConfig.Add(Html.X().Toolbar().ItemsFromPartial("StartMenuToolBar"));
+        desktop.StartMenu.Buttons.Add(Html.X().Button().Icon(Icon.Lock).Text("锁定"));
+        desktop.StartMenu.Buttons.Add(Html.X().Button().Icon(Icon.Key).Text("退出"));
+    }
+ )
 .DesktopConfig(Html.X().DesktopConfig()
     .ContextMenu(menu =>
     {

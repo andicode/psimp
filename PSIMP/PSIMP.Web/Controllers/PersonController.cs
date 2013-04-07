@@ -15,10 +15,15 @@ namespace PSIMP.Web.Controllers
     {
         public DBContext<Person> PersonService { get; set; }
         public DBContext<Education> EducationService { get; set; }
+        public DBContext<Train> TrainService { get; set; }
+
+
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             PersonService = new DBContext<Person>();
             EducationService = new DBContext<Education>();
+            TrainService = new DBContext<Train>();
+
             base.Initialize(requestContext);
         }
         //
@@ -88,12 +93,14 @@ namespace PSIMP.Web.Controllers
             result.IsUpload = true;
             return result;
         }
+
         public ActionResult GetPersons(StoreRequestParameters parameters)
         {
             var persons = PersonService.GetPagesData(parameters.Start, parameters.Limit);
             return this.Store(persons, PersonService.Count());
         }
 
+        #region 教育背景
         public ActionResult GetEducations(long id,StoreRequestParameters parameters)
         {
             var educations = EducationService
@@ -124,7 +131,40 @@ namespace PSIMP.Web.Controllers
             EducationService.CompletelyDelete(id);
             return this.Direct();
         }
+        #endregion
 
+        #region 培训经历
+        public ActionResult GetTrains(long id, StoreRequestParameters parameters)
+        {
+            var educations = EducationService
+                .Where(m => m.PersonId == id)
+                .GetPagesData(parameters.Start, parameters.Limit);
+            return this.Store(educations,
+                EducationService.Count(m => m.PersonId == id));
+
+        }
+        [DirectMethod]
+        public ActionResult SaveTrain(bool isPhantom, long personId, string values)
+        {
+            var edu = JSON.Deserialize<Train>(values);
+            edu.PersonId = personId;
+            if (isPhantom)
+            {
+                TrainService.Add(edu);
+            }
+            else
+            {
+                TrainService.Update(edu);
+            }
+            return Json(new { Id = edu.Id, valid = true });
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult DeleteTrain(long id)
+        {
+            TrainService.CompletelyDelete(id);
+            return this.Direct();
+        }
+        #endregion
 
         private void DeletePicture(string picture)
         {

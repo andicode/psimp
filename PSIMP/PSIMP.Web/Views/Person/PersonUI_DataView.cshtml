@@ -5,6 +5,7 @@
 @(Html.X().DataView()
       .ID("PersonView")
       .AutoScroll(true)
+      .Border(false)
       .Store(Html.X().StoreFor<PSIMP.Models.Person>().ID("Person_Store"))
       .OverItemCls("x-item-over")
       .ItemSelector("div.user-card")
@@ -29,7 +30,7 @@
                                                 <span class="txt">编辑</span>
                                                
                                             </a>
-                                            <a onclick="person.delete({Id})"  class="btn-delete">
+                                            <a onclick="person.del({Id})"  class="btn-delete">
                                                 <s class="icon sp-mk-del"></s>
                                                 <span class="txt">删除</span>
                                             </a> 
@@ -44,6 +45,7 @@
 )
 @(Html.X()
       .GridPanelFor<PSIMP.Models.Person>().Control(grid => {
+          grid.Border = false;
           grid.StoreID = "Person_Store";
           grid.Store.Clear();
       })
