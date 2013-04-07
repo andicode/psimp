@@ -53,10 +53,16 @@ namespace PSIMP.Models
             [Field(FieldLabel = "电子邮件" ,StandardVtype=ValidationType.Email)]
             public string Email { get; set; }
 
-            [TemplateColumn(Text = "照片", Order = 0, TemplateString = "<img style=\"width:85px;height:120px\" src=\"/person/picture/{Id}\" alt=\"{Name}\">")]
+            [TemplateColumn(Text = "照片", Order = 0, Align=Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/images/Person/{Picture}\" alt=\"{Name}\">")]
             [Field(FieldLabel = "照片")]
+            public string Picture { get; set; }
+
             [JsonIgnore]
-            public byte[] Picture { get; set; }
+            [Column(Ignore=true)]
+            public virtual ICollection<Education> Education { get; set; }
+            [JsonIgnore]
+            [Column(Ignore = true)]
+            public virtual ICollection<Train> Train { get; set; }
         }
     }
 }

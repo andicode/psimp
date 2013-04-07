@@ -15,10 +15,30 @@
       <Launcher Text="人员管理" IconCls="person-shortcut16"/>
       <Window Title="人员管理" Width="960" Height="500" IconCls="person-shortcut16" CloseAction="hide"/>
     </Module>
-    <Module ModuleID="test1" Action="Test" Controller="">
-      <Shortcut Name="测试图标" SortIndex="0" IconCls=""/>
-      <Launcher Text="测试图标" IconCls=""/>
-      <Window Title="测试图标" Width="200" Height="200" IconCls="" CloseAction="hide"/>
+    <Module ModuleID="ProjectModule" Action="Test" Controller="">
+      <Shortcut Name="项目管理" SortIndex="0" IconCls=""/>
+      <Launcher Text="项目管理" IconCls=""/>
+      <Window Title="项目管理" Width="860" Height="500" IconCls="" CloseAction="hide"/>
+    </Module>
+    <Module ModuleID="PerformanceModule" Action="Test" Controller="">
+      <Shortcut Name="履约管理" SortIndex="0" IconCls=""/>
+      <Launcher Text="履约管理" IconCls=""/>
+      <Window Title="履约管理" Width="860" Height="500" IconCls="" CloseAction="hide"/>
+    </Module>
+    <Module ModuleID="AssetModule" Action="Test" Controller="">
+      <Shortcut Name="资产管理" SortIndex="0" IconCls=""/>
+      <Launcher Text="资产管理" IconCls=""/>
+      <Window Title="资产管理" Width="860" Height="500" IconCls="" CloseAction="hide"/>
+    </Module>
+    <Module ModuleID="TenderModule" Action="Test" Controller="">
+      <Shortcut Name="招投标管理" SortIndex="0" IconCls=""/>
+      <Launcher Text="招投标管理" IconCls=""/>
+      <Window Title="招投标管理" Width="860" Height="500" IconCls="" CloseAction="hide"/>
+    </Module>
+    <Module ModuleID="ContractModule" Action="Test" Controller="">
+      <Shortcut Name="合同管理" SortIndex="0" IconCls=""/>
+      <Launcher Text="合同管理" IconCls=""/>
+      <Window Title="合同管理" Width="860" Height="500" IconCls="" CloseAction="hide"/>
     </Module>
   </Modules>
 </Desktop>
