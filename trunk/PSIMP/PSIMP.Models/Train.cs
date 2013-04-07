@@ -17,7 +17,7 @@ namespace PSIMP.Models
     public partial class Train : Psimp
     {
         public string Agency { get; set; }
-        public string DateTime { get; set; }
+        public System.DateTime DateTime { get; set; }
         public string Location { get; set; }
         public string Curriculum { get; set; }
         public string Certificate { get; set; }

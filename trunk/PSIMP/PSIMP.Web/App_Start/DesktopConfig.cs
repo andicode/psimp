@@ -77,6 +77,7 @@ namespace System.Web
             var cfg = new DesktopStartMenu.Config();
             cfg.Title = Root.Element("StartMenu").Attribute("Title").Value;
             cfg.Icon = Icon.Application;
+           
             return new DesktopStartMenu(cfg);
         }
 
@@ -119,18 +120,21 @@ namespace System.Web
         }
         private  Window Window(XElement element,string moduleId)
         {
-            return new Window
+            var win=new Window
             {
                 Title = element.Attribute("Title").Value,
                 Width = int.Parse(element.Attribute("Width").Value),
                 Height = int.Parse(element.Attribute("Height").Value),
                 ConstrainHeader = true,
                 ID="win_"+moduleId,
+                Border=false,
                 Plain=true,
                 Frame=true,
                 Layout = "fit",
                 IconCls = element.Attribute("IconCls").Value
             };
+            win.Listeners.AfterLayout.Fn = "moduleShow";
+            return win;
         }
         private  MenuItem Launcher(XElement element)
         {

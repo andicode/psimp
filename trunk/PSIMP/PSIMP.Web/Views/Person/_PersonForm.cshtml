@@ -6,6 +6,7 @@
 }
 @(Html.X()
     .MenuPanel()
+    .Border(false)
     .ID("PersonForm_MenuPanel")
     .Width(150)
     .Region(Region.West)
@@ -23,6 +24,7 @@
 )
 @(Html.X()
     .Container()
+    .Border(false)
     .ID("Person_Card")
     .Region(Region.Center)
     .Layout(LayoutType.Card)
@@ -69,8 +71,11 @@
         , Html.X()
             .Panel()
             .Title("培训经历")
-            .BodyPadding(10)
+            .Layout(LayoutType.Fit)
             .ItemsFromPartial("_TrainInfo", Model)
+            .Listeners(events => {
+                events.Activate.Handler = "App.Person_Train_Store.reload()";
+            })
         , Html.X()
             .Panel()
             .Title("工作经历")
