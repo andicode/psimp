@@ -1,5 +1,6 @@
 ﻿@using Ext.Net.MVC
 @using Ext.Net
+@model PSIMP.Models.Person
 
 @(Html.X().DataView()
       .ID("PersonView")
@@ -40,4 +41,10 @@
                    </text>
                )
       )
+)
+@(Html.X()
+      .GridPanelFor<PSIMP.Models.Person>().Control(grid => {
+          grid.StoreID = "Person_Store";
+          grid.Store.Clear();
+      })
 )

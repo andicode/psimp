@@ -18,15 +18,17 @@ namespace PSIMP.Models
     public class Psimp_MetaData
     {
         
-        [Column(Hidden = true)]
+        [Column(Hideable=false, Hidden = true)]
         public virtual long Id { get; set; }
-        [Column(Hidden = true)]
+        [Column(Ignore=true, Hidden = true)]
         public virtual Nullable<System.DateTime> CreateTime { get; set; }
-        [Column(Hidden = true)]
+        [Column(Ignore = true, Hidden = true)]
         public virtual Nullable<System.DateTime> UpdateTime { get; set; }
-        [Column(Hidden = true)]
+        [Column(Ignore = true, Hidden = true)]
         public virtual string CreateUser { get; set; }
-        [Column(Hidden = true)]
+        [Column(Ignore = true, Hidden = true)]
         public virtual string UpdateUser { get; set; }
+        [Column(Ignore = true, Hidden = true)]
+        public virtual bool IsDelete { get; set; }
     }
 }
