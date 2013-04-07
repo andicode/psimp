@@ -9,7 +9,6 @@ namespace PSIMP.Web.Controllers
 {
     public class DesktopController : Controller
     {
-
         public ActionResult Index()
         {
             ViewBag.Title = "首页";
