@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/modernizr")   
+    <script src="~/Scripts/FusionCharts.js"></script>
     <script src="~/Scripts/Test.js"></script>
     <script src="~/Scripts/business.js"></script>
 </head>
 <body id="mainBody">
     @Html.X().ResourceManager()
+    @Html.X().ResourcesRegistrator().RegisterAllResources(true)
     @RenderBody()
 </body>
 </html>

@@ -3,3 +3,15 @@
 @{
     Layout = null;
 }
+@(Html.X()
+      .Panel()
+      .ID("GanttView")
+      .Region(Region.Center)
+      .Layout(LayoutType.Fit)
+      .Listeners(events =>
+      {
+          events.Render.Handler = @"var myChart = new FusionCharts('" + Url.Content("~/Flash/Gantt.swf") + @"', 'myChartId', '100%', '100%', '0', '0');
+	                                myChart.setDataURL('" + Url.Action("GanttData") + @"');
+	                                myChart.render('GanttView-body');";
+      })
+)
