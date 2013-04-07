@@ -160,6 +160,7 @@
     <Content Include="App_Data\Modules.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Flash\Gantt.swf" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Properties\PublishProfiles\PSIMP.pubxml" />
@@ -177,6 +178,7 @@
     <Content Include="Lib\Transformer.NET.dll" />
     <Content Include="Lib\Wilco.SyntaxHighlighter.dll" />
     <Content Include="Scripts\business.js" />
+    <Content Include="Scripts\FusionCharts.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\Test.js" />
     <Content Include="Scripts\_references.js" />
@@ -236,7 +238,9 @@
       <Name>PSIMP.Repository</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Lib\FusionWidgets\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -253,7 +257,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5062</DevelopmentServerPort>
+          <DevelopmentServerPort>14468</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:8517/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
