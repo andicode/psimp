@@ -326,6 +326,41 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+      <Diagram Name="PSIMPDB">
+        <EntityTypeShape EntityType="PSIMPDB.Person" Width="1.5" PointX="3.75" PointY="5.625" Height="3.1161507161458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSIMPDB.Psimp" Width="1.5" PointX="3.75" PointY="2.75" Height="2.1610522460937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSIMPDB.Education" Width="1.5" PointX="3.75" PointY="9.5" Height="2.5430916341145817" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSIMPDB.Train" Width="1.5" PointX="0.75" PointY="9.5" Height="2.7341113281249996" IsExpanded="true" />
+        <InheritanceConnector EntityType="PSIMPDB.Person" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.91105224609375" />
+          <ConnectorPoint PointX="4.5" PointY="5.625" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="PSIMPDB.Education" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.91105224609375" />
+          <ConnectorPoint PointX="4.5" PointY="5.375" />
+          <ConnectorPoint PointX="3.5" PointY="5.375" />
+          <ConnectorPoint PointX="3.5" PointY="9.125" />
+          <ConnectorPoint PointX="4.5" PointY="9.125" />
+          <ConnectorPoint PointX="4.5" PointY="9.5" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="PSIMPDB.Train" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.91105224609375" />
+          <ConnectorPoint PointX="4.5" PointY="5.28605224609375" />
+          <ConnectorPoint PointX="1.5" PointY="5.28605224609375" />
+          <ConnectorPoint PointX="1.5" PointY="9.5" />
+        </InheritanceConnector>
+        <AssociationConnector Association="PSIMPDB.PersonEducation" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.9375" PointY="8.7411507161458335" />
+          <ConnectorPoint PointX="4.9375" PointY="9.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="PSIMPDB.PersonTrain" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="7.1830753580729167" />
+          <ConnectorPoint PointX="3.5833333333333335" PointY="7.1830753580729159" />
+          <ConnectorPoint PointX="3.4166666666666665" PointY="7.1830753580729167" />
+          <ConnectorPoint PointX="1.9062525" PointY="7.1830753580729167" />
+          <ConnectorPoint PointX="1.9062525" PointY="9.5" />
+        </AssociationConnector>
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
