@@ -14,16 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Psimp
+    public partial class Account
     {
-        public long Id { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
-        public bool IsDelete { get; set; }
-        public long CreateUserID { get; set; }
-        public long UpdateUserID { get; set; }
-    
-        public virtual Account CreateUser { get; set; }
-        public virtual Account UpdateUser { get; set; }
+        public long ID { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }

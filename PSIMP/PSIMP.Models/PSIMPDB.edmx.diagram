@@ -14,6 +14,9 @@
         <InheritanceConnector EntityType="PSIMPDB.Train" />
         <AssociationConnector Association="PSIMPDB.PersonTrain" />
         <InheritanceConnector EntityType="PSIMPDB.Person" />
+        <EntityTypeShape EntityType="PSIMPDB.Account" Width="2.0104166666666661" PointX="8.0104166666666661" PointY="0.5" />
+        <AssociationConnector Association="PSIMPDB.AccountPsimp" />
+        <AssociationConnector Association="PSIMPDB.PsimpAccount" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
