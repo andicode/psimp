@@ -1,0 +1,51 @@
+﻿@using Ext.Net
+@using Ext.Net.MVC
+@{
+    Layout = null;
+}
+@(Html.X().GridPanel()
+          .Control(grid => {
+             if(Model!=null&&Model)
+             {
+                grid.TopBar.Add(
+                        Html.X().Toolbar()
+                            .Items(
+                                Html.X().Button().Text("新增施工单位").Icon(Icon.Add)
+                                ,
+                                Html.X().Button().Text("删除").Icon(Icon.Exclamation)
+                            )
+                    );
+             }
+         })
+         .Height(200)
+         .Width(600)
+         .Title("施工单位信息")
+         .EmptyText("没有施工单位信息")  .Store(Html.X().Store()
+                    .AutoLoad(false)
+                    .Proxy(Html.X().AjaxProxy()
+                               .Url(Url.Action("GetConstructions"))
+                               .Reader(Html.X().JsonReader().Root("data"))
+                    )
+                    .Model(Html.X().Model().Fields(
+                               Html.X().ModelField().Name("Id"),
+                               Html.X().ModelField().Name("f1"),
+                               Html.X().ModelField().Name("f2"),
+                               Html.X().ModelField().Name("f3"),
+                               Html.X().ModelField().Name("f4"),
+                               Html.X().ModelField().Name("f5"),
+                               Html.X().ModelField().Name("f6"),
+                               Html.X().ModelField().Name("f7"),
+                               Html.X().ModelField().Name("f8")
+                    ))
+         )
+         .ColumnModel(
+                Html.X().Column().Text("单位名称").MenuDisabled(true).DataIndex("f1")
+                ,Html.X().Column().Text("施工里程").MenuDisabled(true).DataIndex("f2")
+                ,Html.X().Column().Text("概况").MenuDisabled(true).DataIndex("f3")
+                ,Html.X().Column().Text("施工内容").MenuDisabled(true).DataIndex("f4")
+                ,Html.X().Column().Text("合同金额").MenuDisabled(true).DataIndex("f5")
+                ,Html.X().Column().Text("驻地办公地址").MenuDisabled(true).DataIndex("f6")
+                ,Html.X().Column().Text("联系电话").MenuDisabled(true).DataIndex("f7")
+                ,Html.X().Column().Text("主要负责人").MenuDisabled(true).DataIndex("f8")
+         )
+     )
