@@ -25,7 +25,7 @@ namespace PSIMP.Models
             [Field(FieldLabel = "姓名",AllowBlank=false,BlankText="请输入人员姓名")]
             public string Name { get; set; }
 
-            [Column(Text = "性别")]
+            [TemplateColumn(Text = "性别",TemplateString="{[values.Sex='0'?'男':'女']}")]
             [Field(FieldLabel = "性别",AllowBlank=false,BlankText="请选择人员性别")]
             public string Sex { get; set; }
 
