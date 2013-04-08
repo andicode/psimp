@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Desktop.Frame")]
-[assembly: AssemblyDescription("基于Ext.Net的桌面框架")]
+[assembly: AssemblyTitle("工程监管信息化管理平台")]
+[assembly: AssemblyDescription("工程监管信息化管理平台")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Desktop.Frame")]
+[assembly: AssemblyProduct("工程监管信息化管理平台")]
 [assembly: AssemblyCopyright("版权所有(C)  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
