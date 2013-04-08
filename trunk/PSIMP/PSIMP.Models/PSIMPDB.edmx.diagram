@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e451a96fd2ba44a3b56e430a26cd4db4" Name="Diagram1" ShowGrid="true" DisplayType="true" ZoomLevel="72" >
+      <Diagram DiagramId="e451a96fd2ba44a3b56e430a26cd4db4" Name="Diagram1" ShowGrid="true" DisplayType="true" ZoomLevel="93" >
         <EntityTypeShape EntityType="PSIMPDB.Person" Width="2.125" PointX="3.5" PointY="3.5" FillColor="128, 255, 128" IsExpanded="false" />
-        <EntityTypeShape EntityType="PSIMPDB.Psimp" Width="3.625" PointX="2.75" PointY="0.5" FillColor="Silver" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSIMPDB.Psimp" Width="3.625" PointX="2.75" PointY="0.5" FillColor="192, 192, 0" IsExpanded="true" />
         <EntityTypeShape EntityType="PSIMPDB.Education" Width="2.125" PointX="0.625" PointY="3.5" FillColor="128, 255, 128" IsExpanded="false" />
         <InheritanceConnector EntityType="PSIMPDB.Education" />
         <AssociationConnector Association="PSIMPDB.PersonEducation" />
