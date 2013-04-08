@@ -11,7 +11,7 @@ namespace PSIMP.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "首页";
+            ViewBag.Title = "工程监理信息化管理平台";
             return View(DesktopFrame.Modules());
         }
 
