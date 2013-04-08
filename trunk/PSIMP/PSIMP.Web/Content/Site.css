@@ -1,10 +1,14 @@
 ﻿/***在firefox字体小的问题***/
-.ux-desktop-shortcut-text, .x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost { font-size: 12px; font-family: "微软雅黑"; }
+.x-panel-header-text-default-framed,.ux-desktop-shortcut-text, .x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost { font-size: 12px; font-family: "微软雅黑"; }
 .x-column-header { text-shadow: 0 0 0 rgba(255, 255, 255, 0.3); }
 .x-column-header-inner { line-height: 20px; }
 .x-toolbar .x-form-item-label, .x-form-item-label { line-height: 12px; }
 
 
+.x-menu-icon-separator { 
+    width:0px;
+    display:none;
+}
 
 /*桌面图标*/
 .shortcut-label { height: auto !important; }
@@ -33,8 +37,71 @@
     background: none\9; 
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9;
 }
+.contract-shortcut32 { 
+     background: url(../images/moduleicon/Contract.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Contract.png', sizingMethod='scale')\9; 
+}
+.contract-shortcut16 { 
+    background: url(../Images/ModuleIcon/Contract.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Contract.png', sizingMethod='scale')\9;
+}
+.tender-shortcut32 { 
+     background: url(../images/moduleicon/Tender.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Tender.png', sizingMethod='scale')\9; 
 
+}
+.tender-shortcut16 { 
+    background: url(../Images/ModuleIcon/Tender.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Tender.png', sizingMethod='scale')\9;
+}
 
+.performance-shortcut32 { 
+     background: url(../images/moduleicon/performance.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/performance.png', sizingMethod='scale')\9; 
+
+}
+.performance-shortcut16 { 
+    background: url(../Images/ModuleIcon/performance.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/performance.png', sizingMethod='scale')\9;
+}
+.project-shortcut32 { 
+     background: url(../images/moduleicon/project.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/project.png', sizingMethod='scale')\9; 
+
+}
+.project-shortcut16 { 
+    background: url(../Images/ModuleIcon/project.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/project.png', sizingMethod='scale')\9;
+}
+.asset-shortcut32 { 
+     background: url(../images/moduleicon/asset.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/asset.png', sizingMethod='scale')\9; 
+
+}
+.asset-shortcut16 { 
+    background: url(../Images/ModuleIcon/asset.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/asset.png', sizingMethod='scale')\9;
+}
 
 .person-view .user-card {
     color: rgb(85, 85, 85);
