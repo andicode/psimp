@@ -3,3 +3,40 @@
 @{
     Layout = null;
 }
+
+@(Html.X().TreePanel()
+      .RootVisible(false)
+      .Region(Region.West)
+      .Width(150)
+      .Margins("0 5 0 0")
+      .Lines(false)
+      .Root(
+        Html.X().Node().Text("Root")
+            .Children(
+                Html.X().Node().NodeID("0").Text("车辆设备").Icon(Icon.Lorry).Leaf(true),
+                Html.X().Node().NodeID("1").Text("办公设备").Icon(Icon.Computer).Leaf(true),
+                Html.X().Node().NodeID("2").Text("实验设备").Icon(Icon.Rgb).Leaf(true)
+            )
+      )
+      .Listeners(events => {
+          events.Select.Handler = "App.AssetUI_Card.getLayout().setActiveItem(parseInt(record.data.id));";
+      })
+      .SelectionModel(Html.X().TreeSelectionModel().SelectedIndex(0))
+)
+@(Html.X().Panel()
+      .Title("设备管理")
+      .Header(false)
+      .Border(false)
+      .ID("AssetUI_Card")
+      .Region(Region.Center)
+      .Layout(LayoutType.Card)
+      .Items(
+            Html.X().Panel()
+                .Border(false)       
+                .Header(false)     
+                .Layout( LayoutType.Fit)                
+                .ItemsFromPartial("_CarInfo")
+            ,Html.X().Panel().Title("办公设备").Icon(Icon.Computer)
+            ,Html.X().Panel().Title("实验设备").Icon(Icon.Rgb)
+      )   
+)
