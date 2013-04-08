@@ -8,7 +8,7 @@ function moduleShow() {
         this.setPagePosition((winWidth - width) / 2, 0);
     }
     else {
-        this.setPagePosition((winWidth - width) / 2, (winHeight - height) / 2);
+        this.setPagePosition((winWidth - width) / 2, (winHeight - height) / 2-20);
     }
 }
 var person = {
