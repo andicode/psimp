@@ -13,7 +13,7 @@
     <Module ModuleID="PersonModule" Action="Index" Controller="Person">
       <Shortcut Name="人员管理" SortIndex="0" IconCls="person-shortcut32"/>
       <Launcher Text="人员管理" IconCls="person-shortcut16"/>
-      <Window Title="人员管理" Width="1000" Height="568" IconCls="person-shortcut16" CloseAction="hide"/>
+      <Window Title="人员管理" Width="900" Height="560" IconCls="person-shortcut16" CloseAction="hide"/>
     </Module>
     <Module ModuleID="ProjectModule" Action="Index" Controller="Project">
       <Shortcut Name="项目管理" SortIndex="0" IconCls="project-shortcut32"/>
@@ -39,6 +39,11 @@
       <Shortcut Name="设备管理" SortIndex="0" IconCls="asset-shortcut32"/>
       <Launcher Text="设备管理" IconCls="asset-shortcut16"/>
       <Window Title="设备管理" Width="1000" Height="568" IconCls="asset-shortcut16" CloseAction="hide"/>
+    </Module>
+    <Module ModuleID="QueryModule" Action="Index" Controller="Query">
+      <Shortcut Name="综合查询" SortIndex="0" IconCls="query-shortcut32"/>
+      <Launcher Text="综合查询" IconCls="query-shortcut16"/>
+      <Window Title="综合查询" Width="1000" Height="568" IconCls="query-shortcut16" CloseAction="hide"/>
     </Module>
   </Modules>
 </Desktop>
