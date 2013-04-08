@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="PSIMPDB.Education" Width="2.125" PointX="0.625" PointY="3.875" FillColor="128, 255, 128" />
         <InheritanceConnector EntityType="PSIMPDB.Education" />
         <AssociationConnector Association="PSIMPDB.PersonEducation" />
-        <EntityTypeShape EntityType="PSIMPDB.Train" Width="1.5" PointX="6.375" PointY="3.875" FillColor="128, 255, 128" />
+        <EntityTypeShape EntityType="PSIMPDB.Train" Width="2.125" PointX="6.375" PointY="3.875" FillColor="128, 255, 128" />
         <InheritanceConnector EntityType="PSIMPDB.Train" />
         <AssociationConnector Association="PSIMPDB.PersonTrain" />
         <InheritanceConnector EntityType="PSIMPDB.Person" />
