@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("PSIMP.Models")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("工程监管信息化管理平台")]
+[assembly: AssemblyDescription("工程监管信息化管理平台")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PSIMP.Models")]
+[assembly: AssemblyProduct("工程监管信息化管理平台")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
