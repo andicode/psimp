@@ -162,13 +162,18 @@
     </Content>
     <Content Include="Content\jquery-ui-1.8.4.css" />
     <Content Include="Content\jquery.ganttView.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Flash\Gantt.swf" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <None Include="Properties\PublishProfiles\PSIMP.pubxml" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\ModuleIcon\asset.png" />
+    <Content Include="Images\ModuleIcon\contract.png" />
     <Content Include="Images\ModuleIcon\default.png" />
+    <Content Include="Images\ModuleIcon\Performance.png" />
     <Content Include="Images\ModuleIcon\Person.png" />
+    <Content Include="Images\ModuleIcon\Project.png" />
+    <Content Include="Images\ModuleIcon\Tender.png" />
     <Content Include="Images\Person\default.jpg" />
     <Content Include="Images\row-over.gif" />
     <Content Include="Images\selected.gif" />
@@ -179,14 +184,8 @@
     <Content Include="Lib\Newtonsoft.Json.dll" />
     <Content Include="Lib\Transformer.NET.dll" />
     <Content Include="Lib\Wilco.SyntaxHighlighter.dll" />
-    <Content Include="Scripts\App.js" />
     <Content Include="Scripts\business.js" />
-    <Content Include="Scripts\date.js" />
     <Content Include="Scripts\FusionCharts.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.4.js" />
-    <Content Include="Scripts\jquery.ganttView.js" />
     <Content Include="Scripts\Test.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -199,26 +198,12 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Desktop\Test.cshtml" />
     <Content Include="Views\Shared\DesktopContextMenu.cshtml" />
     <Content Include="Views\Shared\DesktopShortcutContextMenu.cshtml" />
-    <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Person\PersionUI.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
-    <Content Include="Views\Person\_PersonForm.cshtml" />
-    <Content Include="Views\Person\_BaseInfo.cshtml" />
-    <Content Include="Views\Person\_RegisterInfo.cshtml" />
-    <Content Include="Views\Person\_EducationInfo.cshtml" />
-    <Content Include="Views\Person\_TrainInfo.cshtml" />
-    <Content Include="Views\Person\_WorkInfo.cshtml" />
-    <Content Include="Views\Person\_CertInfo.cshtml" />
-    <Content Include="Views\Person\PersonUI_DataView.cshtml" />
-    <Content Include="Views\Person\PersonUI_Toolbar.cshtml" />
-    <Content Include="Views\Person\PersonUI_Summary.cshtml" />
     <Content Include="Views\Shared\StartMenuToolBar.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
-    <Content Include="Views\Project\ProjectUI.cshtml" />
     <Content Include="Views\Performance\Index.cshtml" />
     <Content Include="Views\Performance\PerformanceUI.cshtml" />
     <Content Include="Views\Tender\Index.cshtml" />
@@ -226,8 +211,35 @@
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Contract\ContractUI.cshtml" />
     <Content Include="Views\Asset\Index.cshtml" />
-    <Content Include="Views\Asset\AssetUI.cshtml" />
-    <Content Include="Views\Desktop\Index.cshtml" />
+    <Content Include="Views\Project\ProjectForm.cshtml" />
+    <Content Include="Views\Project\_ConstructionInfo.cshtml" />
+    <Content Include="Views\Project\_ContractInfo.cshtml" />
+    <Content Include="Views\Project\_ProjectInfo.cshtml" />
+    <Content Include="Views\Asset\AssetUI.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Asset\_CarInfo.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Project\ProjectUI.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Person\_BaseInfo.cshtml" />
+    <Content Include="Views\Person\_CertInfo.cshtml" />
+    <Content Include="Views\Person\_EducationInfo.cshtml" />
+    <Content Include="Views\Person\_PersonForm.cshtml" />
+    <Content Include="Views\Person\_RegisterInfo.cshtml" />
+    <Content Include="Views\Person\_TrainInfo.cshtml" />
+    <Content Include="Views\Person\_WorkInfo.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
+    <Content Include="Views\Person\PersionUI.cshtml" />
+    <Content Include="Views\Person\PersonUI_DataView.cshtml" />
+    <Content Include="Views\Person\PersonUI_Summary.cshtml" />
+    <Content Include="Views\Person\PersonUI_Toolbar.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Desktop\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
