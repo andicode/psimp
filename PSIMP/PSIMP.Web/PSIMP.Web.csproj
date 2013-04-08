@@ -160,8 +160,6 @@
     <Content Include="App_Data\Modules.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\jquery-ui-1.8.4.css" />
-    <Content Include="Content\jquery.ganttView.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Flash\Gantt.swf" />
     <Content Include="Global.asax" />
