@@ -15,13 +15,13 @@ namespace PSIMP.Repository
         public DBContext()
         {
             //test
-            AccountUserId = "1";
+            AccountUserId = 1;
         }
-        public DBContext(string userId)
+        public DBContext(long userId)
         {
             AccountUserId = userId;
         }
-        public string AccountUserId { get; set; }
+        public long AccountUserId { get; set; }
         private PSIMPDBContainer _context = null;
         public PSIMPDBContainer db
         {
@@ -42,7 +42,7 @@ namespace PSIMP.Repository
         public T Add(T entity)
         {
             entity.CreateTime = DateTime.Now;
-            entity.CreateUser = AccountUserId;
+            entity.CreateUserID = AccountUserId;
             db.Set<T>().Add(entity);
             db.SaveChanges();
             return entity;
@@ -57,12 +57,12 @@ namespace PSIMP.Repository
         {
             db.Set<T>().Attach(entity);    
             entity.UpdateTime = DateTime.Now;
-            entity.UpdateUser = AccountUserId;
+            entity.UpdateUserID = AccountUserId;
             var saveEntity = db.Entry<T>(entity);
             saveEntity.State = EntityState.Modified;
             //修改时候忽略创建时间和创建人的修改
             saveEntity.Property(m => m.CreateTime).CurrentValue = saveEntity.GetDatabaseValues().GetValue<DateTime?>("CreateTime");
-            saveEntity.Property(m => m.CreateUser).CurrentValue = saveEntity.GetDatabaseValues().GetValue<string>("CreateUser");
+            saveEntity.Property(m => m.CreateUserID).CurrentValue = saveEntity.GetDatabaseValues().GetValue<long>("CreateUserID");
             db.SaveChanges();
             return entity;
         }

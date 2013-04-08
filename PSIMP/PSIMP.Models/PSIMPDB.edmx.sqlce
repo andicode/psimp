@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/08/2013 23:30:11
+-- Date Created: 04/08/2013 23:32:33
 -- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -15,6 +15,10 @@
     ALTER TABLE [PsimpSet_Education] DROP CONSTRAINT [FK_PersonEducation];
 GO
     ALTER TABLE [PsimpSet_Train] DROP CONSTRAINT [FK_PersonTrain];
+GO
+    ALTER TABLE [PsimpSet] DROP CONSTRAINT [FK_AccountPsimp];
+GO
+    ALTER TABLE [PsimpSet] DROP CONSTRAINT [FK_PsimpAccount];
 GO
     ALTER TABLE [PsimpSet_Person] DROP CONSTRAINT [FK_Person_inherits_Psimp];
 GO
@@ -29,6 +33,8 @@ GO
 -- --------------------------------------------------
 
     DROP TABLE [PsimpSet];
+GO
+    DROP TABLE [AccountSet];
 GO
     DROP TABLE [PsimpSet_Person];
 GO
@@ -54,7 +60,9 @@ GO
 
 -- Creating table 'AccountSet'
 CREATE TABLE [AccountSet] (
-    [ID] bigint IDENTITY(1,1) NOT NULL
+    [ID] bigint IDENTITY(1,1) NOT NULL,
+    [UserName] nvarchar(4000)  NOT NULL,
+    [Password] nvarchar(4000)  NOT NULL
 );
 GO
 
