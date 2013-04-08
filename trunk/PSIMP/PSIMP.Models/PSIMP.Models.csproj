@@ -71,6 +71,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Education.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>

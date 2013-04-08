@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/07/2013 11:23:37
--- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 04/08/2013 23:30:11
+-- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 
@@ -46,9 +46,15 @@ CREATE TABLE [PsimpSet] (
     [Id] bigint IDENTITY(1,1) NOT NULL,
     [CreateTime] datetime  NULL,
     [UpdateTime] datetime  NULL,
-    [CreateUser] nvarchar(4000)  NULL,
-    [UpdateUser] nvarchar(4000)  NULL,
-    [IsDelete] bit  NOT NULL
+    [IsDelete] bit  NOT NULL,
+    [CreateUserID] bigint  NOT NULL,
+    [UpdateUserID] bigint  NOT NULL
+);
+GO
+
+-- Creating table 'AccountSet'
+CREATE TABLE [AccountSet] (
+    [ID] bigint IDENTITY(1,1) NOT NULL
 );
 GO
 
@@ -104,6 +110,12 @@ ADD CONSTRAINT [PK_PsimpSet]
     PRIMARY KEY ([Id] );
 GO
 
+-- Creating primary key on [ID] in table 'AccountSet'
+ALTER TABLE [AccountSet]
+ADD CONSTRAINT [PK_AccountSet]
+    PRIMARY KEY ([ID] );
+GO
+
 -- Creating primary key on [Id] in table 'PsimpSet_Person'
 ALTER TABLE [PsimpSet_Person]
 ADD CONSTRAINT [PK_PsimpSet_Person]
@@ -152,6 +164,34 @@ ADD CONSTRAINT [FK_PersonTrain]
 CREATE INDEX [IX_FK_PersonTrain]
 ON [PsimpSet_Train]
     ([PersonId]);
+GO
+
+-- Creating foreign key on [CreateUserID] in table 'PsimpSet'
+ALTER TABLE [PsimpSet]
+ADD CONSTRAINT [FK_AccountPsimp]
+    FOREIGN KEY ([CreateUserID])
+    REFERENCES [AccountSet]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AccountPsimp'
+CREATE INDEX [IX_FK_AccountPsimp]
+ON [PsimpSet]
+    ([CreateUserID]);
+GO
+
+-- Creating foreign key on [UpdateUserID] in table 'PsimpSet'
+ALTER TABLE [PsimpSet]
+ADD CONSTRAINT [FK_PsimpAccount]
+    FOREIGN KEY ([UpdateUserID])
+    REFERENCES [AccountSet]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PsimpAccount'
+CREATE INDEX [IX_FK_PsimpAccount]
+ON [PsimpSet]
+    ([UpdateUserID]);
 GO
 
 -- Creating foreign key on [Id] in table 'PsimpSet_Person'
