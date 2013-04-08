@@ -1,0 +1,44 @@
+﻿@using Ext.Net.MVC
+@using Ext.Net
+@{
+    Layout = null;
+}
+
+@(
+ Html.X().GridPanel()
+        .Control(grid => { })
+        .Title("车辆设备")
+        .Icon(Icon.Lorry)
+        .ColumnModel(
+            Html.X().Column().Text("车牌号码")
+           ,Html.X().Column().Text("车辆型号")
+           ,Html.X().Column().Text("车辆来源")
+           ,Html.X().Column().Text("购置日期")
+           ,Html.X().Column().Text("年审截至时间")
+           ,Html.X().Column().Text("保险起止时间")
+           ,Html.X().Column().Text("使用状态")
+           ,Html.X().Column().Text("子主题")
+        )
+        .DockedItems(
+            Html.X().FormPanel()
+                .BodyPadding(5)
+                .Border(false)
+                .BorderSpec("0 1")
+                .Layout(LayoutType.HBox)
+                .Items(
+                    Html.X().TextField().FieldLabel("车牌号码").Width(165).LabelWidth(65).LabelAlign(LabelAlign.Right),
+                    Html.X().TextField().FieldLabel("车辆来源").Width(165).LabelWidth(65).LabelAlign(LabelAlign.Right),
+                    Html.X().TextField().FieldLabel("使用状态").Width(165).LabelWidth(65).LabelAlign(LabelAlign.Right),
+                    Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                )
+        )
+        .TopBar(
+            Html.X().Toolbar()
+                .Items(
+                    Html.X().Button().Text("新增车辆").Icon(Icon.Add)
+                )
+        )
+        .BottomBar(
+            Html.X().PagingToolbar()
+        )
+)
