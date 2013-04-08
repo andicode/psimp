@@ -2,6 +2,7 @@
 @using Ext.Net
 @model PSIMP.Models.Person
 
+
 @(Html.X().DataView()
       .ID("PersonView")
       .AutoScroll(true)
@@ -45,8 +46,16 @@
 )
 @(Html.X()
       .GridPanelFor<PSIMP.Models.Person>().Control(grid => {
+          grid.ForceFit = true;
           grid.Border = false;
           grid.StoreID = "Person_Store";
           grid.Store.Clear();
+          grid.ColumnModel.Columns.Add(
+              Html.X().ActionColumn().Align(Alignment.Center).Items(
+                    Html.X().ActionItem().Icon(Icon.PageEdit).Handler("function(grid, rowIndex, colIndex, actionItem, event, record){person.edit(record.data.Id)}"),
+                    Html.X().ActionItem(),
+                    Html.X().ActionItem().Icon(Icon.PageDelete).Handler("function(grid, rowIndex, colIndex, actionItem, event, record){person.del(record.data.Id)}")
+              )
+          );
       })
 )
