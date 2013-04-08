@@ -4,4 +4,47 @@
 @{
     Layout = null;
 }
-@Html.X().TextField()
+@(Html.X()
+      .GridPanel()
+      .EmptyText("没有注册的记录")
+      .ColumnModel(
+           Html.X().Column().Hidden(true).Editor(Html.X().Hidden())
+           , Html.X().Column().Text("职称名称").Editor(Html.X().TextField().AllowBlank(false).BlankText("请输入职称名称").MsgTarget(MessageTarget.Qtip))
+           , Html.X().Column().Text("职称专业").Editor(Html.X().TextField())
+           , Html.X().Column().Text("是否注册").Editor(Html.X().ComboBox().Items("是" , "否"))
+           , Html.X().Column().Text("注册日期").Editor(Html.X().TextField())
+           , Html.X().Column().Text("人员性质").Editor(Html.X().ComboBox().Items("员工" , "非员工"))
+      )
+      .TopBar(
+                Html.X().Toolbar()
+                    .Items(
+                        Html.X().Button()
+                            .Text("新增")
+                            .Icon(Icon.Add)
+                            .Listeners(events =>
+                            {
+                                events.Click.Fn = "person.edu.create";
+                            }),
+
+                        Html.X().Button()
+                            .ItemID("btnRemove")
+                            .Text("删除")
+                            .Icon(Icon.Exclamation)
+                            .Listeners(events =>
+                            {
+                                events.Click.Fn = "person.edu.del";
+                            })
+                    )
+      )
+      .BottomBar(Html.X().PagingToolbar())
+      .Plugins(Html.X()
+                   .RowEditing()
+                   .ErrorSummary(false)
+                   .SaveHandler("person.edu.validateSave")
+                   .Listeners(events =>
+                   {
+                       events.CancelEdit.Handler = "if(e.record.phantom){e.store.remove(e.record);}";
+                   })
+                   .SaveBtnText("保存")
+                   .CancelBtnText("取消"))
+)
