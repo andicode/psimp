@@ -56,6 +56,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" />
   </EntityType>
   <EntityType Name="PsimpSet_Person">
     <Key>
@@ -393,6 +395,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Account)">
         <MappingFragment StoreEntitySet="AccountSet">
           <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
