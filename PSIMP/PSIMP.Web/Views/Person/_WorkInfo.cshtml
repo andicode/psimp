@@ -1,7 +1,53 @@
 ﻿@using Ext.Net.MVC
 @using Ext.Net
-@model PSIMP.Models.Person
 @{
     Layout = null;
 }
-@Html.X().TextField()
+@(Html.X()
+      .GridPanel()
+      .EmptyText("没有工作经历的记录")
+      .ColumnModel(
+           Html.X().Column().Hidden(true).Editor(Html.X().Hidden())
+           , Html.X().Column().Text("单位名称").Editor(Html.X().TextField().AllowBlank(false).BlankText("请输入单位名称").MsgTarget(MessageTarget.Qtip))
+           , Html.X().Column().Text("单位性质").Editor(Html.X().TextField())
+           , Html.X().Column().Text("单位规模").Editor(Html.X().TextField())
+           , Html.X().Column().Text("行业类别").Editor(Html.X().TextField())
+           , Html.X().Column().Text("所在部门").Editor(Html.X().TextField())
+           , Html.X().Column().Text("职务").Editor(Html.X().TextField())
+           , Html.X().Column().Text("工作时间").Editor(Html.X().TextField())
+           , Html.X().Column().Text("薪资").Editor(Html.X().TextField())
+           , Html.X().Column().Text("工作描述").Editor(Html.X().TextField())
+      )
+      .TopBar(
+                Html.X().Toolbar()
+                    .Items(
+                        Html.X().Button()
+                            .Text("新增")
+                            .Icon(Icon.Add)
+                            .Listeners(events =>
+                            {
+                                events.Click.Fn = "person.edu.create";
+                            }),
+
+                        Html.X().Button()
+                            .ItemID("btnRemove")
+                            .Text("删除")
+                            .Icon(Icon.Exclamation)
+                            .Listeners(events =>
+                            {
+                                events.Click.Fn = "person.edu.del";
+                            })
+                    )
+      )
+      .BottomBar(Html.X().PagingToolbar())
+      .Plugins(Html.X()
+                   .RowEditing()
+                   .ErrorSummary(false)
+                   .SaveHandler("person.edu.validateSave")
+                   .Listeners(events =>
+                   {
+                       events.CancelEdit.Handler = "if(e.record.phantom){e.store.remove(e.record);}";
+                   })
+                   .SaveBtnText("保存")
+                   .CancelBtnText("取消"))
+)

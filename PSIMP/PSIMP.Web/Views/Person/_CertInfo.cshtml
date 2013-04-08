@@ -4,4 +4,49 @@
 @{
     Layout = null;
 }
-@Html.X().TextField()
+@(Html.X()
+      .GridPanel()
+      .EmptyText("没有证书的记录")
+      .ColumnModel(
+           Html.X().Column().Hidden(true).Editor(Html.X().Hidden())
+           , Html.X().Column().Text("证书名称").Editor(Html.X().TextField().AllowBlank(false).BlankText("请输入证书名称").MsgTarget(MessageTarget.Qtip))
+           , Html.X().Column().Text("证书类型").Editor(Html.X().TextField())
+           , Html.X().Column().Text("证书编号").Editor(Html.X().TextField())
+           , Html.X().Column().Text("获得时间").Editor(Html.X().DateField())
+           , Html.X().Column().Text("颁发机构").Editor(Html.X().TextField())
+           , Html.X().Column().Text("相关说明").Editor(Html.X().TextField())
+           , Html.X().Column().Text("扫描附件").Editor(Html.X().TextField())
+      )
+      .TopBar(
+                Html.X().Toolbar()
+                    .Items(
+                        Html.X().Button()
+                            .Text("新增")
+                            .Icon(Icon.Add)
+                            .Listeners(events =>
+                            {
+                                events.Click.Fn = "person.edu.create";
+                            }),
+
+                        Html.X().Button()
+                            .ItemID("btnRemove")
+                            .Text("删除")
+                            .Icon(Icon.Exclamation)
+                            .Listeners(events =>
+                            {
+                                events.Click.Fn = "person.edu.del";
+                            })
+                    )
+      )
+      .BottomBar(Html.X().PagingToolbar())
+      .Plugins(Html.X()
+                   .RowEditing()
+                   .ErrorSummary(false)
+                   .SaveHandler("person.edu.validateSave")
+                   .Listeners(events =>
+                   {
+                       events.CancelEdit.Handler = "if(e.record.phantom){e.store.remove(e.record);}";
+                   })
+                   .SaveBtnText("保存")
+                   .CancelBtnText("取消"))
+)
