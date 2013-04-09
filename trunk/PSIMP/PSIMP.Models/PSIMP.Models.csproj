@@ -71,9 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
-      <DependentUpon>PSIMPDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Account\AccountModels.cs" />
     <Compile Include="Education.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
@@ -109,6 +107,9 @@
       <DependentUpon>PSIMPDB.Partial.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Train.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

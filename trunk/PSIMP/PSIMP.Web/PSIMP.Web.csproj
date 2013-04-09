@@ -30,6 +30,24 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="DefaultConnection-部署" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=|DataDirectory|\PSIMPDB.sdf%3bPassword=psimpdb%3bPersist Security Info=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\DefaultConnection-部署_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="PSIMPDBContainer-部署" Order="2">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=|DataDirectory|\PSIMPDB.sdf%3bpassword=psimpdb%3bpersist security info=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\PSIMPDBContainer-部署_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -131,6 +149,14 @@
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
     <Reference Include="Wilco.SyntaxHighlighter, Version=0.5.0.0, Culture=neutral, PublicKeyToken=fb87150479c2990b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Wilco.SyntaxHighlighter.dll</HintPath>
@@ -142,6 +168,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DesktopController.cs" />
@@ -151,6 +178,8 @@
     <Compile Include="Controllers\TenderController.cs" />
     <Compile Include="Controllers\QueryController.cs" />
     <Compile Include="Extensions\ExtExtensions.cs" />
+    <Compile Include="Extensions\MvcExtensions.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,11 +190,15 @@
     <Content Include="App_Data\Modules.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\login.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Flash\Gantt.swf" />
     <Content Include="Global.asax" />
+    <Content Include="Images\login_panel.psd" />
     <None Include="Properties\PublishProfiles\PSIMP.pubxml" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\login_bg.jpg" />
+    <Content Include="Images\login_panel.png" />
     <Content Include="Images\ModuleIcon\asset.png" />
     <Content Include="Images\ModuleIcon\contract.png" />
     <Content Include="Images\ModuleIcon\default.png" />
@@ -185,19 +218,15 @@
     <Content Include="Lib\Wilco.SyntaxHighlighter.dll" />
     <Content Include="Scripts\business.js" />
     <Content Include="Scripts\FusionCharts.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Test.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Desktop\Test.cshtml" />
     <Content Include="Views\Shared\DesktopContextMenu.cshtml" />
     <Content Include="Views\Shared\DesktopShortcutContextMenu.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
@@ -241,6 +270,13 @@
     </Content>
     <Content Include="Views\Query\QueryUI.cshtml" />
     <Content Include="Views\Query\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -275,7 +311,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>14468</DevelopmentServerPort>
+          <DevelopmentServerPort>7747</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:14468/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

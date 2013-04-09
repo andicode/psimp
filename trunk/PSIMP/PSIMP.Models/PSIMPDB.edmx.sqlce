@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/08/2013 23:32:33
--- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 04/09/2013 11:48:01
+-- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 
@@ -15,10 +15,6 @@
     ALTER TABLE [PsimpSet_Education] DROP CONSTRAINT [FK_PersonEducation];
 GO
     ALTER TABLE [PsimpSet_Train] DROP CONSTRAINT [FK_PersonTrain];
-GO
-    ALTER TABLE [PsimpSet] DROP CONSTRAINT [FK_AccountPsimp];
-GO
-    ALTER TABLE [PsimpSet] DROP CONSTRAINT [FK_PsimpAccount];
 GO
     ALTER TABLE [PsimpSet_Person] DROP CONSTRAINT [FK_Person_inherits_Psimp];
 GO
@@ -34,7 +30,7 @@ GO
 
     DROP TABLE [PsimpSet];
 GO
-    DROP TABLE [AccountSet];
+    DROP TABLE [UserProfile];
 GO
     DROP TABLE [PsimpSet_Person];
 GO
@@ -53,16 +49,15 @@ CREATE TABLE [PsimpSet] (
     [CreateTime] datetime  NULL,
     [UpdateTime] datetime  NULL,
     [IsDelete] bit  NOT NULL,
-    [CreateUserID] bigint  NOT NULL,
-    [UpdateUserID] bigint  NOT NULL
+    [CreateUserId] int  NULL,
+    [UpdateUserId] int  NULL
 );
 GO
 
--- Creating table 'AccountSet'
-CREATE TABLE [AccountSet] (
-    [ID] bigint IDENTITY(1,1) NOT NULL,
-    [UserName] nvarchar(4000)  NOT NULL,
-    [Password] nvarchar(4000)  NOT NULL
+-- Creating table 'UserProfile'
+CREATE TABLE [UserProfile] (
+    [UserId] int IDENTITY(1,1) NOT NULL,
+    [UserName] nvarchar(4000)  NOT NULL
 );
 GO
 
@@ -118,10 +113,10 @@ ADD CONSTRAINT [PK_PsimpSet]
     PRIMARY KEY ([Id] );
 GO
 
--- Creating primary key on [ID] in table 'AccountSet'
-ALTER TABLE [AccountSet]
-ADD CONSTRAINT [PK_AccountSet]
-    PRIMARY KEY ([ID] );
+-- Creating primary key on [UserId] in table 'UserProfile'
+ALTER TABLE [UserProfile]
+ADD CONSTRAINT [PK_UserProfile]
+    PRIMARY KEY ([UserId] );
 GO
 
 -- Creating primary key on [Id] in table 'PsimpSet_Person'
@@ -174,32 +169,32 @@ ON [PsimpSet_Train]
     ([PersonId]);
 GO
 
--- Creating foreign key on [CreateUserID] in table 'PsimpSet'
+-- Creating foreign key on [CreateUserId] in table 'PsimpSet'
 ALTER TABLE [PsimpSet]
-ADD CONSTRAINT [FK_AccountPsimp]
-    FOREIGN KEY ([CreateUserID])
-    REFERENCES [AccountSet]
-        ([ID])
+ADD CONSTRAINT [FK_UserProfilePsimp]
+    FOREIGN KEY ([CreateUserId])
+    REFERENCES [UserProfile]
+        ([UserId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_AccountPsimp'
-CREATE INDEX [IX_FK_AccountPsimp]
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserProfilePsimp'
+CREATE INDEX [IX_FK_UserProfilePsimp]
 ON [PsimpSet]
-    ([CreateUserID]);
+    ([CreateUserId]);
 GO
 
--- Creating foreign key on [UpdateUserID] in table 'PsimpSet'
+-- Creating foreign key on [UpdateUserId] in table 'PsimpSet'
 ALTER TABLE [PsimpSet]
-ADD CONSTRAINT [FK_PsimpAccount]
-    FOREIGN KEY ([UpdateUserID])
-    REFERENCES [AccountSet]
-        ([ID])
+ADD CONSTRAINT [FK_UpdateUserId]
+    FOREIGN KEY ([UpdateUserId])
+    REFERENCES [UserProfile]
+        ([UserId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_PsimpAccount'
-CREATE INDEX [IX_FK_PsimpAccount]
+-- Creating non-clustered index for FOREIGN KEY 'FK_UpdateUserId'
+CREATE INDEX [IX_FK_UpdateUserId]
 ON [PsimpSet]
-    ([UpdateUserID]);
+    ([UpdateUserId]);
 GO
 
 -- Creating foreign key on [Id] in table 'PsimpSet_Person'

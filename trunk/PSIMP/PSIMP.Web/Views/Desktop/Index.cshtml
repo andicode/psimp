@@ -6,7 +6,12 @@
         desktop.StartMenu.Frame = true;
         desktop.StartMenu.ToolConfig.Add(Html.X().Toolbar().ItemsFromPartial("StartMenuToolBar"));
         desktop.StartMenu.Buttons.Add(Html.X().Button().Icon(Icon.Lock).Text("锁定"));
-        desktop.StartMenu.Buttons.Add(Html.X().Button().Icon(Icon.Key).Text("退出"));
+        desktop.StartMenu.Buttons.Add(
+            Html.X().Button().Icon(Icon.Key).Text("退出")
+                .DirectEvents(events => {
+                    events.Click.Before = "return confirm('确要退出系统?')";
+                    events.Click.Url = Url.Action("LogOff", "Account");
+                }));
     }
  )
 .DesktopConfig(Html.X().DesktopConfig()

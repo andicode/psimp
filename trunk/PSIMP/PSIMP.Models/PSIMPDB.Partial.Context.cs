@@ -16,7 +16,7 @@ namespace PSIMP.Models
     public partial class PSIMPDBContainer : DbContext
     {
          public DbSet<Psimp> PsimpSet { get; set; }
-         public DbSet<Account> AccountSet { get; set; }
+         public DbSet<UserProfile> UserProfileSet { get; set; }
          public DbSet<Person> PersonSet { get; set; }
          public DbSet<Education> EducationSet { get; set; }
          public DbSet<Train> TrainSet { get; set; }
