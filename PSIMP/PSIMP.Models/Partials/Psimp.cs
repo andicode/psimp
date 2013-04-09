@@ -25,9 +25,13 @@ namespace PSIMP.Models
         [Column(Ignore = true, Hidden = true)]
         public virtual Nullable<System.DateTime> UpdateTime { get; set; }
         [Column(Ignore = true, Hidden = true)]
-        public virtual string CreateUser { get; set; }
+        public virtual int CreateUserId { get; set; }
         [Column(Ignore = true, Hidden = true)]
-        public virtual string UpdateUser { get; set; }
+        public virtual int UpdateUserId { get; set; }
+        [Column(Ignore = true, Hidden = true)]
+        public virtual UserProfile CreateUser { get; set; }
+        [Column(Ignore = true, Hidden = true)]
+        public virtual UserProfile UpdateUser { get; set; }
         [Column(Ignore = true, Hidden = true)]
         public virtual bool IsDelete { get; set; }
     }

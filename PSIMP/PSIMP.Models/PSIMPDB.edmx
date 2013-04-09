@@ -7,7 +7,7 @@
     <Schema Namespace="PSIMPDB.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="PSIMPDBStoreContainer">
     <EntitySet Name="PsimpSet" EntityType="PSIMPDB.Store.PsimpSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AccountSet" EntityType="PSIMPDB.Store.AccountSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserProfile" EntityType="PSIMPDB.Store.UserProfile" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PsimpSet_Person" EntityType="PSIMPDB.Store.PsimpSet_Person" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PsimpSet_Education" EntityType="PSIMPDB.Store.PsimpSet_Education" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PsimpSet_Train" EntityType="PSIMPDB.Store.PsimpSet_Train" store:Type="Tables" Schema="dbo" />
@@ -19,13 +19,13 @@
       <End Role="Person" EntitySet="PsimpSet_Person" />
       <End Role="Train" EntitySet="PsimpSet_Train" />
     </AssociationSet>
-    <AssociationSet Name="AccountPsimp" Association="PSIMPDB.Store.AccountPsimp">
-      <End Role="Account" EntitySet="AccountSet" />
+    <AssociationSet Name="UserProfilePsimp" Association="PSIMPDB.Store.UserProfilePsimp">
+      <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="Psimp" EntitySet="PsimpSet" />
     </AssociationSet>
-    <AssociationSet Name="PsimpAccount" Association="PSIMPDB.Store.PsimpAccount">
+    <AssociationSet Name="UpdateUserId" Association="PSIMPDB.Store.UpdateUserId">
+      <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="Psimp" EntitySet="PsimpSet" />
-      <End Role="Account" EntitySet="AccountSet" />
     </AssociationSet>
     <AssociationSet Name="FK_Person_inherits_Psimp" Association="PSIMPDB.Store.FK_Person_inherits_Psimp">
       <End Role="Psimp" EntitySet="PsimpSet" />
@@ -48,16 +48,15 @@
     <Property Name="CreateTime" Type="datetime" Nullable="true" />
     <Property Name="UpdateTime" Type="datetime" Nullable="true" />
     <Property Name="IsDelete" Type="bit" Nullable="false" />
-    <Property Name="CreateUserID" Type="bigint" Nullable="false" />
-    <Property Name="UpdateUserID" Type="bigint" Nullable="false" />
+    <Property Name="CreateUserId" Type="int" Nullable="true" />
+    <Property Name="UpdateUserId" Type="int" Nullable="true" />
   </EntityType>
-  <EntityType Name="AccountSet">
+  <EntityType Name="UserProfile">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" Nullable="false" />
   </EntityType>
   <EntityType Name="PsimpSet_Person">
     <Key>
@@ -125,27 +124,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="AccountPsimp">
-    <End Role="Account" Type="PSIMPDB.Store.AccountSet" Multiplicity="1" />
+  <Association Name="UserProfilePsimp">
+    <End Role="UserProfile" Type="PSIMPDB.Store.UserProfile" Multiplicity="0..1" />
     <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="ID" />
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="Psimp">
-        <PropertyRef Name="CreateUserID" />
+        <PropertyRef Name="CreateUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PsimpAccount">
+  <Association Name="UpdateUserId">
+    <End Role="UserProfile" Type="PSIMPDB.Store.UserProfile" Multiplicity="0..1" />
     <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="*" />
-    <End Role="Account" Type="PSIMPDB.Store.AccountSet" Multiplicity="1" />
     <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="ID" />
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="Psimp">
-        <PropertyRef Name="UpdateUserID" />
+        <PropertyRef Name="UpdateUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -205,16 +204,16 @@
             <End Role="Person" EntitySet="PsimpSet" />
             <End Role="Train" EntitySet="PsimpSet" />
           </AssociationSet>
-          <EntitySet Name="AccountSet" EntityType="PSIMPDB.Account" />
-          <AssociationSet Name="AccountPsimp" Association="PSIMPDB.AccountPsimp">
-            <End Role="Account" EntitySet="AccountSet" />
+          <EntitySet Name="UserProfile" EntityType="PSIMPDB.UserProfile" />
+          <AssociationSet Name="UserProfilePsimp" Association="PSIMPDB.UserProfilePsimp">
+            <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="Psimp" EntitySet="PsimpSet" />
           </AssociationSet>
-          <AssociationSet Name="PsimpAccount" Association="PSIMPDB.PsimpAccount">
+          <AssociationSet Name="UpdateUserId" Association="PSIMPDB.UpdateUserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="Psimp" EntitySet="PsimpSet" />
-            <End Role="Account" EntitySet="AccountSet" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Person" BaseType="PSIMPDB.Psimp">
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Sex" Nullable="false" />
@@ -234,12 +233,12 @@
           </Key>
           <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="CreateTime" Nullable="true" cg:SetterAccess="Public" />
-          <Property Type="DateTime" Name="UpdateTime" Nullable="true" cg:SetterAccess="Public" />
+          <Property Type="DateTime" Name="UpdateTime" cg:SetterAccess="Public" Nullable="true" />
           <Property Type="Boolean" Name="IsDelete" Nullable="false" />
-          <NavigationProperty Name="CreateUser" Relationship="PSIMPDB.AccountPsimp" FromRole="Psimp" ToRole="Account" />
-          <Property Type="Int64" Name="CreateUserID" Nullable="false" />
-          <NavigationProperty Name="UpdateUser" Relationship="PSIMPDB.PsimpAccount" FromRole="Psimp" ToRole="Account" />
-          <Property Type="Int64" Name="UpdateUserID" Nullable="false" />
+          <NavigationProperty Name="CreateUser" Relationship="PSIMPDB.UserProfilePsimp" FromRole="Psimp" ToRole="UserProfile" />
+          <Property Type="Int32" Name="CreateUserId" Nullable="true" />
+          <NavigationProperty Name="UpdateUser" Relationship="PSIMPDB.UpdateUserId" FromRole="Psimp" ToRole="UserProfile" />
+          <Property Type="Int32" Name="UpdateUserId" Nullable="true" />
         </EntityType>
         <EntityType Name="Education" BaseType="PSIMPDB.Psimp" >
           <NavigationProperty Name="Person" Relationship="PSIMPDB.PersonEducation" FromRole="Education" ToRole="Person" />
@@ -302,39 +301,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Account">
+        <EntityType Name="UserProfile">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="UserName" Nullable="false" />
-          <Property Type="String" Name="Password" Nullable="false" />
         </EntityType>
-        <Association Name="AccountPsimp">
-          <End Type="PSIMPDB.Account" Role="Account" Multiplicity="1" />
+        <Association Name="UserProfilePsimp">
+          <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="0..1" />
           <End Type="PSIMPDB.Psimp" Role="Psimp" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="ID" />
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Psimp">
-              <PropertyRef Name="CreateUserID" />
+              <PropertyRef Name="CreateUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PsimpAccount">
+        <Association Name="UpdateUserId">
+          <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="0..1" />
           <End Type="PSIMPDB.Psimp" Role="Psimp" Multiplicity="*" />
-          <End Type="PSIMPDB.Account" Role="Account" Multiplicity="1" />
           <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="ID" />
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Psimp">
-              <PropertyRef Name="UpdateUserID" />
+              <PropertyRef Name="UpdateUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -347,8 +345,8 @@
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
-          <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Person)">
@@ -391,12 +389,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AccountSet">
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Account)">
-        <MappingFragment StoreEntitySet="AccountSet">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+    <EntitySetMapping Name="UserProfile">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.UserProfile)">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
