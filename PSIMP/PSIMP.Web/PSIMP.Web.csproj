@@ -271,6 +271,7 @@
     <Content Include="Views\Query\QueryUI.cshtml" />
     <Content Include="Views\Query\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_ExtLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
