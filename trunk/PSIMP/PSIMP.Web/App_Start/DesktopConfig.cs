@@ -66,6 +66,8 @@ namespace System.Web
                 Value = Root.Element("TaskBar").Attribute("StartBtnText").Value,
                 Mode = ParameterMode.Value
             });
+            taskBar.Frame = true;
+            taskBar.UI = "nothing";
             taskBar.TrayWidth = 100;
             taskBar.Height = 30;
             taskBar.HideQuickStart = true;
