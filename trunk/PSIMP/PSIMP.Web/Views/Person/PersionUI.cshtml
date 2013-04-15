@@ -4,6 +4,18 @@
 @{
     Layout = null;
 }
+@(
+ Html.X().MenuPanel()
+    .SelectedIndex(0)
+    .Region(Region.West)
+    .Margins("0 5 0 0")
+    .Width(150)
+    .Menu(menu => {
+        menu.Items.Add(Html.X().MenuItem().Text("人员列表").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+        menu.Items.Add(Html.X().MenuItem().Text("人员查询").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+        menu.Items.Add(Html.X().MenuItem().Text("人员统计").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+    })
+)   
 @(Html.X()
       .Panel()
       .ID("Person_View")
@@ -17,22 +29,6 @@
       .TopBar(
            Html.X().Toolbar().ItemsFromPartial("PersonUI_Toolbar")
       ) 
-      .DockedItems(
-            Html.X().FormPanel()
-                .BodyPadding(5)
-                .Border(false)
-                .BorderSpec("0 1")
-                .Layout(LayoutType.HBox)
-                .Items(
-                   Html.X()
-                       .TextField()
-                       .FieldLabel("姓名")
-                       .Width(150)
-                       .LabelAlign(LabelAlign.Right)
-                       .LabelWidth(35),
-                    Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
-                )
-       )
       .ItemsFromPartial("PersonUI_DataView")
       .BottomBar(Html.X()
                      .PagingToolbar()
