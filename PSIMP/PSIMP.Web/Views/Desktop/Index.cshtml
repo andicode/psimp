@@ -2,17 +2,19 @@
 @using Ext.Net.MVC
 @model IEnumerable<DesktopItem>
 @(Html.X().Desktop(DesktopFrame.Config.Desktop())
-.Control(desktop=>{
-        desktop.StartMenu.Frame = true;
-        desktop.StartMenu.ToolConfig.Add(Html.X().Toolbar().ItemsFromPartial("StartMenuToolBar"));
-        desktop.StartMenu.Buttons.Add(Html.X().Button().Icon(Icon.Lock).Text("锁定"));
-        desktop.StartMenu.Buttons.Add(
-            Html.X().Button().Icon(Icon.Key).Text("退出")
-                .DirectEvents(events => {
-                    events.Click.Before = "return confirm('您确定要退出系统吗？')";
-                    events.Click.Url = Url.Action("LogOff", "Account");
-                }));
-    }
+.Control(desktop =>
+{
+    desktop.StartMenu.Frame = true;
+    desktop.StartMenu.ToolConfig.Add(Html.X().Toolbar().ItemsFromPartial("StartMenuToolBar"));
+    desktop.StartMenu.Buttons.Add(Html.X().Button().Icon(Icon.Lock).Text("锁定"));
+    desktop.StartMenu.Buttons.Add(
+        Html.X().Button().Icon(Icon.Key).Text("退出")
+            .DirectEvents(events =>
+            {
+                events.Click.Before = "return confirm('您确定要退出系统吗？')";
+                events.Click.Url = Url.Action("LogOff", "Account");
+            }));
+}
  )
 .DesktopConfig(Html.X().DesktopConfig()
     .ContextMenu(menu =>
@@ -56,3 +58,14 @@
     }
 })
 )
+<div style="position: fixed; min-width: 300px;top:10px; right:10px">
+@(
+ Html.X().Panel()
+        .Title("test")
+        .Frame(true)
+        .Width(300)
+        .MinHeight(200)
+        .Collapsible(true)
+)
+
+</div>
