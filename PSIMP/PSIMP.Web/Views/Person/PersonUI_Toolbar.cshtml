@@ -1,6 +1,15 @@
 ﻿@using Ext.Net.MVC
 @using Ext.Net
 @(Html.X()
+   .TextField()
+   .FieldLabel("姓名")
+   .Width(150)
+   .LabelAlign(LabelAlign.Right)
+   .LabelWidth(35)
+)
+@Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+@Html.X().ToolbarFill()
+@(Html.X()
       .Button()
       .Text("新增人员")
       .Icon(Icon.Add)
@@ -8,7 +17,6 @@
           events.Click.Fn = "person.create";
       })
 )
-@Html.X().ToolbarFill()
 @Html.X().ToolbarSeparator()
 @(Html.X().Button().Icon(Icon.Table).ToolTip("列表视图").ToggleGroup("person-view").Pressed(true).Handler("App.Person_View.getLayout().setActiveItem(1)"))
 @(Html.X().Button().Icon(Icon.Mail).ToolTip("名片视图").ToggleGroup("person-view").Handler("App.Person_View.getLayout().setActiveItem(0)"))

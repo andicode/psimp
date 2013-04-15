@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 04/09/2013 11:48:01
--- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 04/15/2013 18:13:26
+-- Generated from EDMX file: G:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 
@@ -15,6 +15,10 @@
     ALTER TABLE [PsimpSet_Education] DROP CONSTRAINT [FK_PersonEducation];
 GO
     ALTER TABLE [PsimpSet_Train] DROP CONSTRAINT [FK_PersonTrain];
+GO
+    ALTER TABLE [PsimpSet] DROP CONSTRAINT [FK_UserProfilePsimp];
+GO
+    ALTER TABLE [PsimpSet] DROP CONSTRAINT [FK_UpdateUserId];
 GO
     ALTER TABLE [PsimpSet_Person] DROP CONSTRAINT [FK_Person_inherits_Psimp];
 GO
