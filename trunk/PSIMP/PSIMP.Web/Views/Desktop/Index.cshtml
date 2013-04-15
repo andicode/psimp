@@ -61,10 +61,21 @@
 <div style="position: fixed; min-width: 300px;top:10px; right:10px">
 @(
  Html.X().Panel()
-        .Title("test")
+        .Title(" 待办事宜")
         .Frame(true)
         .Width(300)
-        .MinHeight(200)
+        .MinHeight(250)
+        .Collapsible(false)
+)
+
+</div>
+<div style="position: fixed; min-width: 300px;bottom:45px; right:10px">
+@(
+ Html.X().Panel()
+        .Title(" 提示信息")
+        .Frame(true)
+        .Width(300)
+        .MinHeight(250)
         .Collapsible(true)
 )
 
