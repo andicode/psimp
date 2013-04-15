@@ -3,15 +3,56 @@
 @{
     Layout = null;
 }
-@(Html.X()
-      .Panel()
-      .ID("GanttView")
-      .Region(Region.Center)
-      .Layout(LayoutType.Fit)
-      .Listeners(events =>
-      {
-          events.Render.Handler = @"var myChart = new FusionCharts('" + Url.Content("~/Flash/Gantt.swf") + @"', 'myChartId', '100%', '100%', '0', '0');
-	                                myChart.setDataURL('" + Url.Action("GanttData") + @"');
-	                                myChart.render('GanttView-body');";
-      })
+@(
+ Html.X().MenuPanel()
+    .SelectedIndex(0)
+    .Region(Region.West)
+    .Margins("0 5 0 0")
+    .Width(150)
+    .Menu(menu => {
+        menu.Items.Add(Html.X().MenuItem().Text("履约人员").Listeners(events => events.Click.Handler = "App.Performance_View.getLayout().setActiveItem(0)"));
+        menu.Items.Add(Html.X().MenuItem().Text("履约异常").Disabled(true).Listeners(events => events.Click.Handler = "App.Performance_View.getLayout().setActiveItem(0)"));
+        menu.Items.Add(Html.X().MenuItem().Text("履约查询").Disabled(true).Listeners(events => events.Click.Handler = "App.Performance_View.getLayout().setActiveItem(0)"));
+    })
+)   
+@(
+Html.X().Container()
+    .Region(Region.Center)
+    .ID("Performance_View")
+    .Layout(LayoutType.Card)
+    .Items(
+        Html.X()
+          .GridPanel()
+          .Title("履约人员")
+          .TopBar(
+               Html.X().Toolbar().Items(           
+                    Html.X()
+                       .TextField()
+                       .FieldLabel("姓名")
+                       .Width(150)
+                       .LabelAlign(LabelAlign.Right)
+                       .LabelWidth(35)
+                    ,
+                    Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10"),
+                    Html.X().ToolbarFill(),
+                    Html.X()
+                          .Button()
+                          .Text("新增")
+                          .Icon(Icon.Add)
+               )
+          )
+          .ColumnModel(
+               Html.X().Column().Text("照片"),
+               Html.X().Column().Text("姓名"),
+               Html.X().Column().Text("岗位"),
+               Html.X().Column().Text("所在项目"),
+               Html.X().Column().Text("是否注册"),
+               Html.X().Column().Text("是否符合要求"),
+               Html.X().Column().Text("进场日期"),
+               Html.X().Column().Text("进场手续"),
+               Html.X().Column().Text("退场手续"),
+               Html.X().Column().Text("项目在岗情况"),
+               Html.X().Column().Text("操作")
+          )
+    )
 )
