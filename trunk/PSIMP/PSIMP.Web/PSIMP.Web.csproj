@@ -194,6 +194,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Flash\Gantt.swf" />
     <Content Include="Global.asax" />
+    <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
     <None Include="Properties\PublishProfiles\PSIMP.pubxml" />
     <Content Include="Images\loading.gif" />
@@ -207,6 +208,7 @@
     <Content Include="Images\ModuleIcon\Project.png" />
     <Content Include="Images\ModuleIcon\Tender.png" />
     <Content Include="Images\Person\default.jpg" />
+    <Content Include="Images\reset.jpg" />
     <Content Include="Images\row-over.gif" />
     <Content Include="Images\selected.gif" />
     <Content Include="Images\Userpicture\default.png" />
