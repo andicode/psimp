@@ -23,7 +23,6 @@ namespace PSIMP.Web.Controllers
             PersonService = new DBContext<Person>();
             EducationService = new DBContext<Education>();
             TrainService = new DBContext<Train>();
-
             base.Initialize(requestContext);
         }
         //
