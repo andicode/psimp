@@ -92,17 +92,17 @@ namespace PSIMP.Repository
             return db.Set<T>().Find(id);
         }
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            return db.Set<T>().Where(m => true);
+            return db.Set<T>().AsParallel().Where(m => true);
         }
-        public IQueryable<T> Where(Expression<Func<T,bool>> expr)
+        public IEnumerable<T> Where(Func<T, bool> expr)
         {
-            return db.Set<T>().Where(expr);
+            return db.Set<T>().AsParallel().Where(expr);
         }
-        public IQueryable<T> GetPagesData(int start, int limit)
+        public IEnumerable<T> GetPagesData(int start, int limit)
         {
-            return db.Set<T>().OrderByDescending(m => m.CreateTime).Skip(start).Take(limit);
+            return db.Set<T>().AsParallel().OrderByDescending(m => m.CreateTime).Skip(start).Take(limit);
         }
 
         public int Count(Expression<Func<T, bool>> expr = null)
