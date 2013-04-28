@@ -4,303 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PSIMPDB.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="PSIMPDBStoreContainer">
-    <EntitySet Name="PsimpSet" EntityType="PSIMPDB.Store.PsimpSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserProfile" EntityType="PSIMPDB.Store.UserProfile" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PsimpSet_Person" EntityType="PSIMPDB.Store.PsimpSet_Person" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PsimpSet_Education" EntityType="PSIMPDB.Store.PsimpSet_Education" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PsimpSet_Train" EntityType="PSIMPDB.Store.PsimpSet_Train" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="PersonEducation" Association="PSIMPDB.Store.PersonEducation">
-      <End Role="Person" EntitySet="PsimpSet_Person" />
-      <End Role="Education" EntitySet="PsimpSet_Education" />
-    </AssociationSet>
-    <AssociationSet Name="PersonTrain" Association="PSIMPDB.Store.PersonTrain">
-      <End Role="Person" EntitySet="PsimpSet_Person" />
-      <End Role="Train" EntitySet="PsimpSet_Train" />
-    </AssociationSet>
-    <AssociationSet Name="UserProfilePsimp" Association="PSIMPDB.Store.UserProfilePsimp">
-      <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="Psimp" EntitySet="PsimpSet" />
-    </AssociationSet>
-    <AssociationSet Name="UpdateUserId" Association="PSIMPDB.Store.UpdateUserId">
-      <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="Psimp" EntitySet="PsimpSet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Person_inherits_Psimp" Association="PSIMPDB.Store.FK_Person_inherits_Psimp">
-      <End Role="Psimp" EntitySet="PsimpSet" />
-      <End Role="Person" EntitySet="PsimpSet_Person" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Education_inherits_Psimp" Association="PSIMPDB.Store.FK_Education_inherits_Psimp">
-      <End Role="Psimp" EntitySet="PsimpSet" />
-      <End Role="Education" EntitySet="PsimpSet_Education" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Train_inherits_Psimp" Association="PSIMPDB.Store.FK_Train_inherits_Psimp">
-      <End Role="Psimp" EntitySet="PsimpSet" />
-      <End Role="Train" EntitySet="PsimpSet_Train" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="PsimpSet">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CreateTime" Type="datetime" Nullable="true" />
-    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
-    <Property Name="IsDelete" Type="bit" Nullable="false" />
-    <Property Name="CreateUserId" Type="int" Nullable="true" />
-    <Property Name="UpdateUserId" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="UserProfile">
-    <Key>
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PsimpSet_Person">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Name" Type="nvarchar" Nullable="false" />
-    <Property Name="Sex" Type="nvarchar" Nullable="false" />
-    <Property Name="Height" Type="int" Nullable="true" />
-    <Property Name="Census" Type="nvarchar" Nullable="false" />
-    <Property Name="IDCard" Type="nvarchar" Nullable="false" />
-    <Property Name="Age" Type="int" Nullable="true" />
-    <Property Name="Telephone" Type="nvarchar" Nullable="true" />
-    <Property Name="Email" Type="nvarchar" Nullable="true" />
-    <Property Name="Picture" Type="nvarchar" Nullable="true" />
-    <Property Name="Id" Type="bigint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PsimpSet_Education">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="PersonId" Type="bigint" Nullable="false" />
-    <Property Name="SchoolName" Type="nvarchar" Nullable="false" />
-    <Property Name="BeginDate" Type="datetime" Nullable="false" />
-    <Property Name="EndDate" Type="datetime" Nullable="true" />
-    <Property Name="Discipline" Type="nvarchar" Nullable="true" />
-    <Property Name="Degree" Type="nvarchar" Nullable="true" />
-    <Property Name="Remark" Type="nvarchar" Nullable="true" />
-    <Property Name="Id" Type="bigint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PsimpSet_Train">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Agency" Type="nvarchar" Nullable="false" />
-    <Property Name="DateTime" Type="datetime" Nullable="false" />
-    <Property Name="Location" Type="nvarchar" Nullable="true" />
-    <Property Name="Curriculum" Type="nvarchar" Nullable="true" />
-    <Property Name="Certificate" Type="nvarchar" Nullable="true" />
-    <Property Name="Details" Type="nvarchar" Nullable="true" />
-    <Property Name="CertDetails" Type="nvarchar" Nullable="true" />
-    <Property Name="PersonId" Type="bigint" Nullable="false" />
-    <Property Name="Id" Type="bigint" Nullable="false" />
-  </EntityType>
-  <Association Name="PersonEducation">
-    <End Role="Person" Type="PSIMPDB.Store.PsimpSet_Person" Multiplicity="1" />
-    <End Role="Education" Type="PSIMPDB.Store.PsimpSet_Education" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Education">
-        <PropertyRef Name="PersonId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PersonTrain">
-    <End Role="Person" Type="PSIMPDB.Store.PsimpSet_Person" Multiplicity="1" />
-    <End Role="Train" Type="PSIMPDB.Store.PsimpSet_Train" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Train">
-        <PropertyRef Name="PersonId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserProfilePsimp">
-    <End Role="UserProfile" Type="PSIMPDB.Store.UserProfile" Multiplicity="0..1" />
-    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserProfile">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="Psimp">
-        <PropertyRef Name="CreateUserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UpdateUserId">
-    <End Role="UserProfile" Type="PSIMPDB.Store.UserProfile" Multiplicity="0..1" />
-    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserProfile">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="Psimp">
-        <PropertyRef Name="UpdateUserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Person_inherits_Psimp">
-    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Person" Type="PSIMPDB.Store.PsimpSet_Person" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Psimp">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Person">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Education_inherits_Psimp">
-    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Education" Type="PSIMPDB.Store.PsimpSet_Education" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Psimp">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Education">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Train_inherits_Psimp">
-    <End Role="Psimp" Type="PSIMPDB.Store.PsimpSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Train" Type="PSIMPDB.Store.PsimpSet_Train" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Psimp">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Train">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="PSIMPDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PSIMPDBStoreContainer" />
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PSIMPDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
         <EntityContainer Name="PSIMPDBContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="PsimpSet" EntityType="PSIMPDB.Psimp" cg:GetterAccess="Internal" />
-          <AssociationSet Name="PersonEducation" Association="PSIMPDB.PersonEducation">
-            <End Role="Person" EntitySet="PsimpSet" />
-            <End Role="Education" EntitySet="PsimpSet" />
-          </AssociationSet>
-          <AssociationSet Name="PersonTrain" Association="PSIMPDB.PersonTrain">
-            <End Role="Person" EntitySet="PsimpSet" />
-            <End Role="Train" EntitySet="PsimpSet" />
-          </AssociationSet>
           <EntitySet Name="UserProfile" EntityType="PSIMPDB.UserProfile" />
-          <AssociationSet Name="UserProfilePsimp" Association="PSIMPDB.UserProfilePsimp">
-            <End Role="UserProfile" EntitySet="UserProfile" />
-            <End Role="Psimp" EntitySet="PsimpSet" />
-          </AssociationSet>
-          <AssociationSet Name="UpdateUserId" Association="PSIMPDB.UpdateUserId">
-            <End Role="UserProfile" EntitySet="UserProfile" />
-            <End Role="Psimp" EntitySet="PsimpSet" />
-          </AssociationSet>
+          <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.PM_PersonEducationalBackground" />
+          <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" />
+          <EntitySet Name="PM_PersonCertficateInfo" EntityType="PSIMPDB.PM_PersonCertficateInfo" />
+          <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" />
+          <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.PM_PersonBaseInfo" />
+          <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.PM_PersonTrainingExperience" />
           </EntityContainer>
-        <EntityType Name="Person" BaseType="PSIMPDB.Psimp">
-          <Property Type="String" Name="Name" Nullable="false" />
-          <Property Type="String" Name="Sex" Nullable="false" />
-          <Property Type="Int32" Name="Height" Nullable="true" />
-          <Property Type="String" Name="Census" Nullable="false" />
-          <Property Type="String" Name="IDCard" Nullable="false" />
-          <Property Type="Int32" Name="Age" Nullable="true" />
-          <Property Type="String" Name="Telephone" Nullable="true" />
-          <Property Type="String" Name="Email" Nullable="true" />
-          <Property Type="String" Name="Picture" Nullable="true" />
-          <NavigationProperty Name="Education" Relationship="PSIMPDB.PersonEducation" FromRole="Person" ToRole="Education" />
-          <NavigationProperty Name="Train" Relationship="PSIMPDB.PersonTrain" FromRole="Person" ToRole="Train" />
-        </EntityType>
-        <EntityType Name="Psimp" Abstract="true" cg:TypeAccess="Public" >
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="CreateTime" Nullable="true" cg:SetterAccess="Public" />
-          <Property Type="DateTime" Name="UpdateTime" cg:SetterAccess="Public" Nullable="true" />
-          <Property Type="Boolean" Name="IsDelete" Nullable="false" />
-          <NavigationProperty Name="CreateUser" Relationship="PSIMPDB.UserProfilePsimp" FromRole="Psimp" ToRole="UserProfile" />
-          <Property Type="Int32" Name="CreateUserId" Nullable="true" />
-          <NavigationProperty Name="UpdateUser" Relationship="PSIMPDB.UpdateUserId" FromRole="Psimp" ToRole="UserProfile" />
-          <Property Type="Int32" Name="UpdateUserId" Nullable="true" />
-        </EntityType>
-        <EntityType Name="Education" BaseType="PSIMPDB.Psimp" >
-          <NavigationProperty Name="Person" Relationship="PSIMPDB.PersonEducation" FromRole="Education" ToRole="Person" />
-          <Property Type="Int64" Name="PersonId" Nullable="false" />
-          <Property Type="String" Name="SchoolName" Nullable="false" >
-            <Documentation>
-              <Summary>学校名</Summary>
-            </Documentation>
-          </Property>
-          <Property Type="DateTime" Name="BeginDate" Nullable="false" />
-          <Property Type="DateTime" Name="EndDate" Nullable="true" />
-          <Property Type="String" Name="Discipline" Nullable="true" >
-            <Documentation>
-              <Summary>专业</Summary>
-            </Documentation>
-          </Property>
-          <Property Type="String" Name="Degree" Nullable="true" >
-            <Documentation>
-              <Summary>学位</Summary>
-            </Documentation>
-          </Property>
-          <Property Type="String" Name="Remark" Nullable="true" />
-        </EntityType>
-        <Association Name="PersonEducation">
-          <End Type="PSIMPDB.Person" Role="Person" Multiplicity="1" />
-          <End Type="PSIMPDB.Education" Role="Education" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Education">
-              <PropertyRef Name="PersonId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Train" BaseType="PSIMPDB.Psimp" >
-          <Property Type="String" Name="Agency" Nullable="false" >
-            <Documentation>
-              <Summary>培训机构</Summary>
-            </Documentation>
-          </Property>
-          <Property Type="DateTime" Name="DateTime" Nullable="false" />
-          <Property Type="String" Name="Location" Nullable="true" />
-          <Property Type="String" Name="Curriculum" Nullable="true" />
-          <Property Type="String" Name="Certificate" Nullable="true" />
-          <Property Type="String" Name="Details" Nullable="true" />
-          <Property Type="String" Name="CertDetails" Nullable="true" />
-          <NavigationProperty Name="Person" Relationship="PSIMPDB.PersonTrain" FromRole="Train" ToRole="Person" />
-          <Property Type="Int64" Name="PersonId" Nullable="false" />
-        </EntityType>
-        <Association Name="PersonTrain">
-          <End Type="PSIMPDB.Person" Role="Person" Multiplicity="1" />
-          <End Type="PSIMPDB.Train" Role="Train" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Train">
-              <PropertyRef Name="PersonId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="UserProfile">
           <Key>
             <PropertyRef Name="UserId" />
@@ -308,96 +26,276 @@
           <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="UserName" Nullable="false" />
         </EntityType>
-        <Association Name="UserProfilePsimp">
-          <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="0..1" />
-          <End Type="PSIMPDB.Psimp" Role="Psimp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserProfile">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Psimp">
-              <PropertyRef Name="CreateUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="UpdateUserId">
-          <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="0..1" />
-          <End Type="PSIMPDB.Psimp" Role="Psimp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserProfile">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Psimp">
-              <PropertyRef Name="UpdateUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="PM_PersonBaseInfo">
+          <Documentation>
+            <Summary>人员管理之人员基本信息</Summary>
+          </Documentation>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PersonName" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>姓名</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="Boolean" Name="Sex" Nullable="false" DefaultValue="true" >
+            <Documentation>
+              <Summary>性别</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="Birthday" Nullable="false" >
+            <Documentation>
+              <Summary>出生日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="IDNumber" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>身份证号</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="RegisterAddress" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>户籍地址</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>联系号码</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="AlternateNumber" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>备用电话</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="SByte" Name="TwoInchPhoto" Nullable="false" >
+            <Documentation>
+              <Summary>2寸相片</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="PM_PersonEducationalBackground">
+          <Documentation>
+            <Summary>教育背景</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>学校名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="EduStartDate" Nullable="false" >
+            <Documentation>
+              <Summary>教育开始时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="EduEndDate" Nullable="false" >
+            <Documentation>
+              <Summary>教育结束时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="SpecialtyName" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>专业名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Degree" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>学历/学位</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="PM_PersonPositionalTitlesInfo">
+          <Documentation>
+            <Summary>人员称职信息</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PositionalName" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>职称名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="PositionalType" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>职称类别</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="AssessmentDate" Nullable="false" >
+            <Documentation>
+              <Summary>评定时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="AssessmentBody" Nullable="false" MaxLength="30" >
+            <Documentation>
+              <Summary>评定机构或授予单位</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="80" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="PM_PersonCertficateInfo">
+          <Documentation>
+            <Summary>人员证件信息</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CertficateName" Nullable="false" MaxLength="30" >
+            <Documentation>
+              <Summary>证书名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="CertficateType" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>证书类型</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="CertficateNumber" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>证书编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="GotDate" Nullable="false" >
+            <Documentation>
+              <Summary>获得时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Authority" Nullable="false" MaxLength="30" >
+            <Documentation>
+              <Summary>颁发机构</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="PM_PersonWorkExperienceInfo">
+          <Documentation>
+            <Summary>工作经历</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="WorkStartDate" Nullable="false" >
+            <Documentation>
+              <Summary>工作时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="WorkEndDate" Nullable="false" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="30" >
+            <Documentation>
+              <Summary>单位名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Character" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>单位性质</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="SectorClass" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>行业类别</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="AtProject" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>所在部门</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="PositionName" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>职位名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="Decimal" Name="Salary" Nullable="false" >
+            <Documentation>
+              <Summary>薪资待遇</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="Boolean" Name="ContractStatus" Nullable="false" >
+            <Documentation>
+              <Summary>合同状态(解除|未解除)</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="WorkContent" Nullable="false" MaxLength="200" >
+            <Documentation>
+              <Summary>工作描述</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="RefereesName" Nullable="false" MaxLength="10" >
+            <Documentation>
+              <Summary>证明人姓名</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="RefereesPhoneNumber" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>证明人电话</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="PM_PersonTrainingExperience">
+          <Documentation>
+            <Summary>培训经历</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="InstitutionsName" Nullable="false" MaxLength="30" >
+            <Documentation>
+              <Summary>培训机构</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="TrainingStartDate" Nullable="false" >
+            <Documentation>
+              <Summary>培训开始日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="TrainingEndDate" Nullable="false" >
+            <Documentation>
+              <Summary>培训结束时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="TrainingAddress" Nullable="false" MaxLength="50" >
+            <Documentation>
+              <Summary>培训地点</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="TrainingContent" Nullable="false" MaxLength="200" >
+            <Documentation>
+              <Summary>培训课程</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="GotCertificate" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>获得证书</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" >
+            <Documentation>
+              <Summary>详细描述</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PSIMPDBStoreContainer" CdmEntityContainer="PSIMPDBContainer">
-    <EntitySetMapping Name="PsimpSet">
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Psimp)">
-        <MappingFragment StoreEntitySet="PsimpSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
-          <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Person)">
-        <MappingFragment StoreEntitySet="PsimpSet_Person">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="Height" ColumnName="Height" />
-          <ScalarProperty Name="Census" ColumnName="Census" />
-          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
-          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Education)">
-        <MappingFragment StoreEntitySet="PsimpSet_Education">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
-          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
-          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="Discipline" ColumnName="Discipline" />
-          <ScalarProperty Name="Degree" ColumnName="Degree" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.Train)">
-        <MappingFragment StoreEntitySet="PsimpSet_Train">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Agency" ColumnName="Agency" />
-          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Curriculum" ColumnName="Curriculum" />
-          <ScalarProperty Name="Certificate" ColumnName="Certificate" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="CertDetails" ColumnName="CertDetails" />
-          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserProfile">
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.UserProfile)">
-        <MappingFragment StoreEntitySet="UserProfile">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
+          </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
@@ -412,44 +310,19 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="PSIMPDB">
-        <EntityTypeShape EntityType="PSIMPDB.Person" Width="1.5" PointX="3.75" PointY="5.625" Height="3.1161507161458335" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSIMPDB.Psimp" Width="1.5" PointX="3.75" PointY="2.75" Height="2.1610522460937496" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSIMPDB.Education" Width="1.5" PointX="3.75" PointY="9.5" Height="2.5430916341145817" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSIMPDB.Train" Width="1.5" PointX="0.75" PointY="9.5" Height="2.7341113281249996" IsExpanded="true" />
-        <InheritanceConnector EntityType="PSIMPDB.Person" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.91105224609375" />
-          <ConnectorPoint PointX="4.5" PointY="5.625" />
-        </InheritanceConnector>
-        <InheritanceConnector EntityType="PSIMPDB.Education" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.91105224609375" />
-          <ConnectorPoint PointX="4.5" PointY="5.375" />
-          <ConnectorPoint PointX="3.5" PointY="5.375" />
-          <ConnectorPoint PointX="3.5" PointY="9.125" />
-          <ConnectorPoint PointX="4.5" PointY="9.125" />
-          <ConnectorPoint PointX="4.5" PointY="9.5" />
-        </InheritanceConnector>
-        <InheritanceConnector EntityType="PSIMPDB.Train" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.91105224609375" />
-          <ConnectorPoint PointX="4.5" PointY="5.28605224609375" />
-          <ConnectorPoint PointX="1.5" PointY="5.28605224609375" />
-          <ConnectorPoint PointX="1.5" PointY="9.5" />
-        </InheritanceConnector>
-        <AssociationConnector Association="PSIMPDB.PersonEducation" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.9375" PointY="8.7411507161458335" />
-          <ConnectorPoint PointX="4.9375" PointY="9.5" />
-        </AssociationConnector>
-        <AssociationConnector Association="PSIMPDB.PersonTrain" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="7.1830753580729167" />
-          <ConnectorPoint PointX="3.5833333333333335" PointY="7.1830753580729159" />
-          <ConnectorPoint PointX="3.4166666666666665" PointY="7.1830753580729167" />
-          <ConnectorPoint PointX="1.9062525" PointY="7.1830753580729167" />
-          <ConnectorPoint PointX="1.9062525" PointY="9.5" />
-        </AssociationConnector>
+        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="1" PointY="1" Height="1.3658455403645817" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.875" PointX="4.5" PointY="0.5" Height="2.659404296875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="2.625" PointX="3.25" PointY="3.75" Height="2.2898160807291665" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="2.5" PointX="6.5" PointY="3.75" Height="2.1050219726562496" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="2.375" PointX="9.25" PointY="2.5" Height="2.2898160807291665" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.5" PointX="11.75" PointY="2.5" Height="3.3985807291666656" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="2.5" PointX="0.5" PointY="3.75" Height="2.4746101888020826" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

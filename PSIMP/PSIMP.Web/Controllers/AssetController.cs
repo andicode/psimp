@@ -10,7 +10,7 @@ namespace PSIMP.Web.Controllers
     {
         //
         // GET: /Asset/
-
+        
         public ActionResult Index()
         {
             return View();
