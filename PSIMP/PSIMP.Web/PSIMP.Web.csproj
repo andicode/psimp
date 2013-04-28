@@ -215,9 +215,6 @@
     <None Include="Lib\ICSharpCode.SharpZipLib.dll" />
     <None Include="Lib\Newtonsoft.Json.dll" />
     <None Include="Lib\Wilco.SyntaxHighlighter.dll" />
-    <Content Include="Lib\Ext.Net.dll" />
-    <Content Include="Lib\Ext.Net.Utilities.dll" />
-    <Content Include="Lib\Transformer.NET.dll" />
     <Content Include="Scripts\business.js" />
     <Content Include="Scripts\FusionCharts.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
