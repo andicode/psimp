@@ -30,6 +30,9 @@
           <Documentation>
             <Summary>人员管理之人员基本信息</Summary>
           </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="PersonName" Nullable="false" MaxLength="20" >
             <Documentation>
@@ -317,11 +320,11 @@
     <edmx:Diagrams>
       <Diagram Name="PSIMPDB">
         <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="1" PointY="1" Height="1.3658455403645817" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.875" PointX="4.5" PointY="0.5" Height="2.659404296875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.875" PointX="4.25" PointY="0.5" Height="2.659404296875" IsExpanded="true" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="2.625" PointX="3.25" PointY="3.75" Height="2.2898160807291665" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="2.5" PointX="6.5" PointY="3.75" Height="2.1050219726562496" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="2.375" PointX="9.25" PointY="2.5" Height="2.2898160807291665" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.5" PointX="11.75" PointY="2.5" Height="3.3985807291666656" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="2.375" PointX="9.25" PointY="3.75" Height="2.2898160807291665" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.5" PointX="11.875" PointY="3.75" Height="3.3985807291666656" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="2.5" PointX="0.5" PointY="3.75" Height="2.4746101888020826" />
       </Diagram>
     </edmx:Diagrams>
