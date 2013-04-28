@@ -41,7 +41,7 @@ namespace PSIMP.Web.Controllers
         {
             return this.PartialExtView();
         }
-
+        
         public ActionResult Delete(long id,string picture)
         {
             DeletePicture(picture);
