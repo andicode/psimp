@@ -212,7 +212,6 @@
     <Content Include="Images\row-over.gif" />
     <Content Include="Images\selected.gif" />
     <Content Include="Images\Userpicture\default.png" />
-    <None Include="Lib\Ext.Net.dll" />
     <None Include="Lib\Ext.Net.Utilities.dll" />
     <None Include="Lib\ICSharpCode.SharpZipLib.dll" />
     <None Include="Lib\Newtonsoft.Json.dll" />
