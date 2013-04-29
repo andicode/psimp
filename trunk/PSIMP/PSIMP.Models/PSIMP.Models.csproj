@@ -87,10 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountModels.cs" />
-    <Compile Include="Partials\Education.cs" />
-    <Compile Include="Partials\Person.cs" />
-    <Compile Include="Partials\Psimp.cs" />
-    <Compile Include="Partials\Train.cs" />
+    <Compile Include="Partials\PM_PersonBaseInfo.cs" />
     <Compile Include="PM_PersonBaseInfo.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>

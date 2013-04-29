@@ -1,61 +1,22 @@
 ﻿@using Ext.Net.MVC
 @using Ext.Net
-@model PSIMP.Models.Person
+@model IEnumerable< PSIMP.Models.PM_PersonBaseInfo>
 
+@(Html.X().GridPanelFor(Model)
+          .Control(grid =>
+          {
+              grid.ColumnModel.Columns.Insert(0,
+                  Html.X().ComponentColumn().Text("操作").Width(124).Align(Alignment.Center)
+                  .Component(
+                        Html.X().Container().Layout(LayoutType.HBox)
+                            .Items(
+                                Html.X().Button().Text("编辑").Icon(Icon.PageEdit).Handler("person.edit(this.up('container').record.data.Id)"),
 
-@*@(Html.X().DataView()
-      .ID("PersonView")
-      .AutoScroll(true)
-      .Border(false)
-      .Store(Html.X().StoreFor<PSIMP.Models.Person>().ID("Person_Store"))
-      .OverItemCls("x-item-over")
-      .ItemSelector("div.user-card")
-      .TrackOver(true)
-      .Tpl(
-           Html.X().XTemplate()
-               .Html(
-                   @<text>
-                       <tpl for=".">
-                            <div class="user-card">
-                                  <div class="img" style="height: 100px; width: 75px;">
-                                    <img style="width:75px;height:100px" src="@Url.Content("~/images/person")/{Picture}" alt="{Name}">
-                                  </div>
-                                  <div class="img-txt">
-                                        <h4>{Name}</h4>
-                                        <p class="ellipsis">{[values.Sex==0?'男':'女']} {Age}岁</p>    
-                                        <p class="ellipsis">电话:{Telephone}</p>
-                                        <p class="ellipsis" style="word-break:normal;white-space:nowrap;text-overflow:ellipsis; ">邮箱:<a href="mailto:{Email}">{Email}</a></p>
-                                        <div class="actions">
-                                            <a onclick="person.edit({Id})" class="btn-edit">
-                                                <s class="icon sp-mk-edit"></s>
-                                                <span class="txt">编辑</span>
-                                               
-                                            </a>
-                                            <a onclick="person.del({Id})"  class="btn-delete">
-                                                <s class="icon sp-mk-del"></s>
-                                                <span class="txt">删除</span>
-                                            </a> 
-                                        </div>
-                                  </div>
-                             </div>
-		                </tpl>
-                       <div class="x-clear"></div>
-                   </text>
-               )
-      )
+                                Html.X().Button().Text("删除").Icon(Icon.PageEdit).Handler("person.del(this.up('container').record.data.Id)")
+                            )
+                  )
+              );
+          })
+          .EmptyText("没有人员记录")
+          .BottomBar(Html.X().PagingToolbar())
 )
-@(Html.X()
-      .GridPanelFor<PSIMP.Models.Person>().Control(grid => {
-          grid.ForceFit = true;
-          grid.Border = false;
-          grid.StoreID = "Person_Store";
-          grid.Store.Clear();
-          grid.ColumnModel.Columns.Add(
-              Html.X().ActionColumn().Align(Alignment.Center).Items(
-                    Html.X().ActionItem().Icon(Icon.PageEdit).Handler("function(grid, rowIndex, colIndex, actionItem, event, record){person.edit(record.data.Id)}"),
-                    Html.X().ActionItem(),
-                    Html.X().ActionItem().Icon(Icon.PageDelete).Handler("function(grid, rowIndex, colIndex, actionItem, event, record){person.del(record.data.Id)}")
-              )
-          );
-      })
-)*@

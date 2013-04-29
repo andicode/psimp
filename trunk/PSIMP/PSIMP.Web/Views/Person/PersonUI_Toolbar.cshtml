@@ -17,6 +17,3 @@
           events.Click.Fn = "person.create";
       })
 )
-@Html.X().ToolbarSeparator()
-@(Html.X().Button().Icon(Icon.Table).ToolTip("列表视图").ToggleGroup("person-view").Pressed(true).Handler("App.Person_View.getLayout().setActiveItem(1)"))
-@(Html.X().Button().Icon(Icon.Mail).ToolTip("名片视图").ToggleGroup("person-view").Handler("App.Person_View.getLayout().setActiveItem(0)"))

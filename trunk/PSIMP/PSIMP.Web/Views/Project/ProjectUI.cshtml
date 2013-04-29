@@ -7,7 +7,6 @@
       .Region(Region.Center)
       .Title("项目列表")
       .Header(true)
-      .ForceFit(true)
       .Store(
             Html.X().Store()
                 .Proxy(Html.X()
@@ -42,7 +41,7 @@
                                                     //this.menu.down('grid').getStore().reload({params:{Id:this.record.get('Id')}})
                                                    ";
                        })
-                       .Menu(Html.X().Menu().Layout( LayoutType.Card).ItemsFromPartial("_ContractInfo",false)));
+                       .Menu(Html.X().Menu().Frame(true).ItemsFromPartial("_ContractInfo",false)));
            })
            , Html.X().ComponentColumn().Text("施工单位").Component(items =>
            {
@@ -56,7 +55,7 @@
                                                 //this.menu.down('grid').getStore().reload({params:{Id:this.record.get('Id')}})
                                                 ";
                     })
-                    .Menu(Html.X().Menu().ItemsFromPartial("_ConstructionInfo",false)));
+                    .Menu(Html.X().Menu().Frame(true).ItemsFromPartial("_ConstructionInfo", false)));
            })
       )
       .DockedItems(

@@ -7,15 +7,27 @@
 @(Html.X()
     .Container()
     .Layout(LayoutType.Border)
-        .ItemsFromPartial("PersionUI")
-        //.Loader(Html.X().ComponentLoader()
-        //            .Url(Url.Action("PersionUI"))
-        //            .Mode(LoadMode.Component)
-        //            .Params(new { containerId = JRawValue.From("this.id") })
-        //            .LoadMask(mask =>
-        //            {
-        //                mask.ShowMask = true;
-        //                mask.Msg = "加载中...";
-        //            })
-        //)
+    .Items(        
+         Html.X().MenuPanel()
+            .SelectedIndex(0)
+            .Region(Region.West)
+            .Margins("0 5 0 0")
+            .Width(150)
+            .Menu(menu => {
+                menu.Items.Add(Html.X().MenuItem().Text("人员列表").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("人员查询").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("人员统计").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+            })
+        ,Html.X()
+              .Panel()
+              .ID("Person_View")
+              .Cls("person-view")
+              .Region(Region.Center)
+              .Layout(LayoutType.Fit)
+              .Padding(0)
+              .TopBar(
+                   Html.X().Toolbar().ItemsFromPartial("PersonUI_Toolbar")
+              ) 
+              .ItemsFromPartial("PersonUI_DataView")    
+        )
 )
