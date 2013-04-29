@@ -227,6 +227,8 @@
     <Content Include="Images\ModuleIcon\Performance.png" />
     <Content Include="Images\ModuleIcon\Person.png" />
     <Content Include="Images\ModuleIcon\Project.png" />
+    <Content Include="Images\ModuleIcon\query.gif" />
+    <Content Include="Images\ModuleIcon\query.png" />
     <Content Include="Images\ModuleIcon\Tender.png" />
     <Content Include="Images\Person\default.jpg" />
     <Content Include="Images\reset.jpg" />
