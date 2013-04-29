@@ -14,15 +14,19 @@
         <InheritanceConnector EntityType="PSIMPDB.Train" />
         <AssociationConnector Association="PSIMPDB.PersonTrain" />
         <InheritanceConnector EntityType="PSIMPDB.Person" />
-        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="4.5292289234941787" PointY="0.703358210117043" />
+        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="1.4198993366585189" PointY="0.54346263773511927" FillColor="255, 128, 0" />
         <AssociationConnector Association="PSIMPDB.UserProfilePsimp" />
         <AssociationConnector Association="PSIMPDB.UpdateUserId" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.5" PointX="1.4773707105850145" PointY="0.5" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="1.5" PointX="3.375" PointY="3.75" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="1.7244971328966092" PointX="1.2438936923725406" PointY="3.6544539914645457" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="1.5" PointX="5.375" PointY="3.75" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="1.5" PointX="5.3211206881048136" PointY="6.0495689453625783" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.8200431414320644" PointX="7.375" PointY="0.50754309647166185" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.5" PointX="0.78160917473084979" PointY="6.1932472902580145" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="1.5" PointX="3.375" PointY="3.75" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="1.75" PointX="0.83225575668698193" PointY="3.6968390825269148" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="1.5" PointX="5.375" PointY="3.75" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="1.5" PointX="5.3211206881048136" PointY="6.0495689453625783" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.875" PointX="7.7162356420028448" PointY="3.7417385990270398" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.webpages_Membership" Width="2.1465517427422354" PointX="5.465876579673" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.webpages_OAuthMembership" Width="1.5" PointX="7.9658765796729991" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.webpages_Roles" Width="1.5" PointX="3.5395114234531606" PointY="0.50897988531586447" FillColor="255, 128, 0" />
+        <AssociationConnector Association="PSIMPDB.webpages_UsersInRoles" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

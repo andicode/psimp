@@ -5,103 +5,179 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PSIMPDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="PSIMPDBStoreContainer">
-    <EntitySet Name="UserProfile" EntityType="PSIMPDB.Store.UserProfile" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.Store.PM_PersonEducationalBackground1" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.Store.PM_PersonPositionalTitlesInfo" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonCertficateInfo" EntityType="PSIMPDB.Store.PM_PersonCertficateInfo" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.Store.PM_PersonWorkExperienceInfo" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.Store.PM_PersonTrainingExperience" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="UserProfile">
-    <Key>
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PM_PersonEducationalBackground1">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="EduStartDate" Type="datetime" Nullable="false" />
-    <Property Name="EduEndDate" Type="datetime" Nullable="false" />
-    <Property Name="SpecialtyName" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="Degree" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
-  </EntityType>
-  <EntityType Name="PM_PersonPositionalTitlesInfo">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PositionalName" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="PositionalType" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="AssessmentDate" Type="datetime" Nullable="false" />
-    <Property Name="AssessmentBody" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="80" />
-  </EntityType>
-  <EntityType Name="PM_PersonCertficateInfo">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CertficateName" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="CertficateType" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="CertficateNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="GotDate" Type="datetime" Nullable="false" />
-    <Property Name="Authority" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="PM_PersonWorkExperienceInfo">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WorkStartDate" Type="datetime" Nullable="false" />
-    <Property Name="WorkEndDate" Type="datetime" Nullable="false" />
-    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="Character" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="SectorClass" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="AtProject" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="PositionName" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="Salary" Type="decimal" Nullable="false" />
-    <Property Name="ContractStatus" Type="bit" Nullable="false" />
-    <Property Name="WorkContent" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="RefereesName" Type="nvarchar" Nullable="false" MaxLength="10" />
-    <Property Name="RefereesPhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-  </EntityType>
-  <EntityType Name="PM_PersonBaseInfo">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="Sex" Type="bit" Nullable="false" DefaultValue="true" />
-    <Property Name="Birthday" Type="datetime" Nullable="false" />
-    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="RegisterAddress" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="ContactNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="AlternateNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="TwoInchPhoto" Type="varbinary(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PM_PersonTrainingExperience">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="InstitutionsName" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="TrainingStartDate" Type="datetime" Nullable="false" />
-    <Property Name="TrainingEndDate" Type="datetime" Nullable="false" />
-    <Property Name="TrainingAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="TrainingContent" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="GotCertificate" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="PSIMPDBStoreContainer">
+          <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PM_PersonCertficateInfo" EntityType="PSIMPDB.Store.PM_PersonCertficateInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.Store.PM_PersonEducationalBackground1" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.Store.PM_PersonPositionalTitlesInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.Store.PM_PersonTrainingExperience" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.Store.PM_PersonWorkExperienceInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="PSIMPDB.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="PSIMPDB.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="PSIMPDB.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Roles" EntityType="PSIMPDB.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="PSIMPDB.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_RoleId" Association="PSIMPDB.Store.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="PSIMPDB.Store.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PM_PersonBaseInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Sex" Type="bit" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="RegisterAddress" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="ContactNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="AlternateNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="TwoInchPhoto" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="PM_PersonCertficateInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CertficateName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="CertficateType" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="CertficateNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="GotDate" Type="datetime" Nullable="false" />
+          <Property Name="Authority" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="PM_PersonEducationalBackground1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="EduStartDate" Type="datetime" Nullable="false" />
+          <Property Name="EduEndDate" Type="datetime" Nullable="false" />
+          <Property Name="SpecialtyName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Degree" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="PM_PersonPositionalTitlesInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PositionalName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="PositionalType" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="AssessmentDate" Type="datetime" Nullable="false" />
+          <Property Name="AssessmentBody" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="PM_PersonTrainingExperience">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionsName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="TrainingStartDate" Type="datetime" Nullable="false" />
+          <Property Name="TrainingEndDate" Type="datetime" Nullable="false" />
+          <Property Name="TrainingAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TrainingContent" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="GotCertificate" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="PM_PersonWorkExperienceInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WorkStartDate" Type="datetime" Nullable="false" />
+          <Property Name="WorkEndDate" Type="datetime" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Character" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="SectorClass" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="AtProject" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="PositionName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Salary" Type="decimal" Nullable="false" />
+          <Property Name="ContractStatus" Type="bit" Nullable="false" />
+          <Property Name="WorkContent" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="RefereesName" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="RefereesPhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="PSIMPDB.Store.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="PSIMPDB.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="PSIMPDB.Store.UserProfile" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="PSIMPDB.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PSIMPDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
@@ -113,13 +189,21 @@
           <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" />
           <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.PM_PersonBaseInfo" />
           <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.PM_PersonTrainingExperience" />
+          <EntitySet Name="webpages_Membership" EntityType="PSIMPDB.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="PSIMPDB.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="PSIMPDB.webpages_Roles" />
+          <AssociationSet Name="webpages_UsersInRoles" Association="PSIMPDB.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
           <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="webpages_Roles" Relationship="PSIMPDB.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
         </EntityType>
         <EntityType Name="PM_PersonBaseInfo">
           <Documentation>
@@ -129,7 +213,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="PersonName" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="PersonName" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>姓名</Summary>
             </Documentation>
@@ -139,32 +223,32 @@
               <Summary>性别</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="Birthday" Nullable="false" >
+          <Property Type="DateTime" Name="Birthday" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>出生日期</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="IDNumber" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="IDNumber" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>身份证号</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="RegisterAddress" Nullable="false" MaxLength="40" >
+          <Property Type="String" Name="RegisterAddress" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>户籍地址</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>联系号码</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="AlternateNumber" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="AlternateNumber" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>备用电话</Summary>
             </Documentation>
           </Property>
-          <Property Type="Binary" Name="TwoInchPhoto" Nullable="false" >
+          <Property Type="Binary" Name="TwoInchPhoto" FixedLength="false" MaxLength="Max" >
             <Documentation>
               <Summary>2寸相片</Summary>
             </Documentation>
@@ -178,32 +262,32 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>学校名称</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="EduStartDate" Nullable="false" >
+          <Property Type="DateTime" Name="EduStartDate" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>教育开始时间</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="EduEndDate" Nullable="false" >
+          <Property Type="DateTime" Name="EduEndDate" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>教育结束时间</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="SpecialtyName" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="SpecialtyName" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>专业名称</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Degree" Nullable="false" MaxLength="40" >
+          <Property Type="String" Name="Degree" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>学历/学位</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" >
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>备注</Summary>
             </Documentation>
@@ -217,27 +301,27 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="PositionalName" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="PositionalName" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>职称名称</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="PositionalType" Nullable="false" MaxLength="40" >
+          <Property Type="String" Name="PositionalType" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>职称类别</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="AssessmentDate" Nullable="false" >
+          <Property Type="DateTime" Name="AssessmentDate" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>评定时间</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="AssessmentBody" Nullable="false" MaxLength="30" >
+          <Property Type="String" Name="AssessmentBody" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>评定机构或授予单位</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="80" >
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="80" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>备注</Summary>
             </Documentation>
@@ -251,32 +335,32 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="CertficateName" Nullable="false" MaxLength="30" >
+          <Property Type="String" Name="CertficateName" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>证书名称</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="CertficateType" Nullable="false" MaxLength="40" >
+          <Property Type="String" Name="CertficateType" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>证书类型</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="CertficateNumber" Nullable="false" MaxLength="40" >
+          <Property Type="String" Name="CertficateNumber" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>证书编号</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="GotDate" Nullable="false" >
+          <Property Type="DateTime" Name="GotDate" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>获得时间</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Authority" Nullable="false" MaxLength="30" >
+          <Property Type="String" Name="Authority" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>颁发机构</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="PM_PersonWorkExperienceInfo">
           <Documentation>
@@ -286,38 +370,38 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="WorkStartDate" Nullable="false" >
+          <Property Type="DateTime" Name="WorkStartDate" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>工作时间</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="WorkEndDate" Nullable="false" />
-          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="30" >
+          <Property Type="DateTime" Name="WorkEndDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>单位名称</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Character" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="Character" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>单位性质</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="SectorClass" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="SectorClass" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>行业类别</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="AtProject" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="AtProject" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>所在部门</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="PositionName" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="PositionName" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>职位名称</Summary>
             </Documentation>
           </Property>
-          <Property Type="Decimal" Name="Salary" Nullable="false" >
+          <Property Type="Decimal" Name="Salary" Nullable="false" Precision="18" Scale="0" >
             <Documentation>
               <Summary>薪资待遇</Summary>
             </Documentation>
@@ -327,17 +411,17 @@
               <Summary>合同状态(解除|未解除)</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="WorkContent" Nullable="false" MaxLength="200" >
+          <Property Type="String" Name="WorkContent" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>工作描述</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="RefereesName" Nullable="false" MaxLength="10" >
+          <Property Type="String" Name="RefereesName" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>证明人姓名</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="RefereesPhoneNumber" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="RefereesPhoneNumber" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>证明人电话</Summary>
             </Documentation>
@@ -351,42 +435,79 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="InstitutionsName" Nullable="false" MaxLength="30" >
+          <Property Type="String" Name="InstitutionsName" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>培训机构</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="TrainingStartDate" Nullable="false" >
+          <Property Type="DateTime" Name="TrainingStartDate" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>培训开始日期</Summary>
             </Documentation>
           </Property>
-          <Property Type="DateTime" Name="TrainingEndDate" Nullable="false" >
+          <Property Type="DateTime" Name="TrainingEndDate" Nullable="false" Precision="3" >
             <Documentation>
               <Summary>培训结束时间</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="TrainingAddress" Nullable="false" MaxLength="50" >
+          <Property Type="String" Name="TrainingAddress" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>培训地点</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="TrainingContent" Nullable="false" MaxLength="200" >
+          <Property Type="String" Name="TrainingContent" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>培训课程</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="GotCertificate" Nullable="false" MaxLength="20" >
+          <Property Type="String" Name="GotCertificate" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>获得证书</Summary>
             </Documentation>
           </Property>
-          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" >
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" >
             <Documentation>
               <Summary>详细描述</Summary>
             </Documentation>
           </Property>
         </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Precision="3" />
+          <Property Type="String" Name="ConfirmationToken" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsConfirmed" />
+          <Property Type="DateTime" Name="LastPasswordFailureDate" Precision="3" />
+          <Property Type="Int32" Name="PasswordFailuresSinceLastSuccess" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PasswordChangedDate" Precision="3" />
+          <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordVerificationToken" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PasswordVerificationTokenExpirationDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Type="String" Name="Provider" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProviderUserId" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Int32" Name="RoleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserProfiles" Relationship="PSIMPDB.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="webpages_UsersInRoles">
+          <End Type="PSIMPDB.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+          <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -487,6 +608,48 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="PSIMPDB.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="PSIMPDB.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="PSIMPDB.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="PSIMPDB.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

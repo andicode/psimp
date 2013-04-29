@@ -22,5 +22,8 @@ namespace PSIMP.Models
          public DbSet<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfoSet { get; set; }
          public DbSet<PM_PersonBaseInfo> PM_PersonBaseInfoSet { get; set; }
          public DbSet<PM_PersonTrainingExperience> PM_PersonTrainingExperienceSet { get; set; }
+         public DbSet<webpages_Membership> webpages_MembershipSet { get; set; }
+         public DbSet<webpages_OAuthMembership> webpages_OAuthMembershipSet { get; set; }
+         public DbSet<webpages_Roles> webpages_RolesSet { get; set; }
     }
 }

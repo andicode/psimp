@@ -130,6 +130,15 @@
     <Compile Include="UserProfile.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="webpages_Membership.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_OAuthMembership.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_Roles.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PSIMPDB.edmx">
