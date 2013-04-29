@@ -17,6 +17,12 @@
         <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="4.5292289234941787" PointY="0.703358210117043" />
         <AssociationConnector Association="PSIMPDB.UserProfilePsimp" />
         <AssociationConnector Association="PSIMPDB.UpdateUserId" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.5" PointX="1.4773707105850145" PointY="0.5" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="1.7244971328966092" PointX="1.2438936923725406" PointY="3.6544539914645457" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="1.5" PointX="5.3211206881048136" PointY="6.0495689453625783" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.8200431414320644" PointX="7.375" PointY="0.50754309647166185" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

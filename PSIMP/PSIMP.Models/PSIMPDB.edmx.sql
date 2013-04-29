@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/11/2013 21:50:58
--- Generated from EDMX file: Z:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 04/29/2013 12:16:59
+-- Generated from EDMX file: G:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [PSIMP];
+USE [PSIMPDB];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,62 +17,15 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_PersonEducation]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PsimpSet_Education] DROP CONSTRAINT [FK_PersonEducation];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PersonTrain]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PsimpSet_Train] DROP CONSTRAINT [FK_PersonTrain];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserProfilePsimp]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PsimpSet] DROP CONSTRAINT [FK_UserProfilePsimp];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UpdateUserId]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PsimpSet] DROP CONSTRAINT [FK_UpdateUserId];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Person_inherits_Psimp]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PsimpSet_Person] DROP CONSTRAINT [FK_Person_inherits_Psimp];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Education_inherits_Psimp]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PsimpSet_Education] DROP CONSTRAINT [FK_Education_inherits_Psimp];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Train_inherits_Psimp]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PsimpSet_Train] DROP CONSTRAINT [FK_Train_inherits_Psimp];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[PsimpSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PsimpSet];
-GO
-IF OBJECT_ID(N'[dbo].[UserProfile]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserProfile];
-GO
-IF OBJECT_ID(N'[dbo].[PsimpSet_Person]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PsimpSet_Person];
-GO
-IF OBJECT_ID(N'[dbo].[PsimpSet_Education]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PsimpSet_Education];
-GO
-IF OBJECT_ID(N'[dbo].[PsimpSet_Train]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PsimpSet_Train];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
-
--- Creating table 'PsimpSet'
-CREATE TABLE [dbo].[PsimpSet] (
-    [Id] bigint IDENTITY(1,1) NOT NULL,
-    [CreateTime] datetime  NULL,
-    [UpdateTime] datetime  NULL,
-    [IsDelete] bit  NOT NULL,
-    [CreateUserId] int  NULL,
-    [UpdateUserId] int  NULL
-);
-GO
 
 -- Creating table 'UserProfile'
 CREATE TABLE [dbo].[UserProfile] (
@@ -81,45 +34,83 @@ CREATE TABLE [dbo].[UserProfile] (
 );
 GO
 
--- Creating table 'PsimpSet_Person'
-CREATE TABLE [dbo].[PsimpSet_Person] (
-    [Name] nvarchar(max)  NOT NULL,
-    [Sex] nvarchar(max)  NOT NULL,
-    [Height] int  NULL,
-    [Census] nvarchar(max)  NOT NULL,
-    [IDCard] nvarchar(max)  NOT NULL,
-    [Age] int  NULL,
-    [Telephone] nvarchar(max)  NULL,
-    [Email] nvarchar(max)  NULL,
-    [Picture] nvarchar(max)  NULL,
-    [Id] bigint  NOT NULL
+-- Creating table 'PM_PersonEducationalBackground1'
+CREATE TABLE [dbo].[PM_PersonEducationalBackground1] (
+    [ID] uniqueidentifier  NOT NULL,
+    [SchoolName] nvarchar(20)  NOT NULL,
+    [EduStartDate] datetime  NOT NULL,
+    [EduEndDate] datetime  NOT NULL,
+    [SpecialtyName] nvarchar(20)  NOT NULL,
+    [Degree] nvarchar(40)  NOT NULL,
+    [Descriptions] nvarchar(400)  NOT NULL
 );
 GO
 
--- Creating table 'PsimpSet_Education'
-CREATE TABLE [dbo].[PsimpSet_Education] (
-    [PersonId] bigint  NOT NULL,
-    [SchoolName] nvarchar(max)  NOT NULL,
-    [BeginDate] datetime  NOT NULL,
-    [EndDate] datetime  NULL,
-    [Discipline] nvarchar(max)  NULL,
-    [Degree] nvarchar(max)  NULL,
-    [Remark] nvarchar(max)  NULL,
-    [Id] bigint  NOT NULL
+-- Creating table 'PM_PersonPositionalTitlesInfo'
+CREATE TABLE [dbo].[PM_PersonPositionalTitlesInfo] (
+    [ID] uniqueidentifier  NOT NULL,
+    [PositionalName] nvarchar(20)  NOT NULL,
+    [PositionalType] nvarchar(40)  NOT NULL,
+    [AssessmentDate] datetime  NOT NULL,
+    [AssessmentBody] nvarchar(30)  NOT NULL,
+    [Descriptions] nvarchar(80)  NOT NULL
 );
 GO
 
--- Creating table 'PsimpSet_Train'
-CREATE TABLE [dbo].[PsimpSet_Train] (
-    [Agency] nvarchar(max)  NOT NULL,
-    [DateTime] datetime  NOT NULL,
-    [Location] nvarchar(max)  NULL,
-    [Curriculum] nvarchar(max)  NULL,
-    [Certificate] nvarchar(max)  NULL,
-    [Details] nvarchar(max)  NULL,
-    [CertDetails] nvarchar(max)  NULL,
-    [PersonId] bigint  NOT NULL,
-    [Id] bigint  NOT NULL
+-- Creating table 'PM_PersonCertficateInfo'
+CREATE TABLE [dbo].[PM_PersonCertficateInfo] (
+    [ID] uniqueidentifier  NOT NULL,
+    [CertficateName] nvarchar(30)  NOT NULL,
+    [CertficateType] nvarchar(40)  NOT NULL,
+    [CertficateNumber] nvarchar(40)  NOT NULL,
+    [GotDate] datetime  NOT NULL,
+    [Authority] nvarchar(30)  NOT NULL,
+    [Descriptions] nvarchar(200)  NOT NULL
+);
+GO
+
+-- Creating table 'PM_PersonWorkExperienceInfo'
+CREATE TABLE [dbo].[PM_PersonWorkExperienceInfo] (
+    [ID] uniqueidentifier  NOT NULL,
+    [WorkStartDate] datetime  NOT NULL,
+    [WorkEndDate] datetime  NOT NULL,
+    [CompanyName] nvarchar(30)  NOT NULL,
+    [Character] nvarchar(20)  NOT NULL,
+    [SectorClass] nvarchar(20)  NOT NULL,
+    [AtProject] nvarchar(20)  NOT NULL,
+    [PositionName] nvarchar(20)  NOT NULL,
+    [Salary] decimal(18,0)  NOT NULL,
+    [ContractStatus] bit  NOT NULL,
+    [WorkContent] nvarchar(200)  NOT NULL,
+    [RefereesName] nvarchar(10)  NOT NULL,
+    [RefereesPhoneNumber] nvarchar(20)  NOT NULL
+);
+GO
+
+-- Creating table 'PM_PersonBaseInfo'
+CREATE TABLE [dbo].[PM_PersonBaseInfo] (
+    [ID] uniqueidentifier  NOT NULL,
+    [PersonName] nvarchar(20)  NOT NULL,
+    [Sex] bit  NOT NULL,
+    [Birthday] datetime  NOT NULL,
+    [IDNumber] nvarchar(20)  NOT NULL,
+    [RegisterAddress] nvarchar(40)  NOT NULL,
+    [ContactNumber] nvarchar(20)  NOT NULL,
+    [AlternateNumber] nvarchar(20)  NOT NULL,
+    [TwoInchPhoto] varbinary(max)  NOT NULL
+);
+GO
+
+-- Creating table 'PM_PersonTrainingExperience'
+CREATE TABLE [dbo].[PM_PersonTrainingExperience] (
+    [ID] uniqueidentifier  NOT NULL,
+    [InstitutionsName] nvarchar(30)  NOT NULL,
+    [TrainingStartDate] datetime  NOT NULL,
+    [TrainingEndDate] datetime  NOT NULL,
+    [TrainingAddress] nvarchar(50)  NOT NULL,
+    [TrainingContent] nvarchar(200)  NOT NULL,
+    [GotCertificate] nvarchar(20)  NOT NULL,
+    [Descriptions] nvarchar(400)  NOT NULL
 );
 GO
 
@@ -127,122 +118,51 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [Id] in table 'PsimpSet'
-ALTER TABLE [dbo].[PsimpSet]
-ADD CONSTRAINT [PK_PsimpSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [UserId] in table 'UserProfile'
 ALTER TABLE [dbo].[UserProfile]
 ADD CONSTRAINT [PK_UserProfile]
     PRIMARY KEY CLUSTERED ([UserId] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PsimpSet_Person'
-ALTER TABLE [dbo].[PsimpSet_Person]
-ADD CONSTRAINT [PK_PsimpSet_Person]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
+-- Creating primary key on [ID] in table 'PM_PersonEducationalBackground1'
+ALTER TABLE [dbo].[PM_PersonEducationalBackground1]
+ADD CONSTRAINT [PK_PM_PersonEducationalBackground1]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PsimpSet_Education'
-ALTER TABLE [dbo].[PsimpSet_Education]
-ADD CONSTRAINT [PK_PsimpSet_Education]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
+-- Creating primary key on [ID] in table 'PM_PersonPositionalTitlesInfo'
+ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo]
+ADD CONSTRAINT [PK_PM_PersonPositionalTitlesInfo]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PsimpSet_Train'
-ALTER TABLE [dbo].[PsimpSet_Train]
-ADD CONSTRAINT [PK_PsimpSet_Train]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
+-- Creating primary key on [ID] in table 'PM_PersonCertficateInfo'
+ALTER TABLE [dbo].[PM_PersonCertficateInfo]
+ADD CONSTRAINT [PK_PM_PersonCertficateInfo]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'PM_PersonWorkExperienceInfo'
+ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo]
+ADD CONSTRAINT [PK_PM_PersonWorkExperienceInfo]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'PM_PersonBaseInfo'
+ALTER TABLE [dbo].[PM_PersonBaseInfo]
+ADD CONSTRAINT [PK_PM_PersonBaseInfo]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'PM_PersonTrainingExperience'
+ALTER TABLE [dbo].[PM_PersonTrainingExperience]
+ADD CONSTRAINT [PK_PM_PersonTrainingExperience]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
-
--- Creating foreign key on [PersonId] in table 'PsimpSet_Education'
-ALTER TABLE [dbo].[PsimpSet_Education]
-ADD CONSTRAINT [FK_PersonEducation]
-    FOREIGN KEY ([PersonId])
-    REFERENCES [dbo].[PsimpSet_Person]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PersonEducation'
-CREATE INDEX [IX_FK_PersonEducation]
-ON [dbo].[PsimpSet_Education]
-    ([PersonId]);
-GO
-
--- Creating foreign key on [PersonId] in table 'PsimpSet_Train'
-ALTER TABLE [dbo].[PsimpSet_Train]
-ADD CONSTRAINT [FK_PersonTrain]
-    FOREIGN KEY ([PersonId])
-    REFERENCES [dbo].[PsimpSet_Person]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PersonTrain'
-CREATE INDEX [IX_FK_PersonTrain]
-ON [dbo].[PsimpSet_Train]
-    ([PersonId]);
-GO
-
--- Creating foreign key on [CreateUserId] in table 'PsimpSet'
-ALTER TABLE [dbo].[PsimpSet]
-ADD CONSTRAINT [FK_UserProfilePsimp]
-    FOREIGN KEY ([CreateUserId])
-    REFERENCES [dbo].[UserProfile]
-        ([UserId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UserProfilePsimp'
-CREATE INDEX [IX_FK_UserProfilePsimp]
-ON [dbo].[PsimpSet]
-    ([CreateUserId]);
-GO
-
--- Creating foreign key on [UpdateUserId] in table 'PsimpSet'
-ALTER TABLE [dbo].[PsimpSet]
-ADD CONSTRAINT [FK_UpdateUserId]
-    FOREIGN KEY ([UpdateUserId])
-    REFERENCES [dbo].[UserProfile]
-        ([UserId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UpdateUserId'
-CREATE INDEX [IX_FK_UpdateUserId]
-ON [dbo].[PsimpSet]
-    ([UpdateUserId]);
-GO
-
--- Creating foreign key on [Id] in table 'PsimpSet_Person'
-ALTER TABLE [dbo].[PsimpSet_Person]
-ADD CONSTRAINT [FK_Person_inherits_Psimp]
-    FOREIGN KEY ([Id])
-    REFERENCES [dbo].[PsimpSet]
-        ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Id] in table 'PsimpSet_Education'
-ALTER TABLE [dbo].[PsimpSet_Education]
-ADD CONSTRAINT [FK_Education_inherits_Psimp]
-    FOREIGN KEY ([Id])
-    REFERENCES [dbo].[PsimpSet]
-        ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Id] in table 'PsimpSet_Train'
-ALTER TABLE [dbo].[PsimpSet_Train]
-ADD CONSTRAINT [FK_Train_inherits_Psimp]
-    FOREIGN KEY ([Id])
-    REFERENCES [dbo].[PsimpSet]
-        ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
 
 -- --------------------------------------------------
 -- Script has ended
