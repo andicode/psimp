@@ -11,7 +11,8 @@ namespace PSIMP.Models
     {
         public bool IsAdd()
         {
-            return this.Id == default(long);
+            return false;
+            //return this.Id == default(long);
         }       
     }
 
