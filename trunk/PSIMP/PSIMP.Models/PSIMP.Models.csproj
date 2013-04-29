@@ -144,7 +144,6 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -199,18 +198,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Ext.NET.MVC\BREAKING_CHANGES.txt" />
-    <Content Include="App_Readme\Ext.NET.MVC\CHANGELOG.txt" />
-    <Content Include="App_Readme\Ext.NET.MVC\LICENSE.txt" />
-    <Content Include="App_Readme\Ext.NET.MVC\README.txt" />
-    <Content Include="App_Readme\Ext.NET.Utilities.LICENSE.txt" />
-    <Content Include="App_Readme\Ext.NET.Utilities.README.txt" />
-    <Content Include="App_Readme\Ext.NET\BREAKING_CHANGES.txt" />
-    <Content Include="App_Readme\Ext.NET\CHANGELOG.txt" />
-    <Content Include="App_Readme\Ext.NET\LICENSE.txt" />
-    <Content Include="App_Readme\Ext.NET\README.txt" />
-    <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
-    <Content Include="App_Readme\Transformer.NET\README.txt" />
     <Content Include="PSIMPDB.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
