@@ -5,6 +5,7 @@
 }
 @(Html.X().MenuItem().Cls("grid-menuitem").HideOnClick(false).Content(@<text>
 @(Html.X().GridPanel()
+          .Frame(true)
           .Control(grid => {
              if(Model!=null&&Model)
              {
