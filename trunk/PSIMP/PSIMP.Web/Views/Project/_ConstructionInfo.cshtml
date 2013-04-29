@@ -3,6 +3,7 @@
 @{
     Layout = null;
 }
+@(Html.X().MenuItem().Cls("grid-menuitem").HideOnClick(false).Content(@<text>
 @(Html.X().GridPanel()
           .Control(grid => {
              if(Model!=null&&Model)
@@ -48,4 +49,6 @@
                 ,Html.X().Column().Text("联系电话").MenuDisabled(true).DataIndex("f7")
                 ,Html.X().Column().Text("主要负责人").MenuDisabled(true).DataIndex("f8")
          )
-     )
+     )</text>
+)
+)

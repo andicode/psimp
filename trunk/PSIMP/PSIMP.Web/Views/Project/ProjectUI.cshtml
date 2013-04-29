@@ -38,11 +38,11 @@
                        .Button()
                        .Text("合同段信息")
                        .Listeners(events => {
-                           events.Click.Handler = @"this.menu.down('grid').setTitle('【'+this.record.get('ProjectName')+'】监理合同段信息')
-                                                    this.menu.down('grid').getStore().reload({params:{Id:this.record.get('Id')}})
+                           events.Click.Handler = @"//this.menu.down('grid').setTitle('【'+this.record.get('ProjectName')+'】监理合同段信息')
+                                                    //this.menu.down('grid').getStore().reload({params:{Id:this.record.get('Id')}})
                                                    ";
                        })
-                       .Menu(Html.X().Menu().ItemsFromPartial("_ContractInfo",false)));
+                       .Menu(Html.X().Menu().Layout( LayoutType.Card).ItemsFromPartial("_ContractInfo",false)));
            })
            , Html.X().ComponentColumn().Text("施工单位").Component(items =>
            {
@@ -52,8 +52,8 @@
                     .Text("施工单位")
                     .Listeners(events =>
                     {
-                        events.Click.Handler = @"this.menu.down('grid').setTitle('【'+this.record.get('ProjectName')+'】施工单位信息')
-                                                this.menu.down('grid').getStore().reload({params:{Id:this.record.get('Id')}})
+                        events.Click.Handler = @"//this.menu.down('grid').setTitle('【'+this.record.get('ProjectName')+'】施工单位信息')
+                                                //this.menu.down('grid').getStore().reload({params:{Id:this.record.get('Id')}})
                                                 ";
                     })
                     .Menu(Html.X().Menu().ItemsFromPartial("_ConstructionInfo",false)));
