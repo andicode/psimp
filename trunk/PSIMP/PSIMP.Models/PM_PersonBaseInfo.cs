@@ -29,6 +29,7 @@ namespace PSIMP.Models
         public string RegisterAddress { get; set; }
         public string ContactNumber { get; set; }
         public string AlternateNumber { get; set; }
-        public sbyte TwoInchPhoto { get; set; }
+        [JsonIgnore]
+        public byte[] TwoInchPhoto { get; set; }
     }
 }

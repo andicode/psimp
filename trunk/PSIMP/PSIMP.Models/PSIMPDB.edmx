@@ -5,8 +5,103 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PSIMPDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="PSIMPDBStoreContainer" />
-      </Schema></edmx:StorageModels>
+  <EntityContainer Name="PSIMPDBStoreContainer">
+    <EntitySet Name="UserProfile" EntityType="PSIMPDB.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.Store.PM_PersonEducationalBackground1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.Store.PM_PersonPositionalTitlesInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonCertficateInfo" EntityType="PSIMPDB.Store.PM_PersonCertficateInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.Store.PM_PersonWorkExperienceInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.Store.PM_PersonTrainingExperience" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_PersonEducationalBackground1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="EduStartDate" Type="datetime" Nullable="false" />
+    <Property Name="EduEndDate" Type="datetime" Nullable="false" />
+    <Property Name="SpecialtyName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Degree" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="PM_PersonPositionalTitlesInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionalName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PositionalType" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="AssessmentDate" Type="datetime" Nullable="false" />
+    <Property Name="AssessmentBody" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="PM_PersonCertficateInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CertficateName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="CertficateType" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="CertficateNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="GotDate" Type="datetime" Nullable="false" />
+    <Property Name="Authority" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PM_PersonWorkExperienceInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkStartDate" Type="datetime" Nullable="false" />
+    <Property Name="WorkEndDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Character" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="SectorClass" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="AtProject" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PositionName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Salary" Type="decimal" Nullable="false" />
+    <Property Name="ContractStatus" Type="bit" Nullable="false" />
+    <Property Name="WorkContent" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="RefereesName" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="RefereesPhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PM_PersonBaseInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Sex" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="RegisterAddress" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ContactNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="AlternateNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="TwoInchPhoto" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_PersonTrainingExperience">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstitutionsName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="TrainingStartDate" Type="datetime" Nullable="false" />
+    <Property Name="TrainingEndDate" Type="datetime" Nullable="false" />
+    <Property Name="TrainingAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TrainingContent" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="GotCertificate" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
+  </EntityType>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PSIMPDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
@@ -69,7 +164,7 @@
               <Summary>备用电话</Summary>
             </Documentation>
           </Property>
-          <Property Type="SByte" Name="TwoInchPhoto" Nullable="false" >
+          <Property Type="Binary" Name="TwoInchPhoto" Nullable="false" >
             <Documentation>
               <Summary>2寸相片</Summary>
             </Documentation>
@@ -298,7 +393,101 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PSIMPDBStoreContainer" CdmEntityContainer="PSIMPDBContainer">
-          </EntityContainerMapping>
+    <EntitySetMapping Name="UserProfile">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.UserProfile)">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonEducationalBackground1">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonEducationalBackground)">
+        <MappingFragment StoreEntitySet="PM_PersonEducationalBackground1">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="EduStartDate" ColumnName="EduStartDate" />
+          <ScalarProperty Name="EduEndDate" ColumnName="EduEndDate" />
+          <ScalarProperty Name="SpecialtyName" ColumnName="SpecialtyName" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonPositionalTitlesInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonPositionalTitlesInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonPositionalTitlesInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PositionalName" ColumnName="PositionalName" />
+          <ScalarProperty Name="PositionalType" ColumnName="PositionalType" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="AssessmentBody" ColumnName="AssessmentBody" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonCertficateInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonCertficateInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonCertficateInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CertficateName" ColumnName="CertficateName" />
+          <ScalarProperty Name="CertficateType" ColumnName="CertficateType" />
+          <ScalarProperty Name="CertficateNumber" ColumnName="CertficateNumber" />
+          <ScalarProperty Name="GotDate" ColumnName="GotDate" />
+          <ScalarProperty Name="Authority" ColumnName="Authority" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonWorkExperienceInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonWorkExperienceInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonWorkExperienceInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
+          <ScalarProperty Name="WorkEndDate" ColumnName="WorkEndDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Character" ColumnName="Character" />
+          <ScalarProperty Name="SectorClass" ColumnName="SectorClass" />
+          <ScalarProperty Name="AtProject" ColumnName="AtProject" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="ContractStatus" ColumnName="ContractStatus" />
+          <ScalarProperty Name="WorkContent" ColumnName="WorkContent" />
+          <ScalarProperty Name="RefereesName" ColumnName="RefereesName" />
+          <ScalarProperty Name="RefereesPhoneNumber" ColumnName="RefereesPhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonBaseInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonBaseInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonBaseInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="RegisterAddress" ColumnName="RegisterAddress" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="AlternateNumber" ColumnName="AlternateNumber" />
+          <ScalarProperty Name="TwoInchPhoto" ColumnName="TwoInchPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonTrainingExperience">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonTrainingExperience)">
+        <MappingFragment StoreEntitySet="PM_PersonTrainingExperience">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="InstitutionsName" ColumnName="InstitutionsName" />
+          <ScalarProperty Name="TrainingStartDate" ColumnName="TrainingStartDate" />
+          <ScalarProperty Name="TrainingEndDate" ColumnName="TrainingEndDate" />
+          <ScalarProperty Name="TrainingAddress" ColumnName="TrainingAddress" />
+          <ScalarProperty Name="TrainingContent" ColumnName="TrainingContent" />
+          <ScalarProperty Name="GotCertificate" ColumnName="GotCertificate" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
