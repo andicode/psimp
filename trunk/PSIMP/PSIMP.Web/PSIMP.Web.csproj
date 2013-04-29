@@ -63,9 +63,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Ext.Net, Version=2.2.0.40838, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
+    <Reference Include="Ext.Net, Version=2.2.0.41185, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Ext.NET.2.2.0.1\lib\net40\Ext.Net.dll</HintPath>
+      <HintPath>..\packages\Ext.NET.MVC.2.2.0\lib\net40\Ext.Net.dll</HintPath>
     </Reference>
     <Reference Include="Ext.Net.Utilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -142,6 +142,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Transformer.NET.2.1.1\lib\net35\Transformer.NET.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
@@ -166,6 +169,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DesktopConfig.cs" />
+    <Compile Include="App_Start\ExtNetConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -173,6 +177,7 @@
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DesktopController.cs" />
+    <Compile Include="Controllers\ExtNetController.cs" />
     <Compile Include="Controllers\PerformanceController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -185,12 +190,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\ExtNetModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Modules.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Readme\Ext.NET.MVC\BREAKING_CHANGES.txt" />
+    <Content Include="App_Readme\Ext.NET.MVC\CHANGELOG.txt" />
+    <Content Include="App_Readme\Ext.NET.MVC\LICENSE.txt" />
+    <Content Include="App_Readme\Ext.NET.MVC\README.txt" />
     <Content Include="App_Readme\Ext.NET.Utilities.LICENSE.txt" />
     <Content Include="App_Readme\Ext.NET.Utilities.README.txt" />
     <Content Include="App_Readme\Ext.NET\BREAKING_CHANGES.txt" />
@@ -206,6 +216,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
+    <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
     <None Include="Properties\PublishProfiles\PSIMP.pubxml" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\login_bg.jpg" />
@@ -222,12 +233,6 @@
     <Content Include="Images\row-over.gif" />
     <Content Include="Images\selected.gif" />
     <Content Include="Images\Userpicture\default.png" />
-    <None Include="Lib\ICSharpCode.SharpZipLib.dll" />
-    <None Include="Lib\Newtonsoft.Json.dll" />
-    <None Include="Lib\Wilco.SyntaxHighlighter.dll" />
-    <Content Include="Lib\Ext.Net.dll" />
-    <Content Include="Lib\Ext.Net.Utilities.dll" />
-    <Content Include="Lib\Transformer.NET.dll" />
     <Content Include="Scripts\business.js" />
     <Content Include="Scripts\FusionCharts.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -286,6 +291,7 @@
     <Content Include="Views\Query\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_ExtLayout.cshtml" />
+    <Content Include="Views\ExtNet\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -12,7 +12,7 @@ namespace PSIMP.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("{exclude}/{extnet}/ext.axd");
+            routes.IgnoreRoute("{extnet-root}/{extnet-file}/ext.axd");
          
             routes.MapRoute(
                 name: "Default",
