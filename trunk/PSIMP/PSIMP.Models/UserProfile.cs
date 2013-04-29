@@ -25,5 +25,6 @@ namespace PSIMP.Models
         public string UserName { get; set; }
     
         public virtual ICollection<webpages_Roles> webpages_Roles { get; set; }
+        public virtual webpages_Membership webpages_Membership { get; set; }
     }
 }

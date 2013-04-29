@@ -27,5 +27,7 @@ namespace PSIMP.Models
         public string PasswordSalt { get; set; }
         public string PasswordVerificationToken { get; set; }
         public Nullable<System.DateTime> PasswordVerificationTokenExpirationDate { get; set; }
+    
+        public virtual UserProfile UserProfile { get; set; }
     }
 }
