@@ -4,7 +4,10 @@
 @{
     Layout = null;
 }
-@(Html.X().GridPanel()
+@(Html.X().MenuItem().Cls("grid-menuitem").HideOnClick(false).Content(@<text>
+    @(Html.X().GridPanel()
+         .Icon(Icon.Note)
+         .Frame(true)
          .Control(grid => {
              if(Model!=null&&Model)
              {
@@ -47,5 +50,8 @@
                 , Html.X().Column().Text("开工日期").MenuDisabled(true).DataIndex("f5")
                 , Html.X().Column().Text("人员要求").MenuDisabled(true).DataIndex("f6")
                 , Html.X().Column().Text("车辆信息").MenuDisabled(true).DataIndex("f7")
-         )
-     )
+         ))</text>
+)
+)   
+@*@(
+     )*@

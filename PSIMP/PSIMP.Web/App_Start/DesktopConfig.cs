@@ -67,9 +67,9 @@ namespace System.Web
                 Mode = ParameterMode.Value
             });
             taskBar.Frame = true;
-            taskBar.UI = "nothing";
+            //taskBar.UI = "nothing";
             taskBar.TrayWidth = 100;
-            taskBar.Height = 30;
+            taskBar.Height = 40;
             taskBar.HideQuickStart = true;
             return taskBar;
         }
