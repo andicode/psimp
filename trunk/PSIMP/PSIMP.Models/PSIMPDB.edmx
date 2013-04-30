@@ -200,6 +200,10 @@
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="webpages_Membership" EntitySet="webpages_Membership" />
           </AssociationSet>
+          <AssociationSet Name="UserProfilewebpages_OAuthMembership" Association="PSIMPDB.UserProfilewebpages_OAuthMembership">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_OAuthMembership" EntitySet="webpages_OAuthMembership" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
@@ -209,6 +213,7 @@
           <Property Type="String" Name="UserName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="webpages_Roles" Relationship="PSIMPDB.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
           <NavigationProperty Name="webpages_Membership" Relationship="PSIMPDB.UserProfilewebpages_Membership" FromRole="UserProfile" ToRole="webpages_Membership" />
+          <NavigationProperty Name="webpages_OAuthMembership" Relationship="PSIMPDB.UserProfilewebpages_OAuthMembership" FromRole="UserProfile" ToRole="webpages_OAuthMembership" />
         </EntityType>
         <EntityType Name="PM_PersonBaseInfo">
           <Documentation>
@@ -501,6 +506,7 @@
           <Property Type="String" Name="Provider" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ProviderUserId" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="PSIMPDB.UserProfilewebpages_OAuthMembership" FromRole="webpages_OAuthMembership" ToRole="UserProfile" />
         </EntityType>
         <EntityType Name="webpages_Roles">
           <Key>
@@ -517,6 +523,10 @@
         <Association Name="UserProfilewebpages_Membership">
           <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="1" />
           <End Type="PSIMPDB.webpages_Membership" Role="webpages_Membership" Multiplicity="1" />
+        </Association>
+        <Association Name="UserProfilewebpages_OAuthMembership">
+          <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="1" />
+          <End Type="PSIMPDB.webpages_OAuthMembership" Role="webpages_OAuthMembership" Multiplicity="0..1" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
