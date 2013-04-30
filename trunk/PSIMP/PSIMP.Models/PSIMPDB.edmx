@@ -701,6 +701,42 @@
             <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
             <End Role="EM_ProjectExpandInfo" EntitySet="EM_ProjectExpandInfo" />
           </AssociationSet>
+          <AssociationSet Name="PM_CertificateManagePM_PersonBaseInfo" Association="PSIMPDB.PM_CertificateManagePM_PersonBaseInfo">
+            <End Role="PM_CertificateManage" EntitySet="PM_CertificateManage" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonCertificateInfoPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonCertificateInfoPM_PersonBaseInfo">
+            <End Role="PM_PersonCertificateInfo" EntitySet="PM_PersonCertificateInfo" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonContractInfoPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonContractInfoPM_PersonBaseInfo">
+            <End Role="PM_PersonContractInfo" EntitySet="PM_PersonContractInfo" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonEducationalBackgroundPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonEducationalBackgroundPM_PersonBaseInfo">
+            <End Role="PM_PersonEducationalBackground" EntitySet="PM_PersonEducationalBackground1" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonInsuranceInfoPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonInsuranceInfoPM_PersonBaseInfo">
+            <End Role="PM_PersonInsuranceInfo" EntitySet="PM_PersonInsuranceInfo" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonTrainingExperiencePM_PersonBaseInfo" Association="PSIMPDB.PM_PersonTrainingExperiencePM_PersonBaseInfo">
+            <End Role="PM_PersonTrainingExperience" EntitySet="PM_PersonTrainingExperience" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonPositionalTitlesInfoPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonPositionalTitlesInfoPM_PersonBaseInfo">
+            <End Role="PM_PersonPositionalTitlesInfo" EntitySet="PM_PersonPositionalTitlesInfo" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonRegisterPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonRegisterPM_PersonBaseInfo">
+            <End Role="PM_PersonRegister" EntitySet="PM_PersonRegister" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonWorkExperienceInfoPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonWorkExperienceInfoPM_PersonBaseInfo">
+            <End Role="PM_PersonWorkExperienceInfo" EntitySet="PM_PersonWorkExperienceInfo" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
@@ -956,7 +992,6 @@
           </Key>
           <Property Type="String" Name="CertificateID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="FileNumber" Nullable="false" MaxLength="40" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
           <Property Type="DateTime" Name="RegisterDate" Nullable="false" />
           <Property Type="String" Name="ProjectID" Nullable="false" />
           <Property Type="String" Name="PositionStatus" Nullable="false" />
@@ -982,6 +1017,8 @@
           <Property Type="String" Name="IsGivebackConservationCertificate" Nullable="false" />
           <Property Type="String" Name="IsGivebackIdentificationCard" Nullable="false" />
           <Property Type="String" Name="Descriptions" Nullable="false" />
+          <NavigationProperty Name="PersonBaseInfo" Relationship="PSIMPDB.PM_CertificateManagePM_PersonBaseInfo" FromRole="PM_CertificateManage" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonBaseInfo">
           <Key>
@@ -996,6 +1033,15 @@
           <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="AlternateNumber" Nullable="false" MaxLength="20" />
           <Property Type="Byte" Name="TwoInchPhoto" Nullable="false" />
+          <NavigationProperty Name="PM_CertificateManage" Relationship="PSIMPDB.PM_CertificateManagePM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_CertificateManage" />
+          <NavigationProperty Name="PM_PersonCertificateInfo" Relationship="PSIMPDB.PM_PersonCertificateInfoPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonCertificateInfo" />
+          <NavigationProperty Name="PM_PersonContractInfo" Relationship="PSIMPDB.PM_PersonContractInfoPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonContractInfo" />
+          <NavigationProperty Name="PM_PersonEducationalBackground" Relationship="PSIMPDB.PM_PersonEducationalBackgroundPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonEducationalBackground" />
+          <NavigationProperty Name="PM_PersonInsuranceInfo" Relationship="PSIMPDB.PM_PersonInsuranceInfoPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonInsuranceInfo" />
+          <NavigationProperty Name="PM_PersonTrainingExperience" Relationship="PSIMPDB.PM_PersonTrainingExperiencePM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonTrainingExperience" />
+          <NavigationProperty Name="PM_PersonPositionalTitlesInfo" Relationship="PSIMPDB.PM_PersonPositionalTitlesInfoPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonPositionalTitlesInfo" />
+          <NavigationProperty Name="PM_PersonRegister" Relationship="PSIMPDB.PM_PersonRegisterPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonRegister" />
+          <NavigationProperty Name="PM_PersonWorkExperienceInfo" Relationship="PSIMPDB.PM_PersonWorkExperienceInfoPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonWorkExperienceInfo" />
         </EntityType>
         <EntityType Name="PM_PersonCertificateInfo">
           <Key>
@@ -1008,14 +1054,14 @@
           <Property Type="DateTime" Name="GotDate" Nullable="false" />
           <Property Type="String" Name="Authority" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonCertificateInfoPM_PersonBaseInfo" FromRole="PM_PersonCertificateInfo" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonContractInfo">
           <Key>
             <PropertyRef Name="ContractID" />
           </Key>
           <Property Type="String" Name="ContractID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="Sex" Nullable="false" />
           <Property Type="String" Name="IDNumber" Nullable="false" />
           <Property Type="String" Name="ContractNumber" Nullable="false" />
@@ -1025,6 +1071,8 @@
           <Property Type="String" Name="ContractPosition" Nullable="false" />
           <Property Type="String" Name="ContractSalary" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonContractInfoPM_PersonBaseInfo" FromRole="PM_PersonContractInfo" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonEducationalBackground">
           <Key>
@@ -1037,14 +1085,14 @@
           <Property Type="String" Name="SpecialtyName" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Degree" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonEducationalBackgroundPM_PersonBaseInfo" FromRole="PM_PersonEducationalBackground" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonInsuranceInfo">
           <Key>
             <PropertyRef Name="InsuranceID" />
           </Key>
           <Property Type="String" Name="InsuranceID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="Sex" Nullable="false" />
           <Property Type="String" Name="IDNumber" Nullable="false" />
           <Property Type="String" Name="InsuranceNumber" Nullable="false" />
@@ -1054,9 +1102,11 @@
           <Property Type="String" Name="PositionStatus" Nullable="false" />
           <Property Type="String" Name="InsuredNumber" Nullable="false" />
           <Property Type="String" Name="InsuranceContent" Nullable="false" />
-          <Property Type="String" Name="ProjectID" Nullable="false" />
+          <Property Name="ProjectID" Nullable="false" Type="String" />
           <Property Type="String" Name="PositionName" Nullable="false" />
           <Property Type="String" Name="Descriptions" Nullable="false" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonInsuranceInfoPM_PersonBaseInfo" FromRole="PM_PersonInsuranceInfo" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonPositionalTitlesInfo">
           <Key>
@@ -1068,14 +1118,14 @@
           <Property Type="DateTime" Name="AssessmentDate" Nullable="false" />
           <Property Type="String" Name="AssessmentBody" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="80" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonPositionalTitlesInfoPM_PersonBaseInfo" FromRole="PM_PersonPositionalTitlesInfo" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonRegister">
           <Key>
             <PropertyRef Name="RegisterID" />
           </Key>
           <Property Type="String" Name="RegisterID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
           <Property Type="DateTime" Name="RegisterDate" Nullable="false" />
           <Property Type="String" Name="RegisterCompany" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="OldDBDesc" Nullable="false" />
@@ -1090,6 +1140,8 @@
           <Property Type="String" Name="RegisterStatus" Nullable="false" />
           <Property Type="String" Name="NoCanRegisterCause" Nullable="false" MaxLength="400" />
           <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="300" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonRegisterPM_PersonBaseInfo" FromRole="PM_PersonRegister" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonTrainingExperience">
           <Key>
@@ -1103,7 +1155,8 @@
           <Property Type="String" Name="TrainingContent" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="GotCertificate" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonTrainingExperiencePM_PersonBaseInfo" FromRole="PM_PersonTrainingExperience" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonWorkExperienceInfo">
           <Key>
@@ -1122,7 +1175,8 @@
           <Property Type="String" Name="WorkContent" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="RefereesName" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="RefereesPhoneNumber" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonWorkExperienceInfoPM_PersonBaseInfo" FromRole="PM_PersonWorkExperienceInfo" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Int64" Name="PM_PersonBaseInfoPersonID" Nullable="false" />
         </EntityType>
         <Association Name="EM_ProjectBaseInfoEM_ProjectContractBaseInfo">
           <End Type="PSIMPDB.EM_ProjectBaseInfo" Role="EM_ProjectBaseInfo" Multiplicity="1" />
@@ -1155,6 +1209,114 @@
         <Association Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo">
           <End Type="PSIMPDB.EM_ProjectContractBaseInfo" Role="EM_ProjectContractBaseInfo" Multiplicity="1" />
           <End Type="PSIMPDB.EM_ProjectExpandInfo" Role="EM_ProjectExpandInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="PM_CertificateManagePM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_CertificateManage" Role="PM_CertificateManage" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_CertificateManage">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonCertificateInfoPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonCertificateInfo" Role="PM_PersonCertificateInfo" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonCertificateInfo">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonContractInfoPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonContractInfo" Role="PM_PersonContractInfo" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonContractInfo">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonEducationalBackgroundPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonEducationalBackground" Role="PM_PersonEducationalBackground" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonEducationalBackground">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonInsuranceInfoPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonInsuranceInfo" Role="PM_PersonInsuranceInfo" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonInsuranceInfo">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonTrainingExperiencePM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonTrainingExperience" Role="PM_PersonTrainingExperience" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonTrainingExperience">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonPositionalTitlesInfoPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonPositionalTitlesInfo" Role="PM_PersonPositionalTitlesInfo" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonPositionalTitlesInfo">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonRegisterPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonRegister" Role="PM_PersonRegister" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonRegister">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PM_PersonWorkExperienceInfoPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonWorkExperienceInfo" Role="PM_PersonWorkExperienceInfo" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonWorkExperienceInfo">
+              <PropertyRef Name="PM_PersonBaseInfoPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1393,7 +1555,6 @@
         <MappingFragment StoreEntitySet="PM_CertificateManage">
           <ScalarProperty Name="CertificateID" ColumnName="CertificateID" />
           <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="PositionStatus" ColumnName="PositionStatus" />
@@ -1447,7 +1608,6 @@
           <ScalarProperty Name="GotDate" ColumnName="GotDate" />
           <ScalarProperty Name="Authority" ColumnName="Authority" />
           <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1455,7 +1615,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonContractInfo)">
         <MappingFragment StoreEntitySet="PM_PersonContractInfo">
           <ScalarProperty Name="ContractID" ColumnName="ContractID" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
           <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
@@ -1478,7 +1637,6 @@
           <ScalarProperty Name="SpecialtyName" ColumnName="SpecialtyName" />
           <ScalarProperty Name="Degree" ColumnName="Degree" />
           <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1486,7 +1644,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonInsuranceInfo)">
         <MappingFragment StoreEntitySet="PM_PersonInsuranceInfo">
           <ScalarProperty Name="InsuranceID" ColumnName="InsuranceID" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
           <ScalarProperty Name="InsuranceNumber" ColumnName="InsuranceNumber" />
@@ -1511,7 +1668,6 @@
           <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
           <ScalarProperty Name="AssessmentBody" ColumnName="AssessmentBody" />
           <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1519,7 +1675,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonRegister)">
         <MappingFragment StoreEntitySet="PM_PersonRegister">
           <ScalarProperty Name="RegisterID" ColumnName="RegisterID" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
           <ScalarProperty Name="RegisterCompany" ColumnName="RegisterCompany" />
           <ScalarProperty Name="OldDBDesc" ColumnName="OldDBDesc" />
@@ -1548,7 +1703,6 @@
           <ScalarProperty Name="TrainingContent" ColumnName="TrainingContent" />
           <ScalarProperty Name="GotCertificate" ColumnName="GotCertificate" />
           <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1568,7 +1722,6 @@
           <ScalarProperty Name="WorkContent" ColumnName="WorkContent" />
           <ScalarProperty Name="RefereesName" ColumnName="RefereesName" />
           <ScalarProperty Name="RefereesPhoneNumber" ColumnName="RefereesPhoneNumber" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

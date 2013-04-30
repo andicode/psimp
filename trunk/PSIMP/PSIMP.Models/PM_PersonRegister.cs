@@ -17,7 +17,6 @@ namespace PSIMP.Models
     public partial class PM_PersonRegister
     {
         public string RegisterID { get; set; }
-        public string PersonID { get; set; }
         public System.DateTime RegisterDate { get; set; }
         public string RegisterCompany { get; set; }
         public string OldDBDesc { get; set; }
@@ -32,5 +31,8 @@ namespace PSIMP.Models
         public string RegisterStatus { get; set; }
         public string NoCanRegisterCause { get; set; }
         public string Descriptions { get; set; }
+        public long PersonID { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

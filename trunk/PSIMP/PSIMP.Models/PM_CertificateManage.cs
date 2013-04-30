@@ -18,7 +18,6 @@ namespace PSIMP.Models
     {
         public string CertificateID { get; set; }
         public string FileNumber { get; set; }
-        public string PersonID { get; set; }
         public System.DateTime RegisterDate { get; set; }
         public string ProjectID { get; set; }
         public string PositionStatus { get; set; }
@@ -44,5 +43,8 @@ namespace PSIMP.Models
         public string IsGivebackConservationCertificate { get; set; }
         public string IsGivebackIdentificationCard { get; set; }
         public string Descriptions { get; set; }
+        public long PersonID { get; set; }
+    
+        public virtual PM_PersonBaseInfo PersonBaseInfo { get; set; }
     }
 }

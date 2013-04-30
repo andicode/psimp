@@ -29,6 +29,8 @@ namespace PSIMP.Models
         public string WorkContent { get; set; }
         public string RefereesName { get; set; }
         public string RefereesPhoneNumber { get; set; }
-        public string PersonID { get; set; }
+        public long PM_PersonBaseInfoPersonID { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }
