@@ -10,7 +10,6 @@
     <EntitySet Name="webpages_Membership" EntityType="PSIMPDB.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_OAuthMembership" EntityType="PSIMPDB.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_Roles" EntityType="PSIMPDB.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_UsersInRoles" EntityType="PSIMPDB.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_webpages_UsersInRoles_webpages_Roles" Association="PSIMPDB.Store.FK_webpages_UsersInRoles_webpages_Roles">
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
@@ -69,20 +68,6 @@
     </Key>
     <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
-  </EntityType>
-  <EntityType Name="PM_PersonBaseInfo">
-    <Key>
-      <PropertyRef Name="PersonID" />
-    </Key>
-    <Property Name="PersonID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
-    <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="Sex" Type="bit" Nullable="false" DefaultValue="true" />
-    <Property Name="Birthday" Type="datetime" Nullable="false" />
-    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="RegisterAddress" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="ContactNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="AlternateNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="TwoInchPhoto" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_UsersInRoles">
     <Key>
@@ -161,7 +146,57 @@
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="webpages_OAuthMembership" EntitySet="webpages_OAuthMembership" />
           </AssociationSet>
+          <EntitySet Name="EM_ProjectBaseInfo" EntityType="PSIMPDB.EM_ProjectBaseInfo" />
+          <EntitySet Name="EM_ProjectContractBaseInfo" EntityType="PSIMPDB.EM_ProjectContractBaseInfo" />
+          <EntitySet Name="EM_ProjectContractDataInfo" EntityType="PSIMPDB.EM_ProjectContractDataInfo" />
+          <EntitySet Name="EM_ProjectContractPayCondition" EntityType="PSIMPDB.EM_ProjectContractPayCondition" />
+          <EntitySet Name="EM_ProjectContractPerformance" EntityType="PSIMPDB.EM_ProjectContractPerformance" />
+          <EntitySet Name="EM_ProjectContractPersonInfo" EntityType="PSIMPDB.EM_ProjectContractPersonInfo" />
+          <EntitySet Name="EM_ProjectExpandInfo" EntityType="PSIMPDB.EM_ProjectExpandInfo" />
+          <EntitySet Name="EM_ProjectPersonManage" EntityType="PSIMPDB.EM_ProjectPersonManage" />
+          <EntitySet Name="EM_ProjectTestPutOnFile" EntityType="PSIMPDB.EM_ProjectTestPutOnFile" />
+          <EntitySet Name="PM_CertificateManage" EntityType="PSIMPDB.PM_CertificateManage" />
           <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.PM_PersonBaseInfo" />
+          <EntitySet Name="PM_PersonCertificateInfo" EntityType="PSIMPDB.PM_PersonCertificateInfo" />
+          <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.PM_PersonContractInfo" />
+          <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.PM_PersonEducationalBackground" />
+          <EntitySet Name="PM_PersonInsuranceInfo" EntityType="PSIMPDB.PM_PersonInsuranceInfo" />
+          <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" />
+          <EntitySet Name="PM_PersonRegister" EntityType="PSIMPDB.PM_PersonRegister" />
+          <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.PM_PersonTrainingExperience" />
+          <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" />
+          <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectContractBaseInfo" Association="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractBaseInfo">
+            <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+            <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectPersonManage" Association="PSIMPDB.EM_ProjectBaseInfoEM_ProjectPersonManage">
+            <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+            <End Role="EM_ProjectPersonManage" EntitySet="EM_ProjectPersonManage" />
+          </AssociationSet>
+          <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectContractPerformance" Association="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractPerformance">
+            <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+            <End Role="EM_ProjectContractPerformance" EntitySet="EM_ProjectContractPerformance" />
+          </AssociationSet>
+          <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectTestPutOnFile" Association="PSIMPDB.EM_ProjectBaseInfoEM_ProjectTestPutOnFile">
+            <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+            <End Role="EM_ProjectTestPutOnFile" EntitySet="EM_ProjectTestPutOnFile" />
+          </AssociationSet>
+          <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" Association="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractDataInfo">
+            <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+            <End Role="EM_ProjectContractDataInfo" EntitySet="EM_ProjectContractDataInfo" />
+          </AssociationSet>
+          <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" Association="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPayCondition">
+            <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+            <End Role="EM_ProjectContractPayCondition" EntitySet="EM_ProjectContractPayCondition" />
+          </AssociationSet>
+          <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" Association="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo">
+            <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+            <End Role="EM_ProjectContractPersonInfo" EntitySet="EM_ProjectContractPersonInfo" />
+          </AssociationSet>
+          <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo" Association="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectExpandInfo">
+            <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+            <End Role="EM_ProjectExpandInfo" EntitySet="EM_ProjectExpandInfo" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
@@ -220,6 +255,230 @@
           <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="1" />
           <End Type="PSIMPDB.webpages_OAuthMembership" Role="webpages_OAuthMembership" Multiplicity="0..1" />
         </Association>
+        <EntityType Name="EM_ProjectBaseInfo">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Type="String" Name="ProjectID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectFullName" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" />
+          <Property Type="String" Name="ConstructionCompany" Nullable="false" />
+          <Property Type="String" Name="ProjectType" Nullable="false" />
+          <Property Type="String" Name="ProjectScale" Nullable="false" />
+          <Property Type="String" Name="ProjectAddress" Nullable="false" />
+          <Property Type="String" Name="EntryDate" Nullable="false" />
+          <Property Type="String" Name="StartDate" Nullable="false" />
+          <Property Type="String" Name="FinishedDate" Nullable="false" />
+          <Property Type="String" Name="CompletionDate" Nullable="false" />
+          <Property Type="String" Name="ConstructionPeriod" Nullable="false" />
+          <Property Type="String" Name="DefectsLiabilityPeriod" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectContractBaseInfo" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractBaseInfo" FromRole="EM_ProjectBaseInfo" ToRole="EM_ProjectContractBaseInfo" />
+          <NavigationProperty Name="EM_ProjectPersonManage" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectPersonManage" FromRole="EM_ProjectBaseInfo" ToRole="EM_ProjectPersonManage" />
+          <NavigationProperty Name="EM_ProjectContractPerformance" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractPerformance" FromRole="EM_ProjectBaseInfo" ToRole="EM_ProjectContractPerformance" />
+          <NavigationProperty Name="EM_ProjectTestPutOnFile" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectTestPutOnFile" FromRole="EM_ProjectBaseInfo" ToRole="EM_ProjectTestPutOnFile" />
+        </EntityType>
+        <EntityType Name="EM_ProjectContractBaseInfo">
+          <Key>
+            <PropertyRef Name="ProjectContractID" />
+          </Key>
+          <Property Type="Int32" Name="ProjectContractID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="BiddingDate" Nullable="false" />
+          <Property Type="String" Name="ContractPeriod" Nullable="false" />
+          <Property Type="String" Name="OpenDate" Nullable="false" />
+          <Property Type="String" Name="OpeningPeriod" Nullable="false" />
+          <Property Type="String" Name="OpeningConditions" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="ContractAttachment" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectBaseInfo" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractBaseInfo" FromRole="EM_ProjectContractBaseInfo" ToRole="EM_ProjectBaseInfo" />
+          <NavigationProperty Name="EM_ProjectContractDataInfo" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" FromRole="EM_ProjectContractBaseInfo" ToRole="EM_ProjectContractDataInfo" />
+          <NavigationProperty Name="EM_ProjectContractPayCondition" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" FromRole="EM_ProjectContractBaseInfo" ToRole="EM_ProjectContractPayCondition" />
+          <NavigationProperty Name="EM_ProjectContractPersonInfo" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" FromRole="EM_ProjectContractBaseInfo" ToRole="EM_ProjectContractPersonInfo" />
+          <NavigationProperty Name="EM_ProjectExpandInfo" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectExpandInfo" FromRole="EM_ProjectContractBaseInfo" ToRole="EM_ProjectExpandInfo" />
+        </EntityType>
+        <EntityType Name="EM_ProjectContractDataInfo">
+          <Key>
+            <PropertyRef Name="PContractDataID" />
+          </Key>
+          <Property Type="Int32" Name="PContractDataID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ContractMoney" Nullable="false" />
+          <Property Type="String" Name="ProvisionalSums" Nullable="false" />
+          <Property Type="String" Name="ContractNetAmount" Nullable="false" />
+          <Property Type="String" Name="ConstructionPeriodMoney" Nullable="false" />
+          <Property Type="String" Name="DefectPeriodMoeny" Nullable="false" />
+          <Property Type="String" Name="GuaranteePeriodMoney" Nullable="false" />
+          <Property Type="String" Name="HonestDepositMoney" Nullable="false" />
+          <Property Type="String" Name="GuaranteeMoney" Nullable="false" />
+          <Property Type="String" Name="AgainstRiskMoney" Nullable="false" />
+          <Property Type="String" Name="ReviewMoeny" Nullable="false" />
+          <Property Type="String" Name="ContractID" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectContractBaseInfo" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" FromRole="EM_ProjectContractDataInfo" ToRole="EM_ProjectContractBaseInfo" />
+        </EntityType>
+        <EntityType Name="EM_ProjectContractPayCondition">
+          <Key>
+            <PropertyRef Name="PContractPayConditionID" />
+          </Key>
+          <Property Type="Int32" Name="PContractPayConditionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ContractID" Nullable="false" />
+          <Property Type="String" Name="MeasurePayCondition" Nullable="false" />
+          <Property Type="String" Name="AgainstRiskPayCondition" Nullable="false" />
+          <Property Type="String" Name="GuaranteePayMoney" Nullable="false" />
+          <Property Type="String" Name="GuaranteePayCondition" Nullable="false" />
+          <Property Type="String" Name="MobilizeAdvanceMoneyLetter" Nullable="false" />
+          <Property Type="String" Name="PerformanceBondPayCondition" Nullable="false" />
+          <Property Type="String" Name="PayMode" Nullable="false" />
+          <Property Type="String" Name="PayDutyMode" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectContractBaseInfo" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" FromRole="EM_ProjectContractPayCondition" ToRole="EM_ProjectContractBaseInfo" />
+        </EntityType>
+        <EntityType Name="EM_ProjectContractPerformance">
+          <Key>
+            <PropertyRef Name="ProjectContractPerformanceID" />
+          </Key>
+          <Property Type="Int32" Name="ProjectContractPerformanceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="PersonID" Nullable="false" />
+          <Property Type="String" Name="PersonName" Nullable="false" />
+          <Property Type="String" Name="OnProjectID" Nullable="false" />
+          <Property Type="String" Name="InPresentDate" Nullable="false" />
+          <Property Type="String" Name="PerformanceProjectID" Nullable="false" />
+          <Property Type="String" Name="PerformanceDuties" Nullable="false" />
+          <Property Type="String" Name="OutDate" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectBaseInfo" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractPerformance" FromRole="EM_ProjectContractPerformance" ToRole="EM_ProjectBaseInfo" />
+        </EntityType>
+        <EntityType Name="EM_ProjectContractPersonInfo">
+          <Key>
+            <PropertyRef Name="ContractPersonID" />
+          </Key>
+          <Property Type="String" Name="ContractPersonID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectContractID" Nullable="false" />
+          <Property Type="String" Name="ContractDuties" Nullable="false" />
+          <Property Type="String" Name="PersonID" Nullable="false" />
+          <Property Type="String" Name="ContractPosition" Nullable="false" />
+          <Property Type="String" Name="HoldCertificate" Nullable="false" />
+          <Property Type="String" Name="Other" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectContractBaseInfo" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" FromRole="EM_ProjectContractPersonInfo" ToRole="EM_ProjectContractBaseInfo" />
+        </EntityType>
+        <EntityType Name="EM_ProjectExpandInfo">
+          <Key>
+            <PropertyRef Name="ProjectExpandID" />
+          </Key>
+          <Property Type="Int32" Name="ProjectExpandID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" />
+          <Property Type="Decimal" Name="ContractMoney" Nullable="false" />
+          <Property Type="Int32" Name="Mileage" Nullable="false" />
+          <Property Type="String" Name="RoadGrade" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="TerrainCondition" Nullable="false" />
+          <Property Type="Int16" Name="RoadbedWidth" Nullable="false" />
+          <Property Type="Decimal" Name="Excavation" Nullable="false" />
+          <Property Type="String" Name="Fill" Nullable="false" />
+          <Property Type="String" Name="SoftFoundation" Nullable="false" />
+          <Property Type="String" Name="BasicLevel" Nullable="false" />
+          <Property Type="String" Name="RoadStructureTypeAndMileage" Nullable="false" />
+          <Property Type="String" Name="BituminousConcretePavement" Nullable="false" />
+          <Property Type="String" Name="CementConcretePavement" Nullable="false" />
+          <Property Type="String" Name="BridgeStructureLengthLargestSpan" Nullable="false" />
+          <Property Type="String" Name="GrandBridgeNum" Nullable="false" />
+          <Property Type="String" Name="GreatBridgeNum" Nullable="false" />
+          <Property Type="String" Name="MediumBridgeNum" Nullable="false" />
+          <Property Type="String" Name="CulvertNum" Nullable="false" />
+          <Property Type="String" Name="InterchangeNum" Nullable="false" />
+          <Property Type="String" Name="InterchangeMainBridge" Nullable="false" />
+          <Property Type="String" Name="TamperBridgeNum" Nullable="false" />
+          <Property Type="String" Name="TamperBridgeMileage" Nullable="false" />
+          <Property Type="String" Name="SuperLongTunnelNum" Nullable="false" />
+          <Property Type="String" Name="LongTunnelNum" Nullable="false" />
+          <Property Type="String" Name="MiddleTunnelNum" Nullable="false" />
+          <Property Type="String" Name="ShortTunnelNum" Nullable="false" />
+          <Property Type="String" Name="SideSlopeAfforestation" Nullable="false" />
+          <Property Type="String" Name="MechanicalElectricalAndContent" Nullable="false" />
+          <Property Type="String" Name="SupervisionTask" Nullable="false" />
+          <Property Type="String" Name="FinishedDate" Nullable="false" />
+          <Property Type="String" Name="SupervisorWorkload" Nullable="false" />
+          <Property Type="String" Name="QualityGrade" Nullable="false" />
+          <Property Type="String" Name="HousingConstruction" Nullable="false" />
+          <Property Type="String" Name="GeneralSupervision" Nullable="false" />
+          <Property Type="String" Name="ConstructionCompanyName" Nullable="false" />
+          <Property Type="String" Name="ConstructionCompanyLinkman" Nullable="false" />
+          <Property Type="String" Name="ConstructionCompanyPhoneNum" Nullable="false" />
+          <Property Type="String" Name="RewardAndPunishment" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectContractBaseInfo" Relationship="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectExpandInfo" FromRole="EM_ProjectExpandInfo" ToRole="EM_ProjectContractBaseInfo" />
+        </EntityType>
+        <EntityType Name="EM_ProjectPersonManage">
+          <Key>
+            <PropertyRef Name="ProjectPersonID" />
+          </Key>
+          <Property Type="Int32" Name="ProjectPersonID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" />
+          <Property Type="String" Name="DutiesName" Nullable="false" />
+          <Property Type="String" Name="PersonID" Nullable="false" />
+          <Property Type="String" Name="PersonName" Nullable="false" />
+          <Property Type="String" Name="PersonComeType" Nullable="false" />
+          <Property Type="String" Name="IsOnScene" Nullable="false" />
+          <Property Type="String" Name="EntryDate" Nullable="false" />
+          <Property Type="String" Name="ProjectPosition" Nullable="false" />
+          <Property Type="String" Name="ExitDate" Nullable="false" />
+          <Property Type="String" Name="ExitReason" Nullable="false" />
+          <Property Type="String" Name="IsHaveOwnerReplied" Nullable="false" />
+          <Property Type="String" Name="RepliedDate" Nullable="false" />
+          <Property Type="String" Name="RepliedResult" Nullable="false" />
+          <Property Type="String" Name="RepliedSuggestion" Nullable="false" />
+          <Property Type="String" Name="RepliedNumber" Nullable="false" />
+          <Property Type="String" Name="RepliedAttachment" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="EM_ProjectBaseInfo" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectPersonManage" FromRole="EM_ProjectPersonManage" ToRole="EM_ProjectBaseInfo" />
+        </EntityType>
+        <EntityType Name="EM_ProjectTestPutOnFile">
+          <Key>
+            <PropertyRef Name="TestPutonFileID" />
+          </Key>
+          <Property Type="String" Name="TestPutonFileID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectID" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="ProjectName" Nullable="false" />
+          <Property Type="DateTime" Name="PutonfileStartDate" Nullable="false" />
+          <Property Type="DateTime" Name="PutonfileEndDate" Nullable="false" />
+          <Property Type="Int16" Name="PutonfileTimes" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="400" />
+          <NavigationProperty Name="EM_ProjectBaseInfo" Relationship="PSIMPDB.EM_ProjectBaseInfoEM_ProjectTestPutOnFile" FromRole="EM_ProjectTestPutOnFile" ToRole="EM_ProjectBaseInfo" />
+        </EntityType>
+        <EntityType Name="PM_CertificateManage">
+          <Key>
+            <PropertyRef Name="CertificateID" />
+          </Key>
+          <Property Type="String" Name="CertificateID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FileNumber" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <Property Type="DateTime" Name="RegisterDate" Nullable="false" />
+          <Property Type="String" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="PositionStatus" Nullable="false" />
+          <Property Type="String" Name="SubmitCorporationDate" Nullable="false" />
+          <Property Type="String" Name="IsSubmitGraduationCertificate" Nullable="false" />
+          <Property Type="String" Name="IsSubmitSupervisionCertificate" Nullable="false" />
+          <Property Type="String" Name="IsSubmitPositionalCertificate" Nullable="false" />
+          <Property Type="String" Name="IsSubmitSecurityCertificate" Nullable="false" />
+          <Property Type="String" Name="IsSubmitConservationCertificate" Nullable="false" />
+          <Property Type="String" Name="IsSubmitIdentificationCard" Nullable="false" />
+          <Property Type="String" Name="ReturnBusinessUnitDate" Nullable="false" />
+          <Property Type="String" Name="IsReturnGraduationCertificate" Nullable="false" />
+          <Property Type="String" Name="IsReturnSupervisionCertificate" Nullable="false" />
+          <Property Type="String" Name="IsReturnPositionalCertificate" Nullable="false" />
+          <Property Type="String" Name="IsReturnSecurityCertificate" Nullable="false" />
+          <Property Type="String" Name="IsReturnConservationCertificate" Nullable="false" />
+          <Property Type="String" Name="IsReturnIdentificationCard" Nullable="false" />
+          <Property Type="String" Name="GivebackSelfDate" Nullable="false" />
+          <Property Type="String" Name="IsGivebackGraduationCertificate" Nullable="false" />
+          <Property Type="String" Name="IsGivebackSupervisionCertificate" Nullable="false" />
+          <Property Type="String" Name="IsGivebackPositionalCertificate" Nullable="false" />
+          <Property Type="String" Name="IsGivebackSecurityCertificate" Nullable="false" />
+          <Property Type="String" Name="IsGivebackConservationCertificate" Nullable="false" />
+          <Property Type="String" Name="IsGivebackIdentificationCard" Nullable="false" />
+          <Property Type="String" Name="Descriptions" Nullable="false" />
+        </EntityType>
         <EntityType Name="PM_PersonBaseInfo">
           <Key>
             <PropertyRef Name="PersonID" />
@@ -232,8 +491,167 @@
           <Property Type="String" Name="RegisterAddress" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="AlternateNumber" Nullable="false" MaxLength="20" />
-          <Property Type="Binary" Name="TwoInchPhoto" Nullable="false" />
+          <Property Type="Byte" Name="TwoInchPhoto" Nullable="false" />
         </EntityType>
+        <EntityType Name="PM_PersonCertificateInfo">
+          <Key>
+            <PropertyRef Name="CertificateID" />
+          </Key>
+          <Property Type="String" Name="CertificateID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CertificateName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="CertificateType" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="CertificateNumber" Nullable="false" MaxLength="40" />
+          <Property Type="DateTime" Name="GotDate" Nullable="false" />
+          <Property Type="String" Name="Authority" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="PM_PersonContractInfo">
+          <Key>
+            <PropertyRef Name="ContractID" />
+          </Key>
+          <Property Type="String" Name="ContractID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="Sex" Nullable="false" />
+          <Property Type="String" Name="IDNumber" Nullable="false" />
+          <Property Type="String" Name="ContractNumber" Nullable="false" />
+          <Property Type="String" Name="EffectiveDate" Nullable="false" />
+          <Property Type="String" Name="ExpiryDate" Nullable="false" />
+          <Property Type="String" Name="SigningDate" Nullable="false" />
+          <Property Type="String" Name="ContractPosition" Nullable="false" />
+          <Property Type="String" Name="ContractSalary" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PM_PersonEducationalBackground">
+          <Key>
+            <PropertyRef Name="EducationalBckID" />
+          </Key>
+          <Property Type="Guid" Name="EducationalBckID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="EduStartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EduEndDate" Nullable="false" />
+          <Property Type="String" Name="SpecialtyName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Degree" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="PM_PersonInsuranceInfo">
+          <Key>
+            <PropertyRef Name="InsuranceID" />
+          </Key>
+          <Property Type="String" Name="InsuranceID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="Sex" Nullable="false" />
+          <Property Type="String" Name="IDNumber" Nullable="false" />
+          <Property Type="String" Name="InsuranceNumber" Nullable="false" />
+          <Property Type="String" Name="InsuranceType" Nullable="false" />
+          <Property Type="String" Name="EffectiveDate" Nullable="false" />
+          <Property Type="String" Name="ExpiryDate" Nullable="false" />
+          <Property Type="String" Name="PositionStatus" Nullable="false" />
+          <Property Type="String" Name="InsuredNumber" Nullable="false" />
+          <Property Type="String" Name="InsuranceContent" Nullable="false" />
+          <Property Type="String" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="PositionName" Nullable="false" />
+          <Property Type="String" Name="Descriptions" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PM_PersonPositionalTitlesInfo">
+          <Key>
+            <PropertyRef Name="PositionalID" />
+          </Key>
+          <Property Type="String" Name="PositionalID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PositionalName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PositionalType" Nullable="false" MaxLength="40" />
+          <Property Type="DateTime" Name="AssessmentDate" Nullable="false" />
+          <Property Type="String" Name="AssessmentBody" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="PM_PersonRegister">
+          <Key>
+            <PropertyRef Name="RegisterID" />
+          </Key>
+          <Property Type="String" Name="RegisterID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+          <Property Type="DateTime" Name="RegisterDate" Nullable="false" />
+          <Property Type="String" Name="RegisterCompany" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="OldDBDesc" Nullable="false" />
+          <Property Type="String" Name="NewDBDesc" Nullable="false" />
+          <Property Type="String" Name="IsHaveIdentificationCard" Nullable="false" />
+          <Property Type="String" Name="IsHaveGraduationCertificate" Nullable="false" />
+          <Property Type="String" Name="IsHavePositionalCertificate" Nullable="false" />
+          <Property Type="String" Name="IshaveSupervisionCertificate" Nullable="false" />
+          <Property Type="String" Name="IsHaveSecurityCertificate" Nullable="false" />
+          <Property Type="String" Name="IsHaveConservationCertificate" Nullable="false" />
+          <Property Type="String" Name="IshaveTwoInchPhoto" Nullable="false" />
+          <Property Type="String" Name="RegisterStatus" Nullable="false" />
+          <Property Type="String" Name="NoCanRegisterCause" Nullable="false" MaxLength="400" />
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="PM_PersonTrainingExperience">
+          <Key>
+            <PropertyRef Name="TrainingExpID" />
+          </Key>
+          <Property Type="String" Name="TrainingExpID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="InstitutionsName" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="TrainingStartDate" Nullable="false" />
+          <Property Type="DateTime" Name="TrainingEndDate" Nullable="false" />
+          <Property Type="String" Name="TrainingAddress" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TrainingContent" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="GotCertificate" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="400" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="PM_PersonWorkExperienceInfo">
+          <Key>
+            <PropertyRef Name="WorkExpID" />
+          </Key>
+          <Property Type="String" Name="WorkExpID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="WorkStartDate" Nullable="false" />
+          <Property Type="DateTime" Name="WorkEndDate" Nullable="false" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Character" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SectorClass" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="AtProject" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PositionName" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="Salary" Nullable="false" />
+          <Property Type="Boolean" Name="ContractStatus" Nullable="false" />
+          <Property Type="String" Name="WorkContent" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="RefereesName" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="RefereesPhoneNumber" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="EM_ProjectBaseInfoEM_ProjectContractBaseInfo">
+          <End Type="PSIMPDB.EM_ProjectBaseInfo" Role="EM_ProjectBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectContractBaseInfo" Role="EM_ProjectContractBaseInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="EM_ProjectBaseInfoEM_ProjectPersonManage">
+          <End Type="PSIMPDB.EM_ProjectBaseInfo" Role="EM_ProjectBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectPersonManage" Role="EM_ProjectPersonManage" Multiplicity="*" />
+        </Association>
+        <Association Name="EM_ProjectBaseInfoEM_ProjectContractPerformance">
+          <End Type="PSIMPDB.EM_ProjectBaseInfo" Role="EM_ProjectBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectContractPerformance" Role="EM_ProjectContractPerformance" Multiplicity="*" />
+        </Association>
+        <Association Name="EM_ProjectBaseInfoEM_ProjectTestPutOnFile">
+          <End Type="PSIMPDB.EM_ProjectBaseInfo" Role="EM_ProjectBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectTestPutOnFile" Role="EM_ProjectTestPutOnFile" Multiplicity="*" />
+        </Association>
+        <Association Name="EM_ProjectContractBaseInfoEM_ProjectContractDataInfo">
+          <End Type="PSIMPDB.EM_ProjectContractBaseInfo" Role="EM_ProjectContractBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectContractDataInfo" Role="EM_ProjectContractDataInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="EM_ProjectContractBaseInfoEM_ProjectContractPayCondition">
+          <End Type="PSIMPDB.EM_ProjectContractBaseInfo" Role="EM_ProjectContractBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectContractPayCondition" Role="EM_ProjectContractPayCondition" Multiplicity="*" />
+        </Association>
+        <Association Name="EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo">
+          <End Type="PSIMPDB.EM_ProjectContractBaseInfo" Role="EM_ProjectContractBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectContractPersonInfo" Role="EM_ProjectContractPersonInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo">
+          <End Type="PSIMPDB.EM_ProjectContractBaseInfo" Role="EM_ProjectContractBaseInfo" Multiplicity="1" />
+          <End Type="PSIMPDB.EM_ProjectExpandInfo" Role="EM_ProjectExpandInfo" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -279,21 +697,6 @@
         <MappingFragment StoreEntitySet="webpages_Roles">
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PM_PersonBaseInfo">
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonBaseInfo)">
-        <MappingFragment StoreEntitySet="PM_PersonBaseInfo">
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
-          <ScalarProperty Name="RegisterAddress" ColumnName="RegisterAddress" />
-          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-          <ScalarProperty Name="AlternateNumber" ColumnName="AlternateNumber" />
-          <ScalarProperty Name="TwoInchPhoto" ColumnName="TwoInchPhoto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
