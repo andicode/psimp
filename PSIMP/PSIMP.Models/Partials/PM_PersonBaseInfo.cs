@@ -13,13 +13,13 @@ namespace PSIMP.Models
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonBaseInfo_MetaData))]
     public partial class PM_PersonBaseInfo
-    {        
-        [Model(IDProperty = "ID")]
+    {
+        [Model(IDProperty = "PersonID")]
         public class PM_PersonBaseInfo_MetaData
         {
             [Column(Ignore = true)]
             [Field(FieldType = typeof(Hidden))]
-            public Guid ID { get; set; }
+            public Guid PersonID { get; set; }
 
             [Column(Text = "姓名",Order = 1)]
             [Field(FieldLabel = "姓名",  AllowBlank = false, BlankText = "请输入人员姓名")]

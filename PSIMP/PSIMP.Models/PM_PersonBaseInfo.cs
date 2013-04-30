@@ -21,7 +21,7 @@ namespace PSIMP.Models
             this.Sex = true;
         }
     
-        public string PersonID { get; set; }
+        public long PersonID { get; set; }
         public string PersonName { get; set; }
         public bool Sex { get; set; }
         public System.DateTime Birthday { get; set; }
