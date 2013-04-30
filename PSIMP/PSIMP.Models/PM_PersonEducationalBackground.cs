@@ -23,6 +23,8 @@ namespace PSIMP.Models
         public string SpecialtyName { get; set; }
         public string Degree { get; set; }
         public string Descriptions { get; set; }
-        public string PersonID { get; set; }
+        public long PersonID { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

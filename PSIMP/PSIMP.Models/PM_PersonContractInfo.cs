@@ -17,7 +17,6 @@ namespace PSIMP.Models
     public partial class PM_PersonContractInfo
     {
         public string ContractID { get; set; }
-        public string PersonID { get; set; }
         public string Sex { get; set; }
         public string IDNumber { get; set; }
         public string ContractNumber { get; set; }
@@ -27,5 +26,8 @@ namespace PSIMP.Models
         public string ContractPosition { get; set; }
         public string ContractSalary { get; set; }
         public string Description { get; set; }
+        public long PersonID { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }
