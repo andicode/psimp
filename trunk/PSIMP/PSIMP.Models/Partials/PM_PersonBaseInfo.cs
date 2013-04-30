@@ -19,7 +19,7 @@ namespace PSIMP.Models
         {
             [Column(Ignore = true)]
             [Field(FieldType = typeof(Hidden))]
-            public Guid PersonID { get; set; }
+            public long PersonID { get; set; }
 
             [Column(Text = "姓名",Order = 1)]
             [Field(FieldLabel = "姓名",  AllowBlank = false, BlankText = "请输入人员姓名")]
