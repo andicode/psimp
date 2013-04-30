@@ -23,6 +23,7 @@
         <AssociationConnector Association="PSIMPDB.webpages_UsersInRoles" />
         <AssociationConnector Association="PSIMPDB.UserProfilewebpages_Membership" />
         <AssociationConnector Association="PSIMPDB.UserProfilewebpages_OAuthMembership" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.5" PointX="4.5" PointY="4.125" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

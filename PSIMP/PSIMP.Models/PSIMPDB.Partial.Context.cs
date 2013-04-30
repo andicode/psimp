@@ -19,5 +19,6 @@ namespace PSIMP.Models
          public DbSet<webpages_Membership> webpages_MembershipSet { get; set; }
          public DbSet<webpages_OAuthMembership> webpages_OAuthMembershipSet { get; set; }
          public DbSet<webpages_Roles> webpages_RolesSet { get; set; }
+         public DbSet<PM_PersonBaseInfo> PM_PersonBaseInfoSet { get; set; }
     }
 }
