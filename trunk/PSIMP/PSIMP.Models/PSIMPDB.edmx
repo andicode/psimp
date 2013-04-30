@@ -10,6 +10,25 @@
     <EntitySet Name="webpages_Membership" EntityType="PSIMPDB.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_OAuthMembership" EntityType="PSIMPDB.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_Roles" EntityType="PSIMPDB.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectBaseInfo" EntityType="PSIMPDB.Store.EM_ProjectBaseInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectContractBaseInfo" EntityType="PSIMPDB.Store.EM_ProjectContractBaseInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectContractDataInfo" EntityType="PSIMPDB.Store.EM_ProjectContractDataInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectContractPayCondition" EntityType="PSIMPDB.Store.EM_ProjectContractPayCondition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectContractPerformance" EntityType="PSIMPDB.Store.EM_ProjectContractPerformance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectContractPersonInfo" EntityType="PSIMPDB.Store.EM_ProjectContractPersonInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectExpandInfo" EntityType="PSIMPDB.Store.EM_ProjectExpandInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectPersonManage" EntityType="PSIMPDB.Store.EM_ProjectPersonManage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EM_ProjectTestPutOnFile" EntityType="PSIMPDB.Store.EM_ProjectTestPutOnFile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_CertificateManage" EntityType="PSIMPDB.Store.PM_CertificateManage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonCertificateInfo" EntityType="PSIMPDB.Store.PM_PersonCertificateInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.Store.PM_PersonContractInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.Store.PM_PersonEducationalBackground1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonInsuranceInfo" EntityType="PSIMPDB.Store.PM_PersonInsuranceInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.Store.PM_PersonPositionalTitlesInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonRegister" EntityType="PSIMPDB.Store.PM_PersonRegister" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.Store.PM_PersonTrainingExperience" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.Store.PM_PersonWorkExperienceInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_UsersInRoles" EntityType="PSIMPDB.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_webpages_UsersInRoles_webpages_Roles" Association="PSIMPDB.Store.FK_webpages_UsersInRoles_webpages_Roles">
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
@@ -26,6 +45,38 @@
     <AssociationSet Name="UserProfilewebpages_OAuthMembership" Association="PSIMPDB.Store.UserProfilewebpages_OAuthMembership">
       <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="webpages_OAuthMembership" EntitySet="webpages_OAuthMembership" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectContractBaseInfo" Association="PSIMPDB.Store.EM_ProjectBaseInfoEM_ProjectContractBaseInfo">
+      <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+      <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectPersonManage" Association="PSIMPDB.Store.EM_ProjectBaseInfoEM_ProjectPersonManage">
+      <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+      <End Role="EM_ProjectPersonManage" EntitySet="EM_ProjectPersonManage" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectContractPerformance" Association="PSIMPDB.Store.EM_ProjectBaseInfoEM_ProjectContractPerformance">
+      <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+      <End Role="EM_ProjectContractPerformance" EntitySet="EM_ProjectContractPerformance" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectBaseInfoEM_ProjectTestPutOnFile" Association="PSIMPDB.Store.EM_ProjectBaseInfoEM_ProjectTestPutOnFile">
+      <End Role="EM_ProjectBaseInfo" EntitySet="EM_ProjectBaseInfo" />
+      <End Role="EM_ProjectTestPutOnFile" EntitySet="EM_ProjectTestPutOnFile" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" Association="PSIMPDB.Store.EM_ProjectContractBaseInfoEM_ProjectContractDataInfo">
+      <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+      <End Role="EM_ProjectContractDataInfo" EntitySet="EM_ProjectContractDataInfo" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" Association="PSIMPDB.Store.EM_ProjectContractBaseInfoEM_ProjectContractPayCondition">
+      <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+      <End Role="EM_ProjectContractPayCondition" EntitySet="EM_ProjectContractPayCondition" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" Association="PSIMPDB.Store.EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo">
+      <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+      <End Role="EM_ProjectContractPersonInfo" EntitySet="EM_ProjectContractPersonInfo" />
+    </AssociationSet>
+    <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo" Association="PSIMPDB.Store.EM_ProjectContractBaseInfoEM_ProjectExpandInfo">
+      <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
+      <End Role="EM_ProjectExpandInfo" EntitySet="EM_ProjectExpandInfo" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="UserProfile">
@@ -69,6 +120,363 @@
     <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
   </EntityType>
+  <EntityType Name="EM_ProjectBaseInfo">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="ProjectFullName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConstructionCompany" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectScale" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EntryDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FinishedDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompletionDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConstructionPeriod" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DefectsLiabilityPeriod" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectContractBaseInfo">
+    <Key>
+      <PropertyRef Name="ProjectContractID" />
+    </Key>
+    <Property Name="ProjectContractID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BiddingDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractPeriod" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OpenDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OpeningPeriod" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OpeningConditions" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractAttachment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectContractDataInfo">
+    <Key>
+      <PropertyRef Name="PContractDataID" />
+    </Key>
+    <Property Name="PContractDataID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractMoney" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProvisionalSums" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractNetAmount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConstructionPeriodMoney" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DefectPeriodMoeny" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GuaranteePeriodMoney" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HonestDepositMoney" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GuaranteeMoney" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AgainstRiskMoney" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReviewMoeny" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectContractPayCondition">
+    <Key>
+      <PropertyRef Name="PContractPayConditionID" />
+    </Key>
+    <Property Name="PContractPayConditionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MeasurePayCondition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AgainstRiskPayCondition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GuaranteePayMoney" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GuaranteePayCondition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MobilizeAdvanceMoneyLetter" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PerformanceBondPayCondition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PayMode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PayDutyMode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectContractPerformance">
+    <Key>
+      <PropertyRef Name="ProjectContractPerformanceID" />
+    </Key>
+    <Property Name="ProjectContractPerformanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OnProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InPresentDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PerformanceProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PerformanceDuties" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OutDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectContractPersonInfo">
+    <Key>
+      <PropertyRef Name="ContractPersonID" />
+    </Key>
+    <Property Name="ContractPersonID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="ProjectContractID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractDuties" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractPosition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HoldCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Other" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectExpandInfo">
+    <Key>
+      <PropertyRef Name="ProjectExpandID" />
+    </Key>
+    <Property Name="ProjectExpandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractMoney" Type="decimal" Nullable="false" />
+    <Property Name="Mileage" Type="int" Nullable="false" />
+    <Property Name="RoadGrade" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="TerrainCondition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoadbedWidth" Type="smallint" Nullable="false" />
+    <Property Name="Excavation" Type="decimal" Nullable="false" />
+    <Property Name="Fill" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SoftFoundation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BasicLevel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoadStructureTypeAndMileage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BituminousConcretePavement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CementConcretePavement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BridgeStructureLengthLargestSpan" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GrandBridgeNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GreatBridgeNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MediumBridgeNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CulvertNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InterchangeNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InterchangeMainBridge" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TamperBridgeNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TamperBridgeMileage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SuperLongTunnelNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LongTunnelNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleTunnelNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ShortTunnelNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SideSlopeAfforestation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MechanicalElectricalAndContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SupervisionTask" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FinishedDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SupervisorWorkload" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="QualityGrade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HousingConstruction" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GeneralSupervision" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConstructionCompanyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConstructionCompanyLinkman" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConstructionCompanyPhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RewardAndPunishment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectPersonManage">
+    <Key>
+      <PropertyRef Name="ProjectPersonID" />
+    </Key>
+    <Property Name="ProjectPersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DutiesName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonComeType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsOnScene" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EntryDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectPosition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExitDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExitReason" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHaveOwnerReplied" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RepliedDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RepliedResult" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RepliedSuggestion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RepliedNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RepliedAttachment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EM_ProjectTestPutOnFile">
+    <Key>
+      <PropertyRef Name="TestPutonFileID" />
+    </Key>
+    <Property Name="TestPutonFileID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="ProjectID" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PutonfileStartDate" Type="datetime" Nullable="false" />
+    <Property Name="PutonfileEndDate" Type="datetime" Nullable="false" />
+    <Property Name="PutonfileTimes" Type="smallint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_CertificateManage">
+    <Key>
+      <PropertyRef Name="CertificateID" />
+    </Key>
+    <Property Name="CertificateID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="FileNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PositionStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SubmitCorporationDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsSubmitGraduationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsSubmitSupervisionCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsSubmitPositionalCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsSubmitSecurityCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsSubmitConservationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsSubmitIdentificationCard" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReturnBusinessUnitDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsReturnGraduationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsReturnSupervisionCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsReturnPositionalCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsReturnSecurityCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsReturnConservationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsReturnIdentificationCard" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GivebackSelfDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGivebackGraduationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGivebackSupervisionCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGivebackPositionalCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGivebackSecurityCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGivebackConservationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGivebackIdentificationCard" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descriptions" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_PersonBaseInfo">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Sex" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="RegisterAddress" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ContactNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="AlternateNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="TwoInchPhoto" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_PersonCertificateInfo">
+    <Key>
+      <PropertyRef Name="CertificateID" />
+    </Key>
+    <Property Name="CertificateID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="CertificateName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="CertificateType" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="CertificateNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="GotDate" Type="datetime" Nullable="false" />
+    <Property Name="Authority" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="PM_PersonContractInfo">
+    <Key>
+      <PropertyRef Name="ContractID" />
+    </Key>
+    <Property Name="ContractID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EffectiveDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExpiryDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SigningDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractPosition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractSalary" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_PersonEducationalBackground1">
+    <Key>
+      <PropertyRef Name="EducationalBckID" />
+    </Key>
+    <Property Name="EducationalBckID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="EduStartDate" Type="datetime" Nullable="false" />
+    <Property Name="EduEndDate" Type="datetime" Nullable="false" />
+    <Property Name="SpecialtyName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Degree" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="PM_PersonInsuranceInfo">
+    <Key>
+      <PropertyRef Name="InsuranceID" />
+    </Key>
+    <Property Name="InsuranceID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsuranceNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsuranceType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EffectiveDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExpiryDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PositionStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsuredNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsuranceContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descriptions" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_PersonPositionalTitlesInfo">
+    <Key>
+      <PropertyRef Name="PositionalID" />
+    </Key>
+    <Property Name="PositionalID" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionalName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PositionalType" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="AssessmentDate" Type="datetime" Nullable="false" />
+    <Property Name="AssessmentBody" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="PM_PersonRegister">
+    <Key>
+      <PropertyRef Name="RegisterID" />
+    </Key>
+    <Property Name="RegisterID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="RegisterCompany" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="OldDBDesc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NewDBDesc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHaveIdentificationCard" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHaveGraduationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHavePositionalCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IshaveSupervisionCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHaveSecurityCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHaveConservationCertificate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IshaveTwoInchPhoto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RegisterStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoCanRegisterCause" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="PM_PersonTrainingExperience">
+    <Key>
+      <PropertyRef Name="TrainingExpID" />
+    </Key>
+    <Property Name="TrainingExpID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="InstitutionsName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="TrainingStartDate" Type="datetime" Nullable="false" />
+    <Property Name="TrainingEndDate" Type="datetime" Nullable="false" />
+    <Property Name="TrainingAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TrainingContent" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="GotCertificate" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="PM_PersonWorkExperienceInfo">
+    <Key>
+      <PropertyRef Name="WorkExpID" />
+    </Key>
+    <Property Name="WorkExpID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="WorkStartDate" Type="datetime" Nullable="false" />
+    <Property Name="WorkEndDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Character" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="SectorClass" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="AtProject" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PositionName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Salary" Type="decimal" Nullable="false" />
+    <Property Name="ContractStatus" Type="bit" Nullable="false" />
+    <Property Name="WorkContent" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="RefereesName" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="RefereesPhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
   <EntityType Name="webpages_UsersInRoles">
     <Key>
       <PropertyRef Name="webpages_Roles_RoleId" />
@@ -98,6 +506,102 @@
       </Principal>
       <Dependent Role="webpages_OAuthMembership">
         <PropertyRef Name="UserProfile_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectBaseInfoEM_ProjectContractBaseInfo">
+    <End Role="EM_ProjectBaseInfo" Type="PSIMPDB.Store.EM_ProjectBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectContractBaseInfo" Type="PSIMPDB.Store.EM_ProjectContractBaseInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectBaseInfo">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="EM_ProjectContractBaseInfo">
+        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectBaseInfoEM_ProjectPersonManage">
+    <End Role="EM_ProjectBaseInfo" Type="PSIMPDB.Store.EM_ProjectBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectPersonManage" Type="PSIMPDB.Store.EM_ProjectPersonManage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectBaseInfo">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="EM_ProjectPersonManage">
+        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectBaseInfoEM_ProjectContractPerformance">
+    <End Role="EM_ProjectBaseInfo" Type="PSIMPDB.Store.EM_ProjectBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectContractPerformance" Type="PSIMPDB.Store.EM_ProjectContractPerformance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectBaseInfo">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="EM_ProjectContractPerformance">
+        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectBaseInfoEM_ProjectTestPutOnFile">
+    <End Role="EM_ProjectBaseInfo" Type="PSIMPDB.Store.EM_ProjectBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectTestPutOnFile" Type="PSIMPDB.Store.EM_ProjectTestPutOnFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectBaseInfo">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="EM_ProjectTestPutOnFile">
+        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectContractBaseInfoEM_ProjectContractDataInfo">
+    <End Role="EM_ProjectContractBaseInfo" Type="PSIMPDB.Store.EM_ProjectContractBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectContractDataInfo" Type="PSIMPDB.Store.EM_ProjectContractDataInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectContractBaseInfo">
+        <PropertyRef Name="ProjectContractID" />
+      </Principal>
+      <Dependent Role="EM_ProjectContractDataInfo">
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectContractBaseInfoEM_ProjectContractPayCondition">
+    <End Role="EM_ProjectContractBaseInfo" Type="PSIMPDB.Store.EM_ProjectContractBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectContractPayCondition" Type="PSIMPDB.Store.EM_ProjectContractPayCondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectContractBaseInfo">
+        <PropertyRef Name="ProjectContractID" />
+      </Principal>
+      <Dependent Role="EM_ProjectContractPayCondition">
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo">
+    <End Role="EM_ProjectContractBaseInfo" Type="PSIMPDB.Store.EM_ProjectContractBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectContractPersonInfo" Type="PSIMPDB.Store.EM_ProjectContractPersonInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectContractBaseInfo">
+        <PropertyRef Name="ProjectContractID" />
+      </Principal>
+      <Dependent Role="EM_ProjectContractPersonInfo">
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo">
+    <End Role="EM_ProjectContractBaseInfo" Type="PSIMPDB.Store.EM_ProjectContractBaseInfo" Multiplicity="1" />
+    <End Role="EM_ProjectExpandInfo" Type="PSIMPDB.Store.EM_ProjectExpandInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EM_ProjectContractBaseInfo">
+        <PropertyRef Name="ProjectContractID" />
+      </Principal>
+      <Dependent Role="EM_ProjectExpandInfo">
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -483,7 +987,7 @@
           <Key>
             <PropertyRef Name="PersonID" />
           </Key>
-          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="PersonID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="PersonName" Nullable="false" MaxLength="20" />
           <Property Type="Boolean" Name="Sex" Nullable="false" DefaultValue="true" />
           <Property Type="DateTime" Name="Birthday" Nullable="false" />
@@ -700,6 +1204,374 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectBaseInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectBaseInfo)">
+        <MappingFragment StoreEntitySet="EM_ProjectBaseInfo">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectFullName" ColumnName="ProjectFullName" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ConstructionCompany" ColumnName="ConstructionCompany" />
+          <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+          <ScalarProperty Name="ProjectScale" ColumnName="ProjectScale" />
+          <ScalarProperty Name="ProjectAddress" ColumnName="ProjectAddress" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+          <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+          <ScalarProperty Name="ConstructionPeriod" ColumnName="ConstructionPeriod" />
+          <ScalarProperty Name="DefectsLiabilityPeriod" ColumnName="DefectsLiabilityPeriod" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectContractBaseInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractBaseInfo)">
+        <MappingFragment StoreEntitySet="EM_ProjectContractBaseInfo">
+          <ScalarProperty Name="ProjectContractID" ColumnName="ProjectContractID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="BiddingDate" ColumnName="BiddingDate" />
+          <ScalarProperty Name="ContractPeriod" ColumnName="ContractPeriod" />
+          <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+          <ScalarProperty Name="OpeningPeriod" ColumnName="OpeningPeriod" />
+          <ScalarProperty Name="OpeningConditions" ColumnName="OpeningConditions" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ContractAttachment" ColumnName="ContractAttachment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectContractDataInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractDataInfo)">
+        <MappingFragment StoreEntitySet="EM_ProjectContractDataInfo">
+          <ScalarProperty Name="PContractDataID" ColumnName="PContractDataID" />
+          <ScalarProperty Name="ContractMoney" ColumnName="ContractMoney" />
+          <ScalarProperty Name="ProvisionalSums" ColumnName="ProvisionalSums" />
+          <ScalarProperty Name="ContractNetAmount" ColumnName="ContractNetAmount" />
+          <ScalarProperty Name="ConstructionPeriodMoney" ColumnName="ConstructionPeriodMoney" />
+          <ScalarProperty Name="DefectPeriodMoeny" ColumnName="DefectPeriodMoeny" />
+          <ScalarProperty Name="GuaranteePeriodMoney" ColumnName="GuaranteePeriodMoney" />
+          <ScalarProperty Name="HonestDepositMoney" ColumnName="HonestDepositMoney" />
+          <ScalarProperty Name="GuaranteeMoney" ColumnName="GuaranteeMoney" />
+          <ScalarProperty Name="AgainstRiskMoney" ColumnName="AgainstRiskMoney" />
+          <ScalarProperty Name="ReviewMoeny" ColumnName="ReviewMoeny" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectContractPayCondition">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractPayCondition)">
+        <MappingFragment StoreEntitySet="EM_ProjectContractPayCondition">
+          <ScalarProperty Name="PContractPayConditionID" ColumnName="PContractPayConditionID" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="MeasurePayCondition" ColumnName="MeasurePayCondition" />
+          <ScalarProperty Name="AgainstRiskPayCondition" ColumnName="AgainstRiskPayCondition" />
+          <ScalarProperty Name="GuaranteePayMoney" ColumnName="GuaranteePayMoney" />
+          <ScalarProperty Name="GuaranteePayCondition" ColumnName="GuaranteePayCondition" />
+          <ScalarProperty Name="MobilizeAdvanceMoneyLetter" ColumnName="MobilizeAdvanceMoneyLetter" />
+          <ScalarProperty Name="PerformanceBondPayCondition" ColumnName="PerformanceBondPayCondition" />
+          <ScalarProperty Name="PayMode" ColumnName="PayMode" />
+          <ScalarProperty Name="PayDutyMode" ColumnName="PayDutyMode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectContractPerformance">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractPerformance)">
+        <MappingFragment StoreEntitySet="EM_ProjectContractPerformance">
+          <ScalarProperty Name="ProjectContractPerformanceID" ColumnName="ProjectContractPerformanceID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="OnProjectID" ColumnName="OnProjectID" />
+          <ScalarProperty Name="InPresentDate" ColumnName="InPresentDate" />
+          <ScalarProperty Name="PerformanceProjectID" ColumnName="PerformanceProjectID" />
+          <ScalarProperty Name="PerformanceDuties" ColumnName="PerformanceDuties" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectContractPersonInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractPersonInfo)">
+        <MappingFragment StoreEntitySet="EM_ProjectContractPersonInfo">
+          <ScalarProperty Name="ContractPersonID" ColumnName="ContractPersonID" />
+          <ScalarProperty Name="ProjectContractID" ColumnName="ProjectContractID" />
+          <ScalarProperty Name="ContractDuties" ColumnName="ContractDuties" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ContractPosition" ColumnName="ContractPosition" />
+          <ScalarProperty Name="HoldCertificate" ColumnName="HoldCertificate" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectExpandInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectExpandInfo)">
+        <MappingFragment StoreEntitySet="EM_ProjectExpandInfo">
+          <ScalarProperty Name="ProjectExpandID" ColumnName="ProjectExpandID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ContractMoney" ColumnName="ContractMoney" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="RoadGrade" ColumnName="RoadGrade" />
+          <ScalarProperty Name="TerrainCondition" ColumnName="TerrainCondition" />
+          <ScalarProperty Name="RoadbedWidth" ColumnName="RoadbedWidth" />
+          <ScalarProperty Name="Excavation" ColumnName="Excavation" />
+          <ScalarProperty Name="Fill" ColumnName="Fill" />
+          <ScalarProperty Name="SoftFoundation" ColumnName="SoftFoundation" />
+          <ScalarProperty Name="BasicLevel" ColumnName="BasicLevel" />
+          <ScalarProperty Name="RoadStructureTypeAndMileage" ColumnName="RoadStructureTypeAndMileage" />
+          <ScalarProperty Name="BituminousConcretePavement" ColumnName="BituminousConcretePavement" />
+          <ScalarProperty Name="CementConcretePavement" ColumnName="CementConcretePavement" />
+          <ScalarProperty Name="BridgeStructureLengthLargestSpan" ColumnName="BridgeStructureLengthLargestSpan" />
+          <ScalarProperty Name="GrandBridgeNum" ColumnName="GrandBridgeNum" />
+          <ScalarProperty Name="GreatBridgeNum" ColumnName="GreatBridgeNum" />
+          <ScalarProperty Name="MediumBridgeNum" ColumnName="MediumBridgeNum" />
+          <ScalarProperty Name="CulvertNum" ColumnName="CulvertNum" />
+          <ScalarProperty Name="InterchangeNum" ColumnName="InterchangeNum" />
+          <ScalarProperty Name="InterchangeMainBridge" ColumnName="InterchangeMainBridge" />
+          <ScalarProperty Name="TamperBridgeNum" ColumnName="TamperBridgeNum" />
+          <ScalarProperty Name="TamperBridgeMileage" ColumnName="TamperBridgeMileage" />
+          <ScalarProperty Name="SuperLongTunnelNum" ColumnName="SuperLongTunnelNum" />
+          <ScalarProperty Name="LongTunnelNum" ColumnName="LongTunnelNum" />
+          <ScalarProperty Name="MiddleTunnelNum" ColumnName="MiddleTunnelNum" />
+          <ScalarProperty Name="ShortTunnelNum" ColumnName="ShortTunnelNum" />
+          <ScalarProperty Name="SideSlopeAfforestation" ColumnName="SideSlopeAfforestation" />
+          <ScalarProperty Name="MechanicalElectricalAndContent" ColumnName="MechanicalElectricalAndContent" />
+          <ScalarProperty Name="SupervisionTask" ColumnName="SupervisionTask" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+          <ScalarProperty Name="SupervisorWorkload" ColumnName="SupervisorWorkload" />
+          <ScalarProperty Name="QualityGrade" ColumnName="QualityGrade" />
+          <ScalarProperty Name="HousingConstruction" ColumnName="HousingConstruction" />
+          <ScalarProperty Name="GeneralSupervision" ColumnName="GeneralSupervision" />
+          <ScalarProperty Name="ConstructionCompanyName" ColumnName="ConstructionCompanyName" />
+          <ScalarProperty Name="ConstructionCompanyLinkman" ColumnName="ConstructionCompanyLinkman" />
+          <ScalarProperty Name="ConstructionCompanyPhoneNum" ColumnName="ConstructionCompanyPhoneNum" />
+          <ScalarProperty Name="RewardAndPunishment" ColumnName="RewardAndPunishment" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectPersonManage">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectPersonManage)">
+        <MappingFragment StoreEntitySet="EM_ProjectPersonManage">
+          <ScalarProperty Name="ProjectPersonID" ColumnName="ProjectPersonID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="DutiesName" ColumnName="DutiesName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonComeType" ColumnName="PersonComeType" />
+          <ScalarProperty Name="IsOnScene" ColumnName="IsOnScene" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="ProjectPosition" ColumnName="ProjectPosition" />
+          <ScalarProperty Name="ExitDate" ColumnName="ExitDate" />
+          <ScalarProperty Name="ExitReason" ColumnName="ExitReason" />
+          <ScalarProperty Name="IsHaveOwnerReplied" ColumnName="IsHaveOwnerReplied" />
+          <ScalarProperty Name="RepliedDate" ColumnName="RepliedDate" />
+          <ScalarProperty Name="RepliedResult" ColumnName="RepliedResult" />
+          <ScalarProperty Name="RepliedSuggestion" ColumnName="RepliedSuggestion" />
+          <ScalarProperty Name="RepliedNumber" ColumnName="RepliedNumber" />
+          <ScalarProperty Name="RepliedAttachment" ColumnName="RepliedAttachment" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EM_ProjectTestPutOnFile">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectTestPutOnFile)">
+        <MappingFragment StoreEntitySet="EM_ProjectTestPutOnFile">
+          <ScalarProperty Name="TestPutonFileID" ColumnName="TestPutonFileID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="PutonfileStartDate" ColumnName="PutonfileStartDate" />
+          <ScalarProperty Name="PutonfileEndDate" ColumnName="PutonfileEndDate" />
+          <ScalarProperty Name="PutonfileTimes" ColumnName="PutonfileTimes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_CertificateManage">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_CertificateManage)">
+        <MappingFragment StoreEntitySet="PM_CertificateManage">
+          <ScalarProperty Name="CertificateID" ColumnName="CertificateID" />
+          <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="PositionStatus" ColumnName="PositionStatus" />
+          <ScalarProperty Name="SubmitCorporationDate" ColumnName="SubmitCorporationDate" />
+          <ScalarProperty Name="IsSubmitGraduationCertificate" ColumnName="IsSubmitGraduationCertificate" />
+          <ScalarProperty Name="IsSubmitSupervisionCertificate" ColumnName="IsSubmitSupervisionCertificate" />
+          <ScalarProperty Name="IsSubmitPositionalCertificate" ColumnName="IsSubmitPositionalCertificate" />
+          <ScalarProperty Name="IsSubmitSecurityCertificate" ColumnName="IsSubmitSecurityCertificate" />
+          <ScalarProperty Name="IsSubmitConservationCertificate" ColumnName="IsSubmitConservationCertificate" />
+          <ScalarProperty Name="IsSubmitIdentificationCard" ColumnName="IsSubmitIdentificationCard" />
+          <ScalarProperty Name="ReturnBusinessUnitDate" ColumnName="ReturnBusinessUnitDate" />
+          <ScalarProperty Name="IsReturnGraduationCertificate" ColumnName="IsReturnGraduationCertificate" />
+          <ScalarProperty Name="IsReturnSupervisionCertificate" ColumnName="IsReturnSupervisionCertificate" />
+          <ScalarProperty Name="IsReturnPositionalCertificate" ColumnName="IsReturnPositionalCertificate" />
+          <ScalarProperty Name="IsReturnSecurityCertificate" ColumnName="IsReturnSecurityCertificate" />
+          <ScalarProperty Name="IsReturnConservationCertificate" ColumnName="IsReturnConservationCertificate" />
+          <ScalarProperty Name="IsReturnIdentificationCard" ColumnName="IsReturnIdentificationCard" />
+          <ScalarProperty Name="GivebackSelfDate" ColumnName="GivebackSelfDate" />
+          <ScalarProperty Name="IsGivebackGraduationCertificate" ColumnName="IsGivebackGraduationCertificate" />
+          <ScalarProperty Name="IsGivebackSupervisionCertificate" ColumnName="IsGivebackSupervisionCertificate" />
+          <ScalarProperty Name="IsGivebackPositionalCertificate" ColumnName="IsGivebackPositionalCertificate" />
+          <ScalarProperty Name="IsGivebackSecurityCertificate" ColumnName="IsGivebackSecurityCertificate" />
+          <ScalarProperty Name="IsGivebackConservationCertificate" ColumnName="IsGivebackConservationCertificate" />
+          <ScalarProperty Name="IsGivebackIdentificationCard" ColumnName="IsGivebackIdentificationCard" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonBaseInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonBaseInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonBaseInfo">
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="RegisterAddress" ColumnName="RegisterAddress" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="AlternateNumber" ColumnName="AlternateNumber" />
+          <ScalarProperty Name="TwoInchPhoto" ColumnName="TwoInchPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonCertificateInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonCertificateInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonCertificateInfo">
+          <ScalarProperty Name="CertificateID" ColumnName="CertificateID" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="CertificateType" ColumnName="CertificateType" />
+          <ScalarProperty Name="CertificateNumber" ColumnName="CertificateNumber" />
+          <ScalarProperty Name="GotDate" ColumnName="GotDate" />
+          <ScalarProperty Name="Authority" ColumnName="Authority" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonContractInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonContractInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonContractInfo">
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="SigningDate" ColumnName="SigningDate" />
+          <ScalarProperty Name="ContractPosition" ColumnName="ContractPosition" />
+          <ScalarProperty Name="ContractSalary" ColumnName="ContractSalary" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonEducationalBackground1">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonEducationalBackground)">
+        <MappingFragment StoreEntitySet="PM_PersonEducationalBackground1">
+          <ScalarProperty Name="EducationalBckID" ColumnName="EducationalBckID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="EduStartDate" ColumnName="EduStartDate" />
+          <ScalarProperty Name="EduEndDate" ColumnName="EduEndDate" />
+          <ScalarProperty Name="SpecialtyName" ColumnName="SpecialtyName" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonInsuranceInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonInsuranceInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonInsuranceInfo">
+          <ScalarProperty Name="InsuranceID" ColumnName="InsuranceID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="InsuranceNumber" ColumnName="InsuranceNumber" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="PositionStatus" ColumnName="PositionStatus" />
+          <ScalarProperty Name="InsuredNumber" ColumnName="InsuredNumber" />
+          <ScalarProperty Name="InsuranceContent" ColumnName="InsuranceContent" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonPositionalTitlesInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonPositionalTitlesInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonPositionalTitlesInfo">
+          <ScalarProperty Name="PositionalID" ColumnName="PositionalID" />
+          <ScalarProperty Name="PositionalName" ColumnName="PositionalName" />
+          <ScalarProperty Name="PositionalType" ColumnName="PositionalType" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="AssessmentBody" ColumnName="AssessmentBody" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonRegister">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonRegister)">
+        <MappingFragment StoreEntitySet="PM_PersonRegister">
+          <ScalarProperty Name="RegisterID" ColumnName="RegisterID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="RegisterCompany" ColumnName="RegisterCompany" />
+          <ScalarProperty Name="OldDBDesc" ColumnName="OldDBDesc" />
+          <ScalarProperty Name="NewDBDesc" ColumnName="NewDBDesc" />
+          <ScalarProperty Name="IsHaveIdentificationCard" ColumnName="IsHaveIdentificationCard" />
+          <ScalarProperty Name="IsHaveGraduationCertificate" ColumnName="IsHaveGraduationCertificate" />
+          <ScalarProperty Name="IsHavePositionalCertificate" ColumnName="IsHavePositionalCertificate" />
+          <ScalarProperty Name="IshaveSupervisionCertificate" ColumnName="IshaveSupervisionCertificate" />
+          <ScalarProperty Name="IsHaveSecurityCertificate" ColumnName="IsHaveSecurityCertificate" />
+          <ScalarProperty Name="IsHaveConservationCertificate" ColumnName="IsHaveConservationCertificate" />
+          <ScalarProperty Name="IshaveTwoInchPhoto" ColumnName="IshaveTwoInchPhoto" />
+          <ScalarProperty Name="RegisterStatus" ColumnName="RegisterStatus" />
+          <ScalarProperty Name="NoCanRegisterCause" ColumnName="NoCanRegisterCause" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonTrainingExperience">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonTrainingExperience)">
+        <MappingFragment StoreEntitySet="PM_PersonTrainingExperience">
+          <ScalarProperty Name="TrainingExpID" ColumnName="TrainingExpID" />
+          <ScalarProperty Name="InstitutionsName" ColumnName="InstitutionsName" />
+          <ScalarProperty Name="TrainingStartDate" ColumnName="TrainingStartDate" />
+          <ScalarProperty Name="TrainingEndDate" ColumnName="TrainingEndDate" />
+          <ScalarProperty Name="TrainingAddress" ColumnName="TrainingAddress" />
+          <ScalarProperty Name="TrainingContent" ColumnName="TrainingContent" />
+          <ScalarProperty Name="GotCertificate" ColumnName="GotCertificate" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonWorkExperienceInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonWorkExperienceInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonWorkExperienceInfo">
+          <ScalarProperty Name="WorkExpID" ColumnName="WorkExpID" />
+          <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
+          <ScalarProperty Name="WorkEndDate" ColumnName="WorkEndDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Character" ColumnName="Character" />
+          <ScalarProperty Name="SectorClass" ColumnName="SectorClass" />
+          <ScalarProperty Name="AtProject" ColumnName="AtProject" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="ContractStatus" ColumnName="ContractStatus" />
+          <ScalarProperty Name="WorkContent" ColumnName="WorkContent" />
+          <ScalarProperty Name="RefereesName" ColumnName="RefereesName" />
+          <ScalarProperty Name="RefereesPhoneNumber" ColumnName="RefereesPhoneNumber" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="PSIMPDB.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
       <EndProperty Name="webpages_Roles">
         <ScalarProperty Name="RoleId" ColumnName="webpages_Roles_RoleId" />
@@ -723,6 +1595,70 @@
       <EndProperty Name="webpages_OAuthMembership">
         <ScalarProperty Name="Provider" ColumnName="Provider" />
         <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectContractBaseInfo" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractBaseInfo" StoreEntitySet="EM_ProjectContractBaseInfo">
+      <EndProperty Name="EM_ProjectBaseInfo">
+        <ScalarProperty Name="ProjectID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectContractBaseInfo">
+        <ScalarProperty Name="ProjectContractID" ColumnName="ProjectContractID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectPersonManage" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectPersonManage" StoreEntitySet="EM_ProjectPersonManage">
+      <EndProperty Name="EM_ProjectBaseInfo">
+        <ScalarProperty Name="ProjectID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectPersonManage">
+        <ScalarProperty Name="ProjectPersonID" ColumnName="ProjectPersonID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectContractPerformance" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractPerformance" StoreEntitySet="EM_ProjectContractPerformance">
+      <EndProperty Name="EM_ProjectBaseInfo">
+        <ScalarProperty Name="ProjectID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectContractPerformance">
+        <ScalarProperty Name="ProjectContractPerformanceID" ColumnName="ProjectContractPerformanceID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectTestPutOnFile" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectTestPutOnFile" StoreEntitySet="EM_ProjectTestPutOnFile">
+      <EndProperty Name="EM_ProjectBaseInfo">
+        <ScalarProperty Name="ProjectID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectTestPutOnFile">
+        <ScalarProperty Name="TestPutonFileID" ColumnName="TestPutonFileID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" StoreEntitySet="EM_ProjectContractDataInfo">
+      <EndProperty Name="EM_ProjectContractBaseInfo">
+        <ScalarProperty Name="ProjectContractID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectContractDataInfo">
+        <ScalarProperty Name="PContractDataID" ColumnName="PContractDataID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" StoreEntitySet="EM_ProjectContractPayCondition">
+      <EndProperty Name="EM_ProjectContractBaseInfo">
+        <ScalarProperty Name="ProjectContractID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectContractPayCondition">
+        <ScalarProperty Name="PContractPayConditionID" ColumnName="PContractPayConditionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" StoreEntitySet="EM_ProjectContractPersonInfo">
+      <EndProperty Name="EM_ProjectContractBaseInfo">
+        <ScalarProperty Name="ProjectContractID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectContractPersonInfo">
+        <ScalarProperty Name="ContractPersonID" ColumnName="ContractPersonID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectExpandInfo" StoreEntitySet="EM_ProjectExpandInfo">
+      <EndProperty Name="EM_ProjectContractBaseInfo">
+        <ScalarProperty Name="ProjectContractID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+      </EndProperty>
+      <EndProperty Name="EM_ProjectExpandInfo">
+        <ScalarProperty Name="ProjectExpandID" ColumnName="ProjectExpandID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
