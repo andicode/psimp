@@ -14,21 +14,15 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonBaseInfo
+    public partial class PM_PersonEducationalBackground
     {
-        public PM_PersonBaseInfo()
-        {
-            this.Sex = true;
-        }
-    
+        public System.Guid EducationalBckID { get; set; }
+        public string SchoolName { get; set; }
+        public System.DateTime EduStartDate { get; set; }
+        public System.DateTime EduEndDate { get; set; }
+        public string SpecialtyName { get; set; }
+        public string Degree { get; set; }
+        public string Descriptions { get; set; }
         public string PersonID { get; set; }
-        public string PersonName { get; set; }
-        public bool Sex { get; set; }
-        public System.DateTime Birthday { get; set; }
-        public string IDNumber { get; set; }
-        public string RegisterAddress { get; set; }
-        public string ContactNumber { get; set; }
-        public string AlternateNumber { get; set; }
-        public byte TwoInchPhoto { get; set; }
     }
 }

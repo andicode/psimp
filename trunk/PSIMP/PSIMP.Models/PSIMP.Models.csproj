@@ -87,8 +87,62 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountModels.cs" />
+    <Compile Include="EM_ProjectBaseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectContractBaseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectContractDataInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectContractPayCondition.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectContractPerformance.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectContractPersonInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectExpandInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectPersonManage.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EM_ProjectTestPutOnFile.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Partials\PM_PersonBaseInfo.cs" />
+    <Compile Include="PM_CertificateManage.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="PM_PersonBaseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonCertificateInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonContractInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonEducationalBackground.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonInsuranceInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonPositionalTitlesInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonRegister.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonTrainingExperience.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PM_PersonWorkExperienceInfo.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

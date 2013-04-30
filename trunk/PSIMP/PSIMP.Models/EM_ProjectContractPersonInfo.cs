@@ -14,21 +14,17 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonBaseInfo
+    public partial class EM_ProjectContractPersonInfo
     {
-        public PM_PersonBaseInfo()
-        {
-            this.Sex = true;
-        }
-    
+        public string ContractPersonID { get; set; }
+        public string ProjectContractID { get; set; }
+        public string ContractDuties { get; set; }
         public string PersonID { get; set; }
-        public string PersonName { get; set; }
-        public bool Sex { get; set; }
-        public System.DateTime Birthday { get; set; }
-        public string IDNumber { get; set; }
-        public string RegisterAddress { get; set; }
-        public string ContactNumber { get; set; }
-        public string AlternateNumber { get; set; }
-        public byte TwoInchPhoto { get; set; }
+        public string ContractPosition { get; set; }
+        public string HoldCertificate { get; set; }
+        public string Other { get; set; }
+        public string Description { get; set; }
+    
+        public virtual EM_ProjectContractBaseInfo EM_ProjectContractBaseInfo { get; set; }
     }
 }

@@ -19,6 +19,24 @@ namespace PSIMP.Models
          public DbSet<webpages_Membership> webpages_MembershipSet { get; set; }
          public DbSet<webpages_OAuthMembership> webpages_OAuthMembershipSet { get; set; }
          public DbSet<webpages_Roles> webpages_RolesSet { get; set; }
+         public DbSet<EM_ProjectBaseInfo> EM_ProjectBaseInfoSet { get; set; }
+         public DbSet<EM_ProjectContractBaseInfo> EM_ProjectContractBaseInfoSet { get; set; }
+         public DbSet<EM_ProjectContractDataInfo> EM_ProjectContractDataInfoSet { get; set; }
+         public DbSet<EM_ProjectContractPayCondition> EM_ProjectContractPayConditionSet { get; set; }
+         public DbSet<EM_ProjectContractPerformance> EM_ProjectContractPerformanceSet { get; set; }
+         public DbSet<EM_ProjectContractPersonInfo> EM_ProjectContractPersonInfoSet { get; set; }
+         public DbSet<EM_ProjectExpandInfo> EM_ProjectExpandInfoSet { get; set; }
+         public DbSet<EM_ProjectPersonManage> EM_ProjectPersonManageSet { get; set; }
+         public DbSet<EM_ProjectTestPutOnFile> EM_ProjectTestPutOnFileSet { get; set; }
+         public DbSet<PM_CertificateManage> PM_CertificateManageSet { get; set; }
          public DbSet<PM_PersonBaseInfo> PM_PersonBaseInfoSet { get; set; }
+         public DbSet<PM_PersonCertificateInfo> PM_PersonCertificateInfoSet { get; set; }
+         public DbSet<PM_PersonContractInfo> PM_PersonContractInfoSet { get; set; }
+         public DbSet<PM_PersonEducationalBackground> PM_PersonEducationalBackgroundSet { get; set; }
+         public DbSet<PM_PersonInsuranceInfo> PM_PersonInsuranceInfoSet { get; set; }
+         public DbSet<PM_PersonPositionalTitlesInfo> PM_PersonPositionalTitlesInfoSet { get; set; }
+         public DbSet<PM_PersonRegister> PM_PersonRegisterSet { get; set; }
+         public DbSet<PM_PersonTrainingExperience> PM_PersonTrainingExperienceSet { get; set; }
+         public DbSet<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfoSet { get; set; }
     }
 }
