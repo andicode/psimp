@@ -14,21 +14,26 @@
         <InheritanceConnector EntityType="PSIMPDB.Train" />
         <AssociationConnector Association="PSIMPDB.PersonTrain" />
         <InheritanceConnector EntityType="PSIMPDB.Person" />
-        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="3.0811781200934285" PointY="0.50897988531586436" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="4.5348419945907077" PointY="0.5" FillColor="255, 128, 0" />
         <AssociationConnector Association="PSIMPDB.UserProfilePsimp" />
         <AssociationConnector Association="PSIMPDB.UpdateUserId" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="2.1555316280580996" PointX="0.5" PointY="4.3372844277208866" FillColor="Red" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="2.2094109399532846" PointX="2.96192527547024" PointY="4.3516523161629124" FillColor="Red" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="2.8275862379037271" PointX="14.434626826955206" PointY="4.3247126602153187" FillColor="Red" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="2.6584052057465044" PointX="5.4468390825269131" PointY="4.3606322014787784" FillColor="Red" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="2.7302442882734184" PointX="11.310704193786354" PointY="4.347701101880955" FillColor="Red" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.875" PointX="8.378591972110506" PointY="4.3606322014787766" FillColor="Red" />
-        <EntityTypeShape EntityType="PSIMPDB.webpages_Membership" Width="2.1465517427422354" PointX="5.4838363503047294" PointY="0.5" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="PSIMPDB.webpages_OAuthMembership" Width="2.625" PointX="8.1795977063172884" PointY="0.53591954126345787" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="PSIMPDB.webpages_Roles" Width="1.5" PointX="0.63002858111310278" PointY="0.50897988531586447" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="2.1555316280580996" PointX="7.082255936528588" PointY="4.9030172026203429" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertficateInfo" Width="2.2094109399532846" PointX="1.2826867214036013" PointY="7.2880748144505638" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="2.8275862379037271" PointX="13.240302079945245" PointY="7.243175387871239" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="2.6584052057465053" PointX="3.849497222817412" PointY="7.2790949291347014" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="2.7302442882734184" PointX="10.071480020197072" PointY="7.2482040589051486" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="2.875" PointX="6.7622126152549171" PointY="7.2431753878712426" FillColor="Red" />
+        <EntityTypeShape EntityType="PSIMPDB.webpages_Membership" Width="2.125" PointX="4.2607758264107165" PointY="3.0053880031261611" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.webpages_OAuthMembership" Width="2.625" PointX="7.3175287159943085" PointY="3.0143678884420257" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.webpages_Roles" Width="1.5000000000000002" PointX="1.1727730042677271" PointY="3.02334777375789" FillColor="255, 128, 0" />
         <AssociationConnector Association="PSIMPDB.webpages_UsersInRoles" />
         <AssociationConnector Association="PSIMPDB.UserProfilewebpages_Membership" />
         <AssociationConnector Association="PSIMPDB.UserProfilewebpages_OAuthMembership" />
+        <AssociationConnector Association="PSIMPDB.PM_PersonBaseInfoPM_PersonCertficateInfo" />
+        <AssociationConnector Association="PSIMPDB.PM_PersonBaseInfoPM_PersonEducationalBackground" />
+        <AssociationConnector Association="PSIMPDB.PM_PersonBaseInfoPM_PersonPositionalTitlesInfo" />
+        <AssociationConnector Association="PSIMPDB.PM_PersonBaseInfoPM_PersonTrainingExperience" />
+        <AssociationConnector Association="PSIMPDB.PM_PersonBaseInfoPM_PersonWorkExperienceInfo" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

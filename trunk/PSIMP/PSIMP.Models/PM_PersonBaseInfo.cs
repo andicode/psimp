@@ -19,6 +19,11 @@ namespace PSIMP.Models
         public PM_PersonBaseInfo()
         {
             this.Sex = true;
+            this.PM_PersonCertficateInfo = new HashSet<PM_PersonCertficateInfo>();
+            this.PM_PersonEducationalBackground = new HashSet<PM_PersonEducationalBackground>();
+            this.PM_PersonPositionalTitlesInfo = new HashSet<PM_PersonPositionalTitlesInfo>();
+            this.PM_PersonTrainingExperience = new HashSet<PM_PersonTrainingExperience>();
+            this.PM_PersonWorkExperienceInfo = new HashSet<PM_PersonWorkExperienceInfo>();
         }
     
         public System.Guid ID { get; set; }
@@ -31,5 +36,11 @@ namespace PSIMP.Models
         public string AlternateNumber { get; set; }
         [JsonIgnore]
         public byte[] TwoInchPhoto { get; set; }
+    
+        public virtual ICollection<PM_PersonCertficateInfo> PM_PersonCertficateInfo { get; set; }
+        public virtual ICollection<PM_PersonEducationalBackground> PM_PersonEducationalBackground { get; set; }
+        public virtual ICollection<PM_PersonPositionalTitlesInfo> PM_PersonPositionalTitlesInfo { get; set; }
+        public virtual ICollection<PM_PersonTrainingExperience> PM_PersonTrainingExperience { get; set; }
+        public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfo { get; set; }
     }
 }
