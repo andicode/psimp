@@ -10,6 +10,7 @@
     <EntitySet Name="webpages_Membership" EntityType="PSIMPDB.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_OAuthMembership" EntityType="PSIMPDB.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_Roles" EntityType="PSIMPDB.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_UsersInRoles" EntityType="PSIMPDB.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_webpages_UsersInRoles_webpages_Roles" Association="PSIMPDB.Store.FK_webpages_UsersInRoles_webpages_Roles">
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
@@ -27,7 +28,7 @@
       <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="webpages_OAuthMembership" EntitySet="webpages_OAuthMembership" />
     </AssociationSet>
-    </EntityContainer>
+  </EntityContainer>
   <EntityType Name="UserProfile">
     <Key>
       <PropertyRef Name="UserId" />
@@ -68,6 +69,20 @@
     </Key>
     <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="PM_PersonBaseInfo">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Sex" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="RegisterAddress" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ContactNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="AlternateNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="TwoInchPhoto" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_UsersInRoles">
     <Key>
@@ -146,6 +161,7 @@
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="webpages_OAuthMembership" EntitySet="webpages_OAuthMembership" />
           </AssociationSet>
+          <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.PM_PersonBaseInfo" />
           </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
@@ -204,6 +220,20 @@
           <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="1" />
           <End Type="PSIMPDB.webpages_OAuthMembership" Role="webpages_OAuthMembership" Multiplicity="0..1" />
         </Association>
+        <EntityType Name="PM_PersonBaseInfo">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Type="String" Name="PersonID" Nullable="false" MaxLength="40" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PersonName" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="Sex" Nullable="false" DefaultValue="true" />
+          <Property Type="DateTime" Name="Birthday" Nullable="false" />
+          <Property Type="String" Name="IDNumber" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="RegisterAddress" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="AlternateNumber" Nullable="false" MaxLength="20" />
+          <Property Type="Binary" Name="TwoInchPhoto" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -249,6 +279,21 @@
         <MappingFragment StoreEntitySet="webpages_Roles">
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonBaseInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonBaseInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonBaseInfo">
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="RegisterAddress" ColumnName="RegisterAddress" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="AlternateNumber" ColumnName="AlternateNumber" />
+          <ScalarProperty Name="TwoInchPhoto" ColumnName="TwoInchPhoto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
