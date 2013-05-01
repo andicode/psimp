@@ -14,16 +14,15 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class webpages_Roles
+    public partial class AM_ApplicationRepliedDetail
     {
-        public webpages_Roles()
-        {
-            this.UserProfiles = new HashSet<UserProfile>();
-        }
-    
-        public int RoleId { get; set; }
-        public string RoleName { get; set; }
-    
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public int ApplicationRepliedDetailID { get; set; }
+        public string RepliedPersonID { get; set; }
+        public string RepliedResult { get; set; }
+        public string RepliedSuggestion { get; set; }
+        public string RepliedDate { get; set; }
+        public string RepliedPersonPosition { get; set; }
+        public string RepliedDepartment { get; set; }
+        public string RepliedStatus { get; set; }
     }
 }

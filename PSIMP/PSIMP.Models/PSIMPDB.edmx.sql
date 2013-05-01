@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/30/2013 21:02:40
+-- Date Created: 04/30/2013 21:20:01
 -- Generated from EDMX file: G:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -29,6 +29,57 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_UserProfilewebpages_OAuthMembership]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[webpages_OAuthMembership] DROP CONSTRAINT [FK_UserProfilewebpages_OAuthMembership];
 GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractBaseInfo] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectPersonManage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectPersonManage] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectPersonManage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractPerformance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPerformance] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractPerformance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectTestPutOnFile] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractDataInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPayCondition] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPersonInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectExpandInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_CertificateManagePM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_CertificateManage] DROP CONSTRAINT [FK_PM_CertificateManagePM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonCertificateInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonCertificateInfo] DROP CONSTRAINT [FK_PM_PersonCertificateInfoPM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonContractInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonContractInfo] DROP CONSTRAINT [FK_PM_PersonContractInfoPM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonEducationalBackground1] DROP CONSTRAINT [FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonInsuranceInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonInsuranceInfo] DROP CONSTRAINT [FK_PM_PersonInsuranceInfoPM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonTrainingExperiencePM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonTrainingExperience] DROP CONSTRAINT [FK_PM_PersonTrainingExperiencePM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo] DROP CONSTRAINT [FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonRegisterPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonRegister] DROP CONSTRAINT [FK_PM_PersonRegisterPM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo] DROP CONSTRAINT [FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -45,6 +96,63 @@ IF OBJECT_ID(N'[dbo].[webpages_OAuthMembership]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[webpages_Roles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[webpages_Roles];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractDataInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractDataInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPayCondition]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPayCondition];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPerformance]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPerformance];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPersonInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPersonInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectExpandInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectExpandInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectPersonManage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectPersonManage];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectTestPutOnFile]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectTestPutOnFile];
+GO
+IF OBJECT_ID(N'[dbo].[PM_CertificateManage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_CertificateManage];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonCertificateInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonCertificateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonContractInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonContractInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonEducationalBackground1]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonEducationalBackground1];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonInsuranceInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonInsuranceInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonPositionalTitlesInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonPositionalTitlesInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonRegister]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonRegister];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonTrainingExperience]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonTrainingExperience];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonWorkExperienceInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonWorkExperienceInfo];
 GO
 IF OBJECT_ID(N'[dbo].[webpages_UsersInRoles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[webpages_UsersInRoles];
@@ -281,7 +389,6 @@ GO
 CREATE TABLE [dbo].[PM_CertificateManage] (
     [CertificateID] nvarchar(40)  NOT NULL,
     [FileNumber] nvarchar(40)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL,
     [RegisterDate] datetime  NOT NULL,
     [ProjectID] nvarchar(max)  NOT NULL,
     [PositionStatus] nvarchar(max)  NOT NULL,
@@ -306,13 +413,14 @@ CREATE TABLE [dbo].[PM_CertificateManage] (
     [IsGivebackSecurityCertificate] nvarchar(max)  NOT NULL,
     [IsGivebackConservationCertificate] nvarchar(max)  NOT NULL,
     [IsGivebackIdentificationCard] nvarchar(max)  NOT NULL,
-    [Descriptions] nvarchar(max)  NOT NULL
+    [Descriptions] nvarchar(max)  NOT NULL,
+    [PersonID] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonBaseInfo'
 CREATE TABLE [dbo].[PM_PersonBaseInfo] (
-    [PersonID] nvarchar(40)  NOT NULL,
+    [PersonID] bigint IDENTITY(1,1) NOT NULL,
     [PersonName] nvarchar(20)  NOT NULL,
     [Sex] bit  NOT NULL,
     [Birthday] datetime  NOT NULL,
@@ -333,14 +441,13 @@ CREATE TABLE [dbo].[PM_PersonCertificateInfo] (
     [GotDate] datetime  NOT NULL,
     [Authority] nvarchar(30)  NOT NULL,
     [Descriptions] nvarchar(200)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL
+    [PersonID] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonContractInfo'
 CREATE TABLE [dbo].[PM_PersonContractInfo] (
     [ContractID] nvarchar(40)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
     [IDNumber] nvarchar(max)  NOT NULL,
     [ContractNumber] nvarchar(max)  NOT NULL,
@@ -349,7 +456,8 @@ CREATE TABLE [dbo].[PM_PersonContractInfo] (
     [SigningDate] nvarchar(max)  NOT NULL,
     [ContractPosition] nvarchar(max)  NOT NULL,
     [ContractSalary] nvarchar(max)  NOT NULL,
-    [Description] nvarchar(max)  NOT NULL
+    [Description] nvarchar(max)  NOT NULL,
+    [PersonID] bigint  NOT NULL
 );
 GO
 
@@ -362,14 +470,13 @@ CREATE TABLE [dbo].[PM_PersonEducationalBackground1] (
     [SpecialtyName] nvarchar(20)  NOT NULL,
     [Degree] nvarchar(40)  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL
+    [PersonID] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonInsuranceInfo'
 CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
     [InsuranceID] nvarchar(40)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
     [IDNumber] nvarchar(max)  NOT NULL,
     [InsuranceNumber] nvarchar(max)  NOT NULL,
@@ -381,26 +488,26 @@ CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
     [InsuranceContent] nvarchar(max)  NOT NULL,
     [ProjectID] nvarchar(max)  NOT NULL,
     [PositionName] nvarchar(max)  NOT NULL,
-    [Descriptions] nvarchar(max)  NOT NULL
+    [Descriptions] nvarchar(max)  NOT NULL,
+    [PersonID] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonPositionalTitlesInfo'
 CREATE TABLE [dbo].[PM_PersonPositionalTitlesInfo] (
-    [PositionalID] nvarchar(max)  NOT NULL,
+    [PositionalID] bigint IDENTITY(1,1) NOT NULL,
     [PositionalName] nvarchar(20)  NOT NULL,
     [PositionalType] nvarchar(40)  NOT NULL,
     [AssessmentDate] datetime  NOT NULL,
     [AssessmentBody] nvarchar(30)  NOT NULL,
     [Descriptions] nvarchar(80)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL
+    [PersonID] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonRegister'
 CREATE TABLE [dbo].[PM_PersonRegister] (
-    [RegisterID] nvarchar(40)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL,
+    [RegisterID] bigint IDENTITY(1,1) NOT NULL,
     [RegisterDate] datetime  NOT NULL,
     [RegisterCompany] nvarchar(30)  NOT NULL,
     [OldDBDesc] nvarchar(max)  NOT NULL,
@@ -414,7 +521,8 @@ CREATE TABLE [dbo].[PM_PersonRegister] (
     [IshaveTwoInchPhoto] nvarchar(max)  NOT NULL,
     [RegisterStatus] nvarchar(max)  NOT NULL,
     [NoCanRegisterCause] nvarchar(400)  NOT NULL,
-    [Descriptions] nvarchar(300)  NOT NULL
+    [Descriptions] nvarchar(300)  NOT NULL,
+    [PersonID] bigint  NOT NULL
 );
 GO
 
@@ -428,7 +536,7 @@ CREATE TABLE [dbo].[PM_PersonTrainingExperience] (
     [TrainingContent] nvarchar(200)  NOT NULL,
     [GotCertificate] nvarchar(20)  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL
+    [PersonID] bigint  NOT NULL
 );
 GO
 
@@ -447,7 +555,7 @@ CREATE TABLE [dbo].[PM_PersonWorkExperienceInfo] (
     [WorkContent] nvarchar(200)  NOT NULL,
     [RefereesName] nvarchar(10)  NOT NULL,
     [RefereesPhoneNumber] nvarchar(20)  NOT NULL,
-    [PersonID] nvarchar(40)  NOT NULL
+    [PM_PersonBaseInfoPersonID] bigint  NOT NULL
 );
 GO
 
@@ -771,6 +879,132 @@ ADD CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
 CREATE INDEX [IX_FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
 ON [dbo].[EM_ProjectExpandInfo]
     ([EM_ProjectContractBaseInfo_ProjectContractID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_CertificateManage'
+ALTER TABLE [dbo].[PM_CertificateManage]
+ADD CONSTRAINT [FK_PM_CertificateManagePM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_CertificateManagePM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_CertificateManagePM_PersonBaseInfo]
+ON [dbo].[PM_CertificateManage]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonCertificateInfo'
+ALTER TABLE [dbo].[PM_PersonCertificateInfo]
+ADD CONSTRAINT [FK_PM_PersonCertificateInfoPM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonCertificateInfoPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonCertificateInfoPM_PersonBaseInfo]
+ON [dbo].[PM_PersonCertificateInfo]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonContractInfo'
+ALTER TABLE [dbo].[PM_PersonContractInfo]
+ADD CONSTRAINT [FK_PM_PersonContractInfoPM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonContractInfoPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonContractInfoPM_PersonBaseInfo]
+ON [dbo].[PM_PersonContractInfo]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonEducationalBackground1'
+ALTER TABLE [dbo].[PM_PersonEducationalBackground1]
+ADD CONSTRAINT [FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo]
+ON [dbo].[PM_PersonEducationalBackground1]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonInsuranceInfo'
+ALTER TABLE [dbo].[PM_PersonInsuranceInfo]
+ADD CONSTRAINT [FK_PM_PersonInsuranceInfoPM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonInsuranceInfoPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonInsuranceInfoPM_PersonBaseInfo]
+ON [dbo].[PM_PersonInsuranceInfo]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonTrainingExperience'
+ALTER TABLE [dbo].[PM_PersonTrainingExperience]
+ADD CONSTRAINT [FK_PM_PersonTrainingExperiencePM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonTrainingExperiencePM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonTrainingExperiencePM_PersonBaseInfo]
+ON [dbo].[PM_PersonTrainingExperience]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonPositionalTitlesInfo'
+ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo]
+ADD CONSTRAINT [FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo]
+ON [dbo].[PM_PersonPositionalTitlesInfo]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonRegister'
+ALTER TABLE [dbo].[PM_PersonRegister]
+ADD CONSTRAINT [FK_PM_PersonRegisterPM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonRegisterPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonRegisterPM_PersonBaseInfo]
+ON [dbo].[PM_PersonRegister]
+    ([PersonID]);
+GO
+
+-- Creating foreign key on [PM_PersonBaseInfoPersonID] in table 'PM_PersonWorkExperienceInfo'
+ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo]
+ADD CONSTRAINT [FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo]
+    FOREIGN KEY ([PM_PersonBaseInfoPersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo]
+ON [dbo].[PM_PersonWorkExperienceInfo]
+    ([PM_PersonBaseInfoPersonID]);
 GO
 
 -- --------------------------------------------------

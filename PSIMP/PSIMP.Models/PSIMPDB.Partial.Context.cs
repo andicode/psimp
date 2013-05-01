@@ -16,9 +16,14 @@ namespace PSIMP.Models
     public partial class PSIMPDBContainer : DbContext
     {
          public DbSet<UserProfile> UserProfileSet { get; set; }
-         public DbSet<webpages_Membership> webpages_MembershipSet { get; set; }
-         public DbSet<webpages_OAuthMembership> webpages_OAuthMembershipSet { get; set; }
-         public DbSet<webpages_Roles> webpages_RolesSet { get; set; }
+         public DbSet<AM_ApplicationContent_CapitalFundCategory> AM_ApplicationContent_CapitalFundCategorySet { get; set; }
+         public DbSet<AM_ApplicationContent_VehicleCategory> AM_ApplicationContent_VehicleCategorySet { get; set; }
+         public DbSet<AM_ApplicationRepliedDetail> AM_ApplicationRepliedDetailSet { get; set; }
+         public DbSet<AM_LaiWenCircularizeDetail> AM_LaiWenCircularizeDetailSet { get; set; }
+         public DbSet<AM_LaiWenRecordInfo> AM_LaiWenRecordInfoSet { get; set; }
+         public DbSet<AM_LaiWenRepliedInfo> AM_LaiWenRepliedInfoSet { get; set; }
+         public DbSet<AM_ProjectApplicationBaseInfo> AM_ProjectApplicationBaseInfoSet { get; set; }
+         public DbSet<AM_ProjectApplicationRepliedInfo> AM_ProjectApplicationRepliedInfoSet { get; set; }
          public DbSet<EM_ProjectBaseInfo> EM_ProjectBaseInfoSet { get; set; }
          public DbSet<EM_ProjectContractBaseInfo> EM_ProjectContractBaseInfoSet { get; set; }
          public DbSet<EM_ProjectContractDataInfo> EM_ProjectContractDataInfoSet { get; set; }
