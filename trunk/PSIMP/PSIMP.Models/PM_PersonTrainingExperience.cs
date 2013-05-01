@@ -24,8 +24,6 @@ namespace PSIMP.Models
         public string TrainingContent { get; set; }
         public string GotCertificate { get; set; }
         public string Descriptions { get; set; }
-        public long PersonID { get; set; }
-    
-        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
+        public string PersonID { get; set; }
     }
 }

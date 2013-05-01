@@ -17,6 +17,7 @@ namespace PSIMP.Models
     public partial class PM_PersonInsuranceInfo
     {
         public string InsuranceID { get; set; }
+        public string PersonID { get; set; }
         public string Sex { get; set; }
         public string IDNumber { get; set; }
         public string InsuranceNumber { get; set; }
@@ -29,8 +30,5 @@ namespace PSIMP.Models
         public string ProjectID { get; set; }
         public string PositionName { get; set; }
         public string Descriptions { get; set; }
-        public long PersonID { get; set; }
-    
-        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

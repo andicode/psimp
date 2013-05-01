@@ -14,9 +14,15 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserProfile
+    public partial class AM_LaiWenCircularizeDetail
     {
-        public int UserId { get; set; }
-        public string UserName { get; set; }
+        public int LaiWenCircularizeID { get; set; }
+        public string LaiWenRecordID { get; set; }
+        public string CircularizeStatus { get; set; }
+        public string CircularizedPersonID { get; set; }
+        public string CircularizedDate { get; set; }
+        public string Description { get; set; }
+    
+        public virtual AM_LaiWenRecordInfo AM_LaiWenRecordInfo { get; set; }
     }
 }

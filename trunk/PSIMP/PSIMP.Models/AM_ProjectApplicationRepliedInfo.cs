@@ -14,12 +14,15 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class webpages_OAuthMembership
+    public partial class AM_ProjectApplicationRepliedInfo
     {
-        public string Provider { get; set; }
-        public string ProviderUserId { get; set; }
-        public int UserId { get; set; }
-    
-        public virtual UserProfile UserProfile { get; set; }
+        public int ApplicationRepliedID { get; set; }
+        public string ProjectApplicationID { get; set; }
+        public string ProjectManagerReplied { get; set; }
+        public string ChiefDepartmentReplied { get; set; }
+        public string CountersignatureReplied { get; set; }
+        public string LeadershipReplied { get; set; }
+        public string BossReplied { get; set; }
+        public string Description { get; set; }
     }
 }

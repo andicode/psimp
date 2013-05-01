@@ -23,8 +23,6 @@ namespace PSIMP.Models
         public System.DateTime GotDate { get; set; }
         public string Authority { get; set; }
         public string Descriptions { get; set; }
-        public long PersonID { get; set; }
-    
-        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
+        public string PersonID { get; set; }
     }
 }

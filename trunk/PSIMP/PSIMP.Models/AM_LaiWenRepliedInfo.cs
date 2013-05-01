@@ -14,18 +14,18 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonContractInfo
+    public partial class AM_LaiWenRepliedInfo
     {
-        public string ContractID { get; set; }
-        public string PersonID { get; set; }
-        public string Sex { get; set; }
-        public string IDNumber { get; set; }
-        public string ContractNumber { get; set; }
-        public string EffectiveDate { get; set; }
-        public string ExpiryDate { get; set; }
-        public string SigningDate { get; set; }
-        public string ContractPosition { get; set; }
-        public string ContractSalary { get; set; }
+        public int LaiWenRepliedID { get; set; }
+        public string RepliedDepartment { get; set; }
+        public string RepliedUserID { get; set; }
+        public string RepliedStatus { get; set; }
+        public string RepliedResult { get; set; }
+        public string RepliedSuggestion { get; set; }
+        public string RepliedDate { get; set; }
+        public string LaiWenRecordID { get; set; }
         public string Description { get; set; }
+    
+        public virtual AM_LaiWenRecordInfo AM_LaiWenRecordInfo { get; set; }
     }
 }
