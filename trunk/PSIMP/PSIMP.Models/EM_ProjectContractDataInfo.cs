@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectContractDataInfo
     {
-        public int PContractDataID { get; set; }
+        public System.Guid PContractDataID { get; set; }
         public string ContractMoney { get; set; }
         public string ProvisionalSums { get; set; }
         public string ContractNetAmount { get; set; }

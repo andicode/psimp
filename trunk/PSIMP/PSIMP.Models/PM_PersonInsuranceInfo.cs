@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonInsuranceInfo
     {
-        public string InsuranceID { get; set; }
+        public System.Guid InsuranceID { get; set; }
         public string PersonID { get; set; }
         public string Sex { get; set; }
         public string IDNumber { get; set; }

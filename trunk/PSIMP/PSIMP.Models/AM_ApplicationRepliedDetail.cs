@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class AM_ApplicationRepliedDetail
     {
-        public int ApplicationRepliedDetailID { get; set; }
+        public System.Guid ApplicationRepliedDetailID { get; set; }
         public string RepliedPersonID { get; set; }
         public string RepliedResult { get; set; }
         public string RepliedSuggestion { get; set; }

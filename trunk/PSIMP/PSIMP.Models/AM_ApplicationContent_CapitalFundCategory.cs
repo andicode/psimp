@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class AM_ApplicationContent_CapitalFundCategory
     {
-        public int ApplicationCapitalCategoryID { get; set; }
+        public System.Guid ApplicationCapitalCategoryID { get; set; }
         public string ProjectApplicationID { get; set; }
         public string ApplicationType { get; set; }
         public string CapitalFundName { get; set; }

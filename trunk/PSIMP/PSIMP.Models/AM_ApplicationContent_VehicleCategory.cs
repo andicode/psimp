@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class AM_ApplicationContent_VehicleCategory
     {
-        public int ApplicationVehicleCategoryID { get; set; }
+        public System.Guid ApplicationVehicleCategoryID { get; set; }
         public string ProjectApplicationID { get; set; }
         public string ApplicationType { get; set; }
         public string PlateNumber { get; set; }

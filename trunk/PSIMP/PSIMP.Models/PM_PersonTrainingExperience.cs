@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonTrainingExperience
     {
-        public string TrainingExpID { get; set; }
+        public System.Guid TrainingExpID { get; set; }
         public string InstitutionsName { get; set; }
         public System.DateTime TrainingStartDate { get; set; }
         public System.DateTime TrainingEndDate { get; set; }

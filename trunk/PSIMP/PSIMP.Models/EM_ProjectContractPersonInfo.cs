@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectContractPersonInfo
     {
-        public string ContractPersonID { get; set; }
+        public System.Guid ContractPersonID { get; set; }
         public string ProjectContractID { get; set; }
         public string ContractDuties { get; set; }
         public string PersonID { get; set; }
