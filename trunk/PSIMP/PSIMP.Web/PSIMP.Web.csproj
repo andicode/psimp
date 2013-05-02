@@ -284,7 +284,6 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_ExtLayout.cshtml" />
     <Content Include="Views\Resource\Index.cshtml" />
-    <Content Include="Views\ExtNet\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -313,6 +312,7 @@
   <ItemGroup>
     <Folder Include="Filters\" />
     <Folder Include="UserFiles\" />
+    <Folder Include="Views\ExtNet\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
