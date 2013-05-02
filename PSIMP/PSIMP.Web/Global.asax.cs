@@ -23,12 +23,7 @@ namespace PSIMP.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
-            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-            if (!WebSecurity.UserExists("admin"))
-            {
-                WebSecurity.CreateUserAndAccount("admin", "admin");
-            }
+            SetupConfig.Setup();
         }
     }
 }
