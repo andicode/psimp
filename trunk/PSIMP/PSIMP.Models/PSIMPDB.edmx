@@ -636,7 +636,7 @@
     <Property Name="RegisterAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="ContactPhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="AlternatePhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="TwoInchPhoto" Type="tinyint" Nullable="false" />
+    <Property Name="TwoInchPhoto" Type="varbinary(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="PM_PersonCertificateInfo">
     <Key>
@@ -2093,7 +2093,7 @@
           <Property Type="String" Name="RegisterAddress" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="ContactPhoneNumber" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="AlternatePhoneNumber" Nullable="false" MaxLength="20" />
-          <Property Type="Byte" Name="TwoInchPhoto" Nullable="false" />
+          <Property Type="Binary" Name="TwoInchPhoto" Nullable="true" />
           <NavigationProperty Name="PM_CertificateManage" Relationship="PSIMPDB.PM_PersonBaseInfoPM_CertificateManage" FromRole="PM_PersonBaseInfo" ToRole="PM_CertificateManage" />
           <NavigationProperty Name="PM_PersonRegister" Relationship="PSIMPDB.PM_PersonBaseInfoPM_PersonRegister" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonRegister" />
           <NavigationProperty Name="PM_PersonCertificateInfo" Relationship="PSIMPDB.PM_PersonBaseInfoPM_PersonCertificateInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonCertificateInfo" />

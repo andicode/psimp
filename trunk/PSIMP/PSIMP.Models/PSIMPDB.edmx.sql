@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/02/2013 13:40:02
+-- Date Created: 05/02/2013 13:53:55
 -- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -26,6 +26,105 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_UserFoldersUserFolders]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[UserFolders] DROP CONSTRAINT [FK_UserFoldersUserFolders];
 GO
+IF OBJECT_ID(N'[dbo].[FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory] DROP CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_ApplicationContent_VehicleCategory] DROP CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_LaiWenCircularizeDetail] DROP CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_LaiWenRepliedInfo] DROP CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AMG_AssetBaseInfoAMG_AssetAllocateInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AMG_AssetAllocateInfo] DROP CONSTRAINT [FK_AMG_AssetBaseInfoAMG_AssetAllocateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AMG_AssetBaseInfoAMG_AssetRepairInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AMG_AssetRepairInfo] DROP CONSTRAINT [FK_AMG_AssetBaseInfoAMG_AssetRepairInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AMG_AssetBaseInfoAMG_AssetUseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AMG_AssetUseInfo] DROP CONSTRAINT [FK_AMG_AssetBaseInfoAMG_AssetUseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractBaseInfo] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectPersonManage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectPersonManage] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectPersonManage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractPerformance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPerformance] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractPerformance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectTestPutOnFile] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractDataInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPayCondition] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPersonInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectExpandInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_CertificateManage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_CertificateManage] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_CertificateManage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonRegister]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonRegister] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonRegister];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonCertificateInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonCertificateInfo] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonCertificateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonInsuranceInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonInsuranceInfo] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonInsuranceInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonTrainingExperience]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonTrainingExperience] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonTrainingExperience];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonPositionalTitlesInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonPositionalTitlesInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonEducationalBackground]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonEducationalBackground1] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonEducationalBackground];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonWorkExperienceInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonWorkExperienceInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleLoanInfoVM_PaymentDetailInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_PaymentDetailInfo] DROP CONSTRAINT [FK_VM_VehicleLoanInfoVM_PaymentDetailInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleAllocateInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleAllocateInfo] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleAllocateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleLeaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleLeaseInfo] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleLeaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleUseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleUseInfo] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleUseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleYearInspection]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleYearInspection] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleYearInspection];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleOperatingCost]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleOperatingCost] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleOperatingCost];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleLoanInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleLoanInfo] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleLoanInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleInsurance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleInsurance] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleInsurance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleRepairVM_VehicleRepairDetailList]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleRepairDetailList] DROP CONSTRAINT [FK_VM_VehicleRepairVM_VehicleRepairDetailList];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleRepair]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VM_VehicleRepair] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleRepair];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -39,6 +138,132 @@ IF OBJECT_ID(N'[dbo].[UserFiles]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[UserFolders]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserFolders];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ApplicationContent_CapitalFundCategory]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ApplicationContent_VehicleCategory]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ApplicationContent_VehicleCategory];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ApplicationRepliedDetail]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ApplicationRepliedDetail];
+GO
+IF OBJECT_ID(N'[dbo].[AM_LaiWenCircularizeDetail]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_LaiWenCircularizeDetail];
+GO
+IF OBJECT_ID(N'[dbo].[AM_LaiWenRecordInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_LaiWenRecordInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AM_LaiWenRepliedInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_LaiWenRepliedInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ProjectApplicationBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ProjectApplicationBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ProjectApplicationRepliedInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ProjectApplicationRepliedInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AMG_AssetAllocateInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AMG_AssetAllocateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AMG_AssetBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AMG_AssetBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AMG_AssetRepairInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AMG_AssetRepairInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AMG_AssetUseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AMG_AssetUseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractDataInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractDataInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPayCondition]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPayCondition];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPerformance]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPerformance];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPersonInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPersonInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectExpandInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectExpandInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectPersonManage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectPersonManage];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectTestPutOnFile]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectTestPutOnFile];
+GO
+IF OBJECT_ID(N'[dbo].[PM_CertificateManage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_CertificateManage];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonCertificateInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonCertificateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonContractInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonContractInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonEducationalBackground1]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonEducationalBackground1];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonInsuranceInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonInsuranceInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonPositionalTitlesInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonPositionalTitlesInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonRegister]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonRegister];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonTrainingExperience]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonTrainingExperience];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonWorkExperienceInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonWorkExperienceInfo];
+GO
+IF OBJECT_ID(N'[dbo].[VM_PaymentDetailInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_PaymentDetailInfo];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleAllocateInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleAllocateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleInsurance]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleInsurance];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleLeaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleLeaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleLoanInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleLoanInfo];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleOperatingCost]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleOperatingCost];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleRepair]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleRepair];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleRepairDetailList]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleRepairDetailList];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleUseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleUseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[VM_VehicleYearInspection]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VM_VehicleYearInspection];
 GO
 
 -- --------------------------------------------------
@@ -483,7 +708,7 @@ CREATE TABLE [dbo].[PM_PersonBaseInfo] (
     [RegisterAddress] nvarchar(50)  NOT NULL,
     [ContactPhoneNumber] nvarchar(20)  NOT NULL,
     [AlternatePhoneNumber] nvarchar(20)  NOT NULL,
-    [TwoInchPhoto] tinyint  NOT NULL
+    [TwoInchPhoto] varbinary(max)  NULL
 );
 GO
 

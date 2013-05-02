@@ -6,19 +6,22 @@
     .Panel()
     .Layout(LayoutType.Border)
     .Border(false)
-    .Items(        
+    .Items(
          Html.X().TreePanel()
             .Region(Region.West)
             .Split(true)
-            .Width(150) 
+            .Width(150)
             .RootVisible(false)
-            .Root(Html.X().Node().Children(Model))           
-        ,Html.X()
+            .Root(Html.X().Node().Children(Model))
+            .Listeners(events => {
+                events.ItemClick.Handler = "App.MyFolderView.getStore().load({params:{id:record.data.id}})";
+            })
+        , Html.X()
               .Panel()
               .ID("Files_View")
               .Cls("files-view")
               .Region(Region.Center)
-              .Layout(LayoutType.Fit)
+              .Layout(LayoutType.Card)
               .Padding(0)
               .TopBar(
                     Html.X().Toolbar()
@@ -30,6 +33,36 @@
                                 )
                         )
                 )
-              //.ItemsFromPartial("PersonUI_DataView")
+              .Items(
+                  Html.X().DataView()
+                      .ID("MyFolderView")
+                      .Cls("images-view")
+                      .MultiSelect(true)
+                      .OverItemCls("x-item-over")
+                      .ItemSelector("div.thumb-wrap")
+                      .DeferEmptyText(true)
+                      .EmptyText("没有记录")
+                      .Store(
+                          Html.X().StoreFor<FolderView>().AutoLoad(false).IsPagingStore(false)
+                      )
+                      .Tpl(
+                            Html.X().XTemplate()
+                                .Html(
+                                    @<text>
+                                        <tpl for=".">
+								            <div class="thumb-wrap" id="{Name}">
+									            <div class="thumb"><img src="@Url.Content("~/Images/folder.png")" title="{Name}"/></div>
+									            <span class="x-editable">{Name}</span>
+								            </div>
+							            </tpl>
+							            <div class="x-clear"></div>
+                                    </text>
+                                )
+                     )
+                      .Plugins(
+                        Html.X().DataViewDragSelector(),
+                        Html.X().DataViewLabelEditor().DataIndex("Name")
+                    )
+              )
         )
 )

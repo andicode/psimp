@@ -37,7 +37,18 @@ namespace PSIMP.Web.Controllers
             var data = PersonService.GetAll();
             return this.Store(data, 1);
         }
-
+        public ActionResult Photo(string id)
+        {
+            var person=PersonService.Get(id);
+            if(person.TwoInchPhoto==null)
+            {
+                return File(Server.MapPath("~/Images/Person/default.jpg"), "image/jpeg");
+            }
+            else
+            {
+                return File(person.TwoInchPhoto,"image/jpeg");
+            }
+        }
         public ActionResult Edit()
         {
             return this.PartialExtView();

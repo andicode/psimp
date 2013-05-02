@@ -7,6 +7,7 @@ using PSIMP.Models;
 using WebMatrix.WebData;
 using PSIMP.Repository.Account;
 using Ext.Net;
+using Ext.Net.MVC;
 
 namespace PSIMP.Web.Controllers
 {
@@ -26,6 +27,7 @@ namespace PSIMP.Web.Controllers
         {
             var userId = WebSecurity.CurrentUserId;
             var user= UserService.Get(userId);
+            //如果用户第一次登录，则为用户创建默认目录
             if (user.UserFolders.Count == 0)
             {
                 user.UserFolders.Add(new UserFolders
@@ -43,11 +45,13 @@ namespace PSIMP.Web.Controllers
             var root =new Node(){ Text=rootFolder.FolderName,NodeID=rootFolder.ID.ToString(),Expanded=true,Icon=Icon.FolderUser };
             GetFolderNodes(root, rootFolder);
             nodes.Add(root);
+
             var shared = new Node() { Text = "共享文档", NodeID = "shared", Icon = Icon.FolderConnect, Leaf = true };
             nodes.Add(shared);
+
             return View(nodes);
         }
-
+        //递归生成目录树
         private void GetFolderNodes(Node node,UserFolders folder)
         {
             var folders = folder.Children;
@@ -65,5 +69,42 @@ namespace PSIMP.Web.Controllers
             }
         }
 
+        public ActionResult FolderView(string id)
+        {  
+            var result = new List<FolderView>();
+            if (id == "shared")
+            {
+
+            }
+            else
+            {
+                var userId = WebSecurity.CurrentUserId;
+                var user = UserService.Get(userId);
+                var folder = user.UserFolders.Single(m => m.ID == long.Parse(id));
+                foreach (var item in folder.Children)
+                {
+                    result.Add(new FolderView(true)
+                    {
+                        ID = item.ID,
+                        Name = item.FolderName,
+                        CanDelete = !item.IsSys
+                    });
+                }
+                foreach (var item in folder.UserFiles)
+                {
+                    result.Add(new FolderView(false)
+                    {
+                        ID = item.ID,
+                        Name = item.FileName,
+                        CanDelete = true,
+                        FileType = item.FileType,
+                        FileSize = item.FileSize,
+                        IsShared = item.IsShared,
+                        Remark = item.Remark
+                    });
+                }
+            }
+            return this.Store(result);
+        }
     }
 }

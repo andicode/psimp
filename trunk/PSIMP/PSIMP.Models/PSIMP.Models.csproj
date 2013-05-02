@@ -151,7 +151,8 @@
     <Compile Include="EM_ProjectTestPutOnFile.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\PM_PersonBaseInfo.cs" />
+    <Compile Include="Partials\PM\PM_PersonBaseInfo.cs" />
+    <Compile Include="Partials\RM\FolderView.cs" />
     <Compile Include="PM_CertificateManage.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
