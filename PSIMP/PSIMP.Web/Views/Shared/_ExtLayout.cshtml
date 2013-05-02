@@ -1,18 +1,15 @@
-﻿@using Ext.Net.MVC
-@using Ext.Net
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    <script src="~/Scripts/FusionCharts.js"></script>
     <script src="~/Scripts/Test.js"></script>
     <script src="~/Scripts/business.js"></script>
 </head>
 <body id="mainBody">
-    @Html.X().ResourceManager().Theme(Theme.Default).ScriptMode(Ext.Net.ScriptMode.Debug)
+    @Html.X().ResourceManager().ScriptMode(Ext.Net.ScriptMode.Debug)
     @Html.X().ResourcesRegistrator().RegisterAllResources(true)
     @RenderBody()
 </body>
