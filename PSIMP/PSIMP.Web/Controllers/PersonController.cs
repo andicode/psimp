@@ -25,16 +25,17 @@ namespace PSIMP.Web.Controllers
         {
             return View();
         }
-        public ActionResult PersionUI(string containerId)
-        {
-            return this.ComponentConfig();
-        }
-
         public ActionResult GetPersons()
         {
             var data = PersonService.GetAll();
             return this.Store(data, PersonService.Count());
         }
+
+        public ActionResult PersonInfo(string id)
+        {
+            return this.ComponentConfig();
+        }
+
         public ActionResult Photo(string id)
         {
             var person=PersonService.Get(id);
