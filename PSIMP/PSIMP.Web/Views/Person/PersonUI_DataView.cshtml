@@ -1,6 +1,9 @@
 ﻿@model IEnumerable< PSIMP.Models.PM_PersonBaseInfo>
 
 @(Html.X().GridPanelFor(Model)
+          .TopBar(
+                   Html.X().Toolbar().ItemsFromPartial("PersonUI_Toolbar")
+          ) 
           .Control(grid =>
           {
               grid.ColumnModel.Columns.Insert(0,

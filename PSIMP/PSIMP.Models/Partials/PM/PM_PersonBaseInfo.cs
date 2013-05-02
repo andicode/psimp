@@ -84,6 +84,10 @@ namespace PSIMP.Models
             [Column(Ignore = true)]
             [JsonIgnore]
             public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfo { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonContractInfo { get; set; }
         }
     }
 }

@@ -195,6 +195,10 @@
       <End Role="VM_VehicleBaseInfo" EntitySet="VM_VehicleBaseInfo" />
       <End Role="VM_VehicleRepair" EntitySet="VM_VehicleRepair" />
     </AssociationSet>
+    <AssociationSet Name="PM_PersonContractInfoPM_PersonBaseInfo" Association="PSIMPDB.Store.PM_PersonContractInfoPM_PersonBaseInfo">
+      <End Role="PM_PersonContractInfo" EntitySet="PM_PersonContractInfo" />
+      <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="UserProfile">
     <Key>
@@ -657,7 +661,6 @@
       <PropertyRef Name="ContractID" />
     </Key>
     <Property Name="ContractID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Sex" Type="bit" Nullable="false" />
     <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="ContractNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -667,6 +670,7 @@
     <Property Name="ContractPosition" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="ContractSalary" Type="decimal" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonEducationalBackground1">
     <Key>
@@ -1401,6 +1405,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PM_PersonContractInfoPM_PersonBaseInfo">
+    <End Role="PM_PersonContractInfo" Type="PSIMPDB.Store.PM_PersonContractInfo" Multiplicity="*" />
+    <End Role="PM_PersonBaseInfo" Type="PSIMPDB.Store.PM_PersonBaseInfo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PM_PersonBaseInfo">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="PM_PersonContractInfo">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -1594,6 +1610,10 @@
           <AssociationSet Name="VM_VehicleBaseInfoVM_VehicleRepair" Association="PSIMPDB.VM_VehicleBaseInfoVM_VehicleRepair">
             <End Role="VM_VehicleBaseInfo" EntitySet="VM_VehicleBaseInfo" />
             <End Role="VM_VehicleRepair" EntitySet="VM_VehicleRepair" />
+          </AssociationSet>
+          <AssociationSet Name="PM_PersonContractInfoPM_PersonBaseInfo" Association="PSIMPDB.PM_PersonContractInfoPM_PersonBaseInfo">
+            <End Role="PM_PersonContractInfo" EntitySet="PM_PersonContractInfo" />
+            <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="UserProfile">
@@ -2102,6 +2122,7 @@
           <NavigationProperty Name="PM_PersonPositionalTitlesInfo" Relationship="PSIMPDB.PM_PersonBaseInfoPM_PersonPositionalTitlesInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonPositionalTitlesInfo" />
           <NavigationProperty Name="PM_PersonEducationalBackground" Relationship="PSIMPDB.PM_PersonBaseInfoPM_PersonEducationalBackground" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonEducationalBackground" />
           <NavigationProperty Name="PM_PersonWorkExperienceInfo" Relationship="PSIMPDB.PM_PersonBaseInfoPM_PersonWorkExperienceInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonWorkExperienceInfo" />
+          <NavigationProperty Name="PM_PersonContractInfo" Relationship="PSIMPDB.PM_PersonContractInfoPM_PersonBaseInfo" FromRole="PM_PersonBaseInfo" ToRole="PM_PersonContractInfo" />
         </EntityType>
         <EntityType Name="PM_PersonCertificateInfo">
           <Key>
@@ -2122,7 +2143,6 @@
             <PropertyRef Name="ContractID" />
           </Key>
           <Property Type="Guid" Name="ContractID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Guid" Name="PersonID" Nullable="false" />
           <Property Type="Boolean" Name="Sex" Nullable="false" />
           <Property Type="String" Name="IDNumber" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="ContractNumber" Nullable="false" MaxLength="40" />
@@ -2132,6 +2152,8 @@
           <Property Type="String" Name="ContractPosition" Nullable="false" MaxLength="20" />
           <Property Type="Decimal" Name="ContractSalary" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" MaxLength="400" />
+          <NavigationProperty Name="PM_PersonBaseInfo" Relationship="PSIMPDB.PM_PersonContractInfoPM_PersonBaseInfo" FromRole="PM_PersonContractInfo" ToRole="PM_PersonBaseInfo" />
+          <Property Type="Guid" Name="PersonID" Nullable="false" />
         </EntityType>
         <EntityType Name="PM_PersonEducationalBackground">
           <Key>
@@ -2575,6 +2597,18 @@
         <Association Name="VM_VehicleBaseInfoVM_VehicleRepair">
           <End Type="PSIMPDB.VM_VehicleBaseInfo" Role="VM_VehicleBaseInfo" Multiplicity="1" />
           <End Type="PSIMPDB.VM_VehicleRepair" Role="VM_VehicleRepair" Multiplicity="*" />
+        </Association>
+        <Association Name="PM_PersonContractInfoPM_PersonBaseInfo">
+          <End Type="PSIMPDB.PM_PersonContractInfo" Role="PM_PersonContractInfo" Multiplicity="*" />
+          <End Type="PSIMPDB.PM_PersonBaseInfo" Role="PM_PersonBaseInfo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PM_PersonBaseInfo">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PM_PersonContractInfo">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -3052,7 +3086,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonContractInfo)">
         <MappingFragment StoreEntitySet="PM_PersonContractInfo">
           <ScalarProperty Name="ContractID" ColumnName="ContractID" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
           <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
@@ -3062,6 +3095,7 @@
           <ScalarProperty Name="ContractPosition" ColumnName="ContractPosition" />
           <ScalarProperty Name="ContractSalary" ColumnName="ContractSalary" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
