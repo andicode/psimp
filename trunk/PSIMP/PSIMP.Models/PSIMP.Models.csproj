@@ -191,6 +191,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PSIMPDB.Partial.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserFiles.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserFolders.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserProfile.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>

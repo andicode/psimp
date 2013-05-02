@@ -14,16 +14,18 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserProfile
+    public partial class UserFolders
     {
-        public UserProfile()
+        public UserFolders()
         {
-            this.UserFolders = new HashSet<UserFolders>();
+            this.UserFiles = new HashSet<UserFiles>();
         }
     
+        public System.Guid ID { get; set; }
+        public string FolderName { get; set; }
         public int UserId { get; set; }
-        public string UserName { get; set; }
     
-        public virtual ICollection<UserFolders> UserFolders { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
+        public virtual ICollection<UserFiles> UserFiles { get; set; }
     }
 }
