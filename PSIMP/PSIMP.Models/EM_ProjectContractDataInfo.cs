@@ -17,17 +17,17 @@ namespace PSIMP.Models
     public partial class EM_ProjectContractDataInfo
     {
         public System.Guid PContractDataID { get; set; }
-        public string ContractMoney { get; set; }
-        public string ProvisionalSums { get; set; }
-        public string ContractNetAmount { get; set; }
-        public string ConstructionPeriodMoney { get; set; }
-        public string DefectPeriodMoeny { get; set; }
-        public string GuaranteePeriodMoney { get; set; }
-        public string HonestDepositMoney { get; set; }
-        public string GuaranteeMoney { get; set; }
-        public string AgainstRiskMoney { get; set; }
-        public string ReviewMoeny { get; set; }
-        public string ContractID { get; set; }
+        public decimal ContractMoney { get; set; }
+        public decimal ProvisionalSums { get; set; }
+        public decimal ContractNetAmount { get; set; }
+        public decimal ConstructionPeriodMoney { get; set; }
+        public decimal DefectPeriodMoeny { get; set; }
+        public decimal GuaranteePeriodMoney { get; set; }
+        public decimal HonestDepositMoney { get; set; }
+        public decimal GuaranteeMoney { get; set; }
+        public decimal AgainstRiskMoney { get; set; }
+        public decimal ReviewMoeny { get; set; }
+        public System.Guid ContractID { get; set; }
     
         public virtual EM_ProjectContractBaseInfo EM_ProjectContractBaseInfo { get; set; }
     }

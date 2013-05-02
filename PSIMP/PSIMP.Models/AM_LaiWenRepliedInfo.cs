@@ -18,12 +18,12 @@ namespace PSIMP.Models
     {
         public System.Guid LaiWenRepliedID { get; set; }
         public string RepliedDepartment { get; set; }
-        public string RepliedUserID { get; set; }
-        public string RepliedStatus { get; set; }
-        public string RepliedResult { get; set; }
+        public System.Guid RepliedUserID { get; set; }
+        public bool RepliedStatus { get; set; }
+        public bool RepliedResult { get; set; }
         public string RepliedSuggestion { get; set; }
-        public string RepliedDate { get; set; }
-        public string LaiWenRecordID { get; set; }
+        public System.DateTime RepliedDate { get; set; }
+        public System.Guid LaiWenRecordID { get; set; }
         public string Description { get; set; }
     
         public virtual AM_LaiWenRecordInfo AM_LaiWenRecordInfo { get; set; }

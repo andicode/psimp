@@ -14,16 +14,17 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EM_ProjectTestPutOnFile
+    public partial class VM_VehicleOperatingCost
     {
-        public System.Guid TestPutonFileID { get; set; }
-        public System.Guid ProjectID { get; set; }
-        public string ProjectName { get; set; }
-        public System.DateTime PutonfileStartDate { get; set; }
-        public System.DateTime PutonfileEndDate { get; set; }
-        public int PutonfileTimes { get; set; }
+        public System.Guid VehicleOperatingCostID { get; set; }
+        public System.Guid VehicleID { get; set; }
+        public string VehicleUseType { get; set; }
+        public string VehicleDriver { get; set; }
+        public int CostType { get; set; }
+        public decimal TotalCost { get; set; }
+        public string Other { get; set; }
         public string Description { get; set; }
     
-        public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
+        public virtual VM_VehicleBaseInfo VM_VehicleBaseInfo { get; set; }
     }
 }

@@ -14,16 +14,19 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EM_ProjectTestPutOnFile
+    public partial class AMG_AssetAllocateInfo
     {
-        public System.Guid TestPutonFileID { get; set; }
-        public System.Guid ProjectID { get; set; }
-        public string ProjectName { get; set; }
-        public System.DateTime PutonfileStartDate { get; set; }
-        public System.DateTime PutonfileEndDate { get; set; }
-        public int PutonfileTimes { get; set; }
+        public System.Guid AssetAllocateID { get; set; }
+        public System.Guid AssetBaseInfoID { get; set; }
+        public string LeaveFromCompany { get; set; }
+        public string LeaveToCompany { get; set; }
+        public System.DateTime AllocateDate { get; set; }
+        public string AllocateReason { get; set; }
+        public System.Guid OperationUserID { get; set; }
         public string Description { get; set; }
+        public int Other1 { get; set; }
+        public int Other2 { get; set; }
     
-        public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
+        public virtual AMG_AssetBaseInfo AMG_AssetBaseInfo { get; set; }
     }
 }

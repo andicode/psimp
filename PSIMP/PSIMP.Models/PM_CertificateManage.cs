@@ -20,29 +20,31 @@ namespace PSIMP.Models
         public string FileNumber { get; set; }
         public string PersonID { get; set; }
         public System.DateTime RegisterDate { get; set; }
-        public string ProjectID { get; set; }
-        public string PositionStatus { get; set; }
-        public string SubmitCorporationDate { get; set; }
-        public string IsSubmitGraduationCertificate { get; set; }
-        public string IsSubmitSupervisionCertificate { get; set; }
-        public string IsSubmitPositionalCertificate { get; set; }
-        public string IsSubmitSecurityCertificate { get; set; }
-        public string IsSubmitConservationCertificate { get; set; }
-        public string IsSubmitIdentificationCard { get; set; }
-        public string ReturnBusinessUnitDate { get; set; }
-        public string IsReturnGraduationCertificate { get; set; }
-        public string IsReturnSupervisionCertificate { get; set; }
-        public string IsReturnPositionalCertificate { get; set; }
-        public string IsReturnSecurityCertificate { get; set; }
-        public string IsReturnConservationCertificate { get; set; }
-        public string IsReturnIdentificationCard { get; set; }
-        public string GivebackSelfDate { get; set; }
-        public string IsGivebackGraduationCertificate { get; set; }
-        public string IsGivebackSupervisionCertificate { get; set; }
-        public string IsGivebackPositionalCertificate { get; set; }
-        public string IsGivebackSecurityCertificate { get; set; }
-        public string IsGivebackConservationCertificate { get; set; }
-        public string IsGivebackIdentificationCard { get; set; }
+        public System.Guid ProjectID { get; set; }
+        public bool PositionStatus { get; set; }
+        public System.DateTime SubmitCorporationDate { get; set; }
+        public bool IsSubmitGraduationCertificate { get; set; }
+        public bool IsSubmitSupervisionCertificate { get; set; }
+        public bool IsSubmitPositionalCertificate { get; set; }
+        public bool IsSubmitSecurityCertificate { get; set; }
+        public bool IsSubmitConservationCertificate { get; set; }
+        public bool IsSubmitIdentificationCard { get; set; }
+        public System.DateTime ReturnBusinessUnitDate { get; set; }
+        public bool IsReturnGraduationCertificate { get; set; }
+        public bool IsReturnSupervisionCertificate { get; set; }
+        public bool IsReturnPositionalCertificate { get; set; }
+        public bool IsReturnSecurityCertificate { get; set; }
+        public bool IsReturnConservationCertificate { get; set; }
+        public bool IsReturnIdentificationCard { get; set; }
+        public System.DateTime GivebackSelfDate { get; set; }
+        public bool IsGivebackGraduationCertificate { get; set; }
+        public bool IsGivebackSupervisionCertificate { get; set; }
+        public bool IsGivebackPositionalCertificate { get; set; }
+        public bool IsGivebackSecurityCertificate { get; set; }
+        public bool IsGivebackConservationCertificate { get; set; }
+        public bool IsGivebackIdentificationCard { get; set; }
         public string Descriptions { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

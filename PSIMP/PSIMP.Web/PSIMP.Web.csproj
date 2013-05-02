@@ -186,7 +186,6 @@
     <Compile Include="Controllers\QueryController.cs" />
     <Compile Include="Extensions\ExtExtensions.cs" />
     <Compile Include="Extensions\MvcExtensions.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -313,6 +312,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Filters\" />
     <Folder Include="UserFiles\" />
   </ItemGroup>
   <PropertyGroup>
@@ -331,7 +331,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>7747</DevelopmentServerPort>
+          <DevelopmentServerPort>9139</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:14468/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

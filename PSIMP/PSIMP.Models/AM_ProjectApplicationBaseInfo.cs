@@ -24,10 +24,10 @@ namespace PSIMP.Models
     
         public System.Guid ProjectApplicationID { get; set; }
         public string ApplicationSerialNumber { get; set; }
-        public string ApplicationDate { get; set; }
-        public string ApplicationProjectID { get; set; }
-        public string ApplicationPersonID { get; set; }
-        public string ApplicationDescription { get; set; }
+        public System.DateTime ApplicationDate { get; set; }
+        public System.Guid ApplicationProjectID { get; set; }
+        public System.Guid ApplicationPersonID { get; set; }
+        public string ApplicationReason { get; set; }
         public string ApplicationContent { get; set; }
         public string Description { get; set; }
     

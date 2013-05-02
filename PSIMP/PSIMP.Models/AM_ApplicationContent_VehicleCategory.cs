@@ -17,15 +17,15 @@ namespace PSIMP.Models
     public partial class AM_ApplicationContent_VehicleCategory
     {
         public System.Guid ApplicationVehicleCategoryID { get; set; }
-        public string ProjectApplicationID { get; set; }
-        public string ApplicationType { get; set; }
+        public System.Guid ProjectApplicationID { get; set; }
+        public System.Guid ApplicationType { get; set; }
         public string PlateNumber { get; set; }
         public string Mileage { get; set; }
-        public string CarPosition { get; set; }
+        public System.Guid CarPart { get; set; }
         public string ItemName { get; set; }
-        public string ItemMoney { get; set; }
-        public string ItemQuantity { get; set; }
-        public string TotalMoney { get; set; }
+        public decimal ItemMoney { get; set; }
+        public int ItemQuantity { get; set; }
+        public decimal TotalMoney { get; set; }
         public string Description { get; set; }
     
         public virtual AM_ProjectApplicationBaseInfo AM_ProjectApplicationBaseInfo { get; set; }

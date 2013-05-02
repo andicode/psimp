@@ -17,28 +17,28 @@ namespace PSIMP.Models
     public partial class EM_ProjectExpandInfo
     {
         public System.Guid ProjectExpandID { get; set; }
-        public string ProjectID { get; set; }
+        public System.Guid ProjectID { get; set; }
         public string ProjectName { get; set; }
         public decimal ContractMoney { get; set; }
-        public int Mileage { get; set; }
+        public float Mileage { get; set; }
         public string RoadGrade { get; set; }
         public string TerrainCondition { get; set; }
-        public short RoadbedWidth { get; set; }
+        public int RoadbedWidth { get; set; }
         public decimal Excavation { get; set; }
-        public string Fill { get; set; }
+        public string EarthStoneFill { get; set; }
         public string SoftFoundation { get; set; }
         public string BasicLevel { get; set; }
         public string RoadStructureTypeAndMileage { get; set; }
         public string BituminousConcretePavement { get; set; }
         public string CementConcretePavement { get; set; }
         public string BridgeStructureLengthLargestSpan { get; set; }
-        public string GrandBridgeNum { get; set; }
-        public string GreatBridgeNum { get; set; }
-        public string MediumBridgeNum { get; set; }
-        public string CulvertNum { get; set; }
-        public string InterchangeNum { get; set; }
-        public string InterchangeMainBridge { get; set; }
-        public string TamperBridgeNum { get; set; }
+        public int GrandBridgeNum { get; set; }
+        public int GreatBridgeNum { get; set; }
+        public int MediumBridgeNum { get; set; }
+        public int CulvertNum { get; set; }
+        public int InterchangeNum { get; set; }
+        public int InterchangeMainBridge { get; set; }
+        public int TamperBridgeNum { get; set; }
         public string TamperBridgeMileage { get; set; }
         public string SuperLongTunnelNum { get; set; }
         public string LongTunnelNum { get; set; }
@@ -47,11 +47,11 @@ namespace PSIMP.Models
         public string SideSlopeAfforestation { get; set; }
         public string MechanicalElectricalAndContent { get; set; }
         public string SupervisionTask { get; set; }
-        public string FinishedDate { get; set; }
+        public System.DateTime FinishedDate { get; set; }
         public string SupervisorWorkload { get; set; }
         public string QualityGrade { get; set; }
         public string HousingConstruction { get; set; }
-        public string GeneralSupervision { get; set; }
+        public System.Guid GeneralSupervision { get; set; }
         public string ConstructionCompanyName { get; set; }
         public string ConstructionCompanyLinkman { get; set; }
         public string ConstructionCompanyPhoneNum { get; set; }

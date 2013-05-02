@@ -17,14 +17,14 @@ namespace PSIMP.Models
     public partial class EM_ProjectContractPerformance
     {
         public System.Guid ProjectContractPerformanceID { get; set; }
-        public string ProjectID { get; set; }
-        public string PersonID { get; set; }
+        public System.Guid ProjectID { get; set; }
+        public System.Guid PersonID { get; set; }
         public string PersonName { get; set; }
-        public string OnProjectID { get; set; }
-        public string InPresentDate { get; set; }
-        public string PerformanceProjectID { get; set; }
+        public System.Guid OnProjectID { get; set; }
+        public System.DateTime InPresentDate { get; set; }
+        public System.Guid PerformanceProjectID { get; set; }
         public string PerformanceDuties { get; set; }
-        public string OutDate { get; set; }
+        public System.DateTime OutDate { get; set; }
         public string Description { get; set; }
     
         public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }

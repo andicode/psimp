@@ -17,12 +17,12 @@ namespace PSIMP.Models
     public partial class AM_ApplicationRepliedDetail
     {
         public System.Guid ApplicationRepliedDetailID { get; set; }
-        public string RepliedPersonID { get; set; }
-        public string RepliedResult { get; set; }
+        public System.Guid RepliedPersonID { get; set; }
+        public bool RepliedResult { get; set; }
         public string RepliedSuggestion { get; set; }
-        public string RepliedDate { get; set; }
+        public System.DateTime RepliedDate { get; set; }
         public string RepliedPersonPosition { get; set; }
         public string RepliedDepartment { get; set; }
-        public string RepliedStatus { get; set; }
+        public bool RepliedStatus { get; set; }
     }
 }

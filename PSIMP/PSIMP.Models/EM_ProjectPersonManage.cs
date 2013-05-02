@@ -17,23 +17,23 @@ namespace PSIMP.Models
     public partial class EM_ProjectPersonManage
     {
         public System.Guid ProjectPersonID { get; set; }
-        public string ProjectID { get; set; }
+        public System.Guid ProjectID { get; set; }
         public string ProjectName { get; set; }
         public string DutiesName { get; set; }
-        public string PersonID { get; set; }
+        public System.Guid PersonID { get; set; }
         public string PersonName { get; set; }
         public string PersonComeType { get; set; }
-        public string IsOnScene { get; set; }
-        public string EntryDate { get; set; }
+        public int IsOnScene { get; set; }
+        public System.DateTime EntryDate { get; set; }
         public string ProjectPosition { get; set; }
-        public string ExitDate { get; set; }
+        public System.DateTime ExitDate { get; set; }
         public string ExitReason { get; set; }
-        public string IsHaveOwnerReplied { get; set; }
-        public string RepliedDate { get; set; }
-        public string RepliedResult { get; set; }
+        public bool IsHaveOwnerReplied { get; set; }
+        public System.DateTime RepliedDate { get; set; }
+        public bool RepliedResult { get; set; }
         public string RepliedSuggestion { get; set; }
         public string RepliedNumber { get; set; }
-        public string RepliedAttachment { get; set; }
+        public byte RepliedAttachment { get; set; }
         public string Description { get; set; }
     
         public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }

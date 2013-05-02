@@ -18,14 +18,20 @@ namespace PSIMP.Models
     {
         public UserFolders()
         {
+            this.IsSys = false;
             this.UserFiles = new HashSet<UserFiles>();
+            this.Children = new HashSet<UserFolders>();
         }
     
-        public System.Guid ID { get; set; }
+        public long ID { get; set; }
         public string FolderName { get; set; }
         public int UserId { get; set; }
+        public bool IsSys { get; set; }
+        public Nullable<long> ParentID { get; set; }
     
         public virtual UserProfile UserProfile { get; set; }
         public virtual ICollection<UserFiles> UserFiles { get; set; }
+        public virtual ICollection<UserFolders> Children { get; set; }
+        public virtual UserFolders UserFolder { get; set; }
     }
 }

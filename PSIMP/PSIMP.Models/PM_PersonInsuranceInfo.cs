@@ -17,18 +17,21 @@ namespace PSIMP.Models
     public partial class PM_PersonInsuranceInfo
     {
         public System.Guid InsuranceID { get; set; }
-        public string PersonID { get; set; }
+        public System.Guid PersonID { get; set; }
         public string Sex { get; set; }
         public string IDNumber { get; set; }
         public string InsuranceNumber { get; set; }
         public string InsuranceType { get; set; }
-        public string EffectiveDate { get; set; }
-        public string ExpiryDate { get; set; }
-        public string PositionStatus { get; set; }
+        public System.DateTime EffectiveDate { get; set; }
+        public System.DateTime ExpiryDate { get; set; }
+        public bool PositionStatus { get; set; }
         public string InsuredNumber { get; set; }
         public string InsuranceContent { get; set; }
-        public string ProjectID { get; set; }
+        public System.Guid ProjectID { get; set; }
         public string PositionName { get; set; }
-        public string Descriptions { get; set; }
+        public int InsuranceStatus { get; set; }
+        public string Description { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

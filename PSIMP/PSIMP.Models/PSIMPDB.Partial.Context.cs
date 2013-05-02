@@ -16,6 +16,8 @@ namespace PSIMP.Models
     public partial class PSIMPDBContainer : DbContext
     {
          public DbSet<UserProfile> UserProfileSet { get; set; }
+         public DbSet<UserFiles> UserFilesSet { get; set; }
+         public DbSet<UserFolders> UserFoldersSet { get; set; }
          public DbSet<AM_ApplicationContent_CapitalFundCategory> AM_ApplicationContent_CapitalFundCategorySet { get; set; }
          public DbSet<AM_ApplicationContent_VehicleCategory> AM_ApplicationContent_VehicleCategorySet { get; set; }
          public DbSet<AM_ApplicationRepliedDetail> AM_ApplicationRepliedDetailSet { get; set; }
@@ -24,6 +26,10 @@ namespace PSIMP.Models
          public DbSet<AM_LaiWenRepliedInfo> AM_LaiWenRepliedInfoSet { get; set; }
          public DbSet<AM_ProjectApplicationBaseInfo> AM_ProjectApplicationBaseInfoSet { get; set; }
          public DbSet<AM_ProjectApplicationRepliedInfo> AM_ProjectApplicationRepliedInfoSet { get; set; }
+         public DbSet<AMG_AssetAllocateInfo> AMG_AssetAllocateInfoSet { get; set; }
+         public DbSet<AMG_AssetBaseInfo> AMG_AssetBaseInfoSet { get; set; }
+         public DbSet<AMG_AssetRepairInfo> AMG_AssetRepairInfoSet { get; set; }
+         public DbSet<AMG_AssetUseInfo> AMG_AssetUseInfoSet { get; set; }
          public DbSet<EM_ProjectBaseInfo> EM_ProjectBaseInfoSet { get; set; }
          public DbSet<EM_ProjectContractBaseInfo> EM_ProjectContractBaseInfoSet { get; set; }
          public DbSet<EM_ProjectContractDataInfo> EM_ProjectContractDataInfoSet { get; set; }
@@ -43,7 +49,16 @@ namespace PSIMP.Models
          public DbSet<PM_PersonRegister> PM_PersonRegisterSet { get; set; }
          public DbSet<PM_PersonTrainingExperience> PM_PersonTrainingExperienceSet { get; set; }
          public DbSet<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfoSet { get; set; }
-         public DbSet<UserFiles> UserFilesSet { get; set; }
-         public DbSet<UserFolders> UserFoldersSet { get; set; }
+         public DbSet<VM_PaymentDetailInfo> VM_PaymentDetailInfoSet { get; set; }
+         public DbSet<VM_VehicleAllocateInfo> VM_VehicleAllocateInfoSet { get; set; }
+         public DbSet<VM_VehicleBaseInfo> VM_VehicleBaseInfoSet { get; set; }
+         public DbSet<VM_VehicleInsurance> VM_VehicleInsuranceSet { get; set; }
+         public DbSet<VM_VehicleLeaseInfo> VM_VehicleLeaseInfoSet { get; set; }
+         public DbSet<VM_VehicleLoanInfo> VM_VehicleLoanInfoSet { get; set; }
+         public DbSet<VM_VehicleOperatingCost> VM_VehicleOperatingCostSet { get; set; }
+         public DbSet<VM_VehicleRepair> VM_VehicleRepairSet { get; set; }
+         public DbSet<VM_VehicleRepairDetailList> VM_VehicleRepairDetailListSet { get; set; }
+         public DbSet<VM_VehicleUseInfo> VM_VehicleUseInfoSet { get; set; }
+         public DbSet<VM_VehicleYearInspection> VM_VehicleYearInspectionSet { get; set; }
     }
 }
