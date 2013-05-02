@@ -111,6 +111,7 @@
     <Compile Include="AM_ProjectApplicationRepliedInfo.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Consts\Enums.cs" />
     <Compile Include="EM_ProjectBaseInfo.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
