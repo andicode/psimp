@@ -94,7 +94,7 @@
     <Key>
       <PropertyRef Name="ApplicationCapitalCategoryID" />
     </Key>
-    <Property Name="ApplicationCapitalCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationCapitalCategoryID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectApplicationID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ApplicationType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CapitalFundName" Type="nvarchar(max)" Nullable="false" />
@@ -104,13 +104,13 @@
     <Property Name="Money" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TotalMoney" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_ApplicationContent_VehicleCategory">
     <Key>
       <PropertyRef Name="ApplicationVehicleCategoryID" />
     </Key>
-    <Property Name="ApplicationVehicleCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationVehicleCategoryID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectApplicationID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ApplicationType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PlateNumber" Type="nvarchar(max)" Nullable="false" />
@@ -121,13 +121,13 @@
     <Property Name="ItemQuantity" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TotalMoney" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_ApplicationRepliedDetail">
     <Key>
       <PropertyRef Name="ApplicationRepliedDetailID" />
     </Key>
-    <Property Name="ApplicationRepliedDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationRepliedDetailID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RepliedPersonID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RepliedResult" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RepliedSuggestion" Type="nvarchar(max)" Nullable="false" />
@@ -140,19 +140,19 @@
     <Key>
       <PropertyRef Name="LaiWenCircularizeID" />
     </Key>
-    <Property Name="LaiWenCircularizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LaiWenCircularizeID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LaiWenRecordID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CircularizeStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CircularizedPersonID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CircularizedDate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AM_LaiWenRecordInfo_LaiWenRecordID" Type="int" Nullable="false" />
+    <Property Name="AM_LaiWenRecordInfo_LaiWenRecordID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_LaiWenRecordInfo">
     <Key>
       <PropertyRef Name="LaiWenRecordID" />
     </Key>
-    <Property Name="LaiWenRecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LaiWenRecordID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LaiWenUnit" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LaiWenType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LaiWenMode" Type="nvarchar(max)" Nullable="false" />
@@ -167,7 +167,7 @@
     <Key>
       <PropertyRef Name="LaiWenRepliedID" />
     </Key>
-    <Property Name="LaiWenRepliedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LaiWenRepliedID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RepliedDepartment" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RepliedUserID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RepliedStatus" Type="nvarchar(max)" Nullable="false" />
@@ -176,13 +176,13 @@
     <Property Name="RepliedDate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LaiWenRecordID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AM_LaiWenRecordInfo_LaiWenRecordID" Type="int" Nullable="false" />
+    <Property Name="AM_LaiWenRecordInfo_LaiWenRecordID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_ProjectApplicationBaseInfo">
     <Key>
       <PropertyRef Name="ProjectApplicationID" />
     </Key>
-    <Property Name="ProjectApplicationID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="ProjectApplicationID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ApplicationSerialNumber" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ApplicationDate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ApplicationProjectID" Type="nvarchar(max)" Nullable="false" />
@@ -195,7 +195,7 @@
     <Key>
       <PropertyRef Name="ApplicationRepliedID" />
     </Key>
-    <Property Name="ApplicationRepliedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationRepliedID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectApplicationID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectManagerReplied" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ChiefDepartmentReplied" Type="nvarchar(max)" Nullable="false" />
@@ -208,7 +208,7 @@
     <Key>
       <PropertyRef Name="ProjectID" />
     </Key>
-    <Property Name="ProjectID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="ProjectID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectFullName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ConstructionCompany" Type="nvarchar(max)" Nullable="false" />
@@ -227,8 +227,8 @@
     <Key>
       <PropertyRef Name="ProjectContractID" />
     </Key>
-    <Property Name="ProjectContractID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectContractID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="BiddingDate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ContractPeriod" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OpenDate" Type="nvarchar(max)" Nullable="false" />
@@ -236,13 +236,13 @@
     <Property Name="OpeningConditions" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ContractAttachment" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractDataInfo">
     <Key>
       <PropertyRef Name="PContractDataID" />
     </Key>
-    <Property Name="PContractDataID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PContractDataID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ContractMoney" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProvisionalSums" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ContractNetAmount" Type="nvarchar(max)" Nullable="false" />
@@ -254,13 +254,13 @@
     <Property Name="AgainstRiskMoney" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ReviewMoeny" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ContractID" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractPayCondition">
     <Key>
       <PropertyRef Name="PContractPayConditionID" />
     </Key>
-    <Property Name="PContractPayConditionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PContractPayConditionID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ContractID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="MeasurePayCondition" Type="nvarchar(max)" Nullable="false" />
     <Property Name="AgainstRiskPayCondition" Type="nvarchar(max)" Nullable="false" />
@@ -270,13 +270,13 @@
     <Property Name="PerformanceBondPayCondition" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PayMode" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PayDutyMode" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractPerformance">
     <Key>
       <PropertyRef Name="ProjectContractPerformanceID" />
     </Key>
-    <Property Name="ProjectContractPerformanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectContractPerformanceID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PersonID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PersonName" Type="nvarchar(max)" Nullable="false" />
@@ -286,13 +286,13 @@
     <Property Name="PerformanceDuties" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OutDate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractPersonInfo">
     <Key>
       <PropertyRef Name="ContractPersonID" />
     </Key>
-    <Property Name="ContractPersonID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="ContractPersonID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectContractID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ContractDuties" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PersonID" Type="nvarchar(max)" Nullable="false" />
@@ -300,13 +300,13 @@
     <Property Name="HoldCertificate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Other" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectExpandInfo">
     <Key>
       <PropertyRef Name="ProjectExpandID" />
     </Key>
-    <Property Name="ProjectExpandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectExpandID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ContractMoney" Type="decimal" Nullable="false" />
@@ -347,13 +347,13 @@
     <Property Name="ConstructionCompanyPhoneNum" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RewardAndPunishment" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="int" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectPersonManage">
     <Key>
       <PropertyRef Name="ProjectPersonID" />
     </Key>
-    <Property Name="ProjectPersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectPersonID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DutiesName" Type="nvarchar(max)" Nullable="false" />
@@ -372,26 +372,26 @@
     <Property Name="RepliedNumber" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RepliedAttachment" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectTestPutOnFile">
     <Key>
       <PropertyRef Name="TestPutonFileID" />
     </Key>
-    <Property Name="TestPutonFileID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="TestPutonFileID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PutonfileStartDate" Type="datetime" Nullable="false" />
     <Property Name="PutonfileEndDate" Type="datetime" Nullable="false" />
     <Property Name="PutonfileTimes" Type="smallint" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_CertificateManage">
     <Key>
       <PropertyRef Name="CertificateID" />
     </Key>
-    <Property Name="CertificateID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="CertificateID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FileNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="RegisterDate" Type="datetime" Nullable="false" />
@@ -424,7 +424,7 @@
     <Key>
       <PropertyRef Name="PersonID" />
     </Key>
-    <Property Name="PersonID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="PersonID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Sex" Type="bit" Nullable="false" DefaultValue="true" />
     <Property Name="Birthday" Type="datetime" Nullable="false" />
@@ -438,7 +438,7 @@
     <Key>
       <PropertyRef Name="CertificateID" />
     </Key>
-    <Property Name="CertificateID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="CertificateID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CertificateName" Type="nvarchar" Nullable="false" MaxLength="30" />
     <Property Name="CertificateType" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="CertificateNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -451,7 +451,7 @@
     <Key>
       <PropertyRef Name="ContractID" />
     </Key>
-    <Property Name="ContractID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="ContractID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IDNumber" Type="nvarchar(max)" Nullable="false" />
@@ -480,7 +480,7 @@
     <Key>
       <PropertyRef Name="InsuranceID" />
     </Key>
-    <Property Name="InsuranceID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="InsuranceID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IDNumber" Type="nvarchar(max)" Nullable="false" />
@@ -499,7 +499,7 @@
     <Key>
       <PropertyRef Name="PositionalID" />
     </Key>
-    <Property Name="PositionalID" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionalID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PositionalName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PositionalType" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="AssessmentDate" Type="datetime" Nullable="false" />
@@ -511,7 +511,7 @@
     <Key>
       <PropertyRef Name="RegisterID" />
     </Key>
-    <Property Name="RegisterID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="RegisterID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="RegisterDate" Type="datetime" Nullable="false" />
     <Property Name="RegisterCompany" Type="nvarchar" Nullable="false" MaxLength="30" />
@@ -532,7 +532,7 @@
     <Key>
       <PropertyRef Name="TrainingExpID" />
     </Key>
-    <Property Name="TrainingExpID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="TrainingExpID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="InstitutionsName" Type="nvarchar" Nullable="false" MaxLength="30" />
     <Property Name="TrainingStartDate" Type="datetime" Nullable="false" />
     <Property Name="TrainingEndDate" Type="datetime" Nullable="false" />
@@ -546,7 +546,7 @@
     <Key>
       <PropertyRef Name="WorkExpID" />
     </Key>
-    <Property Name="WorkExpID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="40" />
+    <Property Name="WorkExpID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="WorkStartDate" Type="datetime" Nullable="false" />
     <Property Name="WorkEndDate" Type="datetime" Nullable="false" />
     <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="30" />
