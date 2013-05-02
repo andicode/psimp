@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/02/2013 15:44:06
+-- Date Created: 05/02/2013 15:57:05
 -- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -124,6 +124,9 @@ IF OBJECT_ID(N'[dbo].[FK_VM_VehicleRepairVM_VehicleRepairDetailList]', 'F') IS N
 GO
 IF OBJECT_ID(N'[dbo].[FK_VM_VehicleBaseInfoVM_VehicleRepair]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[VM_VehicleRepair] DROP CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleRepair];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PM_PersonContractInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PM_PersonContractInfo] DROP CONSTRAINT [FK_PM_PersonContractInfoPM_PersonBaseInfo];
 GO
 
 -- --------------------------------------------------
@@ -742,8 +745,8 @@ CREATE TABLE [dbo].[PM_PersonContractInfo] (
 );
 GO
 
--- Creating table 'PM_PersonEducationalBackground1'
-CREATE TABLE [dbo].[PM_PersonEducationalBackground1] (
+-- Creating table 'PM_PersonEducationalBackground'
+CREATE TABLE [dbo].[PM_PersonEducationalBackground] (
     [EducationalBckID] uniqueidentifier  NOT NULL,
     [SchoolName] nvarchar(20)  NOT NULL,
     [EduStartDate] datetime  NOT NULL,
@@ -1215,9 +1218,9 @@ ADD CONSTRAINT [PK_PM_PersonContractInfo]
     PRIMARY KEY CLUSTERED ([ContractID] ASC);
 GO
 
--- Creating primary key on [EducationalBckID] in table 'PM_PersonEducationalBackground1'
-ALTER TABLE [dbo].[PM_PersonEducationalBackground1]
-ADD CONSTRAINT [PK_PM_PersonEducationalBackground1]
+-- Creating primary key on [EducationalBckID] in table 'PM_PersonEducationalBackground'
+ALTER TABLE [dbo].[PM_PersonEducationalBackground]
+ADD CONSTRAINT [PK_PM_PersonEducationalBackground]
     PRIMARY KEY CLUSTERED ([EducationalBckID] ASC);
 GO
 
@@ -1657,8 +1660,8 @@ ON [dbo].[PM_PersonPositionalTitlesInfo]
     ([PM_PersonBaseInfo_PersonID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonEducationalBackground1'
-ALTER TABLE [dbo].[PM_PersonEducationalBackground1]
+-- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonEducationalBackground'
+ALTER TABLE [dbo].[PM_PersonEducationalBackground]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonEducationalBackground]
     FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
@@ -1667,7 +1670,7 @@ ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonEducationalBackground]
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonEducationalBackground'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonEducationalBackground]
-ON [dbo].[PM_PersonEducationalBackground1]
+ON [dbo].[PM_PersonEducationalBackground]
     ([PM_PersonBaseInfo_PersonID]);
 GO
 

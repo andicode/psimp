@@ -34,7 +34,7 @@
     <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonCertificateInfo" EntityType="PSIMPDB.Store.PM_PersonCertificateInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.Store.PM_PersonContractInfo" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.Store.PM_PersonEducationalBackground1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonEducationalBackground" EntityType="PSIMPDB.Store.PM_PersonEducationalBackground" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonInsuranceInfo" EntityType="PSIMPDB.Store.PM_PersonInsuranceInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.Store.PM_PersonPositionalTitlesInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonRegister" EntityType="PSIMPDB.Store.PM_PersonRegister" store:Type="Tables" Schema="dbo" />
@@ -149,7 +149,7 @@
     </AssociationSet>
     <AssociationSet Name="PM_PersonBaseInfoPM_PersonEducationalBackground" Association="PSIMPDB.Store.PM_PersonBaseInfoPM_PersonEducationalBackground">
       <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
-      <End Role="PM_PersonEducationalBackground" EntitySet="PM_PersonEducationalBackground1" />
+      <End Role="PM_PersonEducationalBackground" EntitySet="PM_PersonEducationalBackground" />
     </AssociationSet>
     <AssociationSet Name="PM_PersonBaseInfoPM_PersonWorkExperienceInfo" Association="PSIMPDB.Store.PM_PersonBaseInfoPM_PersonWorkExperienceInfo">
       <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
@@ -672,7 +672,7 @@
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
-  <EntityType Name="PM_PersonEducationalBackground1">
+  <EntityType Name="PM_PersonEducationalBackground">
     <Key>
       <PropertyRef Name="EducationalBckID" />
     </Key>
@@ -1263,7 +1263,7 @@
   </Association>
   <Association Name="PM_PersonBaseInfoPM_PersonEducationalBackground">
     <End Role="PM_PersonBaseInfo" Type="PSIMPDB.Store.PM_PersonBaseInfo" Multiplicity="1" />
-    <End Role="PM_PersonEducationalBackground" Type="PSIMPDB.Store.PM_PersonEducationalBackground1" Multiplicity="*" />
+    <End Role="PM_PersonEducationalBackground" Type="PSIMPDB.Store.PM_PersonEducationalBackground" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
         <PropertyRef Name="PersonID" />
@@ -1462,7 +1462,7 @@
           <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.PM_PersonBaseInfo" />
           <EntitySet Name="PM_PersonCertificateInfo" EntityType="PSIMPDB.PM_PersonCertificateInfo" />
           <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.PM_PersonContractInfo" />
-          <EntitySet Name="PM_PersonEducationalBackground1" EntityType="PSIMPDB.PM_PersonEducationalBackground" />
+          <EntitySet Name="PM_PersonEducationalBackground" EntityType="PSIMPDB.PM_PersonEducationalBackground" />
           <EntitySet Name="PM_PersonInsuranceInfo" EntityType="PSIMPDB.PM_PersonInsuranceInfo" />
           <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" />
           <EntitySet Name="PM_PersonRegister" EntityType="PSIMPDB.PM_PersonRegister" />
@@ -1565,7 +1565,7 @@
           </AssociationSet>
           <AssociationSet Name="PM_PersonBaseInfoPM_PersonEducationalBackground" Association="PSIMPDB.PM_PersonBaseInfoPM_PersonEducationalBackground">
             <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
-            <End Role="PM_PersonEducationalBackground" EntitySet="PM_PersonEducationalBackground1" />
+            <End Role="PM_PersonEducationalBackground" EntitySet="PM_PersonEducationalBackground" />
           </AssociationSet>
           <AssociationSet Name="PM_PersonBaseInfoPM_PersonWorkExperienceInfo" Association="PSIMPDB.PM_PersonBaseInfoPM_PersonWorkExperienceInfo">
             <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
@@ -3099,9 +3099,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PM_PersonEducationalBackground1">
+    <EntitySetMapping Name="PM_PersonEducationalBackground">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonEducationalBackground)">
-        <MappingFragment StoreEntitySet="PM_PersonEducationalBackground1">
+        <MappingFragment StoreEntitySet="PM_PersonEducationalBackground">
           <ScalarProperty Name="EducationalBckID" ColumnName="EducationalBckID" />
           <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
           <ScalarProperty Name="EduStartDate" ColumnName="EduStartDate" />
@@ -3569,7 +3569,7 @@
         <ScalarProperty Name="PositionalID" ColumnName="PositionalID" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonEducationalBackground" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonEducationalBackground" StoreEntitySet="PM_PersonEducationalBackground1">
+    <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonEducationalBackground" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonEducationalBackground" StoreEntitySet="PM_PersonEducationalBackground">
       <EndProperty Name="PM_PersonBaseInfo">
         <ScalarProperty Name="PersonID" ColumnName="PM_PersonBaseInfo_PersonID" />
       </EndProperty>
