@@ -14,6 +14,21 @@ namespace PSIMP.Models
     [MetadataType(typeof(PM_PersonBaseInfo_MetaData))]
     public partial class PM_PersonBaseInfo
     {
+        private Enums.Sex _sexBox = Enums.Sex.男;
+        [Column(Ignore = true)]
+        [Field(FieldLabel = "性别", AllowBlank = false, BlankText = "请选择人员性别")]
+        [UIHint("SexComboxBox")]
+        public Enums.Sex SexBox
+        {
+            get { return _sexBox; }
+            set
+            {
+                _sexBox = value;
+                this.Sex = _sexBox == Enums.Sex.男;
+            }
+        }
+
+
         [Model(IDProperty = "PersonID")]
         public class PM_PersonBaseInfo_MetaData
         {
@@ -90,19 +105,6 @@ namespace PSIMP.Models
             public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonContractInfo { get; set; }
         }
 
-        private Enums.Sex _sexBox = Enums.Sex.男;
-        [Column(Ignore = true)]
-        [Field(FieldLabel = "性别", AllowBlank = false, BlankText = "请选择人员性别")]
-        [UIHint("SexComboxBox")]
-        public Enums.Sex SexBox
-        {
-            get { return _sexBox; }
-            set 
-            {
-                _sexBox = value;
-                this.Sex = _sexBox == Enums.Sex.男;
-            }
-        }
     }
 
 
