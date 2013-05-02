@@ -12,7 +12,7 @@
     <script src="~/Scripts/business.js"></script>
 </head>
 <body id="mainBody">
-    @Html.X().ResourceManager().Theme(Theme.Neptune).ScriptMode(Ext.Net.ScriptMode.Debug)
+    @Html.X().ResourceManager().Theme(Theme.Default).ScriptMode(Ext.Net.ScriptMode.Debug)
     @Html.X().ResourcesRegistrator().RegisterAllResources(true)
     @RenderBody()
 </body>
