@@ -28,10 +28,10 @@ namespace PSIMP.Models
         public string LaiWenMode { get; set; }
         public string FileSubject { get; set; }
         public string LaiWenSerialNumber { get; set; }
-        public string IncomeFileDate { get; set; }
-        public string IncomeFileNum { get; set; }
-        public string FileAttachment { get; set; }
-        public string ProjectID { get; set; }
+        public System.DateTime IncomeFileDate { get; set; }
+        public int IncomeFileNum { get; set; }
+        public byte FileAttachment { get; set; }
+        public System.Guid ProjectID { get; set; }
     
         public virtual ICollection<AM_LaiWenCircularizeDetail> AM_LaiWenCircularizeDetail { get; set; }
         public virtual ICollection<AM_LaiWenRepliedInfo> AM_LaiWenRepliedInfo { get; set; }

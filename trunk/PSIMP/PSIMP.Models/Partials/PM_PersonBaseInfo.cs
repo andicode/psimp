@@ -43,11 +43,11 @@ namespace PSIMP.Models
 
             [Column(Text = "联系电话", Order = 7)]
             [Field(FieldLabel = "联系电话")]
-            public string ContactNumber { get; set; }
+            public string ContactPhoneNumber { get; set; }
 
             [Column(Text = "联系电话", Order = 7)]
             [Field(FieldLabel = "联系电话")]
-            public string AlternateNumber { get; set; }
+            public string AlternatePhoneNumber { get; set; }
 
             [TemplateColumn(Text = "照片", Order = 0, Align=Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/images/Person/{Picture}\" alt=\"{Name}\">")]
             [Field(FieldLabel = "照片")]

@@ -28,15 +28,15 @@ namespace PSIMP.Models
         public string ProjectFullName { get; set; }
         public string ProjectName { get; set; }
         public string ConstructionCompany { get; set; }
-        public string ProjectType { get; set; }
-        public string ProjectScale { get; set; }
+        public System.Guid ProjectType { get; set; }
+        public float ProjectScale { get; set; }
         public string ProjectAddress { get; set; }
-        public string EntryDate { get; set; }
-        public string StartDate { get; set; }
-        public string FinishedDate { get; set; }
-        public string CompletionDate { get; set; }
-        public string ConstructionPeriod { get; set; }
-        public string DefectsLiabilityPeriod { get; set; }
+        public System.DateTime EntryDate { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime FinishedDate { get; set; }
+        public System.DateTime CompletionDate { get; set; }
+        public int ConstructionPeriod { get; set; }
+        public int DefectsLiabilityPeriod { get; set; }
         public string Description { get; set; }
     
         public virtual ICollection<EM_ProjectContractBaseInfo> EM_ProjectContractBaseInfo { get; set; }

@@ -26,13 +26,13 @@ namespace PSIMP.Models
     
         public System.Guid ProjectContractID { get; set; }
         public System.Guid ProjectID { get; set; }
-        public string BiddingDate { get; set; }
-        public string ContractPeriod { get; set; }
-        public string OpenDate { get; set; }
-        public string OpeningPeriod { get; set; }
+        public System.DateTime BiddingDate { get; set; }
+        public int ContractPeriod { get; set; }
+        public System.DateTime OpenDate { get; set; }
+        public int OpeningPeriod { get; set; }
         public string OpeningConditions { get; set; }
         public string Description { get; set; }
-        public string ContractAttachment { get; set; }
+        public byte ContractAttachment { get; set; }
     
         public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
         public virtual ICollection<EM_ProjectContractDataInfo> EM_ProjectContractDataInfo { get; set; }

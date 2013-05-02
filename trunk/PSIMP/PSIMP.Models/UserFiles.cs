@@ -21,13 +21,13 @@ namespace PSIMP.Models
             this.IsShared = false;
         }
     
-        public System.Guid ID { get; set; }
+        public long ID { get; set; }
         public string FileName { get; set; }
         public string FileType { get; set; }
         public string FileSize { get; set; }
         public string Remark { get; set; }
         public bool IsShared { get; set; }
-        public System.Guid FolderID { get; set; }
+        public long FolderID { get; set; }
         public string SharedRemark { get; set; }
     
         public virtual UserFolders UserFolder { get; set; }

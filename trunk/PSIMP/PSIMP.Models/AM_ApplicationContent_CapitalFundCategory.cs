@@ -17,14 +17,14 @@ namespace PSIMP.Models
     public partial class AM_ApplicationContent_CapitalFundCategory
     {
         public System.Guid ApplicationCapitalCategoryID { get; set; }
-        public string ProjectApplicationID { get; set; }
+        public System.Guid ProjectApplicationID { get; set; }
         public string ApplicationType { get; set; }
-        public string CapitalFundName { get; set; }
+        public string AssetName { get; set; }
         public string SpecificationMode { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
         public string Unit { get; set; }
-        public string Money { get; set; }
-        public string TotalMoney { get; set; }
+        public decimal Money { get; set; }
+        public decimal TotalMoney { get; set; }
         public string Description { get; set; }
     
         public virtual AM_ProjectApplicationBaseInfo AM_ProjectApplicationBaseInfo { get; set; }

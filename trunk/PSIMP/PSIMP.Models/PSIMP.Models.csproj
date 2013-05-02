@@ -87,6 +87,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountModels.cs" />
+    <Compile Include="AMG_AssetAllocateInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AMG_AssetBaseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AMG_AssetRepairInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AMG_AssetUseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="AM_ApplicationContent_CapitalFundCategory.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
@@ -198,6 +210,39 @@
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_PaymentDetailInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleAllocateInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleBaseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleInsurance.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleLeaseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleLoanInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleOperatingCost.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleRepair.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleRepairDetailList.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleUseInfo.cs">
+      <DependentUpon>PSIMPDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_VehicleYearInspection.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

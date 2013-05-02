@@ -1,7 +1,6 @@
 ﻿using Ext.Net;
 using Ext.Net.MVC;
 using PSIMP.Models.Account;
-using PSIMP.Web.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +11,6 @@ using WebMatrix.WebData;
 namespace PSIMP.Web.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         [AllowAnonymous]

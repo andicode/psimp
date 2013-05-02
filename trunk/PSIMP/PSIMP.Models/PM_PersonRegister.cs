@@ -17,20 +17,22 @@ namespace PSIMP.Models
     public partial class PM_PersonRegister
     {
         public System.Guid RegisterID { get; set; }
-        public string PersonID { get; set; }
+        public System.Guid PersonID { get; set; }
         public System.DateTime RegisterDate { get; set; }
         public string RegisterCompany { get; set; }
         public string OldDBDesc { get; set; }
         public string NewDBDesc { get; set; }
-        public string IsHaveIdentificationCard { get; set; }
-        public string IsHaveGraduationCertificate { get; set; }
-        public string IsHavePositionalCertificate { get; set; }
-        public string IshaveSupervisionCertificate { get; set; }
-        public string IsHaveSecurityCertificate { get; set; }
-        public string IsHaveConservationCertificate { get; set; }
-        public string IshaveTwoInchPhoto { get; set; }
-        public string RegisterStatus { get; set; }
+        public bool IsHaveIdentificationCard { get; set; }
+        public bool IsHaveGraduationCertificate { get; set; }
+        public bool IsHavePositionalCertificate { get; set; }
+        public bool IshaveSupervisionCertificate { get; set; }
+        public bool IsHaveSecurityCertificate { get; set; }
+        public bool IsHaveConservationCertificate { get; set; }
+        public bool IshaveTwoInchPhoto { get; set; }
+        public int RegisterStatus { get; set; }
         public string NoCanRegisterCause { get; set; }
         public string Descriptions { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

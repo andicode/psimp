@@ -17,10 +17,10 @@ namespace PSIMP.Models
     public partial class AM_LaiWenCircularizeDetail
     {
         public System.Guid LaiWenCircularizeID { get; set; }
-        public string LaiWenRecordID { get; set; }
-        public string CircularizeStatus { get; set; }
-        public string CircularizedPersonID { get; set; }
-        public string CircularizedDate { get; set; }
+        public System.Guid LaiWenRecordID { get; set; }
+        public bool CircularizeStatus { get; set; }
+        public System.Guid CircularizedPersonID { get; set; }
+        public System.DateTime CircularizedDate { get; set; }
         public string Description { get; set; }
     
         public virtual AM_LaiWenRecordInfo AM_LaiWenRecordInfo { get; set; }
