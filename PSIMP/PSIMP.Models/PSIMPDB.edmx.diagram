@@ -16,7 +16,7 @@
         <InheritanceConnector EntityType="PSIMPDB.Person" />
         <AssociationConnector Association="PSIMPDB.UserProfilePsimp" />
         <AssociationConnector Association="PSIMPDB.UpdateUserId" />
-        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="0.75" PointY="0.5" />
         <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationContent_CapitalFundCategory" Width="1.5" PointX="10" PointY="1.125" />
         <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationContent_VehicleCategory" Width="1.5" PointX="10" PointY="5" />
         <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationRepliedDetail" Width="1.5" PointX="0.75" PointY="3.75" />
@@ -27,7 +27,7 @@
         <EntityTypeShape EntityType="PSIMPDB.AM_ProjectApplicationRepliedInfo" Width="1.5" PointX="12.75" PointY="0.75" />
         <EntityTypeShape EntityType="PSIMPDB.EM_ProjectBaseInfo" Width="1.5" PointX="0.75" PointY="17" />
         <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractBaseInfo" Width="1.5" PointX="3" PointY="11" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractDataInfo" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractDataInfo" Width="1.5" PointX="6" PointY="3.375" />
         <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPayCondition" Width="1.5" PointX="5.25" PointY="6.75" />
         <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPerformance" Width="1.5" PointX="3" PointY="23.875" />
         <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPersonInfo" Width="1.5" PointX="5.25" PointY="10.625" />
@@ -56,6 +56,10 @@
         <AssociationConnector Association="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" />
         <AssociationConnector Association="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" />
         <AssociationConnector Association="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectExpandInfo" />
+        <EntityTypeShape EntityType="PSIMPDB.UserFiles" Width="1.75" PointX="5.25" PointY="0.5" FillColor="Silver" />
+        <EntityTypeShape EntityType="PSIMPDB.UserFolders" Width="1.5" PointX="2.875" PointY="0.5" FillColor="Silver" />
+        <AssociationConnector Association="PSIMPDB.UserFoldersUserProfile" />
+        <AssociationConnector Association="PSIMPDB.UserFilesUserFolders" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

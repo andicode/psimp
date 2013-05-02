@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/02/2013 09:30:10
+-- Date Created: 05/02/2013 12:47:24
 -- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -625,6 +625,27 @@ CREATE TABLE [dbo].[PM_PersonWorkExperienceInfo] (
 );
 GO
 
+-- Creating table 'UserFiles'
+CREATE TABLE [dbo].[UserFiles] (
+    [ID] uniqueidentifier  NOT NULL,
+    [FileName] nvarchar(max)  NOT NULL,
+    [FileType] nvarchar(max)  NOT NULL,
+    [FileSize] nvarchar(max)  NOT NULL,
+    [Remark] nvarchar(max)  NOT NULL,
+    [IsShared] bit  NOT NULL,
+    [FolderID] uniqueidentifier  NOT NULL,
+    [SharedRemark] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'UserFolders'
+CREATE TABLE [dbo].[UserFolders] (
+    [ID] uniqueidentifier  NOT NULL,
+    [FolderName] nvarchar(max)  NOT NULL,
+    [UserId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -797,6 +818,18 @@ ADD CONSTRAINT [PK_PM_PersonWorkExperienceInfo]
     PRIMARY KEY CLUSTERED ([WorkExpID] ASC);
 GO
 
+-- Creating primary key on [ID] in table 'UserFiles'
+ALTER TABLE [dbo].[UserFiles]
+ADD CONSTRAINT [PK_UserFiles]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'UserFolders'
+ALTER TABLE [dbo].[UserFolders]
+ADD CONSTRAINT [PK_UserFolders]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -967,6 +1000,34 @@ ADD CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
 CREATE INDEX [IX_FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
 ON [dbo].[EM_ProjectExpandInfo]
     ([EM_ProjectContractBaseInfo_ProjectContractID]);
+GO
+
+-- Creating foreign key on [UserId] in table 'UserFolders'
+ALTER TABLE [dbo].[UserFolders]
+ADD CONSTRAINT [FK_UserFoldersUserProfile]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[UserProfile]
+        ([UserId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserFoldersUserProfile'
+CREATE INDEX [IX_FK_UserFoldersUserProfile]
+ON [dbo].[UserFolders]
+    ([UserId]);
+GO
+
+-- Creating foreign key on [FolderID] in table 'UserFiles'
+ALTER TABLE [dbo].[UserFiles]
+ADD CONSTRAINT [FK_UserFilesUserFolders]
+    FOREIGN KEY ([FolderID])
+    REFERENCES [dbo].[UserFolders]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserFilesUserFolders'
+CREATE INDEX [IX_FK_UserFilesUserFolders]
+ON [dbo].[UserFiles]
+    ([FolderID]);
 GO
 
 -- --------------------------------------------------

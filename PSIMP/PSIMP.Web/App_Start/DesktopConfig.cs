@@ -69,7 +69,7 @@ namespace System.Web
             taskBar.Frame = true;
             //taskBar.UI = "nothing";
             taskBar.TrayWidth = 100;
-            taskBar.Height = 40;
+            taskBar.Height = 30;
             taskBar.HideQuickStart = true;
             return taskBar;
         }

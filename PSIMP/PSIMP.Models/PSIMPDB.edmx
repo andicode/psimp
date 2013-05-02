@@ -34,6 +34,8 @@
     <EntitySet Name="PM_PersonRegister" EntityType="PSIMPDB.Store.PM_PersonRegister" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonTrainingExperience" EntityType="PSIMPDB.Store.PM_PersonTrainingExperience" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonWorkExperienceInfo" EntityType="PSIMPDB.Store.PM_PersonWorkExperienceInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFiles" EntityType="PSIMPDB.Store.UserFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFolders" EntityType="PSIMPDB.Store.UserFolders" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory" Association="PSIMPDB.Store.AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory">
       <End Role="AM_ProjectApplicationBaseInfo" EntitySet="AM_ProjectApplicationBaseInfo" />
       <End Role="AM_ApplicationContent_CapitalFundCategory" EntitySet="AM_ApplicationContent_CapitalFundCategory" />
@@ -81,6 +83,14 @@
     <AssociationSet Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo" Association="PSIMPDB.Store.EM_ProjectContractBaseInfoEM_ProjectExpandInfo">
       <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
       <End Role="EM_ProjectExpandInfo" EntitySet="EM_ProjectExpandInfo" />
+    </AssociationSet>
+    <AssociationSet Name="UserFoldersUserProfile" Association="PSIMPDB.Store.UserFoldersUserProfile">
+      <End Role="UserFolders" EntitySet="UserFolders" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="UserFilesUserFolders" Association="PSIMPDB.Store.UserFilesUserFolders">
+      <End Role="UserFiles" EntitySet="UserFiles" />
+      <End Role="UserFolders" EntitySet="UserFolders" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="UserProfile">
@@ -561,6 +571,27 @@
     <Property Name="RefereesPhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
   </EntityType>
+  <EntityType Name="UserFiles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FileType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FileSize" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsShared" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="FolderID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SharedRemark" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserFolders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FolderName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory">
     <End Role="AM_ProjectApplicationBaseInfo" Type="PSIMPDB.Store.AM_ProjectApplicationBaseInfo" Multiplicity="1" />
     <End Role="AM_ApplicationContent_CapitalFundCategory" Type="PSIMPDB.Store.AM_ApplicationContent_CapitalFundCategory" Multiplicity="*" />
@@ -705,6 +736,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="UserFoldersUserProfile">
+    <End Role="UserFolders" Type="PSIMPDB.Store.UserFolders" Multiplicity="*" />
+    <End Role="UserProfile" Type="PSIMPDB.Store.UserProfile" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFolders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserFilesUserFolders">
+    <End Role="UserFiles" Type="PSIMPDB.Store.UserFiles" Multiplicity="*" />
+    <End Role="UserFolders" Type="PSIMPDB.Store.UserFolders" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UserFolders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserFiles">
+        <PropertyRef Name="FolderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -786,6 +841,16 @@
             <End Role="EM_ProjectContractBaseInfo" EntitySet="EM_ProjectContractBaseInfo" />
             <End Role="EM_ProjectExpandInfo" EntitySet="EM_ProjectExpandInfo" />
           </AssociationSet>
+          <EntitySet Name="UserFiles" EntityType="PSIMPDB.UserFiles" />
+          <EntitySet Name="UserFolders" EntityType="PSIMPDB.UserFolders" />
+          <AssociationSet Name="UserFoldersUserProfile" Association="PSIMPDB.UserFoldersUserProfile">
+            <End Role="UserFolders" EntitySet="UserFolders" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="UserFilesUserFolders" Association="PSIMPDB.UserFilesUserFolders">
+            <End Role="UserFiles" EntitySet="UserFiles" />
+            <End Role="UserFolders" EntitySet="UserFolders" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
@@ -793,6 +858,7 @@
           </Key>
           <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="UserName" Nullable="false" />
+          <NavigationProperty Name="UserFolders" Relationship="PSIMPDB.UserFoldersUserProfile" FromRole="UserProfile" ToRole="UserFolders" />
         </EntityType>
         <EntityType Name="AM_ApplicationContent_CapitalFundCategory">
           <Key>
@@ -1325,6 +1391,54 @@
           <End Type="PSIMPDB.EM_ProjectContractBaseInfo" Role="EM_ProjectContractBaseInfo" Multiplicity="1" />
           <End Type="PSIMPDB.EM_ProjectExpandInfo" Role="EM_ProjectExpandInfo" Multiplicity="*" />
         </Association>
+        <EntityType Name="UserFiles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="FileName" Nullable="false" />
+          <Property Type="String" Name="FileType" Nullable="false" />
+          <Property Type="String" Name="FileSize" Nullable="false" />
+          <Property Type="String" Name="Remark" Nullable="false" />
+          <Property Type="Boolean" Name="IsShared" Nullable="false" DefaultValue="False" />
+          <NavigationProperty Name="UserFolder" Relationship="PSIMPDB.UserFilesUserFolders" FromRole="UserFiles" ToRole="UserFolders" />
+          <Property Type="Guid" Name="FolderID" Nullable="false" />
+          <Property Type="String" Name="SharedRemark" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserFolders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="FolderName" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="PSIMPDB.UserFoldersUserProfile" FromRole="UserFolders" ToRole="UserProfile" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="UserFiles" Relationship="PSIMPDB.UserFilesUserFolders" FromRole="UserFolders" ToRole="UserFiles" />
+        </EntityType>
+        <Association Name="UserFoldersUserProfile">
+          <End Type="PSIMPDB.UserFolders" Role="UserFolders" Multiplicity="*" />
+          <End Type="PSIMPDB.UserProfile" Role="UserProfile" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserFolders">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserFilesUserFolders">
+          <End Type="PSIMPDB.UserFiles" Role="UserFiles" Multiplicity="*" />
+          <End Type="PSIMPDB.UserFolders" Role="UserFolders" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="UserFolders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserFiles">
+              <PropertyRef Name="FolderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1822,6 +1936,29 @@
           <ScalarProperty Name="RefereesName" ColumnName="RefereesName" />
           <ScalarProperty Name="RefereesPhoneNumber" ColumnName="RefereesPhoneNumber" />
           <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFiles">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.UserFiles)">
+        <MappingFragment StoreEntitySet="UserFiles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IsShared" ColumnName="IsShared" />
+          <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+          <ScalarProperty Name="SharedRemark" ColumnName="SharedRemark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFolders">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.UserFolders)">
+        <MappingFragment StoreEntitySet="UserFolders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

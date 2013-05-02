@@ -43,5 +43,7 @@ namespace PSIMP.Models
          public DbSet<PM_PersonRegister> PM_PersonRegisterSet { get; set; }
          public DbSet<PM_PersonTrainingExperience> PM_PersonTrainingExperienceSet { get; set; }
          public DbSet<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfoSet { get; set; }
+         public DbSet<UserFiles> UserFilesSet { get; set; }
+         public DbSet<UserFolders> UserFoldersSet { get; set; }
     }
 }

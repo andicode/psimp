@@ -1,8 +1,8 @@
 ﻿/***在firefox字体小的问题***/
-/*.x-panel-header-text-default-framed,.ux-desktop-shortcut-text, .x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost { font-size: 12px; font-family: "微软雅黑"; }
+.x-panel-header-text-default-framed,.ux-desktop-shortcut-text, .x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost { font-size: 12px; font-family: "微软雅黑"; }
 .x-column-header { text-shadow: 0 0 0 rgba(255, 255, 255, 0.3); }
 .x-column-header-inner { line-height: 20px; }
-.x-toolbar .x-form-item-label, .x-form-item-label { line-height: 12px; }*/
+.x-toolbar .x-form-item-label, .x-form-item-label { line-height: 12px; }
 
 .ux-desktop-shortcut-text {
     font-size:12px;
@@ -120,6 +120,19 @@
     background-size: 16px 16px; 
     background: none\9; 
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/query.png', sizingMethod='scale')\9;
+}
+.folder-shortcut32 { 
+     background: url(../images/moduleicon/folder.png) no-repeat center center; 
+    background-size: 32px 32px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/folder.png', sizingMethod='scale')\9; 
+
+}
+.folder-shortcut16 { 
+    background: url(../Images/ModuleIcon/folder.png) no-repeat center center;
+    background-size: 16px 16px; 
+    background: none\9; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/folder.png', sizingMethod='scale')\9;
 }
 .person-view .user-card {
     color: rgb(85, 85, 85);

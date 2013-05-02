@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;    
+}
+
+@(Html.X()
+    .Panel()
+    .Layout(LayoutType.Border)
+    .Border(false)
+    .Items(        
+         Html.X().TreePanel()
+            .Region(Region.West)
+            .Split(true)
+            .Width(150)            
+        ,Html.X()
+              .Panel()
+              .ID("Files_View")
+              .Cls("files-view")
+              .Region(Region.Center)
+              .Layout(LayoutType.Fit)
+              .Padding(0)
+              .TopBar(
+                    Html.X().Toolbar()
+                        .Items(
+                            Html.X().Button().Text("文件")
+                                .MenuItem(
+                                    Html.X().MenuItem().Text("上传文件").Icon(Icon.PageAdd),
+                                    Html.X().MenuItem().Text("新建目录").Icon(Icon.FolderAdd)
+                                )
+                        )
+                )
+              //.ItemsFromPartial("PersonUI_DataView")
+        )
+)

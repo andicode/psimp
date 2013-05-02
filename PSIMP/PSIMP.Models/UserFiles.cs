@@ -14,16 +14,22 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserProfile
+    public partial class UserFiles
     {
-        public UserProfile()
+        public UserFiles()
         {
-            this.UserFolders = new HashSet<UserFolders>();
+            this.IsShared = false;
         }
     
-        public int UserId { get; set; }
-        public string UserName { get; set; }
+        public System.Guid ID { get; set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public string FileSize { get; set; }
+        public string Remark { get; set; }
+        public bool IsShared { get; set; }
+        public System.Guid FolderID { get; set; }
+        public string SharedRemark { get; set; }
     
-        public virtual ICollection<UserFolders> UserFolders { get; set; }
+        public virtual UserFolders UserFolder { get; set; }
     }
 }
