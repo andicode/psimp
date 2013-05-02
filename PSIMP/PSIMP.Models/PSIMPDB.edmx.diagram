@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e451a96fd2ba44a3b56e430a26cd4db4" Name="Diagram1" ShowGrid="true" DisplayType="true" ZoomLevel="23" SnapToGrid="true" >
+      <Diagram DiagramId="e451a96fd2ba44a3b56e430a26cd4db4" Name="PSIMP" ShowGrid="true" DisplayType="true" ZoomLevel="100" SnapToGrid="true" >
         <EntityTypeShape EntityType="PSIMPDB.Person" Width="2.125" PointX="5.5260416678308193" PointY="7.272258252662918" FillColor="128, 255, 128" IsExpanded="true" />
         <EntityTypeShape EntityType="PSIMPDB.Psimp" Width="3.625" PointX="6.7549751491635845" PointY="3.0360696757522234" FillColor="0, 0, 192" IsExpanded="true" />
         <EntityTypeShape EntityType="PSIMPDB.Education" Width="2.125" PointX="7.4010416678308193" PointY="11.138409468808749" FillColor="128, 255, 128" IsExpanded="true" />

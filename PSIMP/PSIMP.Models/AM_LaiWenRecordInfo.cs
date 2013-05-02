@@ -22,7 +22,7 @@ namespace PSIMP.Models
             this.AM_LaiWenRepliedInfo = new HashSet<AM_LaiWenRepliedInfo>();
         }
     
-        public int LaiWenRecordID { get; set; }
+        public System.Guid LaiWenRecordID { get; set; }
         public string LaiWenUnit { get; set; }
         public string LaiWenType { get; set; }
         public string LaiWenMode { get; set; }

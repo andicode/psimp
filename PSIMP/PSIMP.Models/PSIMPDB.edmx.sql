@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/30/2013 21:20:01
--- Generated from EDMX file: G:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 05/02/2013 09:15:13
+-- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,146 +17,11 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_webpages_UsersInRoles_webpages_Roles]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[webpages_UsersInRoles] DROP CONSTRAINT [FK_webpages_UsersInRoles_webpages_Roles];
-GO
-IF OBJECT_ID(N'[dbo].[FK_webpages_UsersInRoles_UserProfile]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[webpages_UsersInRoles] DROP CONSTRAINT [FK_webpages_UsersInRoles_UserProfile];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserProfilewebpages_Membership]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserProfile] DROP CONSTRAINT [FK_UserProfilewebpages_Membership];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserProfilewebpages_OAuthMembership]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[webpages_OAuthMembership] DROP CONSTRAINT [FK_UserProfilewebpages_OAuthMembership];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectContractBaseInfo] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectPersonManage]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectPersonManage] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectPersonManage];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractPerformance]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectContractPerformance] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractPerformance];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectTestPutOnFile] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectContractDataInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectContractPayCondition] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectContractPersonInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EM_ProjectExpandInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_CertificateManagePM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_CertificateManage] DROP CONSTRAINT [FK_PM_CertificateManagePM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonCertificateInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonCertificateInfo] DROP CONSTRAINT [FK_PM_PersonCertificateInfoPM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonContractInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonContractInfo] DROP CONSTRAINT [FK_PM_PersonContractInfoPM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonEducationalBackground1] DROP CONSTRAINT [FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonInsuranceInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonInsuranceInfo] DROP CONSTRAINT [FK_PM_PersonInsuranceInfoPM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonTrainingExperiencePM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonTrainingExperience] DROP CONSTRAINT [FK_PM_PersonTrainingExperiencePM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo] DROP CONSTRAINT [FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonRegisterPM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonRegister] DROP CONSTRAINT [FK_PM_PersonRegisterPM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo] DROP CONSTRAINT [FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[UserProfile]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserProfile];
-GO
-IF OBJECT_ID(N'[dbo].[webpages_Membership]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[webpages_Membership];
-GO
-IF OBJECT_ID(N'[dbo].[webpages_OAuthMembership]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[webpages_OAuthMembership];
-GO
-IF OBJECT_ID(N'[dbo].[webpages_Roles]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[webpages_Roles];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectBaseInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectContractBaseInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectContractBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectContractDataInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectContractDataInfo];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectContractPayCondition]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectContractPayCondition];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectContractPerformance]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectContractPerformance];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectContractPersonInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectContractPersonInfo];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectExpandInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectExpandInfo];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectPersonManage]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectPersonManage];
-GO
-IF OBJECT_ID(N'[dbo].[EM_ProjectTestPutOnFile]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EM_ProjectTestPutOnFile];
-GO
-IF OBJECT_ID(N'[dbo].[PM_CertificateManage]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_CertificateManage];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonBaseInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonBaseInfo];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonCertificateInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonCertificateInfo];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonContractInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonContractInfo];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonEducationalBackground1]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonEducationalBackground1];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonInsuranceInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonInsuranceInfo];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonPositionalTitlesInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonPositionalTitlesInfo];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonRegister]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonRegister];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonTrainingExperience]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonTrainingExperience];
-GO
-IF OBJECT_ID(N'[dbo].[PM_PersonWorkExperienceInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonWorkExperienceInfo];
-GO
-IF OBJECT_ID(N'[dbo].[webpages_UsersInRoles]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[webpages_UsersInRoles];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -165,40 +30,121 @@ GO
 -- Creating table 'UserProfile'
 CREATE TABLE [dbo].[UserProfile] (
     [UserId] int IDENTITY(1,1) NOT NULL,
-    [UserName] nvarchar(max)  NOT NULL,
-    [webpages_Membership_UserId] int  NOT NULL
+    [UserName] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'webpages_Membership'
-CREATE TABLE [dbo].[webpages_Membership] (
-    [UserId] int  NOT NULL,
-    [CreateDate] datetime  NULL,
-    [ConfirmationToken] nvarchar(128)  NULL,
-    [IsConfirmed] bit  NULL,
-    [LastPasswordFailureDate] datetime  NULL,
-    [PasswordFailuresSinceLastSuccess] int  NOT NULL,
-    [Password] nvarchar(128)  NOT NULL,
-    [PasswordChangedDate] datetime  NULL,
-    [PasswordSalt] nvarchar(128)  NOT NULL,
-    [PasswordVerificationToken] nvarchar(128)  NULL,
-    [PasswordVerificationTokenExpirationDate] datetime  NULL
+-- Creating table 'AM_ApplicationContent_CapitalFundCategory'
+CREATE TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory] (
+    [ApplicationCapitalCategoryID] int IDENTITY(1,1) NOT NULL,
+    [ProjectApplicationID] nvarchar(max)  NOT NULL,
+    [ApplicationType] nvarchar(max)  NOT NULL,
+    [CapitalFundName] nvarchar(max)  NOT NULL,
+    [SpecificationMode] nvarchar(max)  NOT NULL,
+    [Quantity] nvarchar(max)  NOT NULL,
+    [Unit] nvarchar(max)  NOT NULL,
+    [Money] nvarchar(max)  NOT NULL,
+    [TotalMoney] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL,
+    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] nvarchar(40)  NOT NULL
 );
 GO
 
--- Creating table 'webpages_OAuthMembership'
-CREATE TABLE [dbo].[webpages_OAuthMembership] (
-    [Provider] nvarchar(30)  NOT NULL,
-    [ProviderUserId] nvarchar(100)  NOT NULL,
-    [UserId] int  NOT NULL,
-    [UserProfile_UserId] int  NOT NULL
+-- Creating table 'AM_ApplicationContent_VehicleCategory'
+CREATE TABLE [dbo].[AM_ApplicationContent_VehicleCategory] (
+    [ApplicationVehicleCategoryID] int IDENTITY(1,1) NOT NULL,
+    [ProjectApplicationID] nvarchar(max)  NOT NULL,
+    [ApplicationType] nvarchar(max)  NOT NULL,
+    [PlateNumber] nvarchar(max)  NOT NULL,
+    [Mileage] nvarchar(max)  NOT NULL,
+    [CarPosition] nvarchar(max)  NOT NULL,
+    [ItemName] nvarchar(max)  NOT NULL,
+    [ItemMoney] nvarchar(max)  NOT NULL,
+    [ItemQuantity] nvarchar(max)  NOT NULL,
+    [TotalMoney] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL,
+    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] nvarchar(40)  NOT NULL
 );
 GO
 
--- Creating table 'webpages_Roles'
-CREATE TABLE [dbo].[webpages_Roles] (
-    [RoleId] int IDENTITY(1,1) NOT NULL,
-    [RoleName] nvarchar(256)  NOT NULL
+-- Creating table 'AM_ApplicationRepliedDetail'
+CREATE TABLE [dbo].[AM_ApplicationRepliedDetail] (
+    [ApplicationRepliedDetailID] int IDENTITY(1,1) NOT NULL,
+    [RepliedPersonID] nvarchar(max)  NOT NULL,
+    [RepliedResult] nvarchar(max)  NOT NULL,
+    [RepliedSuggestion] nvarchar(max)  NOT NULL,
+    [RepliedDate] nvarchar(max)  NOT NULL,
+    [RepliedPersonPosition] nvarchar(max)  NOT NULL,
+    [RepliedDepartment] nvarchar(max)  NOT NULL,
+    [RepliedStatus] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'AM_LaiWenCircularizeDetail'
+CREATE TABLE [dbo].[AM_LaiWenCircularizeDetail] (
+    [LaiWenCircularizeID] int IDENTITY(1,1) NOT NULL,
+    [LaiWenRecordID] nvarchar(max)  NOT NULL,
+    [CircularizeStatus] nvarchar(max)  NOT NULL,
+    [CircularizedPersonID] nvarchar(max)  NOT NULL,
+    [CircularizedDate] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL,
+    [AM_LaiWenRecordInfo_LaiWenRecordID] int  NOT NULL
+);
+GO
+
+-- Creating table 'AM_LaiWenRecordInfo'
+CREATE TABLE [dbo].[AM_LaiWenRecordInfo] (
+    [LaiWenRecordID] int IDENTITY(1,1) NOT NULL,
+    [LaiWenUnit] nvarchar(max)  NOT NULL,
+    [LaiWenType] nvarchar(max)  NOT NULL,
+    [LaiWenMode] nvarchar(max)  NOT NULL,
+    [FileSubject] nvarchar(max)  NOT NULL,
+    [LaiWenSerialNumber] nvarchar(max)  NOT NULL,
+    [IncomeFileDate] nvarchar(max)  NOT NULL,
+    [IncomeFileNum] nvarchar(max)  NOT NULL,
+    [FileAttachment] nvarchar(max)  NOT NULL,
+    [ProjectID] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'AM_LaiWenRepliedInfo'
+CREATE TABLE [dbo].[AM_LaiWenRepliedInfo] (
+    [LaiWenRepliedID] int IDENTITY(1,1) NOT NULL,
+    [RepliedDepartment] nvarchar(max)  NOT NULL,
+    [RepliedUserID] nvarchar(max)  NOT NULL,
+    [RepliedStatus] nvarchar(max)  NOT NULL,
+    [RepliedResult] nvarchar(max)  NOT NULL,
+    [RepliedSuggestion] nvarchar(max)  NOT NULL,
+    [RepliedDate] nvarchar(max)  NOT NULL,
+    [LaiWenRecordID] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL,
+    [AM_LaiWenRecordInfo_LaiWenRecordID] int  NOT NULL
+);
+GO
+
+-- Creating table 'AM_ProjectApplicationBaseInfo'
+CREATE TABLE [dbo].[AM_ProjectApplicationBaseInfo] (
+    [ProjectApplicationID] nvarchar(40)  NOT NULL,
+    [ApplicationSerialNumber] nvarchar(max)  NOT NULL,
+    [ApplicationDate] nvarchar(max)  NOT NULL,
+    [ApplicationProjectID] nvarchar(max)  NOT NULL,
+    [ApplicationPersonID] nvarchar(max)  NOT NULL,
+    [ApplicationDescription] nvarchar(max)  NOT NULL,
+    [ApplicationContent] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'AM_ProjectApplicationRepliedInfo'
+CREATE TABLE [dbo].[AM_ProjectApplicationRepliedInfo] (
+    [ApplicationRepliedID] int IDENTITY(1,1) NOT NULL,
+    [ProjectApplicationID] nvarchar(max)  NOT NULL,
+    [ProjectManagerReplied] nvarchar(max)  NOT NULL,
+    [ChiefDepartmentReplied] nvarchar(max)  NOT NULL,
+    [CountersignatureReplied] nvarchar(max)  NOT NULL,
+    [LeadershipReplied] nvarchar(max)  NOT NULL,
+    [BossReplied] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -389,6 +335,7 @@ GO
 CREATE TABLE [dbo].[PM_CertificateManage] (
     [CertificateID] nvarchar(40)  NOT NULL,
     [FileNumber] nvarchar(40)  NOT NULL,
+    [PersonID] nvarchar(40)  NOT NULL,
     [RegisterDate] datetime  NOT NULL,
     [ProjectID] nvarchar(max)  NOT NULL,
     [PositionStatus] nvarchar(max)  NOT NULL,
@@ -413,14 +360,13 @@ CREATE TABLE [dbo].[PM_CertificateManage] (
     [IsGivebackSecurityCertificate] nvarchar(max)  NOT NULL,
     [IsGivebackConservationCertificate] nvarchar(max)  NOT NULL,
     [IsGivebackIdentificationCard] nvarchar(max)  NOT NULL,
-    [Descriptions] nvarchar(max)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [Descriptions] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonBaseInfo'
 CREATE TABLE [dbo].[PM_PersonBaseInfo] (
-    [PersonID] bigint IDENTITY(1,1) NOT NULL,
+    [PersonID] nvarchar(40)  NOT NULL,
     [PersonName] nvarchar(20)  NOT NULL,
     [Sex] bit  NOT NULL,
     [Birthday] datetime  NOT NULL,
@@ -441,13 +387,14 @@ CREATE TABLE [dbo].[PM_PersonCertificateInfo] (
     [GotDate] datetime  NOT NULL,
     [Authority] nvarchar(30)  NOT NULL,
     [Descriptions] nvarchar(200)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [PersonID] nvarchar(40)  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonContractInfo'
 CREATE TABLE [dbo].[PM_PersonContractInfo] (
     [ContractID] nvarchar(40)  NOT NULL,
+    [PersonID] nvarchar(40)  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
     [IDNumber] nvarchar(max)  NOT NULL,
     [ContractNumber] nvarchar(max)  NOT NULL,
@@ -456,8 +403,7 @@ CREATE TABLE [dbo].[PM_PersonContractInfo] (
     [SigningDate] nvarchar(max)  NOT NULL,
     [ContractPosition] nvarchar(max)  NOT NULL,
     [ContractSalary] nvarchar(max)  NOT NULL,
-    [Description] nvarchar(max)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [Description] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -470,13 +416,14 @@ CREATE TABLE [dbo].[PM_PersonEducationalBackground1] (
     [SpecialtyName] nvarchar(20)  NOT NULL,
     [Degree] nvarchar(40)  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [PersonID] nvarchar(40)  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonInsuranceInfo'
 CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
     [InsuranceID] nvarchar(40)  NOT NULL,
+    [PersonID] nvarchar(40)  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
     [IDNumber] nvarchar(max)  NOT NULL,
     [InsuranceNumber] nvarchar(max)  NOT NULL,
@@ -488,26 +435,26 @@ CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
     [InsuranceContent] nvarchar(max)  NOT NULL,
     [ProjectID] nvarchar(max)  NOT NULL,
     [PositionName] nvarchar(max)  NOT NULL,
-    [Descriptions] nvarchar(max)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [Descriptions] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonPositionalTitlesInfo'
 CREATE TABLE [dbo].[PM_PersonPositionalTitlesInfo] (
-    [PositionalID] bigint IDENTITY(1,1) NOT NULL,
+    [PositionalID] nvarchar(max)  NOT NULL,
     [PositionalName] nvarchar(20)  NOT NULL,
     [PositionalType] nvarchar(40)  NOT NULL,
     [AssessmentDate] datetime  NOT NULL,
     [AssessmentBody] nvarchar(30)  NOT NULL,
     [Descriptions] nvarchar(80)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [PersonID] nvarchar(40)  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonRegister'
 CREATE TABLE [dbo].[PM_PersonRegister] (
-    [RegisterID] bigint IDENTITY(1,1) NOT NULL,
+    [RegisterID] nvarchar(40)  NOT NULL,
+    [PersonID] nvarchar(40)  NOT NULL,
     [RegisterDate] datetime  NOT NULL,
     [RegisterCompany] nvarchar(30)  NOT NULL,
     [OldDBDesc] nvarchar(max)  NOT NULL,
@@ -521,8 +468,7 @@ CREATE TABLE [dbo].[PM_PersonRegister] (
     [IshaveTwoInchPhoto] nvarchar(max)  NOT NULL,
     [RegisterStatus] nvarchar(max)  NOT NULL,
     [NoCanRegisterCause] nvarchar(400)  NOT NULL,
-    [Descriptions] nvarchar(300)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [Descriptions] nvarchar(300)  NOT NULL
 );
 GO
 
@@ -536,7 +482,7 @@ CREATE TABLE [dbo].[PM_PersonTrainingExperience] (
     [TrainingContent] nvarchar(200)  NOT NULL,
     [GotCertificate] nvarchar(20)  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
-    [PersonID] bigint  NOT NULL
+    [PersonID] nvarchar(40)  NOT NULL
 );
 GO
 
@@ -555,14 +501,7 @@ CREATE TABLE [dbo].[PM_PersonWorkExperienceInfo] (
     [WorkContent] nvarchar(200)  NOT NULL,
     [RefereesName] nvarchar(10)  NOT NULL,
     [RefereesPhoneNumber] nvarchar(20)  NOT NULL,
-    [PM_PersonBaseInfoPersonID] bigint  NOT NULL
-);
-GO
-
--- Creating table 'webpages_UsersInRoles'
-CREATE TABLE [dbo].[webpages_UsersInRoles] (
-    [webpages_Roles_RoleId] int  NOT NULL,
-    [UserProfiles_UserId] int  NOT NULL
+    [PersonID] nvarchar(40)  NOT NULL
 );
 GO
 
@@ -576,22 +515,52 @@ ADD CONSTRAINT [PK_UserProfile]
     PRIMARY KEY CLUSTERED ([UserId] ASC);
 GO
 
--- Creating primary key on [UserId] in table 'webpages_Membership'
-ALTER TABLE [dbo].[webpages_Membership]
-ADD CONSTRAINT [PK_webpages_Membership]
-    PRIMARY KEY CLUSTERED ([UserId] ASC);
+-- Creating primary key on [ApplicationCapitalCategoryID] in table 'AM_ApplicationContent_CapitalFundCategory'
+ALTER TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory]
+ADD CONSTRAINT [PK_AM_ApplicationContent_CapitalFundCategory]
+    PRIMARY KEY CLUSTERED ([ApplicationCapitalCategoryID] ASC);
 GO
 
--- Creating primary key on [Provider], [ProviderUserId] in table 'webpages_OAuthMembership'
-ALTER TABLE [dbo].[webpages_OAuthMembership]
-ADD CONSTRAINT [PK_webpages_OAuthMembership]
-    PRIMARY KEY CLUSTERED ([Provider], [ProviderUserId] ASC);
+-- Creating primary key on [ApplicationVehicleCategoryID] in table 'AM_ApplicationContent_VehicleCategory'
+ALTER TABLE [dbo].[AM_ApplicationContent_VehicleCategory]
+ADD CONSTRAINT [PK_AM_ApplicationContent_VehicleCategory]
+    PRIMARY KEY CLUSTERED ([ApplicationVehicleCategoryID] ASC);
 GO
 
--- Creating primary key on [RoleId] in table 'webpages_Roles'
-ALTER TABLE [dbo].[webpages_Roles]
-ADD CONSTRAINT [PK_webpages_Roles]
-    PRIMARY KEY CLUSTERED ([RoleId] ASC);
+-- Creating primary key on [ApplicationRepliedDetailID] in table 'AM_ApplicationRepliedDetail'
+ALTER TABLE [dbo].[AM_ApplicationRepliedDetail]
+ADD CONSTRAINT [PK_AM_ApplicationRepliedDetail]
+    PRIMARY KEY CLUSTERED ([ApplicationRepliedDetailID] ASC);
+GO
+
+-- Creating primary key on [LaiWenCircularizeID] in table 'AM_LaiWenCircularizeDetail'
+ALTER TABLE [dbo].[AM_LaiWenCircularizeDetail]
+ADD CONSTRAINT [PK_AM_LaiWenCircularizeDetail]
+    PRIMARY KEY CLUSTERED ([LaiWenCircularizeID] ASC);
+GO
+
+-- Creating primary key on [LaiWenRecordID] in table 'AM_LaiWenRecordInfo'
+ALTER TABLE [dbo].[AM_LaiWenRecordInfo]
+ADD CONSTRAINT [PK_AM_LaiWenRecordInfo]
+    PRIMARY KEY CLUSTERED ([LaiWenRecordID] ASC);
+GO
+
+-- Creating primary key on [LaiWenRepliedID] in table 'AM_LaiWenRepliedInfo'
+ALTER TABLE [dbo].[AM_LaiWenRepliedInfo]
+ADD CONSTRAINT [PK_AM_LaiWenRepliedInfo]
+    PRIMARY KEY CLUSTERED ([LaiWenRepliedID] ASC);
+GO
+
+-- Creating primary key on [ProjectApplicationID] in table 'AM_ProjectApplicationBaseInfo'
+ALTER TABLE [dbo].[AM_ProjectApplicationBaseInfo]
+ADD CONSTRAINT [PK_AM_ProjectApplicationBaseInfo]
+    PRIMARY KEY CLUSTERED ([ProjectApplicationID] ASC);
+GO
+
+-- Creating primary key on [ApplicationRepliedID] in table 'AM_ProjectApplicationRepliedInfo'
+ALTER TABLE [dbo].[AM_ProjectApplicationRepliedInfo]
+ADD CONSTRAINT [PK_AM_ProjectApplicationRepliedInfo]
+    PRIMARY KEY CLUSTERED ([ApplicationRepliedID] ASC);
 GO
 
 -- Creating primary key on [ProjectID] in table 'EM_ProjectBaseInfo'
@@ -708,65 +677,64 @@ ADD CONSTRAINT [PK_PM_PersonWorkExperienceInfo]
     PRIMARY KEY CLUSTERED ([WorkExpID] ASC);
 GO
 
--- Creating primary key on [webpages_Roles_RoleId], [UserProfiles_UserId] in table 'webpages_UsersInRoles'
-ALTER TABLE [dbo].[webpages_UsersInRoles]
-ADD CONSTRAINT [PK_webpages_UsersInRoles]
-    PRIMARY KEY NONCLUSTERED ([webpages_Roles_RoleId], [UserProfiles_UserId] ASC);
-GO
-
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [webpages_Roles_RoleId] in table 'webpages_UsersInRoles'
-ALTER TABLE [dbo].[webpages_UsersInRoles]
-ADD CONSTRAINT [FK_webpages_UsersInRoles_webpages_Roles]
-    FOREIGN KEY ([webpages_Roles_RoleId])
-    REFERENCES [dbo].[webpages_Roles]
-        ([RoleId])
+-- Creating foreign key on [AM_ProjectApplicationBaseInfo_ProjectApplicationID] in table 'AM_ApplicationContent_CapitalFundCategory'
+ALTER TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory]
+ADD CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory]
+    FOREIGN KEY ([AM_ProjectApplicationBaseInfo_ProjectApplicationID])
+    REFERENCES [dbo].[AM_ProjectApplicationBaseInfo]
+        ([ProjectApplicationID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory'
+CREATE INDEX [IX_FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory]
+ON [dbo].[AM_ApplicationContent_CapitalFundCategory]
+    ([AM_ProjectApplicationBaseInfo_ProjectApplicationID]);
 GO
 
--- Creating foreign key on [UserProfiles_UserId] in table 'webpages_UsersInRoles'
-ALTER TABLE [dbo].[webpages_UsersInRoles]
-ADD CONSTRAINT [FK_webpages_UsersInRoles_UserProfile]
-    FOREIGN KEY ([UserProfiles_UserId])
-    REFERENCES [dbo].[UserProfile]
-        ([UserId])
+-- Creating foreign key on [AM_ProjectApplicationBaseInfo_ProjectApplicationID] in table 'AM_ApplicationContent_VehicleCategory'
+ALTER TABLE [dbo].[AM_ApplicationContent_VehicleCategory]
+ADD CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory]
+    FOREIGN KEY ([AM_ProjectApplicationBaseInfo_ProjectApplicationID])
+    REFERENCES [dbo].[AM_ProjectApplicationBaseInfo]
+        ([ProjectApplicationID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_webpages_UsersInRoles_UserProfile'
-CREATE INDEX [IX_FK_webpages_UsersInRoles_UserProfile]
-ON [dbo].[webpages_UsersInRoles]
-    ([UserProfiles_UserId]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory'
+CREATE INDEX [IX_FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory]
+ON [dbo].[AM_ApplicationContent_VehicleCategory]
+    ([AM_ProjectApplicationBaseInfo_ProjectApplicationID]);
 GO
 
--- Creating foreign key on [webpages_Membership_UserId] in table 'UserProfile'
-ALTER TABLE [dbo].[UserProfile]
-ADD CONSTRAINT [FK_UserProfilewebpages_Membership]
-    FOREIGN KEY ([webpages_Membership_UserId])
-    REFERENCES [dbo].[webpages_Membership]
-        ([UserId])
+-- Creating foreign key on [AM_LaiWenRecordInfo_LaiWenRecordID] in table 'AM_LaiWenCircularizeDetail'
+ALTER TABLE [dbo].[AM_LaiWenCircularizeDetail]
+ADD CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail]
+    FOREIGN KEY ([AM_LaiWenRecordInfo_LaiWenRecordID])
+    REFERENCES [dbo].[AM_LaiWenRecordInfo]
+        ([LaiWenRecordID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_UserProfilewebpages_Membership'
-CREATE INDEX [IX_FK_UserProfilewebpages_Membership]
-ON [dbo].[UserProfile]
-    ([webpages_Membership_UserId]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail'
+CREATE INDEX [IX_FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail]
+ON [dbo].[AM_LaiWenCircularizeDetail]
+    ([AM_LaiWenRecordInfo_LaiWenRecordID]);
 GO
 
--- Creating foreign key on [UserProfile_UserId] in table 'webpages_OAuthMembership'
-ALTER TABLE [dbo].[webpages_OAuthMembership]
-ADD CONSTRAINT [FK_UserProfilewebpages_OAuthMembership]
-    FOREIGN KEY ([UserProfile_UserId])
-    REFERENCES [dbo].[UserProfile]
-        ([UserId])
+-- Creating foreign key on [AM_LaiWenRecordInfo_LaiWenRecordID] in table 'AM_LaiWenRepliedInfo'
+ALTER TABLE [dbo].[AM_LaiWenRepliedInfo]
+ADD CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo]
+    FOREIGN KEY ([AM_LaiWenRecordInfo_LaiWenRecordID])
+    REFERENCES [dbo].[AM_LaiWenRecordInfo]
+        ([LaiWenRecordID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_UserProfilewebpages_OAuthMembership'
-CREATE INDEX [IX_FK_UserProfilewebpages_OAuthMembership]
-ON [dbo].[webpages_OAuthMembership]
-    ([UserProfile_UserId]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo'
+CREATE INDEX [IX_FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo]
+ON [dbo].[AM_LaiWenRepliedInfo]
+    ([AM_LaiWenRecordInfo_LaiWenRecordID]);
 GO
 
 -- Creating foreign key on [EM_ProjectBaseInfo_ProjectID] in table 'EM_ProjectContractBaseInfo'
@@ -879,132 +847,6 @@ ADD CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
 CREATE INDEX [IX_FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
 ON [dbo].[EM_ProjectExpandInfo]
     ([EM_ProjectContractBaseInfo_ProjectContractID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_CertificateManage'
-ALTER TABLE [dbo].[PM_CertificateManage]
-ADD CONSTRAINT [FK_PM_CertificateManagePM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_CertificateManagePM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_CertificateManagePM_PersonBaseInfo]
-ON [dbo].[PM_CertificateManage]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_PersonCertificateInfo'
-ALTER TABLE [dbo].[PM_PersonCertificateInfo]
-ADD CONSTRAINT [FK_PM_PersonCertificateInfoPM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonCertificateInfoPM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonCertificateInfoPM_PersonBaseInfo]
-ON [dbo].[PM_PersonCertificateInfo]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_PersonContractInfo'
-ALTER TABLE [dbo].[PM_PersonContractInfo]
-ADD CONSTRAINT [FK_PM_PersonContractInfoPM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonContractInfoPM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonContractInfoPM_PersonBaseInfo]
-ON [dbo].[PM_PersonContractInfo]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_PersonEducationalBackground1'
-ALTER TABLE [dbo].[PM_PersonEducationalBackground1]
-ADD CONSTRAINT [FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonEducationalBackgroundPM_PersonBaseInfo]
-ON [dbo].[PM_PersonEducationalBackground1]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_PersonInsuranceInfo'
-ALTER TABLE [dbo].[PM_PersonInsuranceInfo]
-ADD CONSTRAINT [FK_PM_PersonInsuranceInfoPM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonInsuranceInfoPM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonInsuranceInfoPM_PersonBaseInfo]
-ON [dbo].[PM_PersonInsuranceInfo]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_PersonTrainingExperience'
-ALTER TABLE [dbo].[PM_PersonTrainingExperience]
-ADD CONSTRAINT [FK_PM_PersonTrainingExperiencePM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonTrainingExperiencePM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonTrainingExperiencePM_PersonBaseInfo]
-ON [dbo].[PM_PersonTrainingExperience]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_PersonPositionalTitlesInfo'
-ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo]
-ADD CONSTRAINT [FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonPositionalTitlesInfoPM_PersonBaseInfo]
-ON [dbo].[PM_PersonPositionalTitlesInfo]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PersonID] in table 'PM_PersonRegister'
-ALTER TABLE [dbo].[PM_PersonRegister]
-ADD CONSTRAINT [FK_PM_PersonRegisterPM_PersonBaseInfo]
-    FOREIGN KEY ([PersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonRegisterPM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonRegisterPM_PersonBaseInfo]
-ON [dbo].[PM_PersonRegister]
-    ([PersonID]);
-GO
-
--- Creating foreign key on [PM_PersonBaseInfoPersonID] in table 'PM_PersonWorkExperienceInfo'
-ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo]
-ADD CONSTRAINT [FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo]
-    FOREIGN KEY ([PM_PersonBaseInfoPersonID])
-    REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo'
-CREATE INDEX [IX_FK_PM_PersonWorkExperienceInfoPM_PersonBaseInfo]
-ON [dbo].[PM_PersonWorkExperienceInfo]
-    ([PM_PersonBaseInfoPersonID]);
 GO
 
 -- --------------------------------------------------
