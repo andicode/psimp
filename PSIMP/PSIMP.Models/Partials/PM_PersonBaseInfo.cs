@@ -52,7 +52,38 @@ namespace PSIMP.Models
             [TemplateColumn(Text = "照片", Order = 0, Align=Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/images/Person/{Picture}\" alt=\"{Name}\">")]
             [Field(FieldLabel = "照片")]
             public string TwoInchPhoto { get; set; }
-            
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_CertificateManage> PM_CertificateManage { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonRegister> PM_PersonRegister { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonCertificateInfo> PM_PersonCertificateInfo { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonInsuranceInfo> PM_PersonInsuranceInfo { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonTrainingExperience> PM_PersonTrainingExperience { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonPositionalTitlesInfo> PM_PersonPositionalTitlesInfo { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonEducationalBackground> PM_PersonEducationalBackground { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfo { get; set; }
         }
     }
 }
