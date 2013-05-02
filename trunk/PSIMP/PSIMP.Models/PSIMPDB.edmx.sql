@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/02/2013 09:15:13
+-- Date Created: 05/02/2013 09:30:10
 -- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,131 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory] DROP CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_ApplicationContent_VehicleCategory] DROP CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_LaiWenCircularizeDetail] DROP CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AM_LaiWenRepliedInfo] DROP CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractBaseInfo] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectPersonManage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectPersonManage] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectPersonManage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectContractPerformance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPerformance] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractPerformance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectTestPutOnFile] DROP CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractDataInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPayCondition] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectContractPersonInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EM_ProjectExpandInfo] DROP CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[UserProfile]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserProfile];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ApplicationContent_CapitalFundCategory]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ApplicationContent_VehicleCategory]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ApplicationContent_VehicleCategory];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ApplicationRepliedDetail]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ApplicationRepliedDetail];
+GO
+IF OBJECT_ID(N'[dbo].[AM_LaiWenCircularizeDetail]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_LaiWenCircularizeDetail];
+GO
+IF OBJECT_ID(N'[dbo].[AM_LaiWenRecordInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_LaiWenRecordInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AM_LaiWenRepliedInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_LaiWenRepliedInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ProjectApplicationBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ProjectApplicationBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[AM_ProjectApplicationRepliedInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AM_ProjectApplicationRepliedInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractDataInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractDataInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPayCondition]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPayCondition];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPerformance]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPerformance];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectContractPersonInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectContractPersonInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectExpandInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectExpandInfo];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectPersonManage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectPersonManage];
+GO
+IF OBJECT_ID(N'[dbo].[EM_ProjectTestPutOnFile]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EM_ProjectTestPutOnFile];
+GO
+IF OBJECT_ID(N'[dbo].[PM_CertificateManage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_CertificateManage];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonBaseInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonBaseInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonCertificateInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonCertificateInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonContractInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonContractInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonEducationalBackground1]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonEducationalBackground1];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonInsuranceInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonInsuranceInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonPositionalTitlesInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonPositionalTitlesInfo];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonRegister]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonRegister];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonTrainingExperience]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonTrainingExperience];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonWorkExperienceInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonWorkExperienceInfo];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -36,7 +156,7 @@ GO
 
 -- Creating table 'AM_ApplicationContent_CapitalFundCategory'
 CREATE TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory] (
-    [ApplicationCapitalCategoryID] int IDENTITY(1,1) NOT NULL,
+    [ApplicationCapitalCategoryID] uniqueidentifier  NOT NULL,
     [ProjectApplicationID] nvarchar(max)  NOT NULL,
     [ApplicationType] nvarchar(max)  NOT NULL,
     [CapitalFundName] nvarchar(max)  NOT NULL,
@@ -46,13 +166,13 @@ CREATE TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory] (
     [Money] nvarchar(max)  NOT NULL,
     [TotalMoney] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] nvarchar(40)  NOT NULL
+    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_ApplicationContent_VehicleCategory'
 CREATE TABLE [dbo].[AM_ApplicationContent_VehicleCategory] (
-    [ApplicationVehicleCategoryID] int IDENTITY(1,1) NOT NULL,
+    [ApplicationVehicleCategoryID] uniqueidentifier  NOT NULL,
     [ProjectApplicationID] nvarchar(max)  NOT NULL,
     [ApplicationType] nvarchar(max)  NOT NULL,
     [PlateNumber] nvarchar(max)  NOT NULL,
@@ -63,13 +183,13 @@ CREATE TABLE [dbo].[AM_ApplicationContent_VehicleCategory] (
     [ItemQuantity] nvarchar(max)  NOT NULL,
     [TotalMoney] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] nvarchar(40)  NOT NULL
+    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_ApplicationRepliedDetail'
 CREATE TABLE [dbo].[AM_ApplicationRepliedDetail] (
-    [ApplicationRepliedDetailID] int IDENTITY(1,1) NOT NULL,
+    [ApplicationRepliedDetailID] uniqueidentifier  NOT NULL,
     [RepliedPersonID] nvarchar(max)  NOT NULL,
     [RepliedResult] nvarchar(max)  NOT NULL,
     [RepliedSuggestion] nvarchar(max)  NOT NULL,
@@ -82,19 +202,19 @@ GO
 
 -- Creating table 'AM_LaiWenCircularizeDetail'
 CREATE TABLE [dbo].[AM_LaiWenCircularizeDetail] (
-    [LaiWenCircularizeID] int IDENTITY(1,1) NOT NULL,
+    [LaiWenCircularizeID] uniqueidentifier  NOT NULL,
     [LaiWenRecordID] nvarchar(max)  NOT NULL,
     [CircularizeStatus] nvarchar(max)  NOT NULL,
     [CircularizedPersonID] nvarchar(max)  NOT NULL,
     [CircularizedDate] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [AM_LaiWenRecordInfo_LaiWenRecordID] int  NOT NULL
+    [AM_LaiWenRecordInfo_LaiWenRecordID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_LaiWenRecordInfo'
 CREATE TABLE [dbo].[AM_LaiWenRecordInfo] (
-    [LaiWenRecordID] int IDENTITY(1,1) NOT NULL,
+    [LaiWenRecordID] uniqueidentifier  NOT NULL,
     [LaiWenUnit] nvarchar(max)  NOT NULL,
     [LaiWenType] nvarchar(max)  NOT NULL,
     [LaiWenMode] nvarchar(max)  NOT NULL,
@@ -109,7 +229,7 @@ GO
 
 -- Creating table 'AM_LaiWenRepliedInfo'
 CREATE TABLE [dbo].[AM_LaiWenRepliedInfo] (
-    [LaiWenRepliedID] int IDENTITY(1,1) NOT NULL,
+    [LaiWenRepliedID] uniqueidentifier  NOT NULL,
     [RepliedDepartment] nvarchar(max)  NOT NULL,
     [RepliedUserID] nvarchar(max)  NOT NULL,
     [RepliedStatus] nvarchar(max)  NOT NULL,
@@ -118,13 +238,13 @@ CREATE TABLE [dbo].[AM_LaiWenRepliedInfo] (
     [RepliedDate] nvarchar(max)  NOT NULL,
     [LaiWenRecordID] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [AM_LaiWenRecordInfo_LaiWenRecordID] int  NOT NULL
+    [AM_LaiWenRecordInfo_LaiWenRecordID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_ProjectApplicationBaseInfo'
 CREATE TABLE [dbo].[AM_ProjectApplicationBaseInfo] (
-    [ProjectApplicationID] nvarchar(40)  NOT NULL,
+    [ProjectApplicationID] uniqueidentifier  NOT NULL,
     [ApplicationSerialNumber] nvarchar(max)  NOT NULL,
     [ApplicationDate] nvarchar(max)  NOT NULL,
     [ApplicationProjectID] nvarchar(max)  NOT NULL,
@@ -137,7 +257,7 @@ GO
 
 -- Creating table 'AM_ProjectApplicationRepliedInfo'
 CREATE TABLE [dbo].[AM_ProjectApplicationRepliedInfo] (
-    [ApplicationRepliedID] int IDENTITY(1,1) NOT NULL,
+    [ApplicationRepliedID] uniqueidentifier  NOT NULL,
     [ProjectApplicationID] nvarchar(max)  NOT NULL,
     [ProjectManagerReplied] nvarchar(max)  NOT NULL,
     [ChiefDepartmentReplied] nvarchar(max)  NOT NULL,
@@ -150,7 +270,7 @@ GO
 
 -- Creating table 'EM_ProjectBaseInfo'
 CREATE TABLE [dbo].[EM_ProjectBaseInfo] (
-    [ProjectID] nvarchar(40)  NOT NULL,
+    [ProjectID] uniqueidentifier  NOT NULL,
     [ProjectFullName] nvarchar(max)  NOT NULL,
     [ProjectName] nvarchar(max)  NOT NULL,
     [ConstructionCompany] nvarchar(max)  NOT NULL,
@@ -169,8 +289,8 @@ GO
 
 -- Creating table 'EM_ProjectContractBaseInfo'
 CREATE TABLE [dbo].[EM_ProjectContractBaseInfo] (
-    [ProjectContractID] int IDENTITY(1,1) NOT NULL,
-    [ProjectID] nvarchar(max)  NOT NULL,
+    [ProjectContractID] uniqueidentifier  NOT NULL,
+    [ProjectID] uniqueidentifier  NOT NULL,
     [BiddingDate] nvarchar(max)  NOT NULL,
     [ContractPeriod] nvarchar(max)  NOT NULL,
     [OpenDate] nvarchar(max)  NOT NULL,
@@ -178,13 +298,13 @@ CREATE TABLE [dbo].[EM_ProjectContractBaseInfo] (
     [OpeningConditions] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [ContractAttachment] nvarchar(max)  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] nvarchar(40)  NOT NULL
+    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractDataInfo'
 CREATE TABLE [dbo].[EM_ProjectContractDataInfo] (
-    [PContractDataID] int IDENTITY(1,1) NOT NULL,
+    [PContractDataID] uniqueidentifier  NOT NULL,
     [ContractMoney] nvarchar(max)  NOT NULL,
     [ProvisionalSums] nvarchar(max)  NOT NULL,
     [ContractNetAmount] nvarchar(max)  NOT NULL,
@@ -196,13 +316,13 @@ CREATE TABLE [dbo].[EM_ProjectContractDataInfo] (
     [AgainstRiskMoney] nvarchar(max)  NOT NULL,
     [ReviewMoeny] nvarchar(max)  NOT NULL,
     [ContractID] nvarchar(max)  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] int  NOT NULL
+    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractPayCondition'
 CREATE TABLE [dbo].[EM_ProjectContractPayCondition] (
-    [PContractPayConditionID] int IDENTITY(1,1) NOT NULL,
+    [PContractPayConditionID] uniqueidentifier  NOT NULL,
     [ContractID] nvarchar(max)  NOT NULL,
     [MeasurePayCondition] nvarchar(max)  NOT NULL,
     [AgainstRiskPayCondition] nvarchar(max)  NOT NULL,
@@ -212,13 +332,13 @@ CREATE TABLE [dbo].[EM_ProjectContractPayCondition] (
     [PerformanceBondPayCondition] nvarchar(max)  NOT NULL,
     [PayMode] nvarchar(max)  NOT NULL,
     [PayDutyMode] nvarchar(max)  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] int  NOT NULL
+    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractPerformance'
 CREATE TABLE [dbo].[EM_ProjectContractPerformance] (
-    [ProjectContractPerformanceID] int IDENTITY(1,1) NOT NULL,
+    [ProjectContractPerformanceID] uniqueidentifier  NOT NULL,
     [ProjectID] nvarchar(max)  NOT NULL,
     [PersonID] nvarchar(max)  NOT NULL,
     [PersonName] nvarchar(max)  NOT NULL,
@@ -228,13 +348,13 @@ CREATE TABLE [dbo].[EM_ProjectContractPerformance] (
     [PerformanceDuties] nvarchar(max)  NOT NULL,
     [OutDate] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] nvarchar(40)  NOT NULL
+    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractPersonInfo'
 CREATE TABLE [dbo].[EM_ProjectContractPersonInfo] (
-    [ContractPersonID] nvarchar(40)  NOT NULL,
+    [ContractPersonID] uniqueidentifier  NOT NULL,
     [ProjectContractID] nvarchar(max)  NOT NULL,
     [ContractDuties] nvarchar(max)  NOT NULL,
     [PersonID] nvarchar(max)  NOT NULL,
@@ -242,13 +362,13 @@ CREATE TABLE [dbo].[EM_ProjectContractPersonInfo] (
     [HoldCertificate] nvarchar(max)  NOT NULL,
     [Other] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] int  NOT NULL
+    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectExpandInfo'
 CREATE TABLE [dbo].[EM_ProjectExpandInfo] (
-    [ProjectExpandID] int IDENTITY(1,1) NOT NULL,
+    [ProjectExpandID] uniqueidentifier  NOT NULL,
     [ProjectID] nvarchar(max)  NOT NULL,
     [ProjectName] nvarchar(max)  NOT NULL,
     [ContractMoney] decimal(18,0)  NOT NULL,
@@ -289,13 +409,13 @@ CREATE TABLE [dbo].[EM_ProjectExpandInfo] (
     [ConstructionCompanyPhoneNum] nvarchar(max)  NOT NULL,
     [RewardAndPunishment] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] int  NOT NULL
+    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectPersonManage'
 CREATE TABLE [dbo].[EM_ProjectPersonManage] (
-    [ProjectPersonID] int IDENTITY(1,1) NOT NULL,
+    [ProjectPersonID] uniqueidentifier  NOT NULL,
     [ProjectID] nvarchar(max)  NOT NULL,
     [ProjectName] nvarchar(max)  NOT NULL,
     [DutiesName] nvarchar(max)  NOT NULL,
@@ -314,26 +434,26 @@ CREATE TABLE [dbo].[EM_ProjectPersonManage] (
     [RepliedNumber] nvarchar(max)  NOT NULL,
     [RepliedAttachment] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] nvarchar(40)  NOT NULL
+    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectTestPutOnFile'
 CREATE TABLE [dbo].[EM_ProjectTestPutOnFile] (
-    [TestPutonFileID] nvarchar(40)  NOT NULL,
+    [TestPutonFileID] uniqueidentifier  NOT NULL,
     [ProjectID] nvarchar(40)  NOT NULL,
     [ProjectName] nvarchar(max)  NOT NULL,
     [PutonfileStartDate] datetime  NOT NULL,
     [PutonfileEndDate] datetime  NOT NULL,
     [PutonfileTimes] smallint  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] nvarchar(40)  NOT NULL
+    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_CertificateManage'
 CREATE TABLE [dbo].[PM_CertificateManage] (
-    [CertificateID] nvarchar(40)  NOT NULL,
+    [CertificateID] uniqueidentifier  NOT NULL,
     [FileNumber] nvarchar(40)  NOT NULL,
     [PersonID] nvarchar(40)  NOT NULL,
     [RegisterDate] datetime  NOT NULL,
@@ -366,7 +486,7 @@ GO
 
 -- Creating table 'PM_PersonBaseInfo'
 CREATE TABLE [dbo].[PM_PersonBaseInfo] (
-    [PersonID] nvarchar(40)  NOT NULL,
+    [PersonID] uniqueidentifier  NOT NULL,
     [PersonName] nvarchar(20)  NOT NULL,
     [Sex] bit  NOT NULL,
     [Birthday] datetime  NOT NULL,
@@ -380,7 +500,7 @@ GO
 
 -- Creating table 'PM_PersonCertificateInfo'
 CREATE TABLE [dbo].[PM_PersonCertificateInfo] (
-    [CertificateID] nvarchar(40)  NOT NULL,
+    [CertificateID] uniqueidentifier  NOT NULL,
     [CertificateName] nvarchar(30)  NOT NULL,
     [CertificateType] nvarchar(40)  NOT NULL,
     [CertificateNumber] nvarchar(40)  NOT NULL,
@@ -393,7 +513,7 @@ GO
 
 -- Creating table 'PM_PersonContractInfo'
 CREATE TABLE [dbo].[PM_PersonContractInfo] (
-    [ContractID] nvarchar(40)  NOT NULL,
+    [ContractID] uniqueidentifier  NOT NULL,
     [PersonID] nvarchar(40)  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
     [IDNumber] nvarchar(max)  NOT NULL,
@@ -422,7 +542,7 @@ GO
 
 -- Creating table 'PM_PersonInsuranceInfo'
 CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
-    [InsuranceID] nvarchar(40)  NOT NULL,
+    [InsuranceID] uniqueidentifier  NOT NULL,
     [PersonID] nvarchar(40)  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
     [IDNumber] nvarchar(max)  NOT NULL,
@@ -441,7 +561,7 @@ GO
 
 -- Creating table 'PM_PersonPositionalTitlesInfo'
 CREATE TABLE [dbo].[PM_PersonPositionalTitlesInfo] (
-    [PositionalID] nvarchar(max)  NOT NULL,
+    [PositionalID] uniqueidentifier  NOT NULL,
     [PositionalName] nvarchar(20)  NOT NULL,
     [PositionalType] nvarchar(40)  NOT NULL,
     [AssessmentDate] datetime  NOT NULL,
@@ -453,7 +573,7 @@ GO
 
 -- Creating table 'PM_PersonRegister'
 CREATE TABLE [dbo].[PM_PersonRegister] (
-    [RegisterID] nvarchar(40)  NOT NULL,
+    [RegisterID] uniqueidentifier  NOT NULL,
     [PersonID] nvarchar(40)  NOT NULL,
     [RegisterDate] datetime  NOT NULL,
     [RegisterCompany] nvarchar(30)  NOT NULL,
@@ -474,7 +594,7 @@ GO
 
 -- Creating table 'PM_PersonTrainingExperience'
 CREATE TABLE [dbo].[PM_PersonTrainingExperience] (
-    [TrainingExpID] nvarchar(40)  NOT NULL,
+    [TrainingExpID] uniqueidentifier  NOT NULL,
     [InstitutionsName] nvarchar(30)  NOT NULL,
     [TrainingStartDate] datetime  NOT NULL,
     [TrainingEndDate] datetime  NOT NULL,
@@ -488,7 +608,7 @@ GO
 
 -- Creating table 'PM_PersonWorkExperienceInfo'
 CREATE TABLE [dbo].[PM_PersonWorkExperienceInfo] (
-    [WorkExpID] nvarchar(40)  NOT NULL,
+    [WorkExpID] uniqueidentifier  NOT NULL,
     [WorkStartDate] datetime  NOT NULL,
     [WorkEndDate] datetime  NOT NULL,
     [CompanyName] nvarchar(30)  NOT NULL,
