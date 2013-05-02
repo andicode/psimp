@@ -18,7 +18,7 @@ namespace PSIMP.Web
             if (!WebSecurity.UserExists("admin"))
             {
                 //创建管理员帐号
-                WebSecurity.CreateUserAndAccount("admin", "admin");
+                WebSecurity.CreateUserAndAccount("admin", "admin",requireConfirmationToken:true);
             }
             //----其他初始化数据
         }
