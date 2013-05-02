@@ -11,7 +11,5 @@
       .Button()
       .Text("新增人员")
       .Icon(Icon.Add)
-      .Listeners(events => {
-          events.Click.Fn = "person.create";
-      })
+      .Handler("App.Person_Info.show()")
 )

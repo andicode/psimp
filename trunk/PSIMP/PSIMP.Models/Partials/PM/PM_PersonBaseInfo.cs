@@ -26,7 +26,7 @@ namespace PSIMP.Models
             public string PersonName { get; set; }
 
             [TemplateColumn(Text = "性别", Order = 2, TemplateString = "{[values.Sex?'男':'女']}")]
-            [Field(FieldLabel = "性别",FieldType=typeof(ComboBox),AllowBlank=false,BlankText="请选择人员性别")]
+            [Field(Ignore=true)]
             public bool Sex { get; set; }
 
             [Column(Text = "户籍地")]
@@ -89,5 +89,22 @@ namespace PSIMP.Models
             [JsonIgnore]
             public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonContractInfo { get; set; }
         }
+
+        private Enums.Sex _sexBox = Enums.Sex.男;
+        [Column(Ignore = true)]
+        [Field(FieldLabel = "性别", AllowBlank = false, BlankText = "请选择人员性别")]
+        [UIHint("SexComboxBox")]
+        public Enums.Sex SexBox
+        {
+            get { return _sexBox; }
+            set 
+            {
+                _sexBox = value;
+                this.Sex = _sexBox == Enums.Sex.男;
+            }
+        }
     }
+
+
+    
 }
