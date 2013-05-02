@@ -14,25 +14,34 @@
             .RootVisible(false)
             .Root(Html.X().Node().Children(Model))
             .Listeners(events => {
-                events.ItemClick.Handler = "App.MyFolderView.getStore().load({params:{id:record.data.id}})";
+                events.ItemClick.Handler = @"
+App.Files_View.setTitle(record.data.text);
+App.folderPath.setValue(record.data.dataPath);
+App.CurrentFolderID.setValue(record.data.id);
+App.MyFolderView.getStore().load({params:{id:record.data.id}})";
             })
         , Html.X()
               .Panel()
               .ID("Files_View")
               .Cls("files-view")
+              .Title("资源管理器")
               .Region(Region.Center)
               .Layout(LayoutType.Card)
               .Padding(0)
-              .TopBar(
+              .DockedItems(
                     Html.X().Toolbar()
                         .Items(
-                            Html.X().Button().Text("文件")
-                                .MenuItem(
-                                    Html.X().MenuItem().Text("上传文件").Icon(Icon.PageAdd),
-                                    Html.X().MenuItem().Text("新建目录").Icon(Icon.FolderAdd)
-                                )
+                            Html.X().Button().Text("上传文件").Icon(Icon.PageAdd)
+                            ,Html.X().Button().Text("新建目录").Icon(Icon.FolderAdd)
+                        ),
+                    Html.X().Toolbar()
+                        .Items(
+                            Html.X().ToolbarTextItem().Text("路径")
+                            ,Html.X().ToolbarSeparator()
+                            ,Html.X().Hidden().ID("CurrentFolderID")
+                            ,Html.X().TextField().ID("folderPath").Flex(1).ReadOnly(true).EmptyText("/")
                         )
-                )
+              )
               .Items(
                   Html.X().DataView()
                       .ID("MyFolderView")
@@ -41,7 +50,7 @@
                       .OverItemCls("x-item-over")
                       .ItemSelector("div.thumb-wrap")
                       .DeferEmptyText(true)
-                      .EmptyText("没有记录")
+                      .EmptyText("空的文件夹")
                       .Store(
                           Html.X().StoreFor<FolderView>().AutoLoad(false).IsPagingStore(false)
                       )

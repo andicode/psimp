@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/02/2013 13:53:55
+-- Date Created: 05/02/2013 15:44:06
 -- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -729,7 +729,6 @@ GO
 -- Creating table 'PM_PersonContractInfo'
 CREATE TABLE [dbo].[PM_PersonContractInfo] (
     [ContractID] uniqueidentifier  NOT NULL,
-    [PersonID] uniqueidentifier  NOT NULL,
     [Sex] bit  NOT NULL,
     [IDNumber] nvarchar(20)  NOT NULL,
     [ContractNumber] nvarchar(40)  NOT NULL,
@@ -738,7 +737,8 @@ CREATE TABLE [dbo].[PM_PersonContractInfo] (
     [SigningDate] datetime  NOT NULL,
     [ContractPosition] nvarchar(20)  NOT NULL,
     [ContractSalary] decimal(18,0)  NOT NULL,
-    [Description] nvarchar(400)  NOT NULL
+    [Description] nvarchar(400)  NOT NULL,
+    [PersonID] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -1823,6 +1823,20 @@ ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleRepair]
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleRepair]
 ON [dbo].[VM_VehicleRepair]
     ([VM_VehicleBaseInfo_VehicleID]);
+GO
+
+-- Creating foreign key on [PersonID] in table 'PM_PersonContractInfo'
+ALTER TABLE [dbo].[PM_PersonContractInfo]
+ADD CONSTRAINT [FK_PM_PersonContractInfoPM_PersonBaseInfo]
+    FOREIGN KEY ([PersonID])
+    REFERENCES [dbo].[PM_PersonBaseInfo]
+        ([PersonID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonContractInfoPM_PersonBaseInfo'
+CREATE INDEX [IX_FK_PM_PersonContractInfoPM_PersonBaseInfo]
+ON [dbo].[PM_PersonContractInfo]
+    ([PersonID]);
 GO
 
 -- --------------------------------------------------

@@ -17,7 +17,6 @@ namespace PSIMP.Models
     public partial class PM_PersonContractInfo
     {
         public System.Guid ContractID { get; set; }
-        public System.Guid PersonID { get; set; }
         public bool Sex { get; set; }
         public string IDNumber { get; set; }
         public string ContractNumber { get; set; }
@@ -27,5 +26,8 @@ namespace PSIMP.Models
         public string ContractPosition { get; set; }
         public decimal ContractSalary { get; set; }
         public string Description { get; set; }
+        public System.Guid PersonID { get; set; }
+    
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

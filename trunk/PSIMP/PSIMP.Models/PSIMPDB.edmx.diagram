@@ -97,6 +97,7 @@
         <AssociationConnector Association="PSIMPDB.VM_VehicleBaseInfoVM_VehicleInsurance" />
         <AssociationConnector Association="PSIMPDB.VM_VehicleRepairVM_VehicleRepairDetailList" />
         <AssociationConnector Association="PSIMPDB.VM_VehicleBaseInfoVM_VehicleRepair" />
+        <AssociationConnector Association="PSIMPDB.PM_PersonContractInfoPM_PersonBaseInfo" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

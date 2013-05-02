@@ -18,8 +18,6 @@ namespace PSIMP.Web.Controllers
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             PersonService = new DBContext<PM_PersonBaseInfo>();
-            //EducationService = new DBContext<Education>();
-            //TrainService = new DBContext<Train>();
             base.Initialize(requestContext);
         }
 
@@ -35,7 +33,7 @@ namespace PSIMP.Web.Controllers
         public ActionResult GetPersons()
         {
             var data = PersonService.GetAll();
-            return this.Store(data, 1);
+            return this.Store(data, PersonService.Count());
         }
         public ActionResult Photo(string id)
         {

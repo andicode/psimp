@@ -9,23 +9,24 @@
          Html.X().MenuPanel()
             .SelectedIndex(0)
             .Region(Region.West)
-            .Margins("0 5 0 0")
+            .Split(true)
             .Width(150)
             .Menu(menu => {
-                menu.Items.Add(Html.X().MenuItem().Text("人员列表").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
-                menu.Items.Add(Html.X().MenuItem().Text("人员查询").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
-                menu.Items.Add(Html.X().MenuItem().Text("人员统计").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("人员信息").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("注册信息").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("证件管理").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("保险信息").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("合同信息").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("预警提示信息").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
+                menu.Items.Add(Html.X().MenuItem().Text("人员查询").Listeners(events => events.Click.Handler = "App.Person_View.getLayout().setActiveItem(0)"));
             })
         ,Html.X()
               .Panel()
               .ID("Person_View")
               .Cls("person-view")
               .Region(Region.Center)
-              .Layout(LayoutType.Fit)
-              .Padding(0)
-              .TopBar(
-                   Html.X().Toolbar().ItemsFromPartial("PersonUI_Toolbar")
-              ) 
+              .Border(false)
+              .Layout(LayoutType.Card)
               .ItemsFromPartial("PersonUI_DataView")    
         )
 )

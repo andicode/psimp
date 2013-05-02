@@ -27,6 +27,7 @@ namespace PSIMP.Models
             this.PM_PersonPositionalTitlesInfo = new HashSet<PM_PersonPositionalTitlesInfo>();
             this.PM_PersonEducationalBackground = new HashSet<PM_PersonEducationalBackground>();
             this.PM_PersonWorkExperienceInfo = new HashSet<PM_PersonWorkExperienceInfo>();
+            this.PM_PersonContractInfo = new HashSet<PM_PersonContractInfo>();
         }
     
         public System.Guid PersonID { get; set; }
@@ -48,5 +49,6 @@ namespace PSIMP.Models
         public virtual ICollection<PM_PersonPositionalTitlesInfo> PM_PersonPositionalTitlesInfo { get; set; }
         public virtual ICollection<PM_PersonEducationalBackground> PM_PersonEducationalBackground { get; set; }
         public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonWorkExperienceInfo { get; set; }
+        public virtual ICollection<PM_PersonContractInfo> PM_PersonContractInfo { get; set; }
     }
 }

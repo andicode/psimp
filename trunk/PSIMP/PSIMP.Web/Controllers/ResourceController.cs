@@ -42,11 +42,11 @@ namespace PSIMP.Web.Controllers
             var rootFolder = user.UserFolders.Where(m => m.ParentID == null).Single();
             NodeCollection nodes = new NodeCollection();
             
-            var root =new Node(){ Text=rootFolder.FolderName,NodeID=rootFolder.ID.ToString(),Expanded=true,Icon=Icon.FolderUser };
+            var root =new Node(){ Text=rootFolder.FolderName, DataPath="/我的文档", NodeID=rootFolder.ID.ToString(),Expanded=true,Icon=Icon.FolderUser };
             GetFolderNodes(root, rootFolder);
             nodes.Add(root);
 
-            var shared = new Node() { Text = "共享文档", NodeID = "shared", Icon = Icon.FolderConnect, Leaf = true };
+            var shared = new Node() { Text = "共享文档", NodeID = "shared", DataPath = "/共享文档", Icon = Icon.FolderConnect, Leaf = true };
             nodes.Add(shared);
 
             return View(nodes);
@@ -61,14 +61,24 @@ namespace PSIMP.Web.Controllers
             }
             foreach (var item in folders)
             {
+                var path = "/"+item.FolderName;
+                GetDataPath(item, ref path);
                 var chlid = new Node();
                 chlid.Text = item.FolderName;
                 chlid.NodeID = item.ID.ToString();
+                chlid.DataPath = path;
                 node.Children.Add(chlid);
                 GetFolderNodes(chlid, item);
             }
         }
-
+        private void GetDataPath(UserFolders folder,ref string dataPath)
+        {
+            if (folder.UserFolder != null)
+            {
+                dataPath="/"+folder.UserFolder.FolderName + dataPath;
+                GetDataPath(folder.UserFolder, ref dataPath);
+            }
+        }
         public ActionResult FolderView(string id)
         {  
             var result = new List<FolderView>();
