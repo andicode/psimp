@@ -213,6 +213,7 @@
     <Content Include="Ext.NET.Default.aspx" />
     <Content Include="Flash\Gantt.swf" />
     <Content Include="Global.asax" />
+    <Content Include="Images\folder.png" />
     <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />

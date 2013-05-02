@@ -37,7 +37,8 @@ namespace PSIMP.Models
         public string RegisterAddress { get; set; }
         public string ContactPhoneNumber { get; set; }
         public string AlternatePhoneNumber { get; set; }
-        public byte TwoInchPhoto { get; set; }
+        [JsonIgnore]
+        public byte[] TwoInchPhoto { get; set; }
     
         public virtual ICollection<PM_CertificateManage> PM_CertificateManage { get; set; }
         public virtual ICollection<PM_PersonRegister> PM_PersonRegister { get; set; }

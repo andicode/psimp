@@ -19,7 +19,7 @@ namespace PSIMP.Models
         {
             [Column(Ignore = true)]
             [Field(FieldType = typeof(Hidden))]
-            public long PersonID { get; set; }
+            public Guid PersonID { get; set; }
 
             [Column(Text = "姓名",Order = 1)]
             [Field(FieldLabel = "姓名",  AllowBlank = false, BlankText = "请输入人员姓名")]
@@ -49,7 +49,7 @@ namespace PSIMP.Models
             [Field(FieldLabel = "联系电话")]
             public string AlternatePhoneNumber { get; set; }
 
-            [TemplateColumn(Text = "照片", Order = 0, Align=Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/images/Person/{Picture}\" alt=\"{Name}\">")]
+            [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Person/Photo/{PersonID}\" alt=\"{Name}\">")]
             [Field(FieldLabel = "照片")]
             public string TwoInchPhoto { get; set; }
 
