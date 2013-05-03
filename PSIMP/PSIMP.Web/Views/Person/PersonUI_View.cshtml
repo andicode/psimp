@@ -4,20 +4,18 @@
           .TopBar(
                Html.X().Toolbar()
                    .Items(
-                        Html.X()
+                    Html.X()
                            .TextField()
                            .FieldLabel("姓名")
                            .Width(150)
                            .LabelAlign(LabelAlign.Right)
                            .LabelWidth(35)
-                        )
+                        
                         ,Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
                         ,Html.X().ToolbarFill()
-                        ,Html.X()
-                              .Button()
-                              .Text("新增人员")
-                              .Icon(Icon.Add)
-                              .Handler("person.create")    
+                        ,Html.X().Button().Text("新增人员").Icon(Icon.Add).Handler("person.create") 
+                 )   
+               
           )
           .Control(grid =>
           {
