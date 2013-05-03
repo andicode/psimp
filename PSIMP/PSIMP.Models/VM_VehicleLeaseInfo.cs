@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleLeaseInfo
     {
-        public System.Guid VehicleLeaseID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid VehicleID { get; set; }
         public int ContractStatus { get; set; }
         public System.DateTime ContractStartDate { get; set; }

@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class AM_ProjectApplicationRepliedInfo
     {
-        public System.Guid ApplicationRepliedID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid ProjectApplicationID { get; set; }
         public string ProjectManagerReplied { get; set; }
         public string ChiefDepartmentReplied { get; set; }

@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class VM_PaymentDetailInfo
     {
-        public int PaymentDetailID { get; set; }
+        public int ID { get; set; }
         public string VehicleLoanID { get; set; }
         public string VehicleID { get; set; }
         public string PaymentDate { get; set; }

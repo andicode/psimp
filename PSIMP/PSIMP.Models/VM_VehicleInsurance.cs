@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleInsurance
     {
-        public System.Guid VehicleInsuranceID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid VehicleID { get; set; }
         public System.DateTime TakeEffectiveDate { get; set; }
         public System.DateTime LoseEfficacyDate { get; set; }

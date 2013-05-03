@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleRepairDetailList
     {
-        public System.Guid VehicleRepairDetailID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid VehicleRepairID { get; set; }
         public System.Guid VehicleID { get; set; }
         public string PartsName { get; set; }

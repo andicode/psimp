@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonEducationalBackground
     {
-        public System.Guid EducationalBckID { get; set; }
+        public System.Guid ID { get; set; }
         public string SchoolName { get; set; }
         public System.DateTime EduStartDate { get; set; }
         public System.DateTime EduEndDate { get; set; }

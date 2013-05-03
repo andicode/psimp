@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonWorkExperienceInfo
     {
-        public System.Guid WorkExpID { get; set; }
+        public System.Guid ID { get; set; }
         public System.DateTime WorkStartDate { get; set; }
         public System.DateTime WorkEndDate { get; set; }
         public string CompanyName { get; set; }

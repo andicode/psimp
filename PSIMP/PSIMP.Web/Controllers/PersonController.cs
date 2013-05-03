@@ -35,7 +35,19 @@ namespace PSIMP.Web.Controllers
         {
             return this.ComponentConfig();
         }
-
+        [HttpPost]
+        public ActionResult Save(PM_PersonBaseInfo person, HttpPostedFileBase TempPicture)
+        {
+            if (person.PersonID == Guid.Empty)
+            {
+                person.PersonID = Guid.NewGuid();
+                PersonService.Add(person);
+            }
+            X.GetCmp<FormPanel>("Person_Basic_Info").SetValues(person);
+            var result = this.Direct();
+            result.IsUpload = true;
+            return result;
+        }
         public ActionResult Photo(string id)
         {
             var person=PersonService.Get(id);

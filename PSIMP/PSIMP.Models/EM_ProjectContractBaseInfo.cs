@@ -24,7 +24,7 @@ namespace PSIMP.Models
             this.EM_ProjectExpandInfo = new HashSet<EM_ProjectExpandInfo>();
         }
     
-        public System.Guid ProjectContractID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid ProjectID { get; set; }
         public System.DateTime BiddingDate { get; set; }
         public int ContractPeriod { get; set; }

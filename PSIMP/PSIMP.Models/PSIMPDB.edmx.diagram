@@ -16,54 +16,54 @@
         <InheritanceConnector EntityType="PSIMPDB.Person" />
         <AssociationConnector Association="PSIMPDB.UserProfilePsimp" />
         <AssociationConnector Association="PSIMPDB.UpdateUserId" />
-        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="8.625" PointY="0.5" />
-        <EntityTypeShape EntityType="PSIMPDB.UserFiles" Width="1.75" PointX="14.75" PointY="0.5" FillColor="Silver" />
-        <EntityTypeShape EntityType="PSIMPDB.UserFolders" Width="1.5" PointX="12.25" PointY="0.5" FillColor="Silver" />
+        <EntityTypeShape EntityType="PSIMPDB.UserProfile" Width="1.5" PointX="26.5" PointY="1.5" />
+        <EntityTypeShape EntityType="PSIMPDB.UserFiles" Width="1.75" PointX="21.75" PointY="1" FillColor="Silver" />
+        <EntityTypeShape EntityType="PSIMPDB.UserFolders" Width="1.5" PointX="24.25" PointY="1" FillColor="Silver" />
         <AssociationConnector Association="PSIMPDB.UserFoldersUserProfile" />
         <AssociationConnector Association="PSIMPDB.UserFilesUserFolders" />
         <AssociationConnector Association="PSIMPDB.UserFoldersUserFolders" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationContent_CapitalFundCategory" Width="1.5" PointX="22" PointY="18.125" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationContent_VehicleCategory" Width="1.5" PointX="22" PointY="22" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationRepliedDetail" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_LaiWenCircularizeDetail" Width="1.5" PointX="27" PointY="5.125" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_LaiWenRecordInfo" Width="1.5" PointX="24.75" PointY="6.5" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_LaiWenRepliedInfo" Width="1.5" PointX="27" PointY="8.25" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_ProjectApplicationBaseInfo" Width="1.5" PointX="19.75" PointY="20.25" />
-        <EntityTypeShape EntityType="PSIMPDB.AM_ProjectApplicationRepliedInfo" Width="1.5" PointX="5.75" PointY="4.75" />
-        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetAllocateInfo" Width="1.5" PointX="22" PointY="5.375" />
-        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetBaseInfo" Width="1.5" PointX="19.75" PointY="8.5" />
-        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetRepairInfo" Width="1.5" PointX="22" PointY="9.25" />
-        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetUseInfo" Width="1.5" PointX="22" PointY="13.125" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectBaseInfo" Width="1.5" PointX="12.75" PointY="17" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractBaseInfo" Width="1.5" PointX="15" PointY="11" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractDataInfo" Width="1.5" PointX="17.25" PointY="2.5" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPayCondition" Width="1.5" PointX="17.25" PointY="6.75" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPerformance" Width="1.5" PointX="15" PointY="23.875" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPersonInfo" Width="1.5" PointX="17.25" PointY="10.625" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectExpandInfo" Width="1.5" PointX="17.25" PointY="14.125" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectPersonManage" Width="1.5" PointX="15" PointY="27.75" />
-        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectTestPutOnFile" Width="1.5" PointX="15" PointY="33.375" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_CertificateManage" Width="1.5" PointX="10" PointY="2.625" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.5" PointX="7.75" PointY="17.875" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertificateInfo" Width="1.5" PointX="10" PointY="9.875" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonContractInfo" Width="1.5" PointX="5.75" PointY="8.75" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="1.5" PointX="10" PointY="13.375" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonInsuranceInfo" Width="1.5" PointX="10" PointY="16.875" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="1.5" PointX="10" PointY="21.625" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonRegister" Width="1.5" PointX="10" PointY="25" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="1.5" PointX="10" PointY="30" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="1.5" PointX="10" PointY="33.625" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_PaymentDetailInfo" Width="1.5" PointX="5.25" PointY="14.75" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleAllocateInfo" Width="1.5" PointX="3" PointY="2.5" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleBaseInfo" Width="1.5" PointX="0.75" PointY="16.25" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleInsurance" Width="1.5" PointX="3" PointY="6.375" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleLeaseInfo" Width="1.5" PointX="3" PointY="10" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleLoanInfo" Width="1.5" PointX="3" PointY="14.25" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleOperatingCost" Width="1.5" PointX="3" PointY="20.375" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleRepair" Width="1.5" PointX="3" PointY="24" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleRepairDetailList" Width="1.5" PointX="5.25" PointY="23.875" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleUseInfo" Width="1.5" PointX="3" PointY="28.375" />
-        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleYearInspection" Width="1.5" PointX="3" PointY="32.125" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationContent_CapitalFundCategory" Width="1.5" PointX="5.375" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationContent_VehicleCategory" Width="1.5" PointX="11" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_ApplicationRepliedDetail" Width="1.5" PointX="0.625" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_LaiWenCircularizeDetail" Width="1.5" PointX="17.25" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_LaiWenRecordInfo" Width="1.5" PointX="14.75" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_LaiWenRepliedInfo" Width="1.5" PointX="12.875" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_ProjectApplicationBaseInfo" Width="1.5" PointX="8.125" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AM_ProjectApplicationRepliedInfo" Width="1.5" PointX="3" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetAllocateInfo" Width="1.5" PointX="24" PointY="5.375" />
+        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetBaseInfo" Width="1.5" PointX="21.75" PointY="8.5" />
+        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetRepairInfo" Width="1.5" PointX="24" PointY="9.25" />
+        <EntityTypeShape EntityType="PSIMPDB.AMG_AssetUseInfo" Width="1.5" PointX="24" PointY="13.125" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectBaseInfo" Width="1.5" PointX="14.75" PointY="17" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractBaseInfo" Width="1.5" PointX="17" PointY="11" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractDataInfo" Width="1.5" PointX="19.25" PointY="2.5" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPayCondition" Width="1.5" PointX="19.25" PointY="6.75" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPerformance" Width="1.5" PointX="17" PointY="23.875" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectContractPersonInfo" Width="1.5" PointX="19.25" PointY="10.625" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectExpandInfo" Width="1.5" PointX="19.25" PointY="14.125" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectPersonManage" Width="1.5" PointX="17" PointY="27.75" />
+        <EntityTypeShape EntityType="PSIMPDB.EM_ProjectTestPutOnFile" Width="1.5" PointX="17" PointY="33.375" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_CertificateManage" Width="1.5" PointX="5.125" PointY="5.125" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertificateInfo" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonContractInfo" Width="1.5" PointX="0.75" PointY="18.375" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonInsuranceInfo" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="1.5" PointX="5.25" PointY="21.625" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonRegister" Width="1.5" PointX="5.25" PointY="25" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="1.5" PointX="5.25" PointY="30" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonWorkExperienceInfo" Width="1.5" PointX="5.25" PointY="33.625" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_PaymentDetailInfo" Width="1.5" PointX="12.25" PointY="14.75" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleAllocateInfo" Width="1.5" PointX="10" PointY="3.5" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleBaseInfo" Width="1.5" PointX="7.75" PointY="16.25" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleInsurance" Width="1.5" PointX="10" PointY="6.375" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleLeaseInfo" Width="1.5" PointX="10" PointY="10" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleLoanInfo" Width="1.5" PointX="10" PointY="14.25" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleOperatingCost" Width="1.5" PointX="10" PointY="20.375" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleRepair" Width="1.5" PointX="10" PointY="24" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleRepairDetailList" Width="1.5" PointX="12.25" PointY="23.875" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleUseInfo" Width="1.5" PointX="10" PointY="28.375" />
+        <EntityTypeShape EntityType="PSIMPDB.VM_VehicleYearInspection" Width="1.5" PointX="10" PointY="32.125" />
         <AssociationConnector Association="PSIMPDB.AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory" />
         <AssociationConnector Association="PSIMPDB.AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory" />
         <AssociationConnector Association="PSIMPDB.AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail" />

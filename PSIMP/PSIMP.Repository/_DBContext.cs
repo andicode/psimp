@@ -28,7 +28,7 @@ namespace PSIMP.Repository
             get
             {
                 if (_context == null)
-                    _context = new PSIMPDBContainer();
+                    _context = new PSIMPDBContainer();                
                 return _context;
             }
         }

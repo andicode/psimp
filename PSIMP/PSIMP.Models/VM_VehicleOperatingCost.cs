@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleOperatingCost
     {
-        public System.Guid VehicleOperatingCostID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid VehicleID { get; set; }
         public string VehicleUseType { get; set; }
         public string VehicleDriver { get; set; }

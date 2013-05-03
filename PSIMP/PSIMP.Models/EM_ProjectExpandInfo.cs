@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectExpandInfo
     {
-        public System.Guid ProjectExpandID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid ProjectID { get; set; }
         public string ProjectName { get; set; }
         public decimal ContractMoney { get; set; }

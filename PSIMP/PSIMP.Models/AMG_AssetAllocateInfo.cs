@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class AMG_AssetAllocateInfo
     {
-        public System.Guid AssetAllocateID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid AssetBaseInfoID { get; set; }
         public string LeaveFromCompany { get; set; }
         public string LeaveToCompany { get; set; }

@@ -24,7 +24,7 @@ namespace PSIMP.Models
             this.EM_ProjectTestPutOnFile = new HashSet<EM_ProjectTestPutOnFile>();
         }
     
-        public System.Guid ProjectID { get; set; }
+        public System.Guid ID { get; set; }
         public string ProjectFullName { get; set; }
         public string ProjectName { get; set; }
         public string ConstructionCompany { get; set; }

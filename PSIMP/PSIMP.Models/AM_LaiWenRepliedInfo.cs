@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class AM_LaiWenRepliedInfo
     {
-        public System.Guid LaiWenRepliedID { get; set; }
+        public System.Guid ID { get; set; }
         public string RepliedDepartment { get; set; }
         public System.Guid RepliedUserID { get; set; }
         public bool RepliedStatus { get; set; }
