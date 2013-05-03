@@ -47,7 +47,7 @@
             module.Window(window =>
             {
                 var win = Html.X().Window(item.Window);
-                win.ItemsFromAction(item.Action, item.Controller, item.RouteValues);
+                win.ItemsFromAction(item.Action, item.Controller);
                 window.Add(win);
             });
         }

@@ -49,3 +49,35 @@
         .Height(450)
         .ItemsFromPartial("PersonInfo")
 )
+
+@(
+ Html.EditorWindow()
+    .ID("Person_Details")
+    .Title("人员详情")
+    .Hidden(true)
+    .Width(800)
+    .Height(500)
+    .AutoScroll(true)
+    .TopBar(
+            Html.X().Toolbar()
+                .Items(
+                    Html.X().Button().Text("导出").Icon(Icon.ReportWord)
+                    ,Html.X().Button().Text("打印").Icon(Icon.Printer)
+                )
+        )
+    .Loader(
+        Html.X().ComponentLoader()
+            .RemoveAll(true)
+            .Url(Url.Action("details"))
+            .Mode(LoadMode.Component)
+            .LoadMask(mask =>
+            {
+                mask.ShowMask = true;
+                mask.Msg = "加载中...";
+            })
+            .AutoLoad(false)
+            .Listeners(events => {
+                events.BeforeLoad.Handler = "App.Person_Details.removeAll()";
+            })
+    )
+)

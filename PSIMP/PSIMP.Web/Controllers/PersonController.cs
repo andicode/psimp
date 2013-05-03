@@ -68,6 +68,12 @@ namespace PSIMP.Web.Controllers
             return result;
         }
 
+        public ActionResult Details(string id)
+        {
+            var model=PersonService.Get(id);
+            return this.ComponentConfig("Details", model);
+        }
+
         public ActionResult Photo(string id)
         {
             var person=PersonService.Get(id);

@@ -1,215 +1,69 @@
 ﻿/***在firefox字体小的问题***/
-.x-panel-header-text-default-framed,.ux-desktop-shortcut-text, .x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost { font-size: 12px; font-family: "微软雅黑"; }
+.x-panel-header-text-default-framed, .ux-desktop-shortcut-text, .x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost { font-size: 12px; font-family: "微软雅黑"; }
 .x-column-header { text-shadow: 0 0 0 rgba(255, 255, 255, 0.3); }
 .x-column-header-inner { line-height: 20px; }
 .x-toolbar .x-form-item-label, .x-form-item-label { line-height: 12px; }
 
-.ux-desktop-shortcut-text {
-    font-size:12px;
-}
-.x-menu-icon-separator { 
-    width:0px;
-    display:none;
-}
+.ux-desktop-shortcut-text { font-size: 12px; }
+.x-menu-icon-separator { width: 0px; display: none; }
 
-.grid-menuitem .x-menu-item-link {
-    display:none;
-}
+.grid-menuitem .x-menu-item-link { display: none; }
 
 /*桌面图标*/
 .shortcut-label { height: auto !important; }
 .ux-desktop-shortcut-icon { width: 32px; height: 32px; margin: 0 auto; }
-.default-shortcut { 
-    background: url(../Images/ModuleIcon/default.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/default.png', sizingMethod='scale')\9; 
-}
-.default-shortcut16 { 
-    background: url(../Images/ModuleIcon/default.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/default.png', sizingMethod='scale')\9;
-}
-.person-shortcut32 { 
-    background: url(../images/moduleicon/person.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9; 
-}
-.person-shortcut16 { 
-    background: url(../Images/ModuleIcon/Person.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9;
-}
-.contract-shortcut32 { 
-     background: url(../images/moduleicon/Contract.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Contract.png', sizingMethod='scale')\9; 
-}
-.contract-shortcut16 { 
-    background: url(../Images/ModuleIcon/Contract.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Contract.png', sizingMethod='scale')\9;
-}
-.tender-shortcut32 { 
-     background: url(../images/moduleicon/Tender.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Tender.png', sizingMethod='scale')\9; 
+.default-shortcut { background: url(../Images/ModuleIcon/default.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/default.png', sizingMethod='scale')\9; }
+.default-shortcut16 { background: url(../Images/ModuleIcon/default.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/default.png', sizingMethod='scale')\9; }
+.person-shortcut32 { background: url(../images/moduleicon/person.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9; }
+.person-shortcut16 { background: url(../Images/ModuleIcon/Person.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Person.png', sizingMethod='scale')\9; }
+.contract-shortcut32 { background: url(../images/moduleicon/Contract.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Contract.png', sizingMethod='scale')\9; }
+.contract-shortcut16 { background: url(../Images/ModuleIcon/Contract.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Contract.png', sizingMethod='scale')\9; }
+.tender-shortcut32 { background: url(../images/moduleicon/Tender.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Tender.png', sizingMethod='scale')\9; }
+.tender-shortcut16 { background: url(../Images/ModuleIcon/Tender.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Tender.png', sizingMethod='scale')\9; }
 
-}
-.tender-shortcut16 { 
-    background: url(../Images/ModuleIcon/Tender.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/Tender.png', sizingMethod='scale')\9;
-}
-
-.performance-shortcut32 { 
-     background: url(../images/moduleicon/performance.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/performance.png', sizingMethod='scale')\9; 
-
-}
-.performance-shortcut16 { 
-    background: url(../Images/ModuleIcon/performance.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/performance.png', sizingMethod='scale')\9;
-}
-.project-shortcut32 { 
-     background: url(../images/moduleicon/project.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/project.png', sizingMethod='scale')\9; 
-
-}
-.project-shortcut16 { 
-    background: url(../Images/ModuleIcon/project.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/project.png', sizingMethod='scale')\9;
-}
-.asset-shortcut32 { 
-     background: url(../images/moduleicon/asset.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/asset.png', sizingMethod='scale')\9; 
-
-}
-.asset-shortcut16 { 
-    background: url(../Images/ModuleIcon/asset.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/asset.png', sizingMethod='scale')\9;
-}
-.query-shortcut32 { 
-     background: url(../images/moduleicon/query.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/query.png', sizingMethod='scale')\9; 
-
-}
-.query-shortcut16 { 
-    background: url(../Images/ModuleIcon/query.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/query.png', sizingMethod='scale')\9;
-}
-.folder-shortcut32 { 
-     background: url(../images/moduleicon/folder.png) no-repeat center center; 
-    background-size: 32px 32px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/folder.png', sizingMethod='scale')\9; 
-
-}
-.folder-shortcut16 { 
-    background: url(../Images/ModuleIcon/folder.png) no-repeat center center;
-    background-size: 16px 16px; 
-    background: none\9; 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/folder.png', sizingMethod='scale')\9;
-}
+.performance-shortcut32 { background: url(../images/moduleicon/performance.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/performance.png', sizingMethod='scale')\9; }
+.performance-shortcut16 { background: url(../Images/ModuleIcon/performance.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/performance.png', sizingMethod='scale')\9; }
+.project-shortcut32 { background: url(../images/moduleicon/project.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/project.png', sizingMethod='scale')\9; }
+.project-shortcut16 { background: url(../Images/ModuleIcon/project.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/project.png', sizingMethod='scale')\9; }
+.asset-shortcut32 { background: url(../images/moduleicon/asset.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/asset.png', sizingMethod='scale')\9; }
+.asset-shortcut16 { background: url(../Images/ModuleIcon/asset.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/asset.png', sizingMethod='scale')\9; }
+.query-shortcut32 { background: url(../images/moduleicon/query.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/query.png', sizingMethod='scale')\9; }
+.query-shortcut16 { background: url(../Images/ModuleIcon/query.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/query.png', sizingMethod='scale')\9; }
+.folder-shortcut32 { background: url(../images/moduleicon/folder.png) no-repeat center center; background-size: 32px 32px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/folder.png', sizingMethod='scale')\9; }
+.folder-shortcut16 { background: url(../Images/ModuleIcon/folder.png) no-repeat center center; background-size: 16px 16px; background: none\9; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/ModuleIcon/folder.png', sizingMethod='scale')\9; }
 
 
-.images-view .x-panel-body {
-    background: white;
-    font: 11px Arial, Helvetica, sans-serif;
-}
-.images-view .thumb {
-    padding: 3px;
-    padding-bottom: 0;
-    text-align:center;
-}
+.images-view .x-panel-body { background: white; font: 11px Arial, Helvetica, sans-serif; }
+.images-view .thumb { padding: 3px; padding-bottom: 0; text-align: center; }
 
-.x-quirks .images-view .thumb {
-    padding-bottom: 3px;
-}
+.x-quirks .images-view .thumb { padding-bottom: 3px; }
 
-.images-view .thumb img {
-    height: 60px;
-    width: 60px;
-    margin:0 auto;
-}
+.images-view .thumb img { height: 60px; width: 60px; margin: 0 auto; }
 
-.images-view .thumb-wrap {
-    float: left;
-    margin: 4px;
-    margin-right: 0;
-    padding: 5px;
-}
+.images-view .thumb-wrap { float: left; margin: 4px; margin-right: 0; padding: 5px; }
 
-.images-view .thumb-wrap span {  
-    display: block;
-    overflow: hidden;
-    text-align: center;
-    width: 86px;
-}
+    .images-view .thumb-wrap span { display: block; overflow: hidden; text-align: center; width: 86px; }
 
-.images-view .x-item-over{
-    border: 1px solid #dddddd;
-    background: #efefef url(../images/row-over.gif) repeat-x left top;
-    padding: 4px;
-}
+.images-view .x-item-over { border: 1px solid #dddddd; background: #efefef url(../images/row-over.gif) repeat-x left top; padding: 4px; }
 
-.images-view .x-item-selected{
-    background: #eff5fb url(../images/selected.gif) no-repeat right bottom;
-    border: 1px solid #99bbe8;
-    padding: 4px;
-}
+.images-view .x-item-selected { background: #eff5fb url(../images/selected.gif) no-repeat right bottom; border: 1px solid #99bbe8; padding: 4px; }
 
-.images-view .x-item-selected .thumb{
-    background: transparent;
-}
+    .images-view .x-item-selected .thumb { background: transparent; }
 
-.images-view .loading-indicator {
-    font-size: 11px;
-    background-image : url('../images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: left;
-    padding-left: 20px;
-    margin: 10px;
-}
+.images-view .loading-indicator { font-size: 11px; background-image: url('../images/loading.gif'); background-repeat: no-repeat; background-position: left; padding-left: 20px; margin: 10px; }
 
-.x-view-selector {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    border: 1px dotted;
-    opacity: .5;
-    -moz-opacity: .5;
-    filter: alpha(opacity=50);
-    zoom: 1;
-    background-color: #c3daf9;
-    border-color: #3399bb;
-}
+.x-view-selector { position: absolute; left: 0; top: 0; width: 0; border: 1px dotted; opacity: .5; -moz-opacity: .5; filter: alpha(opacity=50); zoom: 1; background-color: #c3daf9; border-color: #3399bb; }
 
-.ext-strict .ext-ie .x-tree .x-panel-bwrap {
-    position: relative;
-    overflow: hidden;
-}
+.ext-strict .ext-ie .x-tree .x-panel-bwrap { position: relative; overflow: hidden; }
+
+
+
+/*人员简历*/
+.resumeBody { margin: 20px; font-size: 12px; font-family: "Microsoft Yahei",simsun; color: #555; }
+    .resumeBody .summary, .resumeBody .details dd { padding-left: 10px; margin: 10px; line-height: 1.8em; }
+    .resumeBody .headerImg { padding: 5px; border: 1px solid #ddd; }
+    .resumeBody h1 { font-size: 32px; height: 42px; line-height: 1em; }
+    .resumeBody .ver-line { color: #555; font-size: 14px; padding: 0 5px; }
+    .resumeBody .details dt { background: url('../images/lookResumebg.jpg') no-repeat 5px 0; }
+        .resumeBody .details dt label { display: block; height: 26px; line-height: 26px; color: #315AAA; text-indent: 20px; font-size: 14px; }
+    .resumeBody .summary, .resumeBody .details dd { padding-left: 10px; margin: 10px; line-height: 1.8em; }

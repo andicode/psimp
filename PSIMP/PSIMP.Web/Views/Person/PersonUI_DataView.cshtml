@@ -3,7 +3,7 @@
 @(Html.X().GridPanelFor(Model)
           .TopBar(
                    Html.X().Toolbar().ItemsFromPartial("PersonUI_Toolbar")
-          ) 
+          )
           .Control(grid =>
           {
               grid.GetStore().ID = "Person_Store";
@@ -18,6 +18,9 @@
                             )
                   )
               );
+          })
+          .Listeners(evnets => {
+              evnets.ItemDblClick.Handler = "App.Person_Details.show();App.Person_Details.load({params:{id:record.data.ID}})";
           })
           .EmptyText("没有人员记录")
           .BottomBar(Html.X().PagingToolbar())
