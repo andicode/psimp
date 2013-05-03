@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonBaseInfo
+    public partial class PM_PersonBaseInfo : BaseEntity
     {
         public PM_PersonBaseInfo()
         {
@@ -30,7 +30,8 @@ namespace PSIMP.Models
             this.PM_PersonContractInfo = new HashSet<PM_PersonContractInfo>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string PersonName { get; set; }
         public bool Sex { get; set; }
         public System.DateTime Birthday { get; set; }

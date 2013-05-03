@@ -10,7 +10,7 @@ using System.Text;
 
 namespace PSIMP.Repository
 {
-    public class DBContext<T> where T : class,new()
+    public class DBContext<T> where T :BaseEntity
     {
         public DBContext()
         {
@@ -41,6 +41,7 @@ namespace PSIMP.Repository
         /// <returns></returns>
         public T Add(T entity)
         {
+            entity.ID = Guid.NewGuid();
             db.Set<T>().Add(entity);
             db.SaveChanges();
             return entity;
@@ -82,7 +83,15 @@ namespace PSIMP.Repository
 
         public T Get(object id)
         {
-            return db.Set<T>().Find(id);
+            var guid = Guid.Empty;
+            if (Guid.TryParse(id.ToString(), out guid))
+            {
+                return db.Set<T>().SingleOrDefault(m => m.ID == guid);
+            }
+            else
+            {
+                return db.Set<T>().Find(id);
+            }
         }
 
         public IEnumerable<T> GetAll()

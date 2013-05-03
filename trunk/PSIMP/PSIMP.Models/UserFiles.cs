@@ -14,20 +14,21 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserFiles
+    public partial class UserFiles : BaseEntity
     {
         public UserFiles()
         {
             this.IsShared = false;
         }
     
-        public long ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string FileName { get; set; }
         public string FileType { get; set; }
         public string FileSize { get; set; }
         public string Remark { get; set; }
         public bool IsShared { get; set; }
-        public long FolderID { get; set; }
+        public System.Guid FolderID { get; set; }
         public string SharedRemark { get; set; }
     
         public virtual UserFolders UserFolder { get; set; }

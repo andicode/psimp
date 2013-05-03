@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EM_ProjectTestPutOnFile
+    public partial class EM_ProjectTestPutOnFile : BaseEntity
     {
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public System.Guid ProjectID { get; set; }
         public string ProjectName { get; set; }
         public System.DateTime PutonfileStartDate { get; set; }

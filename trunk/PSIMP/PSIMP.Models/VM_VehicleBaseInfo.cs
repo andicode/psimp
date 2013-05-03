@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class VM_VehicleBaseInfo
+    public partial class VM_VehicleBaseInfo : BaseEntity
     {
         public VM_VehicleBaseInfo()
         {
@@ -28,7 +28,8 @@ namespace PSIMP.Models
             this.VM_VehicleRepair = new HashSet<VM_VehicleRepair>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string VehicleBrand { get; set; }
         public string MotorModelNumber { get; set; }
         public string VehicleLicensePlate { get; set; }

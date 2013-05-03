@@ -14,14 +14,15 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class VM_VehicleLoanInfo
+    public partial class VM_VehicleLoanInfo : BaseEntity
     {
         public VM_VehicleLoanInfo()
         {
             this.VM_PaymentDetailInfo = new HashSet<VM_PaymentDetailInfo>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public System.Guid VehicleID { get; set; }
         public string Borrowers { get; set; }
         public string GuaranteeUnitName { get; set; }

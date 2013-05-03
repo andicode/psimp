@@ -40,14 +40,12 @@
 )
 
 @(Html.EditorWindow()
-        .ID("Person_Info")
+        .ID("Person_Window")
         .Title("人员信息")
         .Border(false)
         .Hidden(true)
         .Width(700)
         .Layout(LayoutType.Border)
         .Height(450)
-        .Loader(
-            Html.X().ComponentLoader().Url(Url.Action("PersonInfo", new { id=0})).Mode(LoadMode.Component)
-        )
+        .ItemsFromPartial("PersonInfo")
 )

@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AM_LaiWenRepliedInfo
+    public partial class AM_LaiWenRepliedInfo : BaseEntity
     {
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string RepliedDepartment { get; set; }
         public System.Guid RepliedUserID { get; set; }
         public bool RepliedStatus { get; set; }

@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AM_ProjectApplicationBaseInfo
+    public partial class AM_ProjectApplicationBaseInfo : BaseEntity
     {
         public AM_ProjectApplicationBaseInfo()
         {
@@ -22,7 +22,8 @@ namespace PSIMP.Models
             this.AM_ApplicationContent_VehicleCategory = new HashSet<AM_ApplicationContent_VehicleCategory>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string ApplicationSerialNumber { get; set; }
         public System.DateTime ApplicationDate { get; set; }
         public System.Guid ApplicationProjectID { get; set; }

@@ -42,7 +42,6 @@ namespace PSIMP.Models
          public DbSet<PM_CertificateManage> PM_CertificateManageSet { get; set; }
          public DbSet<PM_PersonBaseInfo> PM_PersonBaseInfoSet { get; set; }
          public DbSet<PM_PersonCertificateInfo> PM_PersonCertificateInfoSet { get; set; }
-         public DbSet<PM_PersonContractInfo> PM_PersonContractInfoSet { get; set; }
          public DbSet<PM_PersonEducationalBackground> PM_PersonEducationalBackgroundSet { get; set; }
          public DbSet<PM_PersonInsuranceInfo> PM_PersonInsuranceInfoSet { get; set; }
          public DbSet<PM_PersonPositionalTitlesInfo> PM_PersonPositionalTitlesInfoSet { get; set; }
@@ -60,5 +59,6 @@ namespace PSIMP.Models
          public DbSet<VM_VehicleRepairDetailList> VM_VehicleRepairDetailListSet { get; set; }
          public DbSet<VM_VehicleUseInfo> VM_VehicleUseInfoSet { get; set; }
          public DbSet<VM_VehicleYearInspection> VM_VehicleYearInspectionSet { get; set; }
+         public DbSet<PM_PersonContractInfo> PM_PersonContractInfoSet { get; set; }
     }
 }

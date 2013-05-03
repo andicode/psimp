@@ -33,7 +33,6 @@
     <EntitySet Name="PM_CertificateManage" EntityType="PSIMPDB.Store.PM_CertificateManage" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.Store.PM_PersonBaseInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonCertificateInfo" EntityType="PSIMPDB.Store.PM_PersonCertificateInfo" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.Store.PM_PersonContractInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonEducationalBackground" EntityType="PSIMPDB.Store.PM_PersonEducationalBackground" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonInsuranceInfo" EntityType="PSIMPDB.Store.PM_PersonInsuranceInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.Store.PM_PersonPositionalTitlesInfo" store:Type="Tables" Schema="dbo" />
@@ -51,6 +50,7 @@
     <EntitySet Name="VM_VehicleRepairDetailList" EntityType="PSIMPDB.Store.VM_VehicleRepairDetailList" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VM_VehicleUseInfo" EntityType="PSIMPDB.Store.VM_VehicleUseInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VM_VehicleYearInspection" EntityType="PSIMPDB.Store.VM_VehicleYearInspection" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.Store.PM_PersonContractInfo" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="UserFoldersUserProfile" Association="PSIMPDB.Store.UserFoldersUserProfile">
       <End Role="UserFolders" EntitySet="UserFolders" />
       <End Role="UserProfile" EntitySet="UserProfile" />
@@ -211,30 +211,30 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FileType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FileSize" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IsShared" Type="bit" Nullable="false" DefaultValue="false" />
-    <Property Name="FolderID" Type="bigint" Nullable="false" />
+    <Property Name="FolderID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="SharedRemark" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="UserFolders">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FolderName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="IsSys" Type="bit" Nullable="false" DefaultValue="false" />
-    <Property Name="ParentID" Type="bigint" Nullable="true" />
+    <Property Name="ParentID" Type="uniqueidentifier" Nullable="true" />
   </EntityType>
   <EntityType Name="AM_ApplicationContent_CapitalFundCategory">
     <Key>
-      <PropertyRef Name="ApplicationCapitalCategoryID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ApplicationCapitalCategoryID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectApplicationID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ApplicationType" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="AssetName" Type="nvarchar(max)" Nullable="false" />
@@ -244,13 +244,13 @@
     <Property Name="Money" Type="decimal" Nullable="false" />
     <Property Name="TotalMoney" Type="decimal" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
-    <Property Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AM_ProjectApplicationBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_ApplicationContent_VehicleCategory">
     <Key>
-      <PropertyRef Name="ApplicationVehicleCategoryID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ApplicationVehicleCategoryID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectApplicationID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ApplicationType" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PlateNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -261,13 +261,13 @@
     <Property Name="ItemQuantity" Type="int" Nullable="false" />
     <Property Name="TotalMoney" Type="decimal" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AM_ProjectApplicationBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_ApplicationRepliedDetail">
     <Key>
-      <PropertyRef Name="ApplicationRepliedDetailID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ApplicationRepliedDetailID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RepliedPersonID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RepliedResult" Type="bit" Nullable="false" />
     <Property Name="RepliedSuggestion" Type="nvarchar" Nullable="false" MaxLength="300" />
@@ -278,21 +278,21 @@
   </EntityType>
   <EntityType Name="AM_LaiWenCircularizeDetail">
     <Key>
-      <PropertyRef Name="LaiWenCircularizeID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="LaiWenCircularizeID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LaiWenRecordID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CircularizeStatus" Type="bit" Nullable="false" />
     <Property Name="CircularizedPersonID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CircularizedDate" Type="datetime" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="AM_LaiWenRecordInfo_LaiWenRecordID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AM_LaiWenRecordInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_LaiWenRecordInfo">
     <Key>
-      <PropertyRef Name="LaiWenRecordID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="LaiWenRecordID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LaiWenUnit" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="LaiWenType" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="LaiWenMode" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -305,9 +305,9 @@
   </EntityType>
   <EntityType Name="AM_LaiWenRepliedInfo">
     <Key>
-      <PropertyRef Name="LaiWenRepliedID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="LaiWenRepliedID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RepliedDepartment" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="RepliedUserID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RepliedStatus" Type="bit" Nullable="false" />
@@ -316,13 +316,13 @@
     <Property Name="RepliedDate" Type="datetime" Nullable="false" />
     <Property Name="LaiWenRecordID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="AM_LaiWenRecordInfo_LaiWenRecordID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AM_LaiWenRecordInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AM_ProjectApplicationBaseInfo">
     <Key>
-      <PropertyRef Name="ProjectApplicationID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProjectApplicationID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ApplicationSerialNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="ApplicationDate" Type="datetime" Nullable="false" />
     <Property Name="ApplicationProjectID" Type="uniqueidentifier" Nullable="false" />
@@ -333,9 +333,9 @@
   </EntityType>
   <EntityType Name="AM_ProjectApplicationRepliedInfo">
     <Key>
-      <PropertyRef Name="ApplicationRepliedID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ApplicationRepliedID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectApplicationID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectManagerReplied" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="ChiefDepartmentReplied" Type="nvarchar" Nullable="false" MaxLength="200" />
@@ -346,9 +346,9 @@
   </EntityType>
   <EntityType Name="AMG_AssetAllocateInfo">
     <Key>
-      <PropertyRef Name="AssetAllocateID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="AssetAllocateID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AssetBaseInfoID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LeaveFromCompany" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="LeaveToCompany" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -358,13 +358,13 @@
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="Other1" Type="int" Nullable="false" />
     <Property Name="Other2" Type="int" Nullable="false" />
-    <Property Name="AMG_AssetBaseInfo_AssetBaseInfoID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMG_AssetBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AMG_AssetBaseInfo">
     <Key>
-      <PropertyRef Name="AssetBaseInfoID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="AssetBaseInfoID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AssetSerialNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="AssetType" Type="int" Nullable="false" />
     <Property Name="AssetName" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -382,9 +382,9 @@
   </EntityType>
   <EntityType Name="AMG_AssetRepairInfo">
     <Key>
-      <PropertyRef Name="AssetRepairID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="AssetRepairID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AssetBaseInfoID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RepairType" Type="int" Nullable="false" />
     <Property Name="RepairReason" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -394,13 +394,13 @@
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="300" />
     <Property Name="Other1" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="Other2" Type="int" Nullable="false" />
-    <Property Name="AMG_AssetBaseInfo_AssetBaseInfoID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMG_AssetBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="AMG_AssetUseInfo">
     <Key>
-      <PropertyRef Name="AssetUseID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="AssetUseID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AssetBaseInfoID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AssetUseCompany" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Number" Type="int" Nullable="false" />
@@ -409,13 +409,13 @@
     <Property Name="UseReason" Type="nvarchar" Nullable="false" MaxLength="300" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="Other" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="AMG_AssetBaseInfo_AssetBaseInfoID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMG_AssetBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectBaseInfo">
     <Key>
-      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProjectID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectFullName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="ProjectName" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="ConstructionCompany" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -432,9 +432,9 @@
   </EntityType>
   <EntityType Name="EM_ProjectContractBaseInfo">
     <Key>
-      <PropertyRef Name="ProjectContractID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProjectContractID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="BiddingDate" Type="datetime" Nullable="false" />
     <Property Name="ContractPeriod" Type="int" Nullable="false" />
@@ -443,13 +443,13 @@
     <Property Name="OpeningConditions" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="ContractAttachment" Type="tinyint" Nullable="false" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractDataInfo">
     <Key>
-      <PropertyRef Name="PContractDataID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="PContractDataID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ContractMoney" Type="decimal" Nullable="false" />
     <Property Name="ProvisionalSums" Type="decimal" Nullable="false" />
     <Property Name="ContractNetAmount" Type="decimal" Nullable="false" />
@@ -461,13 +461,13 @@
     <Property Name="AgainstRiskMoney" Type="decimal" Nullable="false" />
     <Property Name="ReviewMoeny" Type="decimal" Nullable="false" />
     <Property Name="ContractID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractPayCondition">
     <Key>
-      <PropertyRef Name="PContractPayConditionID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="PContractPayConditionID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ContractID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="MeasurePayCondition" Type="nvarchar" Nullable="false" MaxLength="300" />
     <Property Name="AgainstRiskPayCondition" Type="nvarchar" Nullable="false" MaxLength="300" />
@@ -477,13 +477,13 @@
     <Property Name="PerformanceBondPayCondition" Type="nvarchar" Nullable="false" MaxLength="300" />
     <Property Name="PayMode" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="PayDutyMode" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractPerformance">
     <Key>
-      <PropertyRef Name="ProjectContractPerformanceID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProjectContractPerformanceID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
@@ -493,13 +493,13 @@
     <Property Name="PerformanceDuties" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="OutDate" Type="datetime" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectContractPersonInfo">
     <Key>
-      <PropertyRef Name="ContractPersonID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ContractPersonID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectContractID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ContractDuties" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
@@ -507,13 +507,13 @@
     <Property Name="HoldCertificate" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Other" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="300" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectExpandInfo">
     <Key>
-      <PropertyRef Name="ProjectExpandID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProjectExpandID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectName" Type="nvarchar" Nullable="false" MaxLength="30" />
     <Property Name="ContractMoney" Type="decimal" Nullable="false" />
@@ -554,13 +554,13 @@
     <Property Name="ConstructionCompanyPhoneNum" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="RewardAndPunishment" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="EM_ProjectContractBaseInfo_ProjectContractID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectContractBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectPersonManage">
     <Key>
-      <PropertyRef Name="ProjectPersonID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProjectPersonID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="DutiesName" Type="nvarchar" Nullable="false" MaxLength="20" />
@@ -579,26 +579,26 @@
     <Property Name="RepliedNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="RepliedAttachment" Type="tinyint" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="EM_ProjectTestPutOnFile">
     <Key>
-      <PropertyRef Name="TestPutonFileID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="TestPutonFileID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ProjectName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PutonfileStartDate" Type="datetime" Nullable="false" />
     <Property Name="PutonfileEndDate" Type="datetime" Nullable="false" />
     <Property Name="PutonfileTimes" Type="int" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="EM_ProjectBaseInfo_ProjectID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EM_ProjectBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_CertificateManage">
     <Key>
-      <PropertyRef Name="CertificateID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="CertificateID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FileNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="PersonID" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="RegisterDate" Type="datetime" Nullable="false" />
@@ -626,13 +626,13 @@
     <Property Name="IsGivebackConservationCertificate" Type="bit" Nullable="false" />
     <Property Name="IsGivebackIdentificationCard" Type="bit" Nullable="false" />
     <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonBaseInfo">
     <Key>
-      <PropertyRef Name="PersonID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="PersonID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PersonName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Sex" Type="bit" Nullable="false" DefaultValue="true" />
     <Property Name="Birthday" Type="datetime" Nullable="false" />
@@ -644,9 +644,9 @@
   </EntityType>
   <EntityType Name="PM_PersonCertificateInfo">
     <Key>
-      <PropertyRef Name="CertificateID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="CertificateID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CertificateName" Type="nvarchar" Nullable="false" MaxLength="30" />
     <Property Name="CertificateType" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="CertificateNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -654,29 +654,13 @@
     <Property Name="Authority" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PM_PersonContractInfo">
-    <Key>
-      <PropertyRef Name="ContractID" />
-    </Key>
-    <Property Name="ContractID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
-    <Property Name="Sex" Type="bit" Nullable="false" />
-    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="ContractNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
-    <Property Name="ExpiryDate" Type="bit" Nullable="false" />
-    <Property Name="SigningDate" Type="datetime" Nullable="false" />
-    <Property Name="ContractPosition" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="ContractSalary" Type="decimal" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonEducationalBackground">
     <Key>
-      <PropertyRef Name="EducationalBckID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="EducationalBckID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="EduStartDate" Type="datetime" Nullable="false" />
     <Property Name="EduEndDate" Type="datetime" Nullable="false" />
@@ -684,13 +668,13 @@
     <Property Name="Degree" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonInsuranceInfo">
     <Key>
-      <PropertyRef Name="InsuranceID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="InsuranceID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -705,26 +689,26 @@
     <Property Name="PositionName" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="InsuranceStatus" Type="int" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonPositionalTitlesInfo">
     <Key>
-      <PropertyRef Name="PositionalID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="PositionalID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PositionalName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PositionalType" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="AssessmentDate" Type="datetime" Nullable="false" />
     <Property Name="AssessmentBody" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonRegister">
     <Key>
-      <PropertyRef Name="RegisterID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="RegisterID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RegisterDate" Type="datetime" Nullable="false" />
     <Property Name="RegisterCompany" Type="nvarchar" Nullable="false" MaxLength="30" />
@@ -740,13 +724,13 @@
     <Property Name="RegisterStatus" Type="int" Nullable="false" />
     <Property Name="NoCanRegisterCause" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="300" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonTrainingExperience">
     <Key>
-      <PropertyRef Name="TrainingExpID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="TrainingExpID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="InstitutionsName" Type="nvarchar" Nullable="false" MaxLength="30" />
     <Property Name="TrainingStartDate" Type="datetime" Nullable="false" />
     <Property Name="TrainingEndDate" Type="datetime" Nullable="false" />
@@ -755,13 +739,13 @@
     <Property Name="GotCertificate" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Descriptions" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="PM_PersonWorkExperienceInfo">
     <Key>
-      <PropertyRef Name="WorkExpID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="WorkExpID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="WorkStartDate" Type="datetime" Nullable="false" />
     <Property Name="WorkEndDate" Type="datetime" Nullable="false" />
     <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -775,13 +759,13 @@
     <Property Name="RefereesName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="RefereesPhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PM_PersonBaseInfo_PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PM_PersonBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_PaymentDetailInfo">
     <Key>
-      <PropertyRef Name="PaymentDetailID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="PaymentDetailID" Type="int" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleLoanID" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="VehicleID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PaymentDate" Type="nvarchar(max)" Nullable="false" />
@@ -798,13 +782,13 @@
     <Property Name="BankAccountBalance" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OperatorUserID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="VM_VehicleLoanInfo_VehicleLoanID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleLoanInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleAllocateInfo">
     <Key>
-      <PropertyRef Name="VehicleAllocateID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleAllocateID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LeaveFromCompany" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LeaveToCompany" Type="uniqueidentifier" Nullable="false" />
@@ -814,13 +798,13 @@
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="Other1" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Other2" Type="nvarchar" Nullable="false" MaxLength="40" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleBaseInfo">
     <Key>
-      <PropertyRef Name="VehicleID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleBrand" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="MotorModelNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="VehicleLicensePlate" Type="nvarchar" Nullable="false" MaxLength="20" />
@@ -835,9 +819,9 @@
   </EntityType>
   <EntityType Name="VM_VehicleInsurance">
     <Key>
-      <PropertyRef Name="VehicleInsuranceID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleInsuranceID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="TakeEffectiveDate" Type="datetime" Nullable="false" />
     <Property Name="LoseEfficacyDate" Type="datetime" Nullable="false" />
@@ -846,13 +830,13 @@
     <Property Name="Other1" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="Other2" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleLeaseInfo">
     <Key>
-      <PropertyRef Name="VehicleLeaseID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleLeaseID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ContractStatus" Type="int" Nullable="false" />
     <Property Name="ContractStartDate" Type="datetime" Nullable="false" />
@@ -864,13 +848,13 @@
     <Property Name="IsMailToCompany" Type="bit" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="ContractAttachment" Type="tinyint" Nullable="false" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleLoanInfo">
     <Key>
-      <PropertyRef Name="VehicleLoanID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleLoanID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Borrowers" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="GuaranteeUnitName" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -891,13 +875,13 @@
     <Property Name="PaymentStartDate" Type="datetime" Nullable="false" />
     <Property Name="PaymentDueDate" Type="datetime" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleOperatingCost">
     <Key>
-      <PropertyRef Name="VehicleOperatingCostID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleOperatingCostID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleUseType" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="VehicleDriver" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -905,13 +889,13 @@
     <Property Name="TotalCost" Type="decimal" Nullable="false" />
     <Property Name="Other" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleRepair">
     <Key>
-      <PropertyRef Name="VehicleRepairID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleRepairID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ApplicationSerialNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="MileageNumber" Type="real" Nullable="false" />
@@ -922,13 +906,13 @@
     <Property Name="Other1" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="Other2" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleRepairDetailList">
     <Key>
-      <PropertyRef Name="VehicleRepairDetailID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleRepairDetailID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleRepairID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PartsName" Type="nvarchar" Nullable="false" MaxLength="100" />
@@ -941,13 +925,13 @@
     <Property Name="RealityCost" Type="decimal" Nullable="false" />
     <Property Name="LaborCost" Type="decimal" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="VM_VehicleRepair_VehicleRepairID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleRepair_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleUseInfo">
     <Key>
-      <PropertyRef Name="VehicleUseInfoID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleUseInfoID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UseAddress" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="VehicleUseType" Type="nvarchar" Nullable="false" MaxLength="60" />
@@ -957,13 +941,13 @@
     <Property Name="UsePurpose" Type="nvarchar" Nullable="false" MaxLength="400" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="Other" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="VM_VehicleYearInspection">
     <Key>
-      <PropertyRef Name="VehicleYearInspectionID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="VehicleYearInspectionID" Type="uniqueidentifier" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="InspectionDate" Type="datetime" Nullable="false" />
     <Property Name="InspectionResult" Type="bit" Nullable="false" />
@@ -971,7 +955,23 @@
     <Property Name="Other1" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Other2" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="VM_VehicleBaseInfo_VehicleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VM_VehicleBaseInfo_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PM_PersonContractInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sex" Type="bit" Nullable="false" />
+    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ContractNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpiryDate" Type="bit" Nullable="false" />
+    <Property Name="SigningDate" Type="datetime" Nullable="false" />
+    <Property Name="ContractPosition" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ContractSalary" Type="decimal" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <Association Name="UserFoldersUserProfile">
     <End Role="UserFolders" Type="PSIMPDB.Store.UserFolders" Multiplicity="*" />
@@ -1014,10 +1014,10 @@
     <End Role="AM_ApplicationContent_CapitalFundCategory" Type="PSIMPDB.Store.AM_ApplicationContent_CapitalFundCategory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AM_ProjectApplicationBaseInfo">
-        <PropertyRef Name="ProjectApplicationID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="AM_ApplicationContent_CapitalFundCategory">
-        <PropertyRef Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" />
+        <PropertyRef Name="AM_ProjectApplicationBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1026,10 +1026,10 @@
     <End Role="AM_ApplicationContent_VehicleCategory" Type="PSIMPDB.Store.AM_ApplicationContent_VehicleCategory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AM_ProjectApplicationBaseInfo">
-        <PropertyRef Name="ProjectApplicationID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="AM_ApplicationContent_VehicleCategory">
-        <PropertyRef Name="AM_ProjectApplicationBaseInfo_ProjectApplicationID" />
+        <PropertyRef Name="AM_ProjectApplicationBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1038,10 +1038,10 @@
     <End Role="AM_LaiWenCircularizeDetail" Type="PSIMPDB.Store.AM_LaiWenCircularizeDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AM_LaiWenRecordInfo">
-        <PropertyRef Name="LaiWenRecordID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="AM_LaiWenCircularizeDetail">
-        <PropertyRef Name="AM_LaiWenRecordInfo_LaiWenRecordID" />
+        <PropertyRef Name="AM_LaiWenRecordInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1050,10 +1050,10 @@
     <End Role="AM_LaiWenRepliedInfo" Type="PSIMPDB.Store.AM_LaiWenRepliedInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AM_LaiWenRecordInfo">
-        <PropertyRef Name="LaiWenRecordID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="AM_LaiWenRepliedInfo">
-        <PropertyRef Name="AM_LaiWenRecordInfo_LaiWenRecordID" />
+        <PropertyRef Name="AM_LaiWenRecordInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1062,10 +1062,10 @@
     <End Role="AMG_AssetAllocateInfo" Type="PSIMPDB.Store.AMG_AssetAllocateInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AMG_AssetBaseInfo">
-        <PropertyRef Name="AssetBaseInfoID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="AMG_AssetAllocateInfo">
-        <PropertyRef Name="AMG_AssetBaseInfo_AssetBaseInfoID" />
+        <PropertyRef Name="AMG_AssetBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1074,10 +1074,10 @@
     <End Role="AMG_AssetRepairInfo" Type="PSIMPDB.Store.AMG_AssetRepairInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AMG_AssetBaseInfo">
-        <PropertyRef Name="AssetBaseInfoID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="AMG_AssetRepairInfo">
-        <PropertyRef Name="AMG_AssetBaseInfo_AssetBaseInfoID" />
+        <PropertyRef Name="AMG_AssetBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1086,10 +1086,10 @@
     <End Role="AMG_AssetUseInfo" Type="PSIMPDB.Store.AMG_AssetUseInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AMG_AssetBaseInfo">
-        <PropertyRef Name="AssetBaseInfoID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="AMG_AssetUseInfo">
-        <PropertyRef Name="AMG_AssetBaseInfo_AssetBaseInfoID" />
+        <PropertyRef Name="AMG_AssetBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1098,10 +1098,10 @@
     <End Role="EM_ProjectContractBaseInfo" Type="PSIMPDB.Store.EM_ProjectContractBaseInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectBaseInfo">
-        <PropertyRef Name="ProjectID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectContractBaseInfo">
-        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+        <PropertyRef Name="EM_ProjectBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1110,10 +1110,10 @@
     <End Role="EM_ProjectPersonManage" Type="PSIMPDB.Store.EM_ProjectPersonManage" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectBaseInfo">
-        <PropertyRef Name="ProjectID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectPersonManage">
-        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+        <PropertyRef Name="EM_ProjectBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1122,10 +1122,10 @@
     <End Role="EM_ProjectContractPerformance" Type="PSIMPDB.Store.EM_ProjectContractPerformance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectBaseInfo">
-        <PropertyRef Name="ProjectID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectContractPerformance">
-        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+        <PropertyRef Name="EM_ProjectBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1134,10 +1134,10 @@
     <End Role="EM_ProjectTestPutOnFile" Type="PSIMPDB.Store.EM_ProjectTestPutOnFile" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectBaseInfo">
-        <PropertyRef Name="ProjectID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectTestPutOnFile">
-        <PropertyRef Name="EM_ProjectBaseInfo_ProjectID" />
+        <PropertyRef Name="EM_ProjectBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1146,10 +1146,10 @@
     <End Role="EM_ProjectContractDataInfo" Type="PSIMPDB.Store.EM_ProjectContractDataInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectContractBaseInfo">
-        <PropertyRef Name="ProjectContractID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectContractDataInfo">
-        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1158,10 +1158,10 @@
     <End Role="EM_ProjectContractPayCondition" Type="PSIMPDB.Store.EM_ProjectContractPayCondition" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectContractBaseInfo">
-        <PropertyRef Name="ProjectContractID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectContractPayCondition">
-        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1170,10 +1170,10 @@
     <End Role="EM_ProjectContractPersonInfo" Type="PSIMPDB.Store.EM_ProjectContractPersonInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectContractBaseInfo">
-        <PropertyRef Name="ProjectContractID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectContractPersonInfo">
-        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1182,10 +1182,10 @@
     <End Role="EM_ProjectExpandInfo" Type="PSIMPDB.Store.EM_ProjectExpandInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EM_ProjectContractBaseInfo">
-        <PropertyRef Name="ProjectContractID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EM_ProjectExpandInfo">
-        <PropertyRef Name="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <PropertyRef Name="EM_ProjectContractBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1194,10 +1194,10 @@
     <End Role="PM_CertificateManage" Type="PSIMPDB.Store.PM_CertificateManage" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_CertificateManage">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1206,10 +1206,10 @@
     <End Role="PM_PersonRegister" Type="PSIMPDB.Store.PM_PersonRegister" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonRegister">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1218,10 +1218,10 @@
     <End Role="PM_PersonCertificateInfo" Type="PSIMPDB.Store.PM_PersonCertificateInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonCertificateInfo">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1230,10 +1230,10 @@
     <End Role="PM_PersonInsuranceInfo" Type="PSIMPDB.Store.PM_PersonInsuranceInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonInsuranceInfo">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1242,10 +1242,10 @@
     <End Role="PM_PersonTrainingExperience" Type="PSIMPDB.Store.PM_PersonTrainingExperience" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonTrainingExperience">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1254,10 +1254,10 @@
     <End Role="PM_PersonPositionalTitlesInfo" Type="PSIMPDB.Store.PM_PersonPositionalTitlesInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonPositionalTitlesInfo">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1266,10 +1266,10 @@
     <End Role="PM_PersonEducationalBackground" Type="PSIMPDB.Store.PM_PersonEducationalBackground" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonEducationalBackground">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1278,10 +1278,10 @@
     <End Role="PM_PersonWorkExperienceInfo" Type="PSIMPDB.Store.PM_PersonWorkExperienceInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonWorkExperienceInfo">
-        <PropertyRef Name="PM_PersonBaseInfo_PersonID" />
+        <PropertyRef Name="PM_PersonBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1290,10 +1290,10 @@
     <End Role="VM_PaymentDetailInfo" Type="PSIMPDB.Store.VM_PaymentDetailInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleLoanInfo">
-        <PropertyRef Name="VehicleLoanID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_PaymentDetailInfo">
-        <PropertyRef Name="VM_VehicleLoanInfo_VehicleLoanID" />
+        <PropertyRef Name="VM_VehicleLoanInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1302,10 +1302,10 @@
     <End Role="VM_VehicleAllocateInfo" Type="PSIMPDB.Store.VM_VehicleAllocateInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleAllocateInfo">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1314,10 +1314,10 @@
     <End Role="VM_VehicleLeaseInfo" Type="PSIMPDB.Store.VM_VehicleLeaseInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleLeaseInfo">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1326,10 +1326,10 @@
     <End Role="VM_VehicleUseInfo" Type="PSIMPDB.Store.VM_VehicleUseInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleUseInfo">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1338,10 +1338,10 @@
     <End Role="VM_VehicleYearInspection" Type="PSIMPDB.Store.VM_VehicleYearInspection" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleYearInspection">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1350,10 +1350,10 @@
     <End Role="VM_VehicleOperatingCost" Type="PSIMPDB.Store.VM_VehicleOperatingCost" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleOperatingCost">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1362,10 +1362,10 @@
     <End Role="VM_VehicleLoanInfo" Type="PSIMPDB.Store.VM_VehicleLoanInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleLoanInfo">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1374,10 +1374,10 @@
     <End Role="VM_VehicleInsurance" Type="PSIMPDB.Store.VM_VehicleInsurance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleInsurance">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1386,10 +1386,10 @@
     <End Role="VM_VehicleRepairDetailList" Type="PSIMPDB.Store.VM_VehicleRepairDetailList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleRepair">
-        <PropertyRef Name="VehicleRepairID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleRepairDetailList">
-        <PropertyRef Name="VM_VehicleRepair_VehicleRepairID" />
+        <PropertyRef Name="VM_VehicleRepair_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1398,10 +1398,10 @@
     <End Role="VM_VehicleRepair" Type="PSIMPDB.Store.VM_VehicleRepair" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VM_VehicleBaseInfo">
-        <PropertyRef Name="VehicleID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VM_VehicleRepair">
-        <PropertyRef Name="VM_VehicleBaseInfo_VehicleID" />
+        <PropertyRef Name="VM_VehicleBaseInfo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1410,7 +1410,7 @@
     <End Role="PM_PersonBaseInfo" Type="PSIMPDB.Store.PM_PersonBaseInfo" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="PM_PersonBaseInfo">
-        <PropertyRef Name="PersonID" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PM_PersonContractInfo">
         <PropertyRef Name="PersonID" />
@@ -1461,7 +1461,6 @@
           <EntitySet Name="PM_CertificateManage" EntityType="PSIMPDB.PM_CertificateManage" />
           <EntitySet Name="PM_PersonBaseInfo" EntityType="PSIMPDB.PM_PersonBaseInfo" />
           <EntitySet Name="PM_PersonCertificateInfo" EntityType="PSIMPDB.PM_PersonCertificateInfo" />
-          <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.PM_PersonContractInfo" />
           <EntitySet Name="PM_PersonEducationalBackground" EntityType="PSIMPDB.PM_PersonEducationalBackground" />
           <EntitySet Name="PM_PersonInsuranceInfo" EntityType="PSIMPDB.PM_PersonInsuranceInfo" />
           <EntitySet Name="PM_PersonPositionalTitlesInfo" EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" />
@@ -1615,7 +1614,8 @@
             <End Role="PM_PersonContractInfo" EntitySet="PM_PersonContractInfo" />
             <End Role="PM_PersonBaseInfo" EntitySet="PM_PersonBaseInfo" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="PM_PersonContractInfo" EntityType="PSIMPDB.PM_PersonContractInfo" />
+          </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
             <PropertyRef Name="UserId" />
@@ -1628,21 +1628,21 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Type="String" Name="FileName" Nullable="false" />
           <Property Type="String" Name="FileType" Nullable="false" />
           <Property Type="String" Name="FileSize" Nullable="false" />
           <Property Type="String" Name="Remark" Nullable="false" />
           <Property Type="Boolean" Name="IsShared" Nullable="false" DefaultValue="False" />
           <NavigationProperty Name="UserFolder" Relationship="PSIMPDB.UserFilesUserFolders" FromRole="UserFiles" ToRole="UserFolders" />
-          <Property Type="Int64" Name="FolderID" Nullable="false" />
+          <Property Type="Guid" Name="FolderID" Nullable="false" />
           <Property Type="String" Name="SharedRemark" Nullable="false" />
         </EntityType>
         <EntityType Name="UserFolders">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Type="String" Name="FolderName" Nullable="false" />
           <NavigationProperty Name="UserProfile" Relationship="PSIMPDB.UserFoldersUserProfile" FromRole="UserFolders" ToRole="UserProfile" />
           <Property Type="Int32" Name="UserId" Nullable="false" />
@@ -1650,7 +1650,7 @@
           <Property Type="Boolean" Name="IsSys" Nullable="false" DefaultValue="False" />
           <NavigationProperty Name="Children" Relationship="PSIMPDB.UserFoldersUserFolders" FromRole="UserFolders" ToRole="UserFolders1" />
           <NavigationProperty Name="UserFolder" Relationship="PSIMPDB.UserFoldersUserFolders" FromRole="UserFolders1" ToRole="UserFolders" />
-          <Property Type="Int64" Name="ParentID" Nullable="true" />
+          <Property Type="Guid" Name="ParentID" Nullable="true" />
         </EntityType>
         <Association Name="UserFoldersUserProfile">
           <End Type="PSIMPDB.UserFolders" Role="UserFolders" Multiplicity="*" />
@@ -2264,7 +2264,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Type="String" Name="VehicleLoanID" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="VehicleID" Nullable="false" />
           <Property Type="String" Name="PaymentDate" Nullable="false" />
@@ -2652,7 +2652,7 @@
     <EntitySetMapping Name="AM_ApplicationContent_CapitalFundCategory">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_ApplicationContent_CapitalFundCategory)">
         <MappingFragment StoreEntitySet="AM_ApplicationContent_CapitalFundCategory">
-          <ScalarProperty Name="ID" ColumnName="ApplicationCapitalCategoryID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectApplicationID" ColumnName="ProjectApplicationID" />
           <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
           <ScalarProperty Name="AssetName" ColumnName="AssetName" />
@@ -2668,7 +2668,7 @@
     <EntitySetMapping Name="AM_ApplicationContent_VehicleCategory">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_ApplicationContent_VehicleCategory)">
         <MappingFragment StoreEntitySet="AM_ApplicationContent_VehicleCategory">
-          <ScalarProperty Name="ID" ColumnName="ApplicationVehicleCategoryID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectApplicationID" ColumnName="ProjectApplicationID" />
           <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
           <ScalarProperty Name="PlateNumber" ColumnName="PlateNumber" />
@@ -2685,7 +2685,7 @@
     <EntitySetMapping Name="AM_ApplicationRepliedDetail">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_ApplicationRepliedDetail)">
         <MappingFragment StoreEntitySet="AM_ApplicationRepliedDetail">
-          <ScalarProperty Name="ID" ColumnName="ApplicationRepliedDetailID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="RepliedPersonID" ColumnName="RepliedPersonID" />
           <ScalarProperty Name="RepliedResult" ColumnName="RepliedResult" />
           <ScalarProperty Name="RepliedSuggestion" ColumnName="RepliedSuggestion" />
@@ -2699,7 +2699,7 @@
     <EntitySetMapping Name="AM_LaiWenCircularizeDetail">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_LaiWenCircularizeDetail)">
         <MappingFragment StoreEntitySet="AM_LaiWenCircularizeDetail">
-          <ScalarProperty Name="ID" ColumnName="LaiWenCircularizeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="LaiWenRecordID" ColumnName="LaiWenRecordID" />
           <ScalarProperty Name="CircularizeStatus" ColumnName="CircularizeStatus" />
           <ScalarProperty Name="CircularizedPersonID" ColumnName="CircularizedPersonID" />
@@ -2711,7 +2711,7 @@
     <EntitySetMapping Name="AM_LaiWenRecordInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_LaiWenRecordInfo)">
         <MappingFragment StoreEntitySet="AM_LaiWenRecordInfo">
-          <ScalarProperty Name="ID" ColumnName="LaiWenRecordID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="LaiWenUnit" ColumnName="LaiWenUnit" />
           <ScalarProperty Name="LaiWenType" ColumnName="LaiWenType" />
           <ScalarProperty Name="LaiWenMode" ColumnName="LaiWenMode" />
@@ -2727,7 +2727,7 @@
     <EntitySetMapping Name="AM_LaiWenRepliedInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_LaiWenRepliedInfo)">
         <MappingFragment StoreEntitySet="AM_LaiWenRepliedInfo">
-          <ScalarProperty Name="ID" ColumnName="LaiWenRepliedID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="RepliedDepartment" ColumnName="RepliedDepartment" />
           <ScalarProperty Name="RepliedUserID" ColumnName="RepliedUserID" />
           <ScalarProperty Name="RepliedStatus" ColumnName="RepliedStatus" />
@@ -2742,7 +2742,7 @@
     <EntitySetMapping Name="AM_ProjectApplicationBaseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_ProjectApplicationBaseInfo)">
         <MappingFragment StoreEntitySet="AM_ProjectApplicationBaseInfo">
-          <ScalarProperty Name="ID" ColumnName="ProjectApplicationID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ApplicationSerialNumber" ColumnName="ApplicationSerialNumber" />
           <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
           <ScalarProperty Name="ApplicationProjectID" ColumnName="ApplicationProjectID" />
@@ -2756,7 +2756,7 @@
     <EntitySetMapping Name="AM_ProjectApplicationRepliedInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AM_ProjectApplicationRepliedInfo)">
         <MappingFragment StoreEntitySet="AM_ProjectApplicationRepliedInfo">
-          <ScalarProperty Name="ID" ColumnName="ApplicationRepliedID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectApplicationID" ColumnName="ProjectApplicationID" />
           <ScalarProperty Name="ProjectManagerReplied" ColumnName="ProjectManagerReplied" />
           <ScalarProperty Name="ChiefDepartmentReplied" ColumnName="ChiefDepartmentReplied" />
@@ -2770,7 +2770,7 @@
     <EntitySetMapping Name="AMG_AssetAllocateInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AMG_AssetAllocateInfo)">
         <MappingFragment StoreEntitySet="AMG_AssetAllocateInfo">
-          <ScalarProperty Name="ID" ColumnName="AssetAllocateID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AssetBaseInfoID" ColumnName="AssetBaseInfoID" />
           <ScalarProperty Name="LeaveFromCompany" ColumnName="LeaveFromCompany" />
           <ScalarProperty Name="LeaveToCompany" ColumnName="LeaveToCompany" />
@@ -2786,7 +2786,7 @@
     <EntitySetMapping Name="AMG_AssetBaseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AMG_AssetBaseInfo)">
         <MappingFragment StoreEntitySet="AMG_AssetBaseInfo">
-          <ScalarProperty Name="ID" ColumnName="AssetBaseInfoID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AssetSerialNumber" ColumnName="AssetSerialNumber" />
           <ScalarProperty Name="AssetType" ColumnName="AssetType" />
           <ScalarProperty Name="AssetName" ColumnName="AssetName" />
@@ -2807,7 +2807,7 @@
     <EntitySetMapping Name="AMG_AssetRepairInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AMG_AssetRepairInfo)">
         <MappingFragment StoreEntitySet="AMG_AssetRepairInfo">
-          <ScalarProperty Name="ID" ColumnName="AssetRepairID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AssetBaseInfoID" ColumnName="AssetBaseInfoID" />
           <ScalarProperty Name="RepairType" ColumnName="RepairType" />
           <ScalarProperty Name="RepairReason" ColumnName="RepairReason" />
@@ -2823,7 +2823,7 @@
     <EntitySetMapping Name="AMG_AssetUseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.AMG_AssetUseInfo)">
         <MappingFragment StoreEntitySet="AMG_AssetUseInfo">
-          <ScalarProperty Name="ID" ColumnName="AssetUseID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AssetBaseInfoID" ColumnName="AssetBaseInfoID" />
           <ScalarProperty Name="AssetUseCompany" ColumnName="AssetUseCompany" />
           <ScalarProperty Name="Number" ColumnName="Number" />
@@ -2838,7 +2838,7 @@
     <EntitySetMapping Name="EM_ProjectBaseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectBaseInfo)">
         <MappingFragment StoreEntitySet="EM_ProjectBaseInfo">
-          <ScalarProperty Name="ID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectFullName" ColumnName="ProjectFullName" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="ConstructionCompany" ColumnName="ConstructionCompany" />
@@ -2858,7 +2858,7 @@
     <EntitySetMapping Name="EM_ProjectContractBaseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractBaseInfo)">
         <MappingFragment StoreEntitySet="EM_ProjectContractBaseInfo">
-          <ScalarProperty Name="ID" ColumnName="ProjectContractID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="BiddingDate" ColumnName="BiddingDate" />
           <ScalarProperty Name="ContractPeriod" ColumnName="ContractPeriod" />
@@ -2873,7 +2873,7 @@
     <EntitySetMapping Name="EM_ProjectContractDataInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractDataInfo)">
         <MappingFragment StoreEntitySet="EM_ProjectContractDataInfo">
-          <ScalarProperty Name="ID" ColumnName="PContractDataID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ContractMoney" ColumnName="ContractMoney" />
           <ScalarProperty Name="ProvisionalSums" ColumnName="ProvisionalSums" />
           <ScalarProperty Name="ContractNetAmount" ColumnName="ContractNetAmount" />
@@ -2891,7 +2891,7 @@
     <EntitySetMapping Name="EM_ProjectContractPayCondition">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractPayCondition)">
         <MappingFragment StoreEntitySet="EM_ProjectContractPayCondition">
-          <ScalarProperty Name="ID" ColumnName="PContractPayConditionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ContractID" ColumnName="ContractID" />
           <ScalarProperty Name="MeasurePayCondition" ColumnName="MeasurePayCondition" />
           <ScalarProperty Name="AgainstRiskPayCondition" ColumnName="AgainstRiskPayCondition" />
@@ -2907,7 +2907,7 @@
     <EntitySetMapping Name="EM_ProjectContractPerformance">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractPerformance)">
         <MappingFragment StoreEntitySet="EM_ProjectContractPerformance">
-          <ScalarProperty Name="ID" ColumnName="ProjectContractPerformanceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="PersonName" ColumnName="PersonName" />
@@ -2923,7 +2923,7 @@
     <EntitySetMapping Name="EM_ProjectContractPersonInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectContractPersonInfo)">
         <MappingFragment StoreEntitySet="EM_ProjectContractPersonInfo">
-          <ScalarProperty Name="ID" ColumnName="ContractPersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectContractID" ColumnName="ProjectContractID" />
           <ScalarProperty Name="ContractDuties" ColumnName="ContractDuties" />
           <ScalarProperty Name="PersonID" ColumnName="PersonID" />
@@ -2937,7 +2937,7 @@
     <EntitySetMapping Name="EM_ProjectExpandInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectExpandInfo)">
         <MappingFragment StoreEntitySet="EM_ProjectExpandInfo">
-          <ScalarProperty Name="ID" ColumnName="ProjectExpandID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="ContractMoney" ColumnName="ContractMoney" />
@@ -2984,7 +2984,7 @@
     <EntitySetMapping Name="EM_ProjectPersonManage">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectPersonManage)">
         <MappingFragment StoreEntitySet="EM_ProjectPersonManage">
-          <ScalarProperty Name="ID" ColumnName="ProjectPersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="DutiesName" ColumnName="DutiesName" />
@@ -3009,7 +3009,7 @@
     <EntitySetMapping Name="EM_ProjectTestPutOnFile">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.EM_ProjectTestPutOnFile)">
         <MappingFragment StoreEntitySet="EM_ProjectTestPutOnFile">
-          <ScalarProperty Name="ID" ColumnName="TestPutonFileID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="PutonfileStartDate" ColumnName="PutonfileStartDate" />
@@ -3022,7 +3022,7 @@
     <EntitySetMapping Name="PM_CertificateManage">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_CertificateManage)">
         <MappingFragment StoreEntitySet="PM_CertificateManage">
-          <ScalarProperty Name="ID" ColumnName="CertificateID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
           <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
@@ -3056,7 +3056,7 @@
     <EntitySetMapping Name="PM_PersonBaseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonBaseInfo)">
         <MappingFragment StoreEntitySet="PM_PersonBaseInfo">
-          <ScalarProperty Name="ID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="PersonName" ColumnName="PersonName" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
@@ -3071,7 +3071,7 @@
     <EntitySetMapping Name="PM_PersonCertificateInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonCertificateInfo)">
         <MappingFragment StoreEntitySet="PM_PersonCertificateInfo">
-          <ScalarProperty Name="ID" ColumnName="CertificateID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
           <ScalarProperty Name="CertificateType" ColumnName="CertificateType" />
           <ScalarProperty Name="CertificateNumber" ColumnName="CertificateNumber" />
@@ -3082,27 +3082,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PM_PersonContractInfo">
-      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonContractInfo)">
-        <MappingFragment StoreEntitySet="PM_PersonContractInfo">
-          <ScalarProperty Name="ID" ColumnName="ContractID" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
-          <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
-          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
-          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-          <ScalarProperty Name="SigningDate" ColumnName="SigningDate" />
-          <ScalarProperty Name="ContractPosition" ColumnName="ContractPosition" />
-          <ScalarProperty Name="ContractSalary" ColumnName="ContractSalary" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PM_PersonEducationalBackground">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonEducationalBackground)">
         <MappingFragment StoreEntitySet="PM_PersonEducationalBackground">
-          <ScalarProperty Name="ID" ColumnName="EducationalBckID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
           <ScalarProperty Name="EduStartDate" ColumnName="EduStartDate" />
           <ScalarProperty Name="EduEndDate" ColumnName="EduEndDate" />
@@ -3116,7 +3099,7 @@
     <EntitySetMapping Name="PM_PersonInsuranceInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonInsuranceInfo)">
         <MappingFragment StoreEntitySet="PM_PersonInsuranceInfo">
-          <ScalarProperty Name="ID" ColumnName="InsuranceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
@@ -3137,7 +3120,7 @@
     <EntitySetMapping Name="PM_PersonPositionalTitlesInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonPositionalTitlesInfo)">
         <MappingFragment StoreEntitySet="PM_PersonPositionalTitlesInfo">
-          <ScalarProperty Name="ID" ColumnName="PositionalID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="PositionalName" ColumnName="PositionalName" />
           <ScalarProperty Name="PositionalType" ColumnName="PositionalType" />
           <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
@@ -3150,7 +3133,7 @@
     <EntitySetMapping Name="PM_PersonRegister">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonRegister)">
         <MappingFragment StoreEntitySet="PM_PersonRegister">
-          <ScalarProperty Name="ID" ColumnName="RegisterID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="PersonID" ColumnName="PersonID" />
           <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
           <ScalarProperty Name="RegisterCompany" ColumnName="RegisterCompany" />
@@ -3172,7 +3155,7 @@
     <EntitySetMapping Name="PM_PersonTrainingExperience">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonTrainingExperience)">
         <MappingFragment StoreEntitySet="PM_PersonTrainingExperience">
-          <ScalarProperty Name="ID" ColumnName="TrainingExpID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="InstitutionsName" ColumnName="InstitutionsName" />
           <ScalarProperty Name="TrainingStartDate" ColumnName="TrainingStartDate" />
           <ScalarProperty Name="TrainingEndDate" ColumnName="TrainingEndDate" />
@@ -3187,7 +3170,7 @@
     <EntitySetMapping Name="PM_PersonWorkExperienceInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonWorkExperienceInfo)">
         <MappingFragment StoreEntitySet="PM_PersonWorkExperienceInfo">
-          <ScalarProperty Name="ID" ColumnName="WorkExpID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
           <ScalarProperty Name="WorkEndDate" ColumnName="WorkEndDate" />
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
@@ -3207,7 +3190,7 @@
     <EntitySetMapping Name="VM_PaymentDetailInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_PaymentDetailInfo)">
         <MappingFragment StoreEntitySet="VM_PaymentDetailInfo">
-          <ScalarProperty Name="ID" ColumnName="PaymentDetailID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleLoanID" ColumnName="VehicleLoanID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
@@ -3230,7 +3213,7 @@
     <EntitySetMapping Name="VM_VehicleAllocateInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleAllocateInfo)">
         <MappingFragment StoreEntitySet="VM_VehicleAllocateInfo">
-          <ScalarProperty Name="ID" ColumnName="VehicleAllocateID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="LeaveFromCompany" ColumnName="LeaveFromCompany" />
           <ScalarProperty Name="LeaveToCompany" ColumnName="LeaveToCompany" />
@@ -3246,7 +3229,7 @@
     <EntitySetMapping Name="VM_VehicleBaseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleBaseInfo)">
         <MappingFragment StoreEntitySet="VM_VehicleBaseInfo">
-          <ScalarProperty Name="ID" ColumnName="VehicleID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleBrand" ColumnName="VehicleBrand" />
           <ScalarProperty Name="MotorModelNumber" ColumnName="MotorModelNumber" />
           <ScalarProperty Name="VehicleLicensePlate" ColumnName="VehicleLicensePlate" />
@@ -3264,7 +3247,7 @@
     <EntitySetMapping Name="VM_VehicleInsurance">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleInsurance)">
         <MappingFragment StoreEntitySet="VM_VehicleInsurance">
-          <ScalarProperty Name="ID" ColumnName="VehicleInsuranceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="TakeEffectiveDate" ColumnName="TakeEffectiveDate" />
           <ScalarProperty Name="LoseEfficacyDate" ColumnName="LoseEfficacyDate" />
@@ -3279,7 +3262,7 @@
     <EntitySetMapping Name="VM_VehicleLeaseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleLeaseInfo)">
         <MappingFragment StoreEntitySet="VM_VehicleLeaseInfo">
-          <ScalarProperty Name="ID" ColumnName="VehicleLeaseID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="ContractStatus" ColumnName="ContractStatus" />
           <ScalarProperty Name="ContractStartDate" ColumnName="ContractStartDate" />
@@ -3297,7 +3280,7 @@
     <EntitySetMapping Name="VM_VehicleLoanInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleLoanInfo)">
         <MappingFragment StoreEntitySet="VM_VehicleLoanInfo">
-          <ScalarProperty Name="ID" ColumnName="VehicleLoanID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="Borrowers" ColumnName="Borrowers" />
           <ScalarProperty Name="GuaranteeUnitName" ColumnName="GuaranteeUnitName" />
@@ -3324,7 +3307,7 @@
     <EntitySetMapping Name="VM_VehicleOperatingCost">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleOperatingCost)">
         <MappingFragment StoreEntitySet="VM_VehicleOperatingCost">
-          <ScalarProperty Name="ID" ColumnName="VehicleOperatingCostID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="VehicleUseType" ColumnName="VehicleUseType" />
           <ScalarProperty Name="VehicleDriver" ColumnName="VehicleDriver" />
@@ -3338,7 +3321,7 @@
     <EntitySetMapping Name="VM_VehicleRepair">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleRepair)">
         <MappingFragment StoreEntitySet="VM_VehicleRepair">
-          <ScalarProperty Name="ID" ColumnName="VehicleRepairID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="ApplicationSerialNumber" ColumnName="ApplicationSerialNumber" />
           <ScalarProperty Name="MileageNumber" ColumnName="MileageNumber" />
@@ -3355,7 +3338,7 @@
     <EntitySetMapping Name="VM_VehicleRepairDetailList">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleRepairDetailList)">
         <MappingFragment StoreEntitySet="VM_VehicleRepairDetailList">
-          <ScalarProperty Name="ID" ColumnName="VehicleRepairDetailID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleRepairID" ColumnName="VehicleRepairID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="PartsName" ColumnName="PartsName" />
@@ -3374,7 +3357,7 @@
     <EntitySetMapping Name="VM_VehicleUseInfo">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleUseInfo)">
         <MappingFragment StoreEntitySet="VM_VehicleUseInfo">
-          <ScalarProperty Name="ID" ColumnName="VehicleUseInfoID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="UseAddress" ColumnName="UseAddress" />
           <ScalarProperty Name="VehicleUseType" ColumnName="VehicleUseType" />
@@ -3390,7 +3373,7 @@
     <EntitySetMapping Name="VM_VehicleYearInspection">
       <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.VM_VehicleYearInspection)">
         <MappingFragment StoreEntitySet="VM_VehicleYearInspection">
-          <ScalarProperty Name="ID" ColumnName="VehicleYearInspectionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
           <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
           <ScalarProperty Name="InspectionResult" ColumnName="InspectionResult" />
@@ -3401,268 +3384,285 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PM_PersonContractInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(PSIMPDB.PM_PersonContractInfo)">
+        <MappingFragment StoreEntitySet="PM_PersonContractInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="SigningDate" ColumnName="SigningDate" />
+          <ScalarProperty Name="ContractPosition" ColumnName="ContractPosition" />
+          <ScalarProperty Name="ContractSalary" ColumnName="ContractSalary" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory" TypeName="PSIMPDB.AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory" StoreEntitySet="AM_ApplicationContent_CapitalFundCategory">
       <EndProperty Name="AM_ProjectApplicationBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="AM_ProjectApplicationBaseInfo_ProjectApplicationID" />
+        <ScalarProperty Name="ID" ColumnName="AM_ProjectApplicationBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="AM_ApplicationContent_CapitalFundCategory">
-        <ScalarProperty Name="ID" ColumnName="ApplicationCapitalCategoryID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory" TypeName="PSIMPDB.AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory" StoreEntitySet="AM_ApplicationContent_VehicleCategory">
       <EndProperty Name="AM_ProjectApplicationBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="AM_ProjectApplicationBaseInfo_ProjectApplicationID" />
+        <ScalarProperty Name="ID" ColumnName="AM_ProjectApplicationBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="AM_ApplicationContent_VehicleCategory">
-        <ScalarProperty Name="ID" ColumnName="ApplicationVehicleCategoryID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail" TypeName="PSIMPDB.AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail" StoreEntitySet="AM_LaiWenCircularizeDetail">
       <EndProperty Name="AM_LaiWenRecordInfo">
-        <ScalarProperty Name="ID" ColumnName="AM_LaiWenRecordInfo_LaiWenRecordID" />
+        <ScalarProperty Name="ID" ColumnName="AM_LaiWenRecordInfo_ID" />
       </EndProperty>
       <EndProperty Name="AM_LaiWenCircularizeDetail">
-        <ScalarProperty Name="ID" ColumnName="LaiWenCircularizeID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="AM_LaiWenRecordInfoAM_LaiWenRepliedInfo" TypeName="PSIMPDB.AM_LaiWenRecordInfoAM_LaiWenRepliedInfo" StoreEntitySet="AM_LaiWenRepliedInfo">
       <EndProperty Name="AM_LaiWenRecordInfo">
-        <ScalarProperty Name="ID" ColumnName="AM_LaiWenRecordInfo_LaiWenRecordID" />
+        <ScalarProperty Name="ID" ColumnName="AM_LaiWenRecordInfo_ID" />
       </EndProperty>
       <EndProperty Name="AM_LaiWenRepliedInfo">
-        <ScalarProperty Name="ID" ColumnName="LaiWenRepliedID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="AMG_AssetBaseInfoAMG_AssetAllocateInfo" TypeName="PSIMPDB.AMG_AssetBaseInfoAMG_AssetAllocateInfo" StoreEntitySet="AMG_AssetAllocateInfo">
       <EndProperty Name="AMG_AssetBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="AMG_AssetBaseInfo_AssetBaseInfoID" />
+        <ScalarProperty Name="ID" ColumnName="AMG_AssetBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="AMG_AssetAllocateInfo">
-        <ScalarProperty Name="ID" ColumnName="AssetAllocateID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="AMG_AssetBaseInfoAMG_AssetRepairInfo" TypeName="PSIMPDB.AMG_AssetBaseInfoAMG_AssetRepairInfo" StoreEntitySet="AMG_AssetRepairInfo">
       <EndProperty Name="AMG_AssetBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="AMG_AssetBaseInfo_AssetBaseInfoID" />
+        <ScalarProperty Name="ID" ColumnName="AMG_AssetBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="AMG_AssetRepairInfo">
-        <ScalarProperty Name="ID" ColumnName="AssetRepairID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="AMG_AssetBaseInfoAMG_AssetUseInfo" TypeName="PSIMPDB.AMG_AssetBaseInfoAMG_AssetUseInfo" StoreEntitySet="AMG_AssetUseInfo">
       <EndProperty Name="AMG_AssetBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="AMG_AssetBaseInfo_AssetBaseInfoID" />
+        <ScalarProperty Name="ID" ColumnName="AMG_AssetBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="AMG_AssetUseInfo">
-        <ScalarProperty Name="ID" ColumnName="AssetUseID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectContractBaseInfo" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractBaseInfo" StoreEntitySet="EM_ProjectContractBaseInfo">
       <EndProperty Name="EM_ProjectBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectContractBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="ProjectContractID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectPersonManage" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectPersonManage" StoreEntitySet="EM_ProjectPersonManage">
       <EndProperty Name="EM_ProjectBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectPersonManage">
-        <ScalarProperty Name="ID" ColumnName="ProjectPersonID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectContractPerformance" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectContractPerformance" StoreEntitySet="EM_ProjectContractPerformance">
       <EndProperty Name="EM_ProjectBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectContractPerformance">
-        <ScalarProperty Name="ID" ColumnName="ProjectContractPerformanceID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectBaseInfoEM_ProjectTestPutOnFile" TypeName="PSIMPDB.EM_ProjectBaseInfoEM_ProjectTestPutOnFile" StoreEntitySet="EM_ProjectTestPutOnFile">
       <EndProperty Name="EM_ProjectBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ProjectID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectTestPutOnFile">
-        <ScalarProperty Name="ID" ColumnName="TestPutonFileID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractDataInfo" StoreEntitySet="EM_ProjectContractDataInfo">
       <EndProperty Name="EM_ProjectContractBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectContractDataInfo">
-        <ScalarProperty Name="ID" ColumnName="PContractDataID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPayCondition" StoreEntitySet="EM_ProjectContractPayCondition">
       <EndProperty Name="EM_ProjectContractBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectContractPayCondition">
-        <ScalarProperty Name="ID" ColumnName="PContractPayConditionID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo" StoreEntitySet="EM_ProjectContractPersonInfo">
       <EndProperty Name="EM_ProjectContractBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectContractPersonInfo">
-        <ScalarProperty Name="ID" ColumnName="ContractPersonID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EM_ProjectContractBaseInfoEM_ProjectExpandInfo" TypeName="PSIMPDB.EM_ProjectContractBaseInfoEM_ProjectExpandInfo" StoreEntitySet="EM_ProjectExpandInfo">
       <EndProperty Name="EM_ProjectContractBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ProjectContractID" />
+        <ScalarProperty Name="ID" ColumnName="EM_ProjectContractBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="EM_ProjectExpandInfo">
-        <ScalarProperty Name="ID" ColumnName="ProjectExpandID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_CertificateManage" TypeName="PSIMPDB.PM_PersonBaseInfoPM_CertificateManage" StoreEntitySet="PM_CertificateManage">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_CertificateManage">
-        <ScalarProperty Name="ID" ColumnName="CertificateID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonRegister" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonRegister" StoreEntitySet="PM_PersonRegister">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_PersonRegister">
-        <ScalarProperty Name="ID" ColumnName="RegisterID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonCertificateInfo" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonCertificateInfo" StoreEntitySet="PM_PersonCertificateInfo">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_PersonCertificateInfo">
-        <ScalarProperty Name="ID" ColumnName="CertificateID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonInsuranceInfo" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonInsuranceInfo" StoreEntitySet="PM_PersonInsuranceInfo">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_PersonInsuranceInfo">
-        <ScalarProperty Name="ID" ColumnName="InsuranceID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonTrainingExperience" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonTrainingExperience" StoreEntitySet="PM_PersonTrainingExperience">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_PersonTrainingExperience">
-        <ScalarProperty Name="ID" ColumnName="TrainingExpID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonPositionalTitlesInfo" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonPositionalTitlesInfo" StoreEntitySet="PM_PersonPositionalTitlesInfo">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_PersonPositionalTitlesInfo">
-        <ScalarProperty Name="ID" ColumnName="PositionalID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonEducationalBackground" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonEducationalBackground" StoreEntitySet="PM_PersonEducationalBackground">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_PersonEducationalBackground">
-        <ScalarProperty Name="ID" ColumnName="EducationalBckID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PM_PersonBaseInfoPM_PersonWorkExperienceInfo" TypeName="PSIMPDB.PM_PersonBaseInfoPM_PersonWorkExperienceInfo" StoreEntitySet="PM_PersonWorkExperienceInfo">
       <EndProperty Name="PM_PersonBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_PersonID" />
+        <ScalarProperty Name="ID" ColumnName="PM_PersonBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="PM_PersonWorkExperienceInfo">
-        <ScalarProperty Name="ID" ColumnName="WorkExpID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleLoanInfoVM_PaymentDetailInfo" TypeName="PSIMPDB.VM_VehicleLoanInfoVM_PaymentDetailInfo" StoreEntitySet="VM_PaymentDetailInfo">
       <EndProperty Name="VM_VehicleLoanInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleLoanInfo_VehicleLoanID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleLoanInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_PaymentDetailInfo">
-        <ScalarProperty Name="ID" ColumnName="PaymentDetailID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleAllocateInfo" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleAllocateInfo" StoreEntitySet="VM_VehicleAllocateInfo">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleAllocateInfo">
-        <ScalarProperty Name="ID" ColumnName="VehicleAllocateID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleLeaseInfo" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleLeaseInfo" StoreEntitySet="VM_VehicleLeaseInfo">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleLeaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VehicleLeaseID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleUseInfo" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleUseInfo" StoreEntitySet="VM_VehicleUseInfo">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleUseInfo">
-        <ScalarProperty Name="ID" ColumnName="VehicleUseInfoID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleYearInspection" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleYearInspection" StoreEntitySet="VM_VehicleYearInspection">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleYearInspection">
-        <ScalarProperty Name="ID" ColumnName="VehicleYearInspectionID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleOperatingCost" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleOperatingCost" StoreEntitySet="VM_VehicleOperatingCost">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleOperatingCost">
-        <ScalarProperty Name="ID" ColumnName="VehicleOperatingCostID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleLoanInfo" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleLoanInfo" StoreEntitySet="VM_VehicleLoanInfo">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleLoanInfo">
-        <ScalarProperty Name="ID" ColumnName="VehicleLoanID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleInsurance" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleInsurance" StoreEntitySet="VM_VehicleInsurance">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleInsurance">
-        <ScalarProperty Name="ID" ColumnName="VehicleInsuranceID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleRepairVM_VehicleRepairDetailList" TypeName="PSIMPDB.VM_VehicleRepairVM_VehicleRepairDetailList" StoreEntitySet="VM_VehicleRepairDetailList">
       <EndProperty Name="VM_VehicleRepair">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleRepair_VehicleRepairID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleRepair_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleRepairDetailList">
-        <ScalarProperty Name="ID" ColumnName="VehicleRepairDetailID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="VM_VehicleBaseInfoVM_VehicleRepair" TypeName="PSIMPDB.VM_VehicleBaseInfoVM_VehicleRepair" StoreEntitySet="VM_VehicleRepair">
       <EndProperty Name="VM_VehicleBaseInfo">
-        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_VehicleID" />
+        <ScalarProperty Name="ID" ColumnName="VM_VehicleBaseInfo_ID" />
       </EndProperty>
       <EndProperty Name="VM_VehicleRepair">
-        <ScalarProperty Name="ID" ColumnName="VehicleRepairID" />
+        <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

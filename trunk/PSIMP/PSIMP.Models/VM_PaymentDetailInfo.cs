@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class VM_PaymentDetailInfo
+    public partial class VM_PaymentDetailInfo : BaseEntity
     {
-        public int ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string VehicleLoanID { get; set; }
         public string VehicleID { get; set; }
         public string PaymentDate { get; set; }

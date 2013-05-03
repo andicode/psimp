@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonContractInfo
+    public partial class PM_PersonContractInfo : BaseEntity
     {
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public bool Sex { get; set; }
         public string IDNumber { get; set; }
         public string ContractNumber { get; set; }
