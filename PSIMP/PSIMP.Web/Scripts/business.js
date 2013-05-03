@@ -17,30 +17,23 @@ var person = {
         App.Person_Card.getLayout().setActiveItem(0);
         App.Person_Basic_Info.getForm().reset();
         App.person_Info_Id.setValue("");
-        App.person_info_picture.setValue("");
         App.person_info_image.setImageUrl("/images/person/default.jpg");
         person.setDisabledMenuItem(true);
 
         App.Person_Window.show();
     },
-    edit: function (id) {
+    edit: function (record) {
         App.PersonForm_MenuPanel.setSelectedIndex(0)
         App.Person_Card.getLayout().setActiveItem(0)
-        var record = App.Person_Store.getById(id);
         App.Person_Basic_Info.getForm().setValues(record.data);
         App.Person_Window.show();
     },
-    del: function (id) {
-        var record = App.Person_Store.getById(id);
-        var picture = record.data.Picture;
-        Ext.Msg.confirm("提示信息", "确定要删除“" + record.data.Name + "”吗？", function (r) {
+    del: function (record) {
+        Ext.Msg.confirm("提示信息", "确定要删除“" + record.data.PersonName + "”吗？", function (r) {
             if (r == "yes") {
                 Ext.net.DirectMethod.request({
-                    url: "/person/delete/" + id,
-                    cleanRequest: true,
-                    params: {
-                        picture: picture
-                    }
+                    url: "/person/delete/" + record.data.ID,
+                    cleanRequest: true
                 });
             }
         })

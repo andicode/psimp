@@ -12,9 +12,9 @@
                   .Component(
                         Html.X().Container().Layout(LayoutType.VBox)
                             .Items(
-                                Html.X().Button().Text("编辑").Icon(Icon.PageEdit).Margin(5).Handler("person.edit(this.up('container').record.data.Id)"),
+                                Html.X().Button().Text("编辑").Icon(Icon.PageEdit).Margin(5).Handler("person.edit(this.up('container').record)"),
 
-                                Html.X().Button().Text("删除").Icon(Icon.PageEdit).Margin(5).Handler("person.del(this.up('container').record.data.Id)")
+                                Html.X().Button().Text("删除").Icon(Icon.PageEdit).Margin(5).Handler("person.del(this.up('container').record)")
                             )
                   )
               );

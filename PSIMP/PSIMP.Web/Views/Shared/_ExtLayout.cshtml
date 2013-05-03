@@ -9,7 +9,7 @@
     <script src="~/Scripts/business.js"></script>
 </head>
 <body id="mainBody">
-    @Html.X().ResourceManager().ScriptMode(Ext.Net.ScriptMode.Debug)
+    @Html.X().ResourceManager().ScriptMode(Ext.Net.ScriptMode.Debug).StartupMask(new StartupMask { HideDelay = 500, Message = "正在准备桌面..." })
     @Html.X().ResourcesRegistrator().RegisterAllResources(true)
     @RenderBody()
 </body>

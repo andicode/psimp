@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Mvc;
 using Ext.Net.MVC;
 using PSIMP.Models;
-//using PSIMP.Repository;
 using System.IO;
 using PSIMP.Repository;
 namespace PSIMP.Web.Controllers
@@ -14,10 +13,10 @@ namespace PSIMP.Web.Controllers
     [DirectController(GenerateProxyForOtherAreas=true,GenerateProxyForOtherControllers=true)]
     public class PersonController : Controller
     {
-        private  DBContext<PM_PersonBaseInfo> PersonService { get; set; }
+        private PersonRepository PersonService { get; set; }
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
-            PersonService = new DBContext<PM_PersonBaseInfo>();
+            PersonService = new PersonRepository();
             base.Initialize(requestContext);
         }
 
@@ -25,6 +24,7 @@ namespace PSIMP.Web.Controllers
         {
             return View();
         }
+
         public ActionResult GetPersons()
         {
             var data = PersonService.GetAll();
@@ -35,18 +35,39 @@ namespace PSIMP.Web.Controllers
         {
             return this.ComponentConfig();
         }
+
         [HttpPost]
         public ActionResult Save(PM_PersonBaseInfo person, HttpPostedFileBase TempPicture)
         {
             if (person.IsCreate)
             {
+                if (TempPicture != null)
+                {
+                    var buff = new byte[TempPicture.InputStream.Length];
+                    TempPicture.InputStream.Read(buff, 0, (int)TempPicture.InputStream.Length);
+                    person.TwoInchPhoto = buff;
+                }
                 PersonService.Add(person);
             }
-            X.GetCmp<FormPanel>("Person_Basic_Info").SetValues(person);
+            else
+            {
+                if (TempPicture != null)
+                {
+                    var buff = new byte[TempPicture.InputStream.Length];
+                    TempPicture.InputStream.Read(buff, 0, (int)TempPicture.InputStream.Length);
+                    person.TwoInchPhoto = buff;
+                }
+                PersonService.Update(person);
+            }
+            X.GetCmp<FormPanel>("Person_Basic_Info").SetValues(person);//重置表单
+            X.GetCmp<Store>("Person_Store").Reload();//刷新表格
+            X.AddScript("person.setFormState();");//修改表单图片
+            X.Msg.NotifyTop("操作成功");
             var result = this.Direct();
             result.IsUpload = true;
             return result;
         }
+
         public ActionResult Photo(string id)
         {
             var person=PersonService.Get(id);
@@ -59,14 +80,12 @@ namespace PSIMP.Web.Controllers
                 return File(person.TwoInchPhoto,"image/jpeg");
             }
         }
-        public ActionResult Edit()
-        {
-            return this.PartialExtView();
-        }
         
-        public ActionResult Delete(long id,string picture)
+        public ActionResult Delete(string id)
         {
+            PersonService.CompletelyDelete(id);
             X.GetCmp<Store>("Person_Store").Reload();
+            X.Msg.NotifyTop("操作成功");
             return this.Direct();
         }       
     }

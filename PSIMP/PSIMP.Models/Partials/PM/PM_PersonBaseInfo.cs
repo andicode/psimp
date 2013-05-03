@@ -15,8 +15,9 @@ namespace PSIMP.Models
     [MetadataType(typeof(PM_PersonBaseInfo_MetaData))]
     public partial class PM_PersonBaseInfo 
     {
-      
-
+        [Column(Ignore=true)]
+        [Field(Ignore=true)]
+        public long _dc { get { return DateTime.Now.Ticks; } }
 
         [Model(IDProperty = "PersonID")]
         public class PM_PersonBaseInfo_MetaData
@@ -31,8 +32,7 @@ namespace PSIMP.Models
 
             [TemplateColumn(Text = "性别", Order = 2, TemplateString = "{[values.Sex?'男':'女']}")]
             [Field(FieldLabel = "性别", FieldType = typeof(SexComboBox), AllowBlank = false, BlankText = "请选择人员性别")]
-            public bool Sex { get; set; }
-           
+            public bool Sex { get; set; }           
 
             [Column(Text = "户籍地")]
             [Field(FieldLabel = "户籍地")]
@@ -50,11 +50,11 @@ namespace PSIMP.Models
             [Field(FieldLabel = "联系电话", AllowBlank = false, BlankText = "请输入联系电话")]
             public string ContactPhoneNumber { get; set; }
 
-            [Column(Text = "联系电话", Order = 7)]
-            [Field(FieldLabel = "联系电话")]
+            [Column(Text = "备用电话", Order = 7)]
+            [Field(FieldLabel = "备用电话")]
             public string AlternatePhoneNumber { get; set; }
 
-            [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Person/Photo/{ID}\" alt=\"{PersonName}\">")]
+            [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Person/Photo/{ID}?_dc={_dc}\" alt=\"{PersonName}\">")]
             [Field(FieldLabel = "照片",FieldType=typeof(FileUploadField))]
             public byte[] TwoInchPhoto { get; set; }
 
