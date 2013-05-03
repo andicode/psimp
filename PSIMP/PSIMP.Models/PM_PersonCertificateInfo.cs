@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonCertificateInfo
+    public partial class PM_PersonCertificateInfo : BaseEntity
     {
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string CertificateName { get; set; }
         public string CertificateType { get; set; }
         public string CertificateNumber { get; set; }

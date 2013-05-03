@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AM_ApplicationContent_CapitalFundCategory
+    public partial class AM_ApplicationContent_CapitalFundCategory : BaseEntity
     {
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public System.Guid ProjectApplicationID { get; set; }
         public string ApplicationType { get; set; }
         public string AssetName { get; set; }

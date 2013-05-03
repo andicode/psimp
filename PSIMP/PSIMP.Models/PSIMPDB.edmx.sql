@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/02/2013 15:57:05
+-- Date Created: 05/03/2013 11:53:16
 -- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
@@ -90,7 +90,7 @@ IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonPositionalTitlesInfo]', 'F') 
     ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonPositionalTitlesInfo];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonEducationalBackground]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PM_PersonEducationalBackground1] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonEducationalBackground];
+    ALTER TABLE [dbo].[PM_PersonEducationalBackground] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonEducationalBackground];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PM_PersonBaseInfoPM_PersonWorkExperienceInfo]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo] DROP CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonWorkExperienceInfo];
@@ -217,8 +217,8 @@ GO
 IF OBJECT_ID(N'[dbo].[PM_PersonContractInfo]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PM_PersonContractInfo];
 GO
-IF OBJECT_ID(N'[dbo].[PM_PersonEducationalBackground1]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonEducationalBackground1];
+IF OBJECT_ID(N'[dbo].[PM_PersonEducationalBackground]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonEducationalBackground];
 GO
 IF OBJECT_ID(N'[dbo].[PM_PersonInsuranceInfo]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PM_PersonInsuranceInfo];
@@ -282,30 +282,30 @@ GO
 
 -- Creating table 'UserFiles'
 CREATE TABLE [dbo].[UserFiles] (
-    [ID] bigint IDENTITY(1,1) NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [FileName] nvarchar(max)  NOT NULL,
     [FileType] nvarchar(max)  NOT NULL,
     [FileSize] nvarchar(max)  NOT NULL,
     [Remark] nvarchar(max)  NOT NULL,
     [IsShared] bit  NOT NULL,
-    [FolderID] bigint  NOT NULL,
+    [FolderID] uniqueidentifier  NOT NULL,
     [SharedRemark] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'UserFolders'
 CREATE TABLE [dbo].[UserFolders] (
-    [ID] bigint IDENTITY(1,1) NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [FolderName] nvarchar(max)  NOT NULL,
     [UserId] int  NOT NULL,
     [IsSys] bit  NOT NULL,
-    [ParentID] bigint  NULL
+    [ParentID] uniqueidentifier  NULL
 );
 GO
 
 -- Creating table 'AM_ApplicationContent_CapitalFundCategory'
 CREATE TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory] (
-    [ApplicationCapitalCategoryID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectApplicationID] uniqueidentifier  NOT NULL,
     [ApplicationType] nvarchar(50)  NOT NULL,
     [AssetName] nvarchar(max)  NOT NULL,
@@ -315,13 +315,13 @@ CREATE TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory] (
     [Money] decimal(18,0)  NOT NULL,
     [TotalMoney] decimal(18,0)  NOT NULL,
     [Description] nvarchar(500)  NOT NULL,
-    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] uniqueidentifier  NOT NULL
+    [AM_ProjectApplicationBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_ApplicationContent_VehicleCategory'
 CREATE TABLE [dbo].[AM_ApplicationContent_VehicleCategory] (
-    [ApplicationVehicleCategoryID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectApplicationID] uniqueidentifier  NOT NULL,
     [ApplicationType] uniqueidentifier  NOT NULL,
     [PlateNumber] nvarchar(40)  NOT NULL,
@@ -332,13 +332,13 @@ CREATE TABLE [dbo].[AM_ApplicationContent_VehicleCategory] (
     [ItemQuantity] int  NOT NULL,
     [TotalMoney] decimal(18,0)  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [AM_ProjectApplicationBaseInfo_ProjectApplicationID] uniqueidentifier  NOT NULL
+    [AM_ProjectApplicationBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_ApplicationRepliedDetail'
 CREATE TABLE [dbo].[AM_ApplicationRepliedDetail] (
-    [ApplicationRepliedDetailID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [RepliedPersonID] uniqueidentifier  NOT NULL,
     [RepliedResult] bit  NOT NULL,
     [RepliedSuggestion] nvarchar(300)  NOT NULL,
@@ -351,19 +351,19 @@ GO
 
 -- Creating table 'AM_LaiWenCircularizeDetail'
 CREATE TABLE [dbo].[AM_LaiWenCircularizeDetail] (
-    [LaiWenCircularizeID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [LaiWenRecordID] uniqueidentifier  NOT NULL,
     [CircularizeStatus] bit  NOT NULL,
     [CircularizedPersonID] uniqueidentifier  NOT NULL,
     [CircularizedDate] datetime  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [AM_LaiWenRecordInfo_LaiWenRecordID] uniqueidentifier  NOT NULL
+    [AM_LaiWenRecordInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_LaiWenRecordInfo'
 CREATE TABLE [dbo].[AM_LaiWenRecordInfo] (
-    [LaiWenRecordID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [LaiWenUnit] nvarchar(40)  NOT NULL,
     [LaiWenType] nvarchar(50)  NOT NULL,
     [LaiWenMode] nvarchar(40)  NOT NULL,
@@ -378,7 +378,7 @@ GO
 
 -- Creating table 'AM_LaiWenRepliedInfo'
 CREATE TABLE [dbo].[AM_LaiWenRepliedInfo] (
-    [LaiWenRepliedID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [RepliedDepartment] nvarchar(40)  NOT NULL,
     [RepliedUserID] uniqueidentifier  NOT NULL,
     [RepliedStatus] bit  NOT NULL,
@@ -387,13 +387,13 @@ CREATE TABLE [dbo].[AM_LaiWenRepliedInfo] (
     [RepliedDate] datetime  NOT NULL,
     [LaiWenRecordID] uniqueidentifier  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [AM_LaiWenRecordInfo_LaiWenRecordID] uniqueidentifier  NOT NULL
+    [AM_LaiWenRecordInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AM_ProjectApplicationBaseInfo'
 CREATE TABLE [dbo].[AM_ProjectApplicationBaseInfo] (
-    [ProjectApplicationID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ApplicationSerialNumber] nvarchar(40)  NOT NULL,
     [ApplicationDate] datetime  NOT NULL,
     [ApplicationProjectID] uniqueidentifier  NOT NULL,
@@ -406,7 +406,7 @@ GO
 
 -- Creating table 'AM_ProjectApplicationRepliedInfo'
 CREATE TABLE [dbo].[AM_ProjectApplicationRepliedInfo] (
-    [ApplicationRepliedID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectApplicationID] uniqueidentifier  NOT NULL,
     [ProjectManagerReplied] nvarchar(200)  NOT NULL,
     [ChiefDepartmentReplied] nvarchar(200)  NOT NULL,
@@ -419,7 +419,7 @@ GO
 
 -- Creating table 'AMG_AssetAllocateInfo'
 CREATE TABLE [dbo].[AMG_AssetAllocateInfo] (
-    [AssetAllocateID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [AssetBaseInfoID] uniqueidentifier  NOT NULL,
     [LeaveFromCompany] nvarchar(40)  NOT NULL,
     [LeaveToCompany] nvarchar(40)  NOT NULL,
@@ -429,13 +429,13 @@ CREATE TABLE [dbo].[AMG_AssetAllocateInfo] (
     [Description] nvarchar(200)  NOT NULL,
     [Other1] int  NOT NULL,
     [Other2] int  NOT NULL,
-    [AMG_AssetBaseInfo_AssetBaseInfoID] uniqueidentifier  NOT NULL
+    [AMG_AssetBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AMG_AssetBaseInfo'
 CREATE TABLE [dbo].[AMG_AssetBaseInfo] (
-    [AssetBaseInfoID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [AssetSerialNumber] nvarchar(40)  NOT NULL,
     [AssetType] int  NOT NULL,
     [AssetName] nvarchar(40)  NOT NULL,
@@ -455,7 +455,7 @@ GO
 
 -- Creating table 'AMG_AssetRepairInfo'
 CREATE TABLE [dbo].[AMG_AssetRepairInfo] (
-    [AssetRepairID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [AssetBaseInfoID] uniqueidentifier  NOT NULL,
     [RepairType] int  NOT NULL,
     [RepairReason] nvarchar(40)  NOT NULL,
@@ -465,13 +465,13 @@ CREATE TABLE [dbo].[AMG_AssetRepairInfo] (
     [Description] nvarchar(300)  NOT NULL,
     [Other1] nvarchar(10)  NOT NULL,
     [Other2] int  NOT NULL,
-    [AMG_AssetBaseInfo_AssetBaseInfoID] uniqueidentifier  NOT NULL
+    [AMG_AssetBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'AMG_AssetUseInfo'
 CREATE TABLE [dbo].[AMG_AssetUseInfo] (
-    [AssetUseID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [AssetBaseInfoID] uniqueidentifier  NOT NULL,
     [AssetUseCompany] nvarchar(40)  NOT NULL,
     [Number] int  NOT NULL,
@@ -480,13 +480,13 @@ CREATE TABLE [dbo].[AMG_AssetUseInfo] (
     [UseReason] nvarchar(300)  NOT NULL,
     [Description] nvarchar(200)  NOT NULL,
     [Other] nvarchar(20)  NOT NULL,
-    [AMG_AssetBaseInfo_AssetBaseInfoID] uniqueidentifier  NOT NULL
+    [AMG_AssetBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectBaseInfo'
 CREATE TABLE [dbo].[EM_ProjectBaseInfo] (
-    [ProjectID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectFullName] nvarchar(50)  NOT NULL,
     [ProjectName] nvarchar(40)  NOT NULL,
     [ConstructionCompany] nvarchar(50)  NOT NULL,
@@ -505,7 +505,7 @@ GO
 
 -- Creating table 'EM_ProjectContractBaseInfo'
 CREATE TABLE [dbo].[EM_ProjectContractBaseInfo] (
-    [ProjectContractID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectID] uniqueidentifier  NOT NULL,
     [BiddingDate] datetime  NOT NULL,
     [ContractPeriod] int  NOT NULL,
@@ -514,13 +514,13 @@ CREATE TABLE [dbo].[EM_ProjectContractBaseInfo] (
     [OpeningConditions] nvarchar(400)  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
     [ContractAttachment] tinyint  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
+    [EM_ProjectBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractDataInfo'
 CREATE TABLE [dbo].[EM_ProjectContractDataInfo] (
-    [PContractDataID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ContractMoney] decimal(18,0)  NOT NULL,
     [ProvisionalSums] decimal(18,0)  NOT NULL,
     [ContractNetAmount] decimal(18,0)  NOT NULL,
@@ -532,13 +532,13 @@ CREATE TABLE [dbo].[EM_ProjectContractDataInfo] (
     [AgainstRiskMoney] decimal(18,0)  NOT NULL,
     [ReviewMoeny] decimal(18,0)  NOT NULL,
     [ContractID] uniqueidentifier  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
+    [EM_ProjectContractBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractPayCondition'
 CREATE TABLE [dbo].[EM_ProjectContractPayCondition] (
-    [PContractPayConditionID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ContractID] uniqueidentifier  NOT NULL,
     [MeasurePayCondition] nvarchar(300)  NOT NULL,
     [AgainstRiskPayCondition] nvarchar(300)  NOT NULL,
@@ -548,13 +548,13 @@ CREATE TABLE [dbo].[EM_ProjectContractPayCondition] (
     [PerformanceBondPayCondition] nvarchar(300)  NOT NULL,
     [PayMode] nvarchar(50)  NOT NULL,
     [PayDutyMode] nvarchar(50)  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
+    [EM_ProjectContractBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractPerformance'
 CREATE TABLE [dbo].[EM_ProjectContractPerformance] (
-    [ProjectContractPerformanceID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectID] uniqueidentifier  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
     [PersonName] nvarchar(20)  NOT NULL,
@@ -564,13 +564,13 @@ CREATE TABLE [dbo].[EM_ProjectContractPerformance] (
     [PerformanceDuties] nvarchar(40)  NOT NULL,
     [OutDate] datetime  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
+    [EM_ProjectBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectContractPersonInfo'
 CREATE TABLE [dbo].[EM_ProjectContractPersonInfo] (
-    [ContractPersonID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectContractID] uniqueidentifier  NOT NULL,
     [ContractDuties] nvarchar(20)  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
@@ -578,13 +578,13 @@ CREATE TABLE [dbo].[EM_ProjectContractPersonInfo] (
     [HoldCertificate] nvarchar(50)  NOT NULL,
     [Other] nvarchar(80)  NOT NULL,
     [Description] nvarchar(300)  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
+    [EM_ProjectContractBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectExpandInfo'
 CREATE TABLE [dbo].[EM_ProjectExpandInfo] (
-    [ProjectExpandID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectID] uniqueidentifier  NOT NULL,
     [ProjectName] nvarchar(30)  NOT NULL,
     [ContractMoney] decimal(18,0)  NOT NULL,
@@ -625,13 +625,13 @@ CREATE TABLE [dbo].[EM_ProjectExpandInfo] (
     [ConstructionCompanyPhoneNum] nvarchar(40)  NOT NULL,
     [RewardAndPunishment] nvarchar(400)  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [EM_ProjectContractBaseInfo_ProjectContractID] uniqueidentifier  NOT NULL
+    [EM_ProjectContractBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectPersonManage'
 CREATE TABLE [dbo].[EM_ProjectPersonManage] (
-    [ProjectPersonID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectID] uniqueidentifier  NOT NULL,
     [ProjectName] nvarchar(20)  NOT NULL,
     [DutiesName] nvarchar(20)  NOT NULL,
@@ -650,26 +650,26 @@ CREATE TABLE [dbo].[EM_ProjectPersonManage] (
     [RepliedNumber] nvarchar(40)  NOT NULL,
     [RepliedAttachment] tinyint  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
+    [EM_ProjectBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'EM_ProjectTestPutOnFile'
 CREATE TABLE [dbo].[EM_ProjectTestPutOnFile] (
-    [TestPutonFileID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [ProjectID] uniqueidentifier  NOT NULL,
     [ProjectName] nvarchar(20)  NOT NULL,
     [PutonfileStartDate] datetime  NOT NULL,
     [PutonfileEndDate] datetime  NOT NULL,
     [PutonfileTimes] int  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [EM_ProjectBaseInfo_ProjectID] uniqueidentifier  NOT NULL
+    [EM_ProjectBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_CertificateManage'
 CREATE TABLE [dbo].[PM_CertificateManage] (
-    [CertificateID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [FileNumber] nvarchar(40)  NOT NULL,
     [PersonID] nvarchar(40)  NOT NULL,
     [RegisterDate] datetime  NOT NULL,
@@ -697,13 +697,13 @@ CREATE TABLE [dbo].[PM_CertificateManage] (
     [IsGivebackConservationCertificate] bit  NOT NULL,
     [IsGivebackIdentificationCard] bit  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonBaseInfo'
 CREATE TABLE [dbo].[PM_PersonBaseInfo] (
-    [PersonID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [PersonName] nvarchar(20)  NOT NULL,
     [Sex] bit  NOT NULL,
     [Birthday] datetime  NOT NULL,
@@ -717,7 +717,7 @@ GO
 
 -- Creating table 'PM_PersonCertificateInfo'
 CREATE TABLE [dbo].[PM_PersonCertificateInfo] (
-    [CertificateID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [CertificateName] nvarchar(30)  NOT NULL,
     [CertificateType] nvarchar(40)  NOT NULL,
     [CertificateNumber] nvarchar(40)  NOT NULL,
@@ -725,29 +725,13 @@ CREATE TABLE [dbo].[PM_PersonCertificateInfo] (
     [Authority] nvarchar(40)  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
-);
-GO
-
--- Creating table 'PM_PersonContractInfo'
-CREATE TABLE [dbo].[PM_PersonContractInfo] (
-    [ContractID] uniqueidentifier  NOT NULL,
-    [Sex] bit  NOT NULL,
-    [IDNumber] nvarchar(20)  NOT NULL,
-    [ContractNumber] nvarchar(40)  NOT NULL,
-    [EffectiveDate] datetime  NOT NULL,
-    [ExpiryDate] bit  NOT NULL,
-    [SigningDate] datetime  NOT NULL,
-    [ContractPosition] nvarchar(20)  NOT NULL,
-    [ContractSalary] decimal(18,0)  NOT NULL,
-    [Description] nvarchar(400)  NOT NULL,
-    [PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonEducationalBackground'
 CREATE TABLE [dbo].[PM_PersonEducationalBackground] (
-    [EducationalBckID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [SchoolName] nvarchar(20)  NOT NULL,
     [EduStartDate] datetime  NOT NULL,
     [EduEndDate] datetime  NOT NULL,
@@ -755,13 +739,13 @@ CREATE TABLE [dbo].[PM_PersonEducationalBackground] (
     [Degree] nvarchar(40)  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonInsuranceInfo'
 CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
-    [InsuranceID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
     [IDNumber] nvarchar(40)  NOT NULL,
@@ -776,26 +760,26 @@ CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
     [PositionName] nvarchar(40)  NOT NULL,
     [InsuranceStatus] int  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonPositionalTitlesInfo'
 CREATE TABLE [dbo].[PM_PersonPositionalTitlesInfo] (
-    [PositionalID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [PositionalName] nvarchar(20)  NOT NULL,
     [PositionalType] nvarchar(40)  NOT NULL,
     [AssessmentDate] datetime  NOT NULL,
     [AssessmentBody] nvarchar(40)  NOT NULL,
     [Descriptions] nvarchar(200)  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonRegister'
 CREATE TABLE [dbo].[PM_PersonRegister] (
-    [RegisterID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
     [RegisterDate] datetime  NOT NULL,
     [RegisterCompany] nvarchar(30)  NOT NULL,
@@ -811,13 +795,13 @@ CREATE TABLE [dbo].[PM_PersonRegister] (
     [RegisterStatus] int  NOT NULL,
     [NoCanRegisterCause] nvarchar(400)  NOT NULL,
     [Descriptions] nvarchar(300)  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonTrainingExperience'
 CREATE TABLE [dbo].[PM_PersonTrainingExperience] (
-    [TrainingExpID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [InstitutionsName] nvarchar(30)  NOT NULL,
     [TrainingStartDate] datetime  NOT NULL,
     [TrainingEndDate] datetime  NOT NULL,
@@ -826,13 +810,13 @@ CREATE TABLE [dbo].[PM_PersonTrainingExperience] (
     [GotCertificate] nvarchar(20)  NOT NULL,
     [Descriptions] nvarchar(400)  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'PM_PersonWorkExperienceInfo'
 CREATE TABLE [dbo].[PM_PersonWorkExperienceInfo] (
-    [WorkExpID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [WorkStartDate] datetime  NOT NULL,
     [WorkEndDate] datetime  NOT NULL,
     [CompanyName] nvarchar(40)  NOT NULL,
@@ -846,13 +830,13 @@ CREATE TABLE [dbo].[PM_PersonWorkExperienceInfo] (
     [RefereesName] nvarchar(20)  NOT NULL,
     [RefereesPhoneNumber] nvarchar(20)  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
-    [PM_PersonBaseInfo_PersonID] uniqueidentifier  NOT NULL
+    [PM_PersonBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_PaymentDetailInfo'
 CREATE TABLE [dbo].[VM_PaymentDetailInfo] (
-    [PaymentDetailID] int IDENTITY(1,1) NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleLoanID] nvarchar(40)  NOT NULL,
     [VehicleID] nvarchar(max)  NOT NULL,
     [PaymentDate] nvarchar(max)  NOT NULL,
@@ -869,13 +853,13 @@ CREATE TABLE [dbo].[VM_PaymentDetailInfo] (
     [BankAccountBalance] nvarchar(max)  NOT NULL,
     [OperatorUserID] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [VM_VehicleLoanInfo_VehicleLoanID] uniqueidentifier  NOT NULL
+    [VM_VehicleLoanInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleAllocateInfo'
 CREATE TABLE [dbo].[VM_VehicleAllocateInfo] (
-    [VehicleAllocateID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [LeaveFromCompany] uniqueidentifier  NOT NULL,
     [LeaveToCompany] uniqueidentifier  NOT NULL,
@@ -885,13 +869,13 @@ CREATE TABLE [dbo].[VM_VehicleAllocateInfo] (
     [Description] nvarchar(400)  NOT NULL,
     [Other1] nvarchar(40)  NOT NULL,
     [Other2] nvarchar(40)  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleBaseInfo'
 CREATE TABLE [dbo].[VM_VehicleBaseInfo] (
-    [VehicleID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleBrand] nvarchar(40)  NOT NULL,
     [MotorModelNumber] nvarchar(40)  NOT NULL,
     [VehicleLicensePlate] nvarchar(20)  NOT NULL,
@@ -908,7 +892,7 @@ GO
 
 -- Creating table 'VM_VehicleInsurance'
 CREATE TABLE [dbo].[VM_VehicleInsurance] (
-    [VehicleInsuranceID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [TakeEffectiveDate] datetime  NOT NULL,
     [LoseEfficacyDate] datetime  NOT NULL,
@@ -917,13 +901,13 @@ CREATE TABLE [dbo].[VM_VehicleInsurance] (
     [Other1] nvarchar(200)  NOT NULL,
     [Other2] nvarchar(200)  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleLeaseInfo'
 CREATE TABLE [dbo].[VM_VehicleLeaseInfo] (
-    [VehicleLeaseID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [ContractStatus] int  NOT NULL,
     [ContractStartDate] datetime  NOT NULL,
@@ -935,13 +919,13 @@ CREATE TABLE [dbo].[VM_VehicleLeaseInfo] (
     [IsMailToCompany] bit  NOT NULL,
     [Description] nvarchar(200)  NOT NULL,
     [ContractAttachment] tinyint  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleLoanInfo'
 CREATE TABLE [dbo].[VM_VehicleLoanInfo] (
-    [VehicleLoanID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [Borrowers] nvarchar(40)  NOT NULL,
     [GuaranteeUnitName] nvarchar(40)  NOT NULL,
@@ -962,13 +946,13 @@ CREATE TABLE [dbo].[VM_VehicleLoanInfo] (
     [PaymentStartDate] datetime  NOT NULL,
     [PaymentDueDate] datetime  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleOperatingCost'
 CREATE TABLE [dbo].[VM_VehicleOperatingCost] (
-    [VehicleOperatingCostID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [VehicleUseType] nvarchar(60)  NOT NULL,
     [VehicleDriver] nvarchar(40)  NOT NULL,
@@ -976,13 +960,13 @@ CREATE TABLE [dbo].[VM_VehicleOperatingCost] (
     [TotalCost] decimal(18,0)  NOT NULL,
     [Other] nvarchar(100)  NOT NULL,
     [Description] nvarchar(200)  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleRepair'
 CREATE TABLE [dbo].[VM_VehicleRepair] (
-    [VehicleRepairID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [ApplicationSerialNumber] nvarchar(40)  NOT NULL,
     [MileageNumber] real  NOT NULL,
@@ -993,13 +977,13 @@ CREATE TABLE [dbo].[VM_VehicleRepair] (
     [Other1] nvarchar(80)  NOT NULL,
     [Other2] nvarchar(40)  NOT NULL,
     [Description] nvarchar(200)  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleRepairDetailList'
 CREATE TABLE [dbo].[VM_VehicleRepairDetailList] (
-    [VehicleRepairDetailID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleRepairID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [PartsName] nvarchar(100)  NOT NULL,
@@ -1012,13 +996,13 @@ CREATE TABLE [dbo].[VM_VehicleRepairDetailList] (
     [RealityCost] decimal(18,0)  NOT NULL,
     [LaborCost] decimal(18,0)  NOT NULL,
     [Description] nvarchar(400)  NOT NULL,
-    [VM_VehicleRepair_VehicleRepairID] uniqueidentifier  NOT NULL
+    [VM_VehicleRepair_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleUseInfo'
 CREATE TABLE [dbo].[VM_VehicleUseInfo] (
-    [VehicleUseInfoID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [UseAddress] nvarchar(100)  NOT NULL,
     [VehicleUseType] nvarchar(60)  NOT NULL,
@@ -1028,13 +1012,13 @@ CREATE TABLE [dbo].[VM_VehicleUseInfo] (
     [UsePurpose] nvarchar(400)  NOT NULL,
     [Description] nvarchar(200)  NOT NULL,
     [Other] nvarchar(50)  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
 );
 GO
 
 -- Creating table 'VM_VehicleYearInspection'
 CREATE TABLE [dbo].[VM_VehicleYearInspection] (
-    [VehicleYearInspectionID] uniqueidentifier  NOT NULL,
+    [ID] uniqueidentifier  NOT NULL,
     [VehicleID] uniqueidentifier  NOT NULL,
     [InspectionDate] datetime  NOT NULL,
     [InspectionResult] bit  NOT NULL,
@@ -1042,7 +1026,23 @@ CREATE TABLE [dbo].[VM_VehicleYearInspection] (
     [Other1] nvarchar(50)  NOT NULL,
     [Other2] nvarchar(50)  NOT NULL,
     [Description] nvarchar(200)  NOT NULL,
-    [VM_VehicleBaseInfo_VehicleID] uniqueidentifier  NOT NULL
+    [VM_VehicleBaseInfo_ID] uniqueidentifier  NOT NULL
+);
+GO
+
+-- Creating table 'PM_PersonContractInfo'
+CREATE TABLE [dbo].[PM_PersonContractInfo] (
+    [ID] uniqueidentifier  NOT NULL,
+    [Sex] bit  NOT NULL,
+    [IDNumber] nvarchar(20)  NOT NULL,
+    [ContractNumber] nvarchar(40)  NOT NULL,
+    [EffectiveDate] datetime  NOT NULL,
+    [ExpiryDate] bit  NOT NULL,
+    [SigningDate] datetime  NOT NULL,
+    [ContractPosition] nvarchar(20)  NOT NULL,
+    [ContractSalary] decimal(18,0)  NOT NULL,
+    [Description] nvarchar(400)  NOT NULL,
+    [PersonID] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -1068,256 +1068,256 @@ ADD CONSTRAINT [PK_UserFolders]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ApplicationCapitalCategoryID] in table 'AM_ApplicationContent_CapitalFundCategory'
+-- Creating primary key on [ID] in table 'AM_ApplicationContent_CapitalFundCategory'
 ALTER TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory]
 ADD CONSTRAINT [PK_AM_ApplicationContent_CapitalFundCategory]
-    PRIMARY KEY CLUSTERED ([ApplicationCapitalCategoryID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ApplicationVehicleCategoryID] in table 'AM_ApplicationContent_VehicleCategory'
+-- Creating primary key on [ID] in table 'AM_ApplicationContent_VehicleCategory'
 ALTER TABLE [dbo].[AM_ApplicationContent_VehicleCategory]
 ADD CONSTRAINT [PK_AM_ApplicationContent_VehicleCategory]
-    PRIMARY KEY CLUSTERED ([ApplicationVehicleCategoryID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ApplicationRepliedDetailID] in table 'AM_ApplicationRepliedDetail'
+-- Creating primary key on [ID] in table 'AM_ApplicationRepliedDetail'
 ALTER TABLE [dbo].[AM_ApplicationRepliedDetail]
 ADD CONSTRAINT [PK_AM_ApplicationRepliedDetail]
-    PRIMARY KEY CLUSTERED ([ApplicationRepliedDetailID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [LaiWenCircularizeID] in table 'AM_LaiWenCircularizeDetail'
+-- Creating primary key on [ID] in table 'AM_LaiWenCircularizeDetail'
 ALTER TABLE [dbo].[AM_LaiWenCircularizeDetail]
 ADD CONSTRAINT [PK_AM_LaiWenCircularizeDetail]
-    PRIMARY KEY CLUSTERED ([LaiWenCircularizeID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [LaiWenRecordID] in table 'AM_LaiWenRecordInfo'
+-- Creating primary key on [ID] in table 'AM_LaiWenRecordInfo'
 ALTER TABLE [dbo].[AM_LaiWenRecordInfo]
 ADD CONSTRAINT [PK_AM_LaiWenRecordInfo]
-    PRIMARY KEY CLUSTERED ([LaiWenRecordID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [LaiWenRepliedID] in table 'AM_LaiWenRepliedInfo'
+-- Creating primary key on [ID] in table 'AM_LaiWenRepliedInfo'
 ALTER TABLE [dbo].[AM_LaiWenRepliedInfo]
 ADD CONSTRAINT [PK_AM_LaiWenRepliedInfo]
-    PRIMARY KEY CLUSTERED ([LaiWenRepliedID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ProjectApplicationID] in table 'AM_ProjectApplicationBaseInfo'
+-- Creating primary key on [ID] in table 'AM_ProjectApplicationBaseInfo'
 ALTER TABLE [dbo].[AM_ProjectApplicationBaseInfo]
 ADD CONSTRAINT [PK_AM_ProjectApplicationBaseInfo]
-    PRIMARY KEY CLUSTERED ([ProjectApplicationID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ApplicationRepliedID] in table 'AM_ProjectApplicationRepliedInfo'
+-- Creating primary key on [ID] in table 'AM_ProjectApplicationRepliedInfo'
 ALTER TABLE [dbo].[AM_ProjectApplicationRepliedInfo]
 ADD CONSTRAINT [PK_AM_ProjectApplicationRepliedInfo]
-    PRIMARY KEY CLUSTERED ([ApplicationRepliedID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [AssetAllocateID] in table 'AMG_AssetAllocateInfo'
+-- Creating primary key on [ID] in table 'AMG_AssetAllocateInfo'
 ALTER TABLE [dbo].[AMG_AssetAllocateInfo]
 ADD CONSTRAINT [PK_AMG_AssetAllocateInfo]
-    PRIMARY KEY CLUSTERED ([AssetAllocateID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [AssetBaseInfoID] in table 'AMG_AssetBaseInfo'
+-- Creating primary key on [ID] in table 'AMG_AssetBaseInfo'
 ALTER TABLE [dbo].[AMG_AssetBaseInfo]
 ADD CONSTRAINT [PK_AMG_AssetBaseInfo]
-    PRIMARY KEY CLUSTERED ([AssetBaseInfoID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [AssetRepairID] in table 'AMG_AssetRepairInfo'
+-- Creating primary key on [ID] in table 'AMG_AssetRepairInfo'
 ALTER TABLE [dbo].[AMG_AssetRepairInfo]
 ADD CONSTRAINT [PK_AMG_AssetRepairInfo]
-    PRIMARY KEY CLUSTERED ([AssetRepairID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [AssetUseID] in table 'AMG_AssetUseInfo'
+-- Creating primary key on [ID] in table 'AMG_AssetUseInfo'
 ALTER TABLE [dbo].[AMG_AssetUseInfo]
 ADD CONSTRAINT [PK_AMG_AssetUseInfo]
-    PRIMARY KEY CLUSTERED ([AssetUseID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ProjectID] in table 'EM_ProjectBaseInfo'
+-- Creating primary key on [ID] in table 'EM_ProjectBaseInfo'
 ALTER TABLE [dbo].[EM_ProjectBaseInfo]
 ADD CONSTRAINT [PK_EM_ProjectBaseInfo]
-    PRIMARY KEY CLUSTERED ([ProjectID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ProjectContractID] in table 'EM_ProjectContractBaseInfo'
+-- Creating primary key on [ID] in table 'EM_ProjectContractBaseInfo'
 ALTER TABLE [dbo].[EM_ProjectContractBaseInfo]
 ADD CONSTRAINT [PK_EM_ProjectContractBaseInfo]
-    PRIMARY KEY CLUSTERED ([ProjectContractID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [PContractDataID] in table 'EM_ProjectContractDataInfo'
+-- Creating primary key on [ID] in table 'EM_ProjectContractDataInfo'
 ALTER TABLE [dbo].[EM_ProjectContractDataInfo]
 ADD CONSTRAINT [PK_EM_ProjectContractDataInfo]
-    PRIMARY KEY CLUSTERED ([PContractDataID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [PContractPayConditionID] in table 'EM_ProjectContractPayCondition'
+-- Creating primary key on [ID] in table 'EM_ProjectContractPayCondition'
 ALTER TABLE [dbo].[EM_ProjectContractPayCondition]
 ADD CONSTRAINT [PK_EM_ProjectContractPayCondition]
-    PRIMARY KEY CLUSTERED ([PContractPayConditionID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ProjectContractPerformanceID] in table 'EM_ProjectContractPerformance'
+-- Creating primary key on [ID] in table 'EM_ProjectContractPerformance'
 ALTER TABLE [dbo].[EM_ProjectContractPerformance]
 ADD CONSTRAINT [PK_EM_ProjectContractPerformance]
-    PRIMARY KEY CLUSTERED ([ProjectContractPerformanceID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ContractPersonID] in table 'EM_ProjectContractPersonInfo'
+-- Creating primary key on [ID] in table 'EM_ProjectContractPersonInfo'
 ALTER TABLE [dbo].[EM_ProjectContractPersonInfo]
 ADD CONSTRAINT [PK_EM_ProjectContractPersonInfo]
-    PRIMARY KEY CLUSTERED ([ContractPersonID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ProjectExpandID] in table 'EM_ProjectExpandInfo'
+-- Creating primary key on [ID] in table 'EM_ProjectExpandInfo'
 ALTER TABLE [dbo].[EM_ProjectExpandInfo]
 ADD CONSTRAINT [PK_EM_ProjectExpandInfo]
-    PRIMARY KEY CLUSTERED ([ProjectExpandID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ProjectPersonID] in table 'EM_ProjectPersonManage'
+-- Creating primary key on [ID] in table 'EM_ProjectPersonManage'
 ALTER TABLE [dbo].[EM_ProjectPersonManage]
 ADD CONSTRAINT [PK_EM_ProjectPersonManage]
-    PRIMARY KEY CLUSTERED ([ProjectPersonID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [TestPutonFileID] in table 'EM_ProjectTestPutOnFile'
+-- Creating primary key on [ID] in table 'EM_ProjectTestPutOnFile'
 ALTER TABLE [dbo].[EM_ProjectTestPutOnFile]
 ADD CONSTRAINT [PK_EM_ProjectTestPutOnFile]
-    PRIMARY KEY CLUSTERED ([TestPutonFileID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [CertificateID] in table 'PM_CertificateManage'
+-- Creating primary key on [ID] in table 'PM_CertificateManage'
 ALTER TABLE [dbo].[PM_CertificateManage]
 ADD CONSTRAINT [PK_PM_CertificateManage]
-    PRIMARY KEY CLUSTERED ([CertificateID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [PersonID] in table 'PM_PersonBaseInfo'
+-- Creating primary key on [ID] in table 'PM_PersonBaseInfo'
 ALTER TABLE [dbo].[PM_PersonBaseInfo]
 ADD CONSTRAINT [PK_PM_PersonBaseInfo]
-    PRIMARY KEY CLUSTERED ([PersonID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [CertificateID] in table 'PM_PersonCertificateInfo'
+-- Creating primary key on [ID] in table 'PM_PersonCertificateInfo'
 ALTER TABLE [dbo].[PM_PersonCertificateInfo]
 ADD CONSTRAINT [PK_PM_PersonCertificateInfo]
-    PRIMARY KEY CLUSTERED ([CertificateID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ContractID] in table 'PM_PersonContractInfo'
-ALTER TABLE [dbo].[PM_PersonContractInfo]
-ADD CONSTRAINT [PK_PM_PersonContractInfo]
-    PRIMARY KEY CLUSTERED ([ContractID] ASC);
-GO
-
--- Creating primary key on [EducationalBckID] in table 'PM_PersonEducationalBackground'
+-- Creating primary key on [ID] in table 'PM_PersonEducationalBackground'
 ALTER TABLE [dbo].[PM_PersonEducationalBackground]
 ADD CONSTRAINT [PK_PM_PersonEducationalBackground]
-    PRIMARY KEY CLUSTERED ([EducationalBckID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [InsuranceID] in table 'PM_PersonInsuranceInfo'
+-- Creating primary key on [ID] in table 'PM_PersonInsuranceInfo'
 ALTER TABLE [dbo].[PM_PersonInsuranceInfo]
 ADD CONSTRAINT [PK_PM_PersonInsuranceInfo]
-    PRIMARY KEY CLUSTERED ([InsuranceID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [PositionalID] in table 'PM_PersonPositionalTitlesInfo'
+-- Creating primary key on [ID] in table 'PM_PersonPositionalTitlesInfo'
 ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo]
 ADD CONSTRAINT [PK_PM_PersonPositionalTitlesInfo]
-    PRIMARY KEY CLUSTERED ([PositionalID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [RegisterID] in table 'PM_PersonRegister'
+-- Creating primary key on [ID] in table 'PM_PersonRegister'
 ALTER TABLE [dbo].[PM_PersonRegister]
 ADD CONSTRAINT [PK_PM_PersonRegister]
-    PRIMARY KEY CLUSTERED ([RegisterID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [TrainingExpID] in table 'PM_PersonTrainingExperience'
+-- Creating primary key on [ID] in table 'PM_PersonTrainingExperience'
 ALTER TABLE [dbo].[PM_PersonTrainingExperience]
 ADD CONSTRAINT [PK_PM_PersonTrainingExperience]
-    PRIMARY KEY CLUSTERED ([TrainingExpID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [WorkExpID] in table 'PM_PersonWorkExperienceInfo'
+-- Creating primary key on [ID] in table 'PM_PersonWorkExperienceInfo'
 ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo]
 ADD CONSTRAINT [PK_PM_PersonWorkExperienceInfo]
-    PRIMARY KEY CLUSTERED ([WorkExpID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [PaymentDetailID] in table 'VM_PaymentDetailInfo'
+-- Creating primary key on [ID] in table 'VM_PaymentDetailInfo'
 ALTER TABLE [dbo].[VM_PaymentDetailInfo]
 ADD CONSTRAINT [PK_VM_PaymentDetailInfo]
-    PRIMARY KEY CLUSTERED ([PaymentDetailID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleAllocateID] in table 'VM_VehicleAllocateInfo'
+-- Creating primary key on [ID] in table 'VM_VehicleAllocateInfo'
 ALTER TABLE [dbo].[VM_VehicleAllocateInfo]
 ADD CONSTRAINT [PK_VM_VehicleAllocateInfo]
-    PRIMARY KEY CLUSTERED ([VehicleAllocateID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleID] in table 'VM_VehicleBaseInfo'
+-- Creating primary key on [ID] in table 'VM_VehicleBaseInfo'
 ALTER TABLE [dbo].[VM_VehicleBaseInfo]
 ADD CONSTRAINT [PK_VM_VehicleBaseInfo]
-    PRIMARY KEY CLUSTERED ([VehicleID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleInsuranceID] in table 'VM_VehicleInsurance'
+-- Creating primary key on [ID] in table 'VM_VehicleInsurance'
 ALTER TABLE [dbo].[VM_VehicleInsurance]
 ADD CONSTRAINT [PK_VM_VehicleInsurance]
-    PRIMARY KEY CLUSTERED ([VehicleInsuranceID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleLeaseID] in table 'VM_VehicleLeaseInfo'
+-- Creating primary key on [ID] in table 'VM_VehicleLeaseInfo'
 ALTER TABLE [dbo].[VM_VehicleLeaseInfo]
 ADD CONSTRAINT [PK_VM_VehicleLeaseInfo]
-    PRIMARY KEY CLUSTERED ([VehicleLeaseID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleLoanID] in table 'VM_VehicleLoanInfo'
+-- Creating primary key on [ID] in table 'VM_VehicleLoanInfo'
 ALTER TABLE [dbo].[VM_VehicleLoanInfo]
 ADD CONSTRAINT [PK_VM_VehicleLoanInfo]
-    PRIMARY KEY CLUSTERED ([VehicleLoanID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleOperatingCostID] in table 'VM_VehicleOperatingCost'
+-- Creating primary key on [ID] in table 'VM_VehicleOperatingCost'
 ALTER TABLE [dbo].[VM_VehicleOperatingCost]
 ADD CONSTRAINT [PK_VM_VehicleOperatingCost]
-    PRIMARY KEY CLUSTERED ([VehicleOperatingCostID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleRepairID] in table 'VM_VehicleRepair'
+-- Creating primary key on [ID] in table 'VM_VehicleRepair'
 ALTER TABLE [dbo].[VM_VehicleRepair]
 ADD CONSTRAINT [PK_VM_VehicleRepair]
-    PRIMARY KEY CLUSTERED ([VehicleRepairID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleRepairDetailID] in table 'VM_VehicleRepairDetailList'
+-- Creating primary key on [ID] in table 'VM_VehicleRepairDetailList'
 ALTER TABLE [dbo].[VM_VehicleRepairDetailList]
 ADD CONSTRAINT [PK_VM_VehicleRepairDetailList]
-    PRIMARY KEY CLUSTERED ([VehicleRepairDetailID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleUseInfoID] in table 'VM_VehicleUseInfo'
+-- Creating primary key on [ID] in table 'VM_VehicleUseInfo'
 ALTER TABLE [dbo].[VM_VehicleUseInfo]
 ADD CONSTRAINT [PK_VM_VehicleUseInfo]
-    PRIMARY KEY CLUSTERED ([VehicleUseInfoID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [VehicleYearInspectionID] in table 'VM_VehicleYearInspection'
+-- Creating primary key on [ID] in table 'VM_VehicleYearInspection'
 ALTER TABLE [dbo].[VM_VehicleYearInspection]
 ADD CONSTRAINT [PK_VM_VehicleYearInspection]
-    PRIMARY KEY CLUSTERED ([VehicleYearInspectionID] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'PM_PersonContractInfo'
+ALTER TABLE [dbo].[PM_PersonContractInfo]
+ADD CONSTRAINT [PK_PM_PersonContractInfo]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
 -- --------------------------------------------------
@@ -1366,466 +1366,466 @@ ON [dbo].[UserFolders]
     ([ParentID]);
 GO
 
--- Creating foreign key on [AM_ProjectApplicationBaseInfo_ProjectApplicationID] in table 'AM_ApplicationContent_CapitalFundCategory'
+-- Creating foreign key on [AM_ProjectApplicationBaseInfo_ID] in table 'AM_ApplicationContent_CapitalFundCategory'
 ALTER TABLE [dbo].[AM_ApplicationContent_CapitalFundCategory]
 ADD CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory]
-    FOREIGN KEY ([AM_ProjectApplicationBaseInfo_ProjectApplicationID])
+    FOREIGN KEY ([AM_ProjectApplicationBaseInfo_ID])
     REFERENCES [dbo].[AM_ProjectApplicationBaseInfo]
-        ([ProjectApplicationID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory'
 CREATE INDEX [IX_FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_CapitalFundCategory]
 ON [dbo].[AM_ApplicationContent_CapitalFundCategory]
-    ([AM_ProjectApplicationBaseInfo_ProjectApplicationID]);
+    ([AM_ProjectApplicationBaseInfo_ID]);
 GO
 
--- Creating foreign key on [AM_ProjectApplicationBaseInfo_ProjectApplicationID] in table 'AM_ApplicationContent_VehicleCategory'
+-- Creating foreign key on [AM_ProjectApplicationBaseInfo_ID] in table 'AM_ApplicationContent_VehicleCategory'
 ALTER TABLE [dbo].[AM_ApplicationContent_VehicleCategory]
 ADD CONSTRAINT [FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory]
-    FOREIGN KEY ([AM_ProjectApplicationBaseInfo_ProjectApplicationID])
+    FOREIGN KEY ([AM_ProjectApplicationBaseInfo_ID])
     REFERENCES [dbo].[AM_ProjectApplicationBaseInfo]
-        ([ProjectApplicationID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory'
 CREATE INDEX [IX_FK_AM_ProjectApplicationBaseInfoAM_ApplicationContent_VehicleCategory]
 ON [dbo].[AM_ApplicationContent_VehicleCategory]
-    ([AM_ProjectApplicationBaseInfo_ProjectApplicationID]);
+    ([AM_ProjectApplicationBaseInfo_ID]);
 GO
 
--- Creating foreign key on [AM_LaiWenRecordInfo_LaiWenRecordID] in table 'AM_LaiWenCircularizeDetail'
+-- Creating foreign key on [AM_LaiWenRecordInfo_ID] in table 'AM_LaiWenCircularizeDetail'
 ALTER TABLE [dbo].[AM_LaiWenCircularizeDetail]
 ADD CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail]
-    FOREIGN KEY ([AM_LaiWenRecordInfo_LaiWenRecordID])
+    FOREIGN KEY ([AM_LaiWenRecordInfo_ID])
     REFERENCES [dbo].[AM_LaiWenRecordInfo]
-        ([LaiWenRecordID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail'
 CREATE INDEX [IX_FK_AM_LaiWenRecordInfoAM_LaiWenCircularizeDetail]
 ON [dbo].[AM_LaiWenCircularizeDetail]
-    ([AM_LaiWenRecordInfo_LaiWenRecordID]);
+    ([AM_LaiWenRecordInfo_ID]);
 GO
 
--- Creating foreign key on [AM_LaiWenRecordInfo_LaiWenRecordID] in table 'AM_LaiWenRepliedInfo'
+-- Creating foreign key on [AM_LaiWenRecordInfo_ID] in table 'AM_LaiWenRepliedInfo'
 ALTER TABLE [dbo].[AM_LaiWenRepliedInfo]
 ADD CONSTRAINT [FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo]
-    FOREIGN KEY ([AM_LaiWenRecordInfo_LaiWenRecordID])
+    FOREIGN KEY ([AM_LaiWenRecordInfo_ID])
     REFERENCES [dbo].[AM_LaiWenRecordInfo]
-        ([LaiWenRecordID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo'
 CREATE INDEX [IX_FK_AM_LaiWenRecordInfoAM_LaiWenRepliedInfo]
 ON [dbo].[AM_LaiWenRepliedInfo]
-    ([AM_LaiWenRecordInfo_LaiWenRecordID]);
+    ([AM_LaiWenRecordInfo_ID]);
 GO
 
--- Creating foreign key on [AMG_AssetBaseInfo_AssetBaseInfoID] in table 'AMG_AssetAllocateInfo'
+-- Creating foreign key on [AMG_AssetBaseInfo_ID] in table 'AMG_AssetAllocateInfo'
 ALTER TABLE [dbo].[AMG_AssetAllocateInfo]
 ADD CONSTRAINT [FK_AMG_AssetBaseInfoAMG_AssetAllocateInfo]
-    FOREIGN KEY ([AMG_AssetBaseInfo_AssetBaseInfoID])
+    FOREIGN KEY ([AMG_AssetBaseInfo_ID])
     REFERENCES [dbo].[AMG_AssetBaseInfo]
-        ([AssetBaseInfoID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AMG_AssetBaseInfoAMG_AssetAllocateInfo'
 CREATE INDEX [IX_FK_AMG_AssetBaseInfoAMG_AssetAllocateInfo]
 ON [dbo].[AMG_AssetAllocateInfo]
-    ([AMG_AssetBaseInfo_AssetBaseInfoID]);
+    ([AMG_AssetBaseInfo_ID]);
 GO
 
--- Creating foreign key on [AMG_AssetBaseInfo_AssetBaseInfoID] in table 'AMG_AssetRepairInfo'
+-- Creating foreign key on [AMG_AssetBaseInfo_ID] in table 'AMG_AssetRepairInfo'
 ALTER TABLE [dbo].[AMG_AssetRepairInfo]
 ADD CONSTRAINT [FK_AMG_AssetBaseInfoAMG_AssetRepairInfo]
-    FOREIGN KEY ([AMG_AssetBaseInfo_AssetBaseInfoID])
+    FOREIGN KEY ([AMG_AssetBaseInfo_ID])
     REFERENCES [dbo].[AMG_AssetBaseInfo]
-        ([AssetBaseInfoID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AMG_AssetBaseInfoAMG_AssetRepairInfo'
 CREATE INDEX [IX_FK_AMG_AssetBaseInfoAMG_AssetRepairInfo]
 ON [dbo].[AMG_AssetRepairInfo]
-    ([AMG_AssetBaseInfo_AssetBaseInfoID]);
+    ([AMG_AssetBaseInfo_ID]);
 GO
 
--- Creating foreign key on [AMG_AssetBaseInfo_AssetBaseInfoID] in table 'AMG_AssetUseInfo'
+-- Creating foreign key on [AMG_AssetBaseInfo_ID] in table 'AMG_AssetUseInfo'
 ALTER TABLE [dbo].[AMG_AssetUseInfo]
 ADD CONSTRAINT [FK_AMG_AssetBaseInfoAMG_AssetUseInfo]
-    FOREIGN KEY ([AMG_AssetBaseInfo_AssetBaseInfoID])
+    FOREIGN KEY ([AMG_AssetBaseInfo_ID])
     REFERENCES [dbo].[AMG_AssetBaseInfo]
-        ([AssetBaseInfoID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AMG_AssetBaseInfoAMG_AssetUseInfo'
 CREATE INDEX [IX_FK_AMG_AssetBaseInfoAMG_AssetUseInfo]
 ON [dbo].[AMG_AssetUseInfo]
-    ([AMG_AssetBaseInfo_AssetBaseInfoID]);
+    ([AMG_AssetBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectBaseInfo_ProjectID] in table 'EM_ProjectContractBaseInfo'
+-- Creating foreign key on [EM_ProjectBaseInfo_ID] in table 'EM_ProjectContractBaseInfo'
 ALTER TABLE [dbo].[EM_ProjectContractBaseInfo]
 ADD CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo]
-    FOREIGN KEY ([EM_ProjectBaseInfo_ProjectID])
+    FOREIGN KEY ([EM_ProjectBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectBaseInfo]
-        ([ProjectID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo'
 CREATE INDEX [IX_FK_EM_ProjectBaseInfoEM_ProjectContractBaseInfo]
 ON [dbo].[EM_ProjectContractBaseInfo]
-    ([EM_ProjectBaseInfo_ProjectID]);
+    ([EM_ProjectBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectBaseInfo_ProjectID] in table 'EM_ProjectPersonManage'
+-- Creating foreign key on [EM_ProjectBaseInfo_ID] in table 'EM_ProjectPersonManage'
 ALTER TABLE [dbo].[EM_ProjectPersonManage]
 ADD CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectPersonManage]
-    FOREIGN KEY ([EM_ProjectBaseInfo_ProjectID])
+    FOREIGN KEY ([EM_ProjectBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectBaseInfo]
-        ([ProjectID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectBaseInfoEM_ProjectPersonManage'
 CREATE INDEX [IX_FK_EM_ProjectBaseInfoEM_ProjectPersonManage]
 ON [dbo].[EM_ProjectPersonManage]
-    ([EM_ProjectBaseInfo_ProjectID]);
+    ([EM_ProjectBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectBaseInfo_ProjectID] in table 'EM_ProjectContractPerformance'
+-- Creating foreign key on [EM_ProjectBaseInfo_ID] in table 'EM_ProjectContractPerformance'
 ALTER TABLE [dbo].[EM_ProjectContractPerformance]
 ADD CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectContractPerformance]
-    FOREIGN KEY ([EM_ProjectBaseInfo_ProjectID])
+    FOREIGN KEY ([EM_ProjectBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectBaseInfo]
-        ([ProjectID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectBaseInfoEM_ProjectContractPerformance'
 CREATE INDEX [IX_FK_EM_ProjectBaseInfoEM_ProjectContractPerformance]
 ON [dbo].[EM_ProjectContractPerformance]
-    ([EM_ProjectBaseInfo_ProjectID]);
+    ([EM_ProjectBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectBaseInfo_ProjectID] in table 'EM_ProjectTestPutOnFile'
+-- Creating foreign key on [EM_ProjectBaseInfo_ID] in table 'EM_ProjectTestPutOnFile'
 ALTER TABLE [dbo].[EM_ProjectTestPutOnFile]
 ADD CONSTRAINT [FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile]
-    FOREIGN KEY ([EM_ProjectBaseInfo_ProjectID])
+    FOREIGN KEY ([EM_ProjectBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectBaseInfo]
-        ([ProjectID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile'
 CREATE INDEX [IX_FK_EM_ProjectBaseInfoEM_ProjectTestPutOnFile]
 ON [dbo].[EM_ProjectTestPutOnFile]
-    ([EM_ProjectBaseInfo_ProjectID]);
+    ([EM_ProjectBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectContractBaseInfo_ProjectContractID] in table 'EM_ProjectContractDataInfo'
+-- Creating foreign key on [EM_ProjectContractBaseInfo_ID] in table 'EM_ProjectContractDataInfo'
 ALTER TABLE [dbo].[EM_ProjectContractDataInfo]
 ADD CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo]
-    FOREIGN KEY ([EM_ProjectContractBaseInfo_ProjectContractID])
+    FOREIGN KEY ([EM_ProjectContractBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectContractBaseInfo]
-        ([ProjectContractID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo'
 CREATE INDEX [IX_FK_EM_ProjectContractBaseInfoEM_ProjectContractDataInfo]
 ON [dbo].[EM_ProjectContractDataInfo]
-    ([EM_ProjectContractBaseInfo_ProjectContractID]);
+    ([EM_ProjectContractBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectContractBaseInfo_ProjectContractID] in table 'EM_ProjectContractPayCondition'
+-- Creating foreign key on [EM_ProjectContractBaseInfo_ID] in table 'EM_ProjectContractPayCondition'
 ALTER TABLE [dbo].[EM_ProjectContractPayCondition]
 ADD CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition]
-    FOREIGN KEY ([EM_ProjectContractBaseInfo_ProjectContractID])
+    FOREIGN KEY ([EM_ProjectContractBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectContractBaseInfo]
-        ([ProjectContractID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition'
 CREATE INDEX [IX_FK_EM_ProjectContractBaseInfoEM_ProjectContractPayCondition]
 ON [dbo].[EM_ProjectContractPayCondition]
-    ([EM_ProjectContractBaseInfo_ProjectContractID]);
+    ([EM_ProjectContractBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectContractBaseInfo_ProjectContractID] in table 'EM_ProjectContractPersonInfo'
+-- Creating foreign key on [EM_ProjectContractBaseInfo_ID] in table 'EM_ProjectContractPersonInfo'
 ALTER TABLE [dbo].[EM_ProjectContractPersonInfo]
 ADD CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo]
-    FOREIGN KEY ([EM_ProjectContractBaseInfo_ProjectContractID])
+    FOREIGN KEY ([EM_ProjectContractBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectContractBaseInfo]
-        ([ProjectContractID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo'
 CREATE INDEX [IX_FK_EM_ProjectContractBaseInfoEM_ProjectContractPersonInfo]
 ON [dbo].[EM_ProjectContractPersonInfo]
-    ([EM_ProjectContractBaseInfo_ProjectContractID]);
+    ([EM_ProjectContractBaseInfo_ID]);
 GO
 
--- Creating foreign key on [EM_ProjectContractBaseInfo_ProjectContractID] in table 'EM_ProjectExpandInfo'
+-- Creating foreign key on [EM_ProjectContractBaseInfo_ID] in table 'EM_ProjectExpandInfo'
 ALTER TABLE [dbo].[EM_ProjectExpandInfo]
 ADD CONSTRAINT [FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
-    FOREIGN KEY ([EM_ProjectContractBaseInfo_ProjectContractID])
+    FOREIGN KEY ([EM_ProjectContractBaseInfo_ID])
     REFERENCES [dbo].[EM_ProjectContractBaseInfo]
-        ([ProjectContractID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo'
 CREATE INDEX [IX_FK_EM_ProjectContractBaseInfoEM_ProjectExpandInfo]
 ON [dbo].[EM_ProjectExpandInfo]
-    ([EM_ProjectContractBaseInfo_ProjectContractID]);
+    ([EM_ProjectContractBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_CertificateManage'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_CertificateManage'
 ALTER TABLE [dbo].[PM_CertificateManage]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_CertificateManage]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_CertificateManage'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_CertificateManage]
 ON [dbo].[PM_CertificateManage]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonRegister'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_PersonRegister'
 ALTER TABLE [dbo].[PM_PersonRegister]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonRegister]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonRegister'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonRegister]
 ON [dbo].[PM_PersonRegister]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonCertificateInfo'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_PersonCertificateInfo'
 ALTER TABLE [dbo].[PM_PersonCertificateInfo]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonCertificateInfo]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonCertificateInfo'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonCertificateInfo]
 ON [dbo].[PM_PersonCertificateInfo]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonInsuranceInfo'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_PersonInsuranceInfo'
 ALTER TABLE [dbo].[PM_PersonInsuranceInfo]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonInsuranceInfo]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonInsuranceInfo'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonInsuranceInfo]
 ON [dbo].[PM_PersonInsuranceInfo]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonTrainingExperience'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_PersonTrainingExperience'
 ALTER TABLE [dbo].[PM_PersonTrainingExperience]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonTrainingExperience]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonTrainingExperience'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonTrainingExperience]
 ON [dbo].[PM_PersonTrainingExperience]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonPositionalTitlesInfo'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_PersonPositionalTitlesInfo'
 ALTER TABLE [dbo].[PM_PersonPositionalTitlesInfo]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonPositionalTitlesInfo]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonPositionalTitlesInfo'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonPositionalTitlesInfo]
 ON [dbo].[PM_PersonPositionalTitlesInfo]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonEducationalBackground'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_PersonEducationalBackground'
 ALTER TABLE [dbo].[PM_PersonEducationalBackground]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonEducationalBackground]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonEducationalBackground'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonEducationalBackground]
 ON [dbo].[PM_PersonEducationalBackground]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [PM_PersonBaseInfo_PersonID] in table 'PM_PersonWorkExperienceInfo'
+-- Creating foreign key on [PM_PersonBaseInfo_ID] in table 'PM_PersonWorkExperienceInfo'
 ALTER TABLE [dbo].[PM_PersonWorkExperienceInfo]
 ADD CONSTRAINT [FK_PM_PersonBaseInfoPM_PersonWorkExperienceInfo]
-    FOREIGN KEY ([PM_PersonBaseInfo_PersonID])
+    FOREIGN KEY ([PM_PersonBaseInfo_ID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonBaseInfoPM_PersonWorkExperienceInfo'
 CREATE INDEX [IX_FK_PM_PersonBaseInfoPM_PersonWorkExperienceInfo]
 ON [dbo].[PM_PersonWorkExperienceInfo]
-    ([PM_PersonBaseInfo_PersonID]);
+    ([PM_PersonBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleLoanInfo_VehicleLoanID] in table 'VM_PaymentDetailInfo'
+-- Creating foreign key on [VM_VehicleLoanInfo_ID] in table 'VM_PaymentDetailInfo'
 ALTER TABLE [dbo].[VM_PaymentDetailInfo]
 ADD CONSTRAINT [FK_VM_VehicleLoanInfoVM_PaymentDetailInfo]
-    FOREIGN KEY ([VM_VehicleLoanInfo_VehicleLoanID])
+    FOREIGN KEY ([VM_VehicleLoanInfo_ID])
     REFERENCES [dbo].[VM_VehicleLoanInfo]
-        ([VehicleLoanID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleLoanInfoVM_PaymentDetailInfo'
 CREATE INDEX [IX_FK_VM_VehicleLoanInfoVM_PaymentDetailInfo]
 ON [dbo].[VM_PaymentDetailInfo]
-    ([VM_VehicleLoanInfo_VehicleLoanID]);
+    ([VM_VehicleLoanInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleAllocateInfo'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleAllocateInfo'
 ALTER TABLE [dbo].[VM_VehicleAllocateInfo]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleAllocateInfo]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleAllocateInfo'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleAllocateInfo]
 ON [dbo].[VM_VehicleAllocateInfo]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleLeaseInfo'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleLeaseInfo'
 ALTER TABLE [dbo].[VM_VehicleLeaseInfo]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleLeaseInfo]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleLeaseInfo'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleLeaseInfo]
 ON [dbo].[VM_VehicleLeaseInfo]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleUseInfo'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleUseInfo'
 ALTER TABLE [dbo].[VM_VehicleUseInfo]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleUseInfo]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleUseInfo'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleUseInfo]
 ON [dbo].[VM_VehicleUseInfo]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleYearInspection'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleYearInspection'
 ALTER TABLE [dbo].[VM_VehicleYearInspection]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleYearInspection]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleYearInspection'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleYearInspection]
 ON [dbo].[VM_VehicleYearInspection]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleOperatingCost'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleOperatingCost'
 ALTER TABLE [dbo].[VM_VehicleOperatingCost]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleOperatingCost]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleOperatingCost'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleOperatingCost]
 ON [dbo].[VM_VehicleOperatingCost]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleLoanInfo'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleLoanInfo'
 ALTER TABLE [dbo].[VM_VehicleLoanInfo]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleLoanInfo]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleLoanInfo'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleLoanInfo]
 ON [dbo].[VM_VehicleLoanInfo]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleInsurance'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleInsurance'
 ALTER TABLE [dbo].[VM_VehicleInsurance]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleInsurance]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleInsurance'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleInsurance]
 ON [dbo].[VM_VehicleInsurance]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleRepair_VehicleRepairID] in table 'VM_VehicleRepairDetailList'
+-- Creating foreign key on [VM_VehicleRepair_ID] in table 'VM_VehicleRepairDetailList'
 ALTER TABLE [dbo].[VM_VehicleRepairDetailList]
 ADD CONSTRAINT [FK_VM_VehicleRepairVM_VehicleRepairDetailList]
-    FOREIGN KEY ([VM_VehicleRepair_VehicleRepairID])
+    FOREIGN KEY ([VM_VehicleRepair_ID])
     REFERENCES [dbo].[VM_VehicleRepair]
-        ([VehicleRepairID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleRepairVM_VehicleRepairDetailList'
 CREATE INDEX [IX_FK_VM_VehicleRepairVM_VehicleRepairDetailList]
 ON [dbo].[VM_VehicleRepairDetailList]
-    ([VM_VehicleRepair_VehicleRepairID]);
+    ([VM_VehicleRepair_ID]);
 GO
 
--- Creating foreign key on [VM_VehicleBaseInfo_VehicleID] in table 'VM_VehicleRepair'
+-- Creating foreign key on [VM_VehicleBaseInfo_ID] in table 'VM_VehicleRepair'
 ALTER TABLE [dbo].[VM_VehicleRepair]
 ADD CONSTRAINT [FK_VM_VehicleBaseInfoVM_VehicleRepair]
-    FOREIGN KEY ([VM_VehicleBaseInfo_VehicleID])
+    FOREIGN KEY ([VM_VehicleBaseInfo_ID])
     REFERENCES [dbo].[VM_VehicleBaseInfo]
-        ([VehicleID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VM_VehicleBaseInfoVM_VehicleRepair'
 CREATE INDEX [IX_FK_VM_VehicleBaseInfoVM_VehicleRepair]
 ON [dbo].[VM_VehicleRepair]
-    ([VM_VehicleBaseInfo_VehicleID]);
+    ([VM_VehicleBaseInfo_ID]);
 GO
 
 -- Creating foreign key on [PersonID] in table 'PM_PersonContractInfo'
@@ -1833,7 +1833,7 @@ ALTER TABLE [dbo].[PM_PersonContractInfo]
 ADD CONSTRAINT [FK_PM_PersonContractInfoPM_PersonBaseInfo]
     FOREIGN KEY ([PersonID])
     REFERENCES [dbo].[PM_PersonBaseInfo]
-        ([PersonID])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PM_PersonContractInfoPM_PersonBaseInfo'

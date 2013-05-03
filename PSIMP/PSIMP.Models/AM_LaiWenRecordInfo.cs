@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AM_LaiWenRecordInfo
+    public partial class AM_LaiWenRecordInfo : BaseEntity
     {
         public AM_LaiWenRecordInfo()
         {
@@ -22,7 +22,8 @@ namespace PSIMP.Models
             this.AM_LaiWenRepliedInfo = new HashSet<AM_LaiWenRepliedInfo>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string LaiWenUnit { get; set; }
         public string LaiWenType { get; set; }
         public string LaiWenMode { get; set; }

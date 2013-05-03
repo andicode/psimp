@@ -38,9 +38,8 @@ namespace PSIMP.Web.Controllers
         [HttpPost]
         public ActionResult Save(PM_PersonBaseInfo person, HttpPostedFileBase TempPicture)
         {
-            if (person.PersonID == Guid.Empty)
+            if (person.IsCreate)
             {
-                person.PersonID = Guid.NewGuid();
                 PersonService.Add(person);
             }
             X.GetCmp<FormPanel>("Person_Basic_Info").SetValues(person);

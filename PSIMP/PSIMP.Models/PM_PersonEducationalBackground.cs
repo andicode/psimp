@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonEducationalBackground
+    public partial class PM_PersonEducationalBackground : BaseEntity
     {
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string SchoolName { get; set; }
         public System.DateTime EduStartDate { get; set; }
         public System.DateTime EduEndDate { get; set; }

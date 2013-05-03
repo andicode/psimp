@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EM_ProjectContractBaseInfo
+    public partial class EM_ProjectContractBaseInfo : BaseEntity
     {
         public EM_ProjectContractBaseInfo()
         {
@@ -24,7 +24,8 @@ namespace PSIMP.Models
             this.EM_ProjectExpandInfo = new HashSet<EM_ProjectExpandInfo>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public System.Guid ProjectID { get; set; }
         public System.DateTime BiddingDate { get; set; }
         public int ContractPeriod { get; set; }

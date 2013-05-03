@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AMG_AssetBaseInfo
+    public partial class AMG_AssetBaseInfo : BaseEntity
     {
         public AMG_AssetBaseInfo()
         {
@@ -23,7 +23,8 @@ namespace PSIMP.Models
             this.AMG_AssetUseInfo = new HashSet<AMG_AssetUseInfo>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string AssetSerialNumber { get; set; }
         public int AssetType { get; set; }
         public string AssetName { get; set; }

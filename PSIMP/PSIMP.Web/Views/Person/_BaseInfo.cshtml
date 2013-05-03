@@ -43,13 +43,13 @@
         defaults.Add(new { MsgTarget = "under" });
     })
     .Items(
-            Html.X().HiddenFor(m => m.PersonID).ID("person_Info_Id").Listeners(events => {
+            Html.X().HiddenFor(m => m.ID).ID("person_Info_Id").Listeners(events => {
                 events.Change.Fn = "person.setFormState";
             })
             , Html.X().TextFieldFor(m => m.PersonName)
-            , Html.X().ComboBoxFor(m => m.SexBox).Editable(false).ItemsFromEnum(typeof(Enums.Sex)).BlankText("请输入人员性别")
+            , Html.X().SexComboBox(m => m.Sex).Editable(false).BlankText("请输入人员性别")
             , Html.X().TextFieldFor(m => m.IDNumber)
-            , Html.X().DateFieldFor(m => m.Birthday).Format("yyyy年MM月").BlankText("请输入出生年月")
+            , Html.X().DateFieldFor(m => m.Birthday).Format("yyyy年M月d日").BlankText("请输入出生日期")
             , Html.X().TextFieldFor(m => m.ContactPhoneNumber)
             , Html.X().TextFieldFor(m => m.AlternatePhoneNumber)
             , Html.X().TextFieldFor(m => m.RegisterAddress)

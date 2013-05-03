@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EM_ProjectBaseInfo
+    public partial class EM_ProjectBaseInfo : BaseEntity
     {
         public EM_ProjectBaseInfo()
         {
@@ -24,7 +24,8 @@ namespace PSIMP.Models
             this.EM_ProjectTestPutOnFile = new HashSet<EM_ProjectTestPutOnFile>();
         }
     
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string ProjectFullName { get; set; }
         public string ProjectName { get; set; }
         public string ConstructionCompany { get; set; }

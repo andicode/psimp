@@ -13,7 +13,7 @@ namespace PSIMP.Models
     [Proxy(Read = "~/Person/GetPersons")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonBaseInfo_MetaData))]
-    public partial class PM_PersonBaseInfo
+    public partial class PM_PersonBaseInfo 
     {
       
 
@@ -23,19 +23,16 @@ namespace PSIMP.Models
         {
             [Column(Ignore = true)]
             [Field(FieldType = typeof(Hidden))]
-            public Guid PersonID { get; set; }
+            public Guid ID { get; set; }
 
             [Column(Text = "姓名",Order = 1)]
             [Field(FieldLabel = "姓名",  AllowBlank = false, BlankText = "请输入人员姓名")]
             public string PersonName { get; set; }
 
             [TemplateColumn(Text = "性别", Order = 2, TemplateString = "{[values.Sex?'男':'女']}")]
-            [Field(Ignore=true)]
-            public bool Sex { get; set; }
-            [Column(Ignore = true)]
-
             [Field(FieldLabel = "性别", FieldType = typeof(SexComboBox), AllowBlank = false, BlankText = "请选择人员性别")]
-            public Enums.Sex SexBox { get; set; }
+            public bool Sex { get; set; }
+           
 
             [Column(Text = "户籍地")]
             [Field(FieldLabel = "户籍地")]
@@ -45,8 +42,8 @@ namespace PSIMP.Models
             [Field(FieldLabel = "身份证号",AllowBlank=false,BlankText="请输入身份证号码",Regex=@"[1-6]\d{5}(?:19|20)\d{2}(?:0\d|1[12])(?:0\d|[12]\d|3[01])\d{3}[\dXx]",RegexText="请输入正确的18位身份证号码")]
             public string IDNumber { get; set; }
 
-            [DateColumn(Text = "出生年月",Format="yyyy年MM月dd日", Order = 4)]
-            [Field(FieldLabel = "出生年月", AllowBlank = false, BlankText = "请输入出生年月")]
+            [DateColumn(Text = "出生年月",Format="yyyy年M月d日", Order = 4)]
+            [Field(FieldLabel = "出生年月", AllowBlank = false, BlankText = "请输入出生日期")]
             public DateTime Birthday { get; set; }
 
             [Column(Text = "联系电话", Order = 7)]
@@ -57,7 +54,7 @@ namespace PSIMP.Models
             [Field(FieldLabel = "联系电话")]
             public string AlternatePhoneNumber { get; set; }
 
-            [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Person/Photo/{PersonID}\" alt=\"{Name}\">")]
+            [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Person/Photo/{ID}\" alt=\"{PersonName}\">")]
             [Field(FieldLabel = "照片",FieldType=typeof(FileUploadField))]
             public byte[] TwoInchPhoto { get; set; }
 
@@ -97,16 +94,7 @@ namespace PSIMP.Models
             [JsonIgnore]
             public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonContractInfo { get; set; }
         }
-        private Enums.Sex _sexBox = Enums.Sex.男;
-        public Enums.Sex SexBox
-        {
-            get { return _sexBox; }
-            set
-            {
-                _sexBox = value;
-                this.Sex = _sexBox == Enums.Sex.男;
-            }
-        }
+       
     }
 
 

@@ -279,13 +279,19 @@ public class CodeStringGenerator
 
     public string Property(EdmProperty edmProperty)
     {
+		var property=_code.Escape(edmProperty);
+		if(property=="ID")
+		{
+			return "//主键被写在BaseEntity中,已忽略生成\r\n    //public Guid ID{ get; set; }";
+		}
+
 		var type=_typeMapper.GetTypeName(edmProperty.TypeUsage);
 		var flag="";
 		if(type=="byte[]")
         {
 			flag="[JsonIgnore]\r\n    ";
-		}
-        
+		}   
+		     
 		return string.Format(
             CultureInfo.InvariantCulture,
             flag+"{0} {1} {2} {{ {3}get; {4}set; }}",
@@ -323,8 +329,8 @@ public class CodeStringGenerator
             Accessibility.ForType(entity),
             _code.SpaceAfter(_code.AbstractOption(entity)),
             _code.Escape(entity),
-            _code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType))
-			//_code.StringBefore(" : ", "BaseEntity")
+            //_code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType)),
+			_code.StringBefore(" : ", "BaseEntity")
 			);
     }
     

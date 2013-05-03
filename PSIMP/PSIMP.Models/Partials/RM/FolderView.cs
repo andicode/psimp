@@ -15,7 +15,7 @@ namespace PSIMP.Models
         {
             IsFolder = isFolder;
         }
-        public long ID { get; set; }
+        public Guid ID { get; set; }
         public string Name { get; set; }
         public bool IsFolder { get; set; }
         public bool CanDelete { get; set; }

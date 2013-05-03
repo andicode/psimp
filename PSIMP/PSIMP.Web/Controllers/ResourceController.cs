@@ -90,7 +90,7 @@ namespace PSIMP.Web.Controllers
             {
                 var userId = WebSecurity.CurrentUserId;
                 var user = UserService.Get(userId);
-                var folder = user.UserFolders.Single(m => m.ID == long.Parse(id));
+                var folder = user.UserFolders.Single(m => m.ID == Guid.Parse(id));
                 foreach (var item in folder.Children)
                 {
                     result.Add(new FolderView(true)

@@ -53,7 +53,7 @@ var person = {
         App.PersonForm_Menu.items.items[5].setDisabled(b);
     },
     setFormState: function () {
-        if (App.person_info_picture.getValue() == '') {
+        if (App.person_Info_Id.getValue() == '') {
             App.person_info_image.setImageUrl("/images/person/default.jpg");
             return;
         }

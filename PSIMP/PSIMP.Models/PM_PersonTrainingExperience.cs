@@ -14,9 +14,10 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PM_PersonTrainingExperience
+    public partial class PM_PersonTrainingExperience : BaseEntity
     {
-        public System.Guid ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string InstitutionsName { get; set; }
         public System.DateTime TrainingStartDate { get; set; }
         public System.DateTime TrainingEndDate { get; set; }

@@ -14,7 +14,7 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserFolders
+    public partial class UserFolders : BaseEntity
     {
         public UserFolders()
         {
@@ -23,11 +23,12 @@ namespace PSIMP.Models
             this.Children = new HashSet<UserFolders>();
         }
     
-        public long ID { get; set; }
+        //主键被写在BaseEntity中,已忽略生成
+        //public Guid ID{ get; set; }
         public string FolderName { get; set; }
         public int UserId { get; set; }
         public bool IsSys { get; set; }
-        public Nullable<long> ParentID { get; set; }
+        public Nullable<System.Guid> ParentID { get; set; }
     
         public virtual UserProfile UserProfile { get; set; }
         public virtual ICollection<UserFiles> UserFiles { get; set; }
