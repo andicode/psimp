@@ -273,9 +273,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Person\PersonUI_DataView.cshtml" />
-    <Content Include="Views\Person\PersonUI_Summary.cshtml" />
-    <Content Include="Views\Person\PersonUI_Toolbar.cshtml" />
+    <Content Include="Views\Person\PersonUI_View.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Desktop\Index.cshtml">
       <SubType>Code</SubType>
