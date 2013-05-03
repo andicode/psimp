@@ -29,6 +29,27 @@ namespace System.Web
                 new ListItem{ Text="男", Value="true", Mode= ParameterMode.Raw},
                 new ListItem{ Text="女", Value="false", Mode= ParameterMode.Raw}
             });
-        }        
+        }
+
+        public static Notification NotifyTop(this MessageBox msgbox, string msg)
+        {
+            return Notification.Show(new NotificationConfig
+            {
+
+                AlignCfg = new NotificationAlignConfig
+                {
+                    ElementAnchor = AnchorPoint.Top,
+                    TargetAnchor = AnchorPoint.Top,
+                    OffsetX = 0,
+                    OffsetY = -24
+                },
+                Plain = true,
+                Header = false,
+                PinEvent = "none",
+                ShowFx = new SlideIn { Anchor = AnchorPoint.Top, Options = new FxConfig {  Easing = Easing.EaseInOut } },
+                HideFx = new SlideOut { Anchor = AnchorPoint.Top, Options = new FxConfig { Easing = Easing.EaseInOut } },
+                Html = msg
+            });
+        }
     }
 }

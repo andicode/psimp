@@ -22,6 +22,7 @@ namespace PSIMP.Repository
             AccountUserId = userId;
         }
         public int AccountUserId { get; set; }
+
         private PSIMPDBContainer _context = null;
         public PSIMPDBContainer db
         {
@@ -39,20 +40,26 @@ namespace PSIMP.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public T Add(T entity)
+        public virtual T Add(T entity)
         {
             entity.ID = Guid.NewGuid();
             db.Set<T>().Add(entity);
             db.SaveChanges();
             return entity;
         }
+
+        public virtual TProperty GetDatabaseValue<TProperty>(T entity, string propertyName)
+        {
+            return db.Entry<T>(entity).GetDatabaseValues().GetValue<TProperty>(propertyName);
+        }
+
         /// <summary>
         /// 更新数据库数据库
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public T Update(T entity)
+        public virtual T Update(T entity)
         {
             db.Set<T>().Attach(entity);
             var saveEntity = db.Entry<T>(entity);
@@ -66,7 +73,7 @@ namespace PSIMP.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="Id">实体主键</param>
         /// <returns></returns>
-        public bool CompletelyDelete(object Id)
+        public virtual bool CompletelyDelete(object Id)
         {
             return CompletelyDelete(Get(Id));
         } /// <summary>
@@ -75,13 +82,13 @@ namespace PSIMP.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="entity">实体</param>
         /// <returns></returns>
-        public bool CompletelyDelete(T entity)
+        public virtual bool CompletelyDelete(T entity)
         {
             db.Set<T>().Remove(entity);
             return db.SaveChanges() == 1;
         }
 
-        public T Get(object id)
+        public virtual T Get(object id)
         {
             var guid = Guid.Empty;
             if (Guid.TryParse(id.ToString(), out guid))
@@ -94,20 +101,20 @@ namespace PSIMP.Repository
             }
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return db.Set<T>().AsParallel().Where(m => true);
         }
-        public IEnumerable<T> Where(Func<T, bool> expr)
+        public virtual IEnumerable<T> Where(Func<T, bool> expr)
         {
             return db.Set<T>().AsParallel().Where(expr);
         }
-        public IEnumerable<T> GetPagesData(int start, int limit)
+        public virtual IEnumerable<T> GetPagesData(int start, int limit)
         {
             return db.Set<T>().AsParallel().OrderByDescending(m => m).Skip(start).Take(limit);
         }
 
-        public int Count(Expression<Func<T, bool>> expr = null)
+        public virtual int Count(Expression<Func<T, bool>> expr = null)
         {
             if (expr != null)
                 return db.Set<T>().Count(expr);
