@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectContractPayCondition
     {
-        public System.Guid PContractPayConditionID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid ContractID { get; set; }
         public string MeasurePayCondition { get; set; }
         public string AgainstRiskPayCondition { get; set; }

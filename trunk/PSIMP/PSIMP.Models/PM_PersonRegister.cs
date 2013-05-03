@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonRegister
     {
-        public System.Guid RegisterID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid PersonID { get; set; }
         public System.DateTime RegisterDate { get; set; }
         public string RegisterCompany { get; set; }

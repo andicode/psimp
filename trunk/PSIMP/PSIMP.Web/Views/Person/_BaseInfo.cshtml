@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+@model PM_PersonBaseInfo
+@(Html.X()
+    .Container()
+    .Border(false)
+    .Width(130)
+    .Padding(5)
+    .Region(Region.West)
+    .Items(Html.X()
+            .FieldSet()
+            .Frame(true)
+            .Title("两寸照片")
+            .Width(120)
+            .Height(160)
+            .Layout(LayoutType.Fit)
+            .Items(Html.X()
+                       .Image()
+                       .ID("person_info_image")
+                       .ImageUrl(Url.Content("~/Images/person/default.jpg"))
+            )
+                , Html.X()
+                    .FileUploadField()
+                    .Name("TempPicture")
+                    .ButtonText("选择文件")
+                    .ButtonOnly(true)
+                    .Listeners(events =>
+                    {
+                        events.Change.Handler = "App.FileStatus_Label.setText('已选择文件')";
+                    })
+            ,Html.X().Label().ID("FileStatus_Label").EmptyText("未选择文件")
+    )
+)
+@(Html.X()
+    .Panel()
+    .Border(false)
+    .Header(false)
+    .BodyPadding(10)
+    .Region(Region.Center)
+    .Defaults(defaults =>
+    {
+        defaults.Add(new { MsgTarget = "under" });
+    })
+    .Items(
+            Html.X().HiddenFor(m => m.PersonID).ID("person_Info_Id").Listeners(events => {
+                events.Change.Fn = "person.setFormState";
+            })
+            , Html.X().TextFieldFor(m => m.PersonName)
+            , Html.X().ComboBoxFor(m => m.SexBox).Editable(false).ItemsFromEnum(typeof(Enums.Sex)).BlankText("请输入人员性别")
+            , Html.X().TextFieldFor(m => m.IDNumber)
+            , Html.X().DateFieldFor(m => m.Birthday).Format("yyyy年MM月").BlankText("请输入出生年月")
+            , Html.X().TextFieldFor(m => m.ContactPhoneNumber)
+            , Html.X().TextFieldFor(m => m.AlternatePhoneNumber)
+            , Html.X().TextFieldFor(m => m.RegisterAddress)
+    )
+)

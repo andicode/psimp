@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonCertificateInfo
     {
-        public System.Guid CertificateID { get; set; }
+        public System.Guid ID { get; set; }
         public string CertificateName { get; set; }
         public string CertificateType { get; set; }
         public string CertificateNumber { get; set; }

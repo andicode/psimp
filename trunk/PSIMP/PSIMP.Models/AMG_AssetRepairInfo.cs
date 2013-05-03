@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class AMG_AssetRepairInfo
     {
-        public System.Guid AssetRepairID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid AssetBaseInfoID { get; set; }
         public int RepairType { get; set; }
         public string RepairReason { get; set; }

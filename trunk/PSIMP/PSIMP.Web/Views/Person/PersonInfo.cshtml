@@ -2,6 +2,88 @@
     Layout = null;
 }
 @model PM_PersonBaseInfo
-@(
-    Html.X().FormPanelFor<PM_PersonBaseInfo>(m=>m)
+
+@(Html.X()
+    .MenuPanel()
+    .ID("PersonForm_MenuPanel")
+    .Width(150)
+    .Region(Region.West)
+    .Split(true)
+    .SelectedIndex(0)
+    .Menu(menus =>
+    {
+        menus.ID = "PersonForm_Menu";
+        menus.Items.Add(Html.X().MenuItem().Text("基本信息").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(0)"));
+        menus.Items.Add(Html.X().MenuItem().Text("注册信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(1)"));
+        menus.Items.Add(Html.X().MenuItem().Text("教育背景").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
+        menus.Items.Add(Html.X().MenuItem().Text("培训经历").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
+        menus.Items.Add(Html.X().MenuItem().Text("工作经历").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(4)"));
+        menus.Items.Add(Html.X().MenuItem().Text("证书证件").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(5)"));
+    })
+)
+@(Html.X()
+    .Container()
+    .Border(false)
+    .ID("Person_Card")
+    .Region(Region.Center)
+    .Layout(LayoutType.Card)
+    .ActiveIndex(0)
+    .Items(
+        Html.X()
+            .FormPanel()
+            .ID("Person_Basic_Info")
+            .Title("基本信息")
+            .Layout(LayoutType.Border)
+            .Url(Url.Action("Save"))
+            .JsonSubmit(true)
+            .TopBar(Html.X()
+                .Toolbar().Items(toolbarItems =>
+                {
+                    toolbarItems.Add(Html.X()
+                                        .Button()
+                                        .Text("保存")
+                                        .Icon(Icon.Disk)
+                                        .Listeners(events =>
+                                        {
+                                            events.Click.Handler = "this.up('form').submit()";// Url.Action("Save");
+                                        })
+                                    );
+                }))
+            .Defaults(defaults =>
+            {
+                defaults.Add(new { MsgTarget = "under" });
+            })
+            .ItemsFromPartial("_BaseInfo",Model)
+        , Html.X()
+            .Panel()
+            .Title("注册信息")
+            .Layout( LayoutType.Fit)
+            //.ItemsFromPartial("_RegisterInfo", Model)
+        , Html.X()
+            .Panel()
+            .Title("教育背景")
+            .Layout(LayoutType.Fit)
+            //.ItemsFromPartial("_EducationInfo")
+            //.Listeners(events => {
+            //    events.Activate.Handler = "App.Person_Edu_Store.reload()";
+            //})
+        , Html.X()
+            .Panel()
+            .Title("培训经历")
+            .Layout(LayoutType.Fit)
+            //.ItemsFromPartial("_TrainInfo", Model)
+            //.Listeners(events => {
+            //    events.Activate.Handler = "App.Person_Train_Store.reload()";
+            //})
+        , Html.X()
+            .Panel()
+            .Title("工作经历")
+            .Layout( LayoutType.Fit)
+            //.ItemsFromPartial("_WorkInfo", Model)
+        , Html.X()
+            .Panel()
+            .Title("证书证件")
+            .Layout( LayoutType.Fit)
+            //.ItemsFromPartial("_CertInfo", Model)
+    )
 )

@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectTestPutOnFile
     {
-        public System.Guid TestPutonFileID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid ProjectID { get; set; }
         public string ProjectName { get; set; }
         public System.DateTime PutonfileStartDate { get; set; }

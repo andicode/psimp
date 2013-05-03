@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonPositionalTitlesInfo
     {
-        public System.Guid PositionalID { get; set; }
+        public System.Guid ID { get; set; }
         public string PositionalName { get; set; }
         public string PositionalType { get; set; }
         public System.DateTime AssessmentDate { get; set; }

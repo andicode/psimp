@@ -22,7 +22,7 @@ namespace PSIMP.Models
             this.AM_ApplicationContent_VehicleCategory = new HashSet<AM_ApplicationContent_VehicleCategory>();
         }
     
-        public System.Guid ProjectApplicationID { get; set; }
+        public System.Guid ID { get; set; }
         public string ApplicationSerialNumber { get; set; }
         public System.DateTime ApplicationDate { get; set; }
         public System.Guid ApplicationProjectID { get; set; }

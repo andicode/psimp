@@ -16,7 +16,7 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleUseInfo
     {
-        public System.Guid VehicleUseInfoID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid VehicleID { get; set; }
         public string UseAddress { get; set; }
         public string VehicleUseType { get; set; }

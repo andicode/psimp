@@ -284,7 +284,7 @@
     <Content Include="Views\Shared\_ExtLayout.cshtml" />
     <Content Include="Views\Resource\Index.cshtml" />
     <Content Include="Views\Person\PersonInfo.cshtml" />
-    <Content Include="Views\Shared\SexComboxBox.cshtml" />
+    <Content Include="Views\Person\_BaseInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

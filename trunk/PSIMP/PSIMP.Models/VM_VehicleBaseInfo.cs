@@ -28,7 +28,7 @@ namespace PSIMP.Models
             this.VM_VehicleRepair = new HashSet<VM_VehicleRepair>();
         }
     
-        public System.Guid VehicleID { get; set; }
+        public System.Guid ID { get; set; }
         public string VehicleBrand { get; set; }
         public string MotorModelNumber { get; set; }
         public string VehicleLicensePlate { get; set; }

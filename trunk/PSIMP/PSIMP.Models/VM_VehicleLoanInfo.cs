@@ -21,7 +21,7 @@ namespace PSIMP.Models
             this.VM_PaymentDetailInfo = new HashSet<VM_PaymentDetailInfo>();
         }
     
-        public System.Guid VehicleLoanID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid VehicleID { get; set; }
         public string Borrowers { get; set; }
         public string GuaranteeUnitName { get; set; }

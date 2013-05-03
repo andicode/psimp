@@ -23,7 +23,7 @@ namespace PSIMP.Models
             this.AMG_AssetUseInfo = new HashSet<AMG_AssetUseInfo>();
         }
     
-        public System.Guid AssetBaseInfoID { get; set; }
+        public System.Guid ID { get; set; }
         public string AssetSerialNumber { get; set; }
         public int AssetType { get; set; }
         public string AssetName { get; set; }

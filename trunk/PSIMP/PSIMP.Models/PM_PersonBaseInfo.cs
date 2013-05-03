@@ -30,7 +30,7 @@ namespace PSIMP.Models
             this.PM_PersonContractInfo = new HashSet<PM_PersonContractInfo>();
         }
     
-        public System.Guid PersonID { get; set; }
+        public System.Guid ID { get; set; }
         public string PersonName { get; set; }
         public bool Sex { get; set; }
         public System.DateTime Birthday { get; set; }

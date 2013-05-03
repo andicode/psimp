@@ -57,7 +57,7 @@ var person = {
             App.person_info_image.setImageUrl("/images/person/default.jpg");
             return;
         }
-        App.person_info_image.setImageUrl('/images/person/' + App.person_info_picture.getValue());
+        App.person_info_image.setImageUrl('/person/photo/' + App.person_Info_Id.getValue() + "?_dc=" + new Date().getTime());
         person.setDisabledMenuItem(false);
     },
     edu: {

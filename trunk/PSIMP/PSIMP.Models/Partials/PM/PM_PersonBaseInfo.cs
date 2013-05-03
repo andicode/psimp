@@ -1,6 +1,7 @@
 ﻿using Ext.Net;
 using Ext.Net.MVC;
 using Newtonsoft.Json;
+using PSIMP.Models.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,19 +15,7 @@ namespace PSIMP.Models
     [MetadataType(typeof(PM_PersonBaseInfo_MetaData))]
     public partial class PM_PersonBaseInfo
     {
-        private Enums.Sex _sexBox = Enums.Sex.男;
-        [Column(Ignore = true)]
-        [Field(FieldLabel = "性别", AllowBlank = false, BlankText = "请选择人员性别")]
-        [UIHint("SexComboxBox")]
-        public Enums.Sex SexBox
-        {
-            get { return _sexBox; }
-            set
-            {
-                _sexBox = value;
-                this.Sex = _sexBox == Enums.Sex.男;
-            }
-        }
+      
 
 
         [Model(IDProperty = "PersonID")]
@@ -43,9 +32,13 @@ namespace PSIMP.Models
             [TemplateColumn(Text = "性别", Order = 2, TemplateString = "{[values.Sex?'男':'女']}")]
             [Field(Ignore=true)]
             public bool Sex { get; set; }
+            [Column(Ignore = true)]
+
+            [Field(FieldLabel = "性别", FieldType = typeof(SexComboBox), AllowBlank = false, BlankText = "请选择人员性别")]
+            public Enums.Sex SexBox { get; set; }
 
             [Column(Text = "户籍地")]
-            [Field(FieldLabel = "户籍地",AllowBlank=false,BlankText="请输入人员户籍")]
+            [Field(FieldLabel = "户籍地")]
             public string RegisterAddress { get; set; }
 
             [Column(Text = "身份证号", Order = 3)]
@@ -53,11 +46,11 @@ namespace PSIMP.Models
             public string IDNumber { get; set; }
 
             [DateColumn(Text = "出生年月",Format="yyyy年MM月dd日", Order = 4)]
-            [Field(FieldLabel = "出生年月")]
+            [Field(FieldLabel = "出生年月", AllowBlank = false, BlankText = "请输入出生年月")]
             public DateTime Birthday { get; set; }
 
             [Column(Text = "联系电话", Order = 7)]
-            [Field(FieldLabel = "联系电话")]
+            [Field(FieldLabel = "联系电话", AllowBlank = false, BlankText = "请输入联系电话")]
             public string ContactPhoneNumber { get; set; }
 
             [Column(Text = "联系电话", Order = 7)]
@@ -65,8 +58,8 @@ namespace PSIMP.Models
             public string AlternatePhoneNumber { get; set; }
 
             [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Person/Photo/{PersonID}\" alt=\"{Name}\">")]
-            [Field(FieldLabel = "照片")]
-            public string TwoInchPhoto { get; set; }
+            [Field(FieldLabel = "照片",FieldType=typeof(FileUploadField))]
+            public byte[] TwoInchPhoto { get; set; }
 
             [Column(Ignore = true)]
             [JsonIgnore]
@@ -104,7 +97,16 @@ namespace PSIMP.Models
             [JsonIgnore]
             public virtual ICollection<PM_PersonWorkExperienceInfo> PM_PersonContractInfo { get; set; }
         }
-
+        private Enums.Sex _sexBox = Enums.Sex.男;
+        public Enums.Sex SexBox
+        {
+            get { return _sexBox; }
+            set
+            {
+                _sexBox = value;
+                this.Sex = _sexBox == Enums.Sex.男;
+            }
+        }
     }
 
 

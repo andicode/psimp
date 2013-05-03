@@ -21,7 +21,7 @@ namespace PSIMP.Models
             this.VM_VehicleRepairDetailList = new HashSet<VM_VehicleRepairDetailList>();
         }
     
-        public System.Guid VehicleRepairID { get; set; }
+        public System.Guid ID { get; set; }
         public System.Guid VehicleID { get; set; }
         public string ApplicationSerialNumber { get; set; }
         public float MileageNumber { get; set; }
