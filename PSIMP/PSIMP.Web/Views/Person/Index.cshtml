@@ -5,6 +5,7 @@
     .Container()
     .Layout(LayoutType.Border)
     .Items(
+         //功能菜单
          Html.X().TreePanel()
             .SelectionModel(
                 Html.X().TreeSelectionModel().SelectedIndex(0)
@@ -26,6 +27,7 @@
                       )
             )
             .Listeners(events => {
+                //通过树节点的ID来判断打开的是那个功能
                 events.ItemClick.Handler = "App.Person_View.getLayout().setActiveItem(0)";
             })
         , Html.X()
@@ -35,22 +37,26 @@
               .Region(Region.Center)
               .Border(false)
               .Layout(LayoutType.Card)
-              .ItemsFromPartial("PersonUI_DataView")
+              //功能区域分布视图
+              .ItemsFromPartial("PersonUI_View")
         )
 )
 
-@(Html.EditorWindow()
-        .ID("Person_Window")
-        .Title("人员信息")
-        .Border(false)
-        .Hidden(true)
-        .Width(700)
-        .Layout(LayoutType.Border)
-        .Height(450)
-        .ItemsFromPartial("PersonInfo")
+@(
+ //人员信息弹出窗口
+ Html.EditorWindow()
+     .ID("Person_Window")
+     .Title("人员信息")
+     .Border(false)
+     .Hidden(true)
+     .Width(700)
+     .Layout(LayoutType.Border)
+     .Height(450)
+     .ItemsFromPartial("PersonInfo")
 )
 
 @(
+ //人员详情弹出窗口
  Html.EditorWindow()
     .ID("Person_Details")
     .Title("人员详情")
@@ -66,6 +72,7 @@
                 )
         )
     .Loader(
+        //人员详情内容
         Html.X().ComponentLoader()
             .RemoveAll(true)
             .Url(Url.Action("details"))
