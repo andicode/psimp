@@ -15,8 +15,8 @@
         menus.ID = "PersonForm_Menu";
         menus.Items.Add(Html.X().MenuItem().Text("基本信息").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(0)"));
         menus.Items.Add(Html.X().MenuItem().Text("注册信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(1)"));
-        menus.Items.Add(Html.X().MenuItem().Text("教育背景").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
-        menus.Items.Add(Html.X().MenuItem().Text("培训经历").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
+        menus.Items.Add(Html.X().MenuItem().Text("教育信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
+        menus.Items.Add(Html.X().MenuItem().Text("职称信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
         menus.Items.Add(Html.X().MenuItem().Text("工作经历").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(4)"));
         menus.Items.Add(Html.X().MenuItem().Text("证书证件").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(5)"));
     })

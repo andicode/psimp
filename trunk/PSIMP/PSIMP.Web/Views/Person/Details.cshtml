@@ -1,0 +1,43 @@
+﻿@model PM_PersonBaseInfo
+@{
+    Layout = null;
+}
+@(
+ Html.X().Container()        
+        .StyleSpec("background:#fff;")
+        .Html(
+            @<text>
+                <div class="resumeBody">
+		            <div class="summary">
+                        <img src="@Url.Action("Photo", new {id=Model.ID })" alt="@Html.DisplayFor(m=>m.PersonName)" width="70" height="90" align="right" class="headerImg"/>
+                        <h1>@Html.DisplayFor(m=>m.PersonName)</h1>
+
+                        @(Model.Sex?"男":"女") <span class="ver-line">|</span>
+                        @(Model.Birthday.ToString("yyyy年M月d日")) <span class="ver-line">|</span>
+                        户口：@Html.DisplayFor(m=>m.RegisterAddress) 
+                        <br/> 
+                        身份证： @Html.DisplayFor(m=>m.IDNumber)<br/>
+                        联系电话: @Html.DisplayFor(m=>m.ContactPhoneNumber) &nbsp; @Html.DisplayFor(m=>m.AlternatePhoneNumber)<br/>
+		            </div>
+		            <dl class="details">
+			            <dt><label>注册信息</label></dt>
+			            <dd>
+                            还没有做
+                        </dd>
+			            <dt><label>教育信息</label></dt>
+			            <dd>     还没有做                      
+                        </dd>
+			            <dt><label>职称信息</label></dt>
+			            <dd>      还没有做        
+                        </dd>
+			            <dt><label>工作经历</label></dt>
+			            <dd>还没有做
+                        </dd>
+			            <dt><label>证书证件</label></dt>            
+			            <dd>    还没有做                       
+                        </dd>
+		            </dl>
+	            </div>
+            </text>
+        )
+)

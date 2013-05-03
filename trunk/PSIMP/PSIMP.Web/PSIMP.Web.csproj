@@ -194,6 +194,7 @@
   <ItemGroup>
     <Content Include="App_Data\Modules.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Readme\Ext.NET.MVC\BREAKING_CHANGES.txt" />
     <Content Include="App_Readme\Ext.NET.MVC\CHANGELOG.txt" />
@@ -218,6 +219,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\login_bg.jpg" />
     <Content Include="Images\login_panel.png" />
+    <Content Include="Images\lookResumebg.jpg" />
     <Content Include="Images\ModuleIcon\asset.png" />
     <Content Include="Images\ModuleIcon\contract.png" />
     <Content Include="Images\ModuleIcon\default.png" />
@@ -285,6 +287,7 @@
     <Content Include="Views\Resource\Index.cshtml" />
     <Content Include="Views\Person\PersonInfo.cshtml" />
     <Content Include="Views\Person\_BaseInfo.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
