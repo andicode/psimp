@@ -103,9 +103,9 @@ namespace PSIMP.Web.Controllers
             return this.Store(null, 0);
         }
         [DirectMethod]
-        public ActionResult SaveEdu()
+        public ActionResult SaveEdu(bool isPhantom, string personId, string values)
         {
-            return Json(new { valid = false, msg = "数据库交互还没有做" });
+            return Json(new { Id = 0, valid = false, msg = "数据库交互还没有做" });
         }
         public ActionResult DeleteEdu()
         {
@@ -116,9 +116,9 @@ namespace PSIMP.Web.Controllers
             return this.Store(null, 0);
         }
         [DirectMethod]
-        public ActionResult SaveTrain()
+        public ActionResult SaveTrain(bool isPhantom, string personId, string values)
         {
-            return Json(new { valid = false, msg = "数据库交互还没有做" });
+            return Json(new { Id = 0, valid = false, msg = "数据库交互还没有做" });
         }
         public ActionResult DeleteTrain()
         {
