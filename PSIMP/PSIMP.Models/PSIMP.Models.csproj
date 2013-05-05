@@ -155,6 +155,8 @@
     <Compile Include="Extensions\SexComboBox.cs" />
     <Compile Include="Extensions\UploadPhotoField.cs" />
     <Compile Include="Partials\PM\PM_PersonBaseInfo.cs" />
+    <Compile Include="Partials\PM\PM_PersonEducationalBackground.cs" />
+    <Compile Include="Partials\PM\PM_PersonTrainingExperience.cs" />
     <Compile Include="Partials\RM\FolderView.cs" />
     <Compile Include="PM_CertificateManage.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>

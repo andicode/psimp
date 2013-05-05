@@ -5,10 +5,11 @@ using System.Text;
 
 namespace PSIMP.Models
 {
-    public class PersonViewModel
+    public class EduViewModel
     {
         public PM_PersonBaseInfo PersonBaseInfo { get; set; }
 
-        public IEnumerable<PM_PersonEducationalBackground> EducationalBackgrounds { get; set; }
+        public PM_PersonEducationalBackground EducationalBackground { get; set; }
+        public PM_PersonTrainingExperience PersonTrainingExperience { get; set; }
     }
 }
