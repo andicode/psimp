@@ -45,7 +45,7 @@
         <EntityTypeShape EntityType="PSIMPDB.EM_ProjectTestPutOnFile" Width="1.5" PointX="17" PointY="33.375" />
         <EntityTypeShape EntityType="PSIMPDB.PM_CertificateManage" Width="1.5" PointX="5.125" PointY="5.125" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonBaseInfo" Width="1.5" PointX="3" PointY="17.875" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertificateInfo" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertificateInfo" Width="1.5" PointX="1.5" PointY="10.125" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonContractInfo" Width="1.5" PointX="0.75" PointY="18.375" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="1.5" PointX="5.25" PointY="13.375" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonInsuranceInfo" Width="1.5" PointX="5.25" PointY="16.875" />

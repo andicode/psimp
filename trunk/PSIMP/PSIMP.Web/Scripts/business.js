@@ -43,7 +43,7 @@ var person = {
         App.PersonForm_Menu.items.items[2].setDisabled(b);
         App.PersonForm_Menu.items.items[3].setDisabled(b);
         App.PersonForm_Menu.items.items[4].setDisabled(b);
-        App.PersonForm_Menu.items.items[5].setDisabled(b);
+        //App.PersonForm_Menu.items.items[5].setDisabled(b);
     },
     setFormState: function () {
         if (App.person_Info_Id.getValue() == '') {
@@ -53,11 +53,13 @@ var person = {
         App.person_info_image.setImageUrl('/person/photo/' + App.person_Info_Id.getValue() + "?_dc=" + new Date().getTime());
         person.setDisabledMenuItem(false);
     },
-    edu: {
+    editGrid:{
         create: function () {
             this.up('grid').store.insert(0, {});
             this.up('grid').editingPlugin.startEdit(0, 0);
-        },
+        }
+    },
+    edu: {
         del: function () {
             var grid = this.up('grid');
             var record = grid.getSelectionModel().getSelection()[0];
@@ -65,7 +67,7 @@ var person = {
                 Ext.Msg.confirm("提示信息", "确定要删除记录“" + record.data.SchoolName + "”吗？", function (r) {
                     if (r == "yes") {
                         Ext.net.DirectMethod.request({
-                            url: "/person/deleteEdu/" + record.data.Id,
+                            url: "/person/deleteEdu/" + record.data.ID,
                             cleanRequest: true,
                             success: function () {
                                 grid.deleteSelected();
@@ -76,7 +78,6 @@ var person = {
             }
         },
         validateSave: function () {
-
             var plugin = this.editingPlugin;
             var form = this.getForm();
             if (form.isValid()) {
@@ -92,11 +93,7 @@ var person = {
             }
         }
     },
-    train: {
-        create: function () {
-            this.up('grid').store.insert(0, {});
-            this.up('grid').editingPlugin.startEdit(0, 0);
-        },
+    train: {       
         del: function () {
             var grid = this.up('grid');
             var record = grid.getSelectionModel().getSelection()[0];
@@ -104,7 +101,7 @@ var person = {
                 Ext.Msg.confirm("提示信息", "确定要删除记录“" + record.data.Agency + "”吗？", function (r) {
                     if (r == "yes") {
                         Ext.net.DirectMethod.request({
-                            url: "/person/deleteTrain/" + record.data.Id,
+                            url: "/person/deleteTrain/" + record.data.ID,
                             cleanRequest: true,
                             success: function () {
                                 grid.deleteSelected();
@@ -124,7 +121,7 @@ var person = {
                             Ext.Msg.alert("Error", result.msg);
                             return;
                         }
-                        App.Person_Edu_Store.reload();
+                        App.Person_Train_Store.reload();
                     }
                 });
             }

@@ -9,7 +9,7 @@
             @<text>
                 <div class="resumeBody">
 		            <div class="summary">
-                        <img src="@Url.Action("Photo", new {id=Model.ID })" alt="@Html.DisplayFor(m=>m.PersonName)" width="70" height="90" align="right" class="headerImg"/>
+                        <img src="@Url.Action("Photo", new {id=Model.ID ,_dc=Model._dc})" alt="@Html.DisplayFor(m=>m.PersonName)" width="70" height="90" align="right" class="headerImg"/>
                         <h1>@Html.DisplayFor(m=>m.PersonName)</h1>
 
                         @(Model.Sex?"男":"女") <span class="ver-line">|</span>
@@ -20,10 +20,10 @@
                         联系电话: @Html.DisplayFor(m=>m.ContactPhoneNumber) &nbsp; @Html.DisplayFor(m=>m.AlternatePhoneNumber)<br/>
 		            </div>
 		            <dl class="details">
-			            <dt><label>注册信息</label></dt>
+			            @*<dt><label>注册信息</label></dt>
 			            <dd>
                             还没有做
-                        </dd>
+                        </dd>*@
 			            <dt><label>教育信息</label></dt>
 			            <dd>
                             还没有做                      

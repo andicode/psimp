@@ -93,6 +93,37 @@ namespace PSIMP.Web.Controllers
             X.GetCmp<Store>("Person_Store").Reload();
             X.Msg.NotifyTop("操作成功");
             return this.Direct();
-        }       
+        }
+
+
+        #region 教育信息
+
+        public ActionResult GetEdus()
+        {
+            return this.Store(null, 0);
+        }
+        [DirectMethod]
+        public ActionResult SaveEdu()
+        {
+            return Json(new { valid = false, msg = "数据库交互还没有做" });
+        }
+        public ActionResult DeleteEdu()
+        {
+            return null;
+        }
+        public ActionResult GetTrains()
+        {
+            return this.Store(null, 0);
+        }
+        [DirectMethod]
+        public ActionResult SaveTrain()
+        {
+            return Json(new { valid = false, msg = "数据库交互还没有做" });
+        }
+        public ActionResult DeleteTrain()
+        {
+            return null;
+        }
+        #endregion
     }
 }

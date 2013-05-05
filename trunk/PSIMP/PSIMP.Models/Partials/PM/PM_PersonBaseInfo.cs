@@ -19,7 +19,7 @@ namespace PSIMP.Models
         [Field(Ignore=true)]
         public long _dc { get { return DateTime.Now.Ticks; } }
 
-        [Model(IDProperty = "PersonID")]
+        [Model(IDProperty = "ID")]
         public class PM_PersonBaseInfo_MetaData
         {
             [Column(Ignore = true)]

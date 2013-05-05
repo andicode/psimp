@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/03/2013 11:53:16
--- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 05/03/2013 19:27:16
+-- Generated from EDMX file: G:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -214,9 +214,6 @@ GO
 IF OBJECT_ID(N'[dbo].[PM_PersonCertificateInfo]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PM_PersonCertificateInfo];
 GO
-IF OBJECT_ID(N'[dbo].[PM_PersonContractInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PM_PersonContractInfo];
-GO
 IF OBJECT_ID(N'[dbo].[PM_PersonEducationalBackground]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PM_PersonEducationalBackground];
 GO
@@ -267,6 +264,9 @@ IF OBJECT_ID(N'[dbo].[VM_VehicleUseInfo]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[VM_VehicleYearInspection]', 'U') IS NOT NULL
     DROP TABLE [dbo].[VM_VehicleYearInspection];
+GO
+IF OBJECT_ID(N'[dbo].[PM_PersonContractInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PM_PersonContractInfo];
 GO
 
 -- --------------------------------------------------
