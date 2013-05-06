@@ -15,12 +15,14 @@
     .Modal(true)
     .Items(
         Html.X().GridPanel()
-            .ForceFit(true)
+            .View(Html.X().GridView().LoadingText("正加载可选人员..."))
             .Store(
                 Html.X().StoreFor<PM_PersonBaseInfo>()
             )
             .ColumnModel(
-                Html.X().ColumnFor(m => m.PersonName).ToBuilder<Column.Builder>().MenuDisabled(true)
+                Html.X().ColumnFor(m => m.PersonName).ToBuilder<Column.Builder>().MenuDisabled(true).Width(100)               
+                ,Html.X().ColumnFor(m => m.Sex).ToBuilder<TemplateColumn.Builder>().MenuDisabled(true).Width(100)
+                ,Html.X().ColumnFor(m => m.IDNumber).ToBuilder<Column.Builder>().MenuDisabled(true).Flex(1)
             )
             .Listeners(events => {
                 events.ItemDblClick.Handler =@"

@@ -38,8 +38,7 @@
 )
 @*注册管理*@
 @(
-    Html.X().GridPanelFor<PM_PersonRegister>()
-    
+ Html.X().GridPanelFor<PM_PersonRegister>()
         .Title("注册管理")
         .EmptyText("没有人员注册记录")
         .TopBar(
@@ -50,10 +49,10 @@
                         .FieldLabel("姓名")
                         .Width(150)
                         .LabelAlign(LabelAlign.Right)
-                        .LabelWidth(35)                        
-                   ,Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
-                   ,Html.X().ToolbarFill()
-                   ,Html.X().Button().Text("新增人员注册信息").Icon(Icon.Add).Handler("person.register.create") 
+                        .LabelWidth(35)
+                   , Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                   , Html.X().ToolbarFill()
+                   , Html.X().Button().Text("新增人员注册信息").Icon(Icon.Add).Handler("person.register.create")
                 )
         )
         .BottomBar(Html.X().PagingToolbar())
