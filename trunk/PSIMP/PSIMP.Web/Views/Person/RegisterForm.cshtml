@@ -1,0 +1,43 @@
+﻿@model PM_PersonRegister
+@{
+    Layout = null;
+}
+
+@(
+ Html.X().FormPanel()
+    .BodyPadding(20)
+    .Items(
+        Html.X().HiddenFor(m=>m.PM_PersonBaseInfo.ID).ID("RegisterPersonID")
+        ,Html.X().TriggerFieldFor(m => m.PM_PersonBaseInfo.PersonName).ID("RegisterPersonName").FieldLabel("人员名称")
+            .Triggers(
+                Html.X().FieldTrigger().Icon(TriggerIcon.Ellipsis).Qtip("选择人员")
+            )
+            .DirectEvents(events => {
+                events.TriggerClick.Url = Url.Action("PersonDlg", new { backID = "RegisterPersonID", backName = "RegisterPersonName" });
+            })
+       , Html.X().DateFieldFor(m => m.RegisterDate).Editable(false)
+       , Html.X().TextFieldFor(m => m.RegisterCompany)
+       , Html.X().TextFieldFor(m => m.OldDBDesc)
+       , Html.X().TextFieldFor(m => m.NewDBDesc)
+       , Html.X().ComboBoxFor(m => m.RegisterStatus).Editable(false).ItemsFromEnum(typeof(Enums.RegisterStatus))
+       , Html.X().FieldSet()
+            .Title("证件提交情况")
+            .Frame(true)
+            .Items(
+               Html.X().CheckboxGroup().ColumnsNumber(3)
+                    .Items(
+                        Html.X().CheckboxFor(m => m.IsHaveIdentificationCard).BoxLabel("是否有身份证")
+                        , Html.X().CheckboxFor(m => m.IsHaveGraduationCertificate).BoxLabel("是否有毕业证")
+                        , Html.X().CheckboxFor(m => m.IsHavePositionalCertificate).BoxLabel("是否有职称证")
+                        , Html.X().CheckboxFor(m => m.IshaveSupervisionCertificate).BoxLabel("是否有监理证")
+                        , Html.X().CheckboxFor(m => m.IsHaveSecurityCertificate).BoxLabel("是否有安全培训证")
+                        , Html.X().CheckboxFor(m => m.IsHaveConservationCertificate).BoxLabel("是否有环保培训证")
+                        , Html.X().CheckboxFor(m => m.IshaveTwoInchPhoto).BoxLabel("是否有2寸白底照片")
+                    )
+             )
+       , Html.X().TextAreaFor(m => m.NoCanRegisterCause).AnchorHorizontal("100%")
+       , Html.X().TextAreaFor(m => m.Descriptions).AnchorHorizontal("100%")
+
+    )
+)
+    

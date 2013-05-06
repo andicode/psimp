@@ -290,6 +290,8 @@
     <Content Include="Views\Person\_TitlesInfo.cshtml" />
     <Content Include="Views\Person\_WorkInfo.cshtml" />
     <Content Include="Views\Person\_CertInfo.cshtml" />
+    <Content Include="Views\Person\RegisterForm.cshtml" />
+    <Content Include="Views\Person\PersonDlg.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
