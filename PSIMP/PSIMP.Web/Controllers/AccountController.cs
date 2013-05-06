@@ -10,6 +10,7 @@ using WebMatrix.WebData;
 
 namespace PSIMP.Web.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         [AllowAnonymous]
