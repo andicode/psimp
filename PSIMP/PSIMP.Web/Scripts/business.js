@@ -228,5 +228,10 @@ var person = {
                 });
             }
         }
+    },
+    register: {
+        create: function () {
+            App.Person_Register.show();
+        }            
     }
 }

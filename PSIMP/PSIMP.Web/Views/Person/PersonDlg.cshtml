@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+    var bid = ViewBag.BackID;
+    var bname = ViewBag.BackName;
+}
+@model PM_PersonBaseInfo
+@(
+ Html.X().Window()
+    .Title("可选人员(双击人员姓名选择)")
+    .Width(430)
+    .Layout(LayoutType.Fit)
+    .CloseAction(CloseAction.Destroy)
+    .Height(300)
+    .Border(false)
+    .Modal(true)
+    .Items(
+        Html.X().GridPanel()
+            .ForceFit(true)
+            .Store(
+                Html.X().StoreFor<PM_PersonBaseInfo>()
+            )
+            .ColumnModel(
+                Html.X().ColumnFor(m => m.PersonName).ToBuilder<Column.Builder>().MenuDisabled(true)
+            )
+            .Listeners(events => {
+                events.ItemDblClick.Handler =@"
+App." + bid + @".setValue(record.data.ID);
+App." + bname + @".setValue(record.data.PersonName);
+this.up('window').close();
+";  
+            })
+            .BottomBar(Html.X().PagingToolbar())
+    )
+)

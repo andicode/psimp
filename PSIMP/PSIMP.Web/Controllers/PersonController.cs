@@ -101,7 +101,12 @@ namespace PSIMP.Web.Controllers
             return this.Direct();
         }
 
-
+        public ActionResult PersonDlg(string backID, string backName)
+        {
+            ViewBag.BackID = backID;
+            ViewBag.BackName = backName;
+            return this.PartialExtView();
+        }
         #region 教育信息
 
         public ActionResult GetEdus()

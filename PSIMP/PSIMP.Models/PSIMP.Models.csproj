@@ -152,7 +152,7 @@
     <Compile Include="EM_ProjectTestPutOnFile.cs">
       <DependentUpon>PSIMPDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\SexComboBox.cs" />
+    <Compile Include="Extensions\ComboBox.cs" />
     <Compile Include="Extensions\UploadPhotoField.cs" />
     <Compile Include="Partials\PM\PM_PersonBaseInfo.cs" />
     <Compile Include="Partials\PM\PM_PersonCertificateInfo.cs" />

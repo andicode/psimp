@@ -21,5 +21,11 @@ namespace PSIMP.Models
             安全证,
             环保证
         }
+        public enum RegisterStatus
+        {
+            未注册=0,
+            已注册=1,
+            已注销=2
+        }
     }
 }
