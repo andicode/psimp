@@ -15,6 +15,7 @@
             .DirectEvents(events =>
             {
                 events.TriggerClick.EventMask.ShowMask = true;
+                events.TriggerClick.EventMask.Target = MaskTarget.Page;
                 events.TriggerClick.EventMask.Msg = "在加载人员选择器...";
                 events.TriggerClick.Url = Url.Action("PersonDlg", new { backID = "RegisterPersonID", backName = "RegisterPersonName" });
             })
