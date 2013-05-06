@@ -12,5 +12,14 @@ namespace PSIMP.Models
             男=0,
             女=1
         }
+        public enum CertType
+        {
+            身份证,
+            毕业证,
+            职称证, 
+            监理证,
+            安全证,
+            环保证
+        }
     }
 }

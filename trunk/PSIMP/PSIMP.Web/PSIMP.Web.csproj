@@ -287,6 +287,9 @@
     <Content Include="Views\Person\_BaseInfo.cshtml" />
     <Content Include="Views\Person\Details.cshtml" />
     <Content Include="Views\Person\_EducationInfo.cshtml" />
+    <Content Include="Views\Person\_TitlesInfo.cshtml" />
+    <Content Include="Views\Person\_WorkInfo.cshtml" />
+    <Content Include="Views\Person\_CertInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

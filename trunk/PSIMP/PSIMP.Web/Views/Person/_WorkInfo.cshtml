@@ -1,0 +1,57 @@
+﻿@model PM_PersonWorkExperienceInfo
+@{
+    Layout = null;
+}
+@(
+ Html.X().GridPanel()
+    .EmptyText("没有工作经历记录")
+    .Store(Html.X().StoreFor<PM_PersonWorkExperienceInfo>().ID("Person_Works_Store").AutoLoad(false))
+    .ColumnModel(
+         Html.X().ColumnFor(m => m.ID).ToBuilder<Column.Builder>().Editor(Html.X().Hidden().Name("ID"))
+       , Html.X().ColumnFor(m => m.CompanyName).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.CompanyName))
+       , Html.X().ColumnFor(m => m.Character).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.Character))
+       , Html.X().ColumnFor(m => m.SectorClass).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.SectorClass))
+       , Html.X().ColumnFor(m => m.AtProject).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.AtProject))
+       , Html.X().ColumnFor(m => m.PositionName).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.PositionName))
+       , Html.X().ColumnFor(m => m.Salary).ToBuilder<NumberColumn.Builder>().Editor(Html.X().NumberFieldFor(m => m.Salary))
+       , Html.X().ColumnFor(m => m.ContractStatus).ToBuilder<TemplateColumn.Builder>().Editor(Html.X().ComboBoxFor(m => m.ContractStatus).Editable(false).Items(new List<ListItem> { new ListItem{Text="解除", Value="true" , Mode= ParameterMode.Raw},new ListItem{ Text="未解除", Value="false" , Mode= ParameterMode.Raw} }))
+       , Html.X().ColumnFor(m => m.WorkStartDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateFieldFor(m => m.WorkStartDate))
+       , Html.X().ColumnFor(m => m.WorkEndDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateFieldFor(m => m.WorkEndDate))
+       , Html.X().ColumnFor(m => m.WorkContent).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.WorkContent))
+       , Html.X().ColumnFor(m => m.RefereesName).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.RefereesName))
+       , Html.X().ColumnFor(m => m.RefereesPhoneNumber).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m => m.RefereesPhoneNumber))
+    )
+    .TopBar(
+        Html.X().Toolbar()
+            .Items(
+                Html.X().Button()
+                    .Text("新增")
+                    .Icon(Icon.Add)
+                    .Listeners(events =>
+                    {
+                        events.Click.Fn = "person.editGrid.create";
+                    }),
+                Html.X().Button()
+                    .ItemID("btnRemove")
+                    .Text("删除")
+                    .Icon(Icon.Exclamation)
+                    .Listeners(events =>
+                    {
+                        events.Click.Fn = "person.works.del";
+                    })
+                  )
+        )
+        .Plugins(Html.X()
+             .RowEditing()
+             .ErrorSummary(false)
+             .SaveHandler("person.works.validateSave")
+             .Listeners(events =>
+             {
+                 events.CancelEdit.Handler = "if(e.record.phantom){e.store.remove(e.record);}";
+             })
+             .SaveBtnText("保存")
+             .CancelBtnText("取消")
+        )
+)
+    
+    
