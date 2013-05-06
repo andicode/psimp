@@ -20,10 +20,16 @@ namespace PSIMP.Web.Controllers
             base.Initialize(requestContext);
         }
 
+        /// <summary>
+        /// 人员管理主界面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
+
+        #region 人员基础信息
 
         public ActionResult GetPersons()
         {
@@ -141,6 +147,7 @@ namespace PSIMP.Web.Controllers
             return null;
         }
         #endregion
+
         #region 工作经历
         public ActionResult GetWorks()
         {
@@ -171,6 +178,17 @@ namespace PSIMP.Web.Controllers
         {
             return null;
         }
+        #endregion
+
+        #endregion
+
+        #region 人员注册信息
+
+        public ActionResult GetRegisters()
+        {
+            return this.Store(null,0);
+        }
+
         #endregion
     }
 }

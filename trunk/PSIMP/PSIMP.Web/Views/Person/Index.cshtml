@@ -28,7 +28,7 @@
             )
             .Listeners(events => {
                 //通过树节点的ID来判断打开的是那个功能
-                events.ItemClick.Handler = "App.Person_View.getLayout().setActiveItem(0)";
+                events.ItemClick.Handler = "App.Person_View.getLayout().setActiveItem(parseInt(record.data.id))";
             })
         , Html.X()
               .Panel()
