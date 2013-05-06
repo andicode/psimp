@@ -1,0 +1,50 @@
+﻿@model PM_PersonPositionalTitlesInfo
+@{
+    Layout = null;
+}
+@(
+Html.X().GridPanel()
+    .EmptyText("没有职称记录")
+    .Store(Html.X().StoreFor<PM_PersonPositionalTitlesInfo>().ID("Person_Titles_Store").AutoLoad(false))
+    .ColumnModel(
+        Html.X().ColumnFor(m=>m.ID).ToBuilder<Column.Builder>().Editor(Html.X().Hidden().Name("ID"))
+       ,Html.X().ColumnFor(m=>m.PositionalName).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.PositionalName))
+       ,Html.X().ColumnFor(m=>m.PositionalType).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.PositionalType))
+       ,Html.X().ColumnFor(m=>m.AssessmentDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateFieldFor(m=>m.AssessmentDate))
+       ,Html.X().ColumnFor(m=>m.AssessmentBody).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.AssessmentBody))
+       ,Html.X().ColumnFor(m=>m.Descriptions).ToBuilder<Column.Builder>().Editor(Html.X().TextField().Name("Descriptions"))
+    )
+    .TopBar(
+        Html.X().Toolbar()
+            .Items(
+                Html.X().Button()
+                    .Text("新增")
+                    .Icon(Icon.Add)
+                    .Listeners(events =>
+                    {
+                        events.Click.Fn = "person.editGrid.create";
+                    }),
+                Html.X().Button()
+                    .ItemID("btnRemove")
+                    .Text("删除")
+                    .Icon(Icon.Exclamation)
+                    .Listeners(events =>
+                    {
+                        events.Click.Fn = "person.titles.del";
+                    })
+                  )
+        )
+        .Plugins(Html.X()
+             .RowEditing()
+             .ErrorSummary(false)
+             .SaveHandler("person.titles.validateSave")
+             .Listeners(events =>
+             {
+                 events.CancelEdit.Handler = "if(e.record.phantom){e.store.remove(e.record);}";
+             })
+             .SaveBtnText("保存")
+             .CancelBtnText("取消")
+        )
+)
+    
+    

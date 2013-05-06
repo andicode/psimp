@@ -56,30 +56,48 @@
         , Html.X()
             .Panel()
             .Title("教育信息")
-            .Layout(LayoutType.Fit)
-            .BodyBorder(0)
+            .Layout(LayoutType.Fit)            
+            .BodyStyle("border:0px")
             .ItemsFromPartial("_EducationInfo")
             .Listeners(events =>
             {
-                //events.Activate.Handler = "App.Person_Edu_Store.reload()";
+                events.Activate.Handler = @"
+if(App.Person_Education_Tab.getActiveTab().getId()!='Person_Edu_Grid'){
+    App.Person_Education_Tab.setActiveTab(App.Person_Edu_Grid)
+}
+else{
+    App.Person_Edu_Grid.fireEvent('activate');
+}";
             })
         , Html.X()
             .Panel()
             .Title("职称信息")
             .Layout(LayoutType.Fit)
-            //.ItemsFromPartial("_TrainInfo", Model)
-            //.Listeners(events => {
-            //    events.Activate.Handler = "App.Person_Train_Store.reload()";
-            //})
+            .BodyStyle("border:0px")
+            .ItemsFromPartial("_TitlesInfo")
+            .Listeners(events =>
+            {
+                events.Activate.Handler = "App.Person_Titles_Store.reload({params:{personId:App.person_Info_Id.getValue()}})";
+            })
         , Html.X()
             .Panel()
             .Title("工作经历")
-            .Layout( LayoutType.Fit)
-            //.ItemsFromPartial("_WorkInfo", Model)
+            .BodyStyle("border:0px")
+            .Layout(LayoutType.Fit)
+            .ItemsFromPartial("_WorkInfo")
+            .Listeners(events =>
+            {
+                events.Activate.Handler = "App.Person_Works_Store.reload({params:{personId:App.person_Info_Id.getValue()}})";
+            })
         , Html.X()
             .Panel()
             .Title("证件信息")
+            .BodyStyle("border:0px")
             .Layout( LayoutType.Fit)
-            //.ItemsFromPartial("_CertInfo", Model)
+            .ItemsFromPartial("_CertInfo", Model)
+            .Listeners(events =>
+            {
+                events.Activate.Handler = "App.Person_Certs_Store.reload({params:{personId:App.person_Info_Id.getValue()}})";
+            })
     )
 )

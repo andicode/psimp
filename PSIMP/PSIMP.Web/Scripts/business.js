@@ -126,5 +126,107 @@ var person = {
                 });
             }
         }
+    },
+    titles: {
+        del: function () {
+            var grid = this.up('grid');
+            var record = grid.getSelectionModel().getSelection()[0];
+            if (record) {
+                Ext.Msg.confirm("提示信息", "确定要删除记录“" + record.data.Agency + "”吗？", function (r) {
+                    if (r == "yes") {
+                        Ext.net.DirectMethod.request({
+                            url: "/person/deleteTitles/" + record.data.ID,
+                            cleanRequest: true,
+                            success: function () {
+                                grid.deleteSelected();
+                            }
+                        });
+                    }
+                })
+            }
+        },
+        validateSave: function () {
+            var plugin = this.editingPlugin;
+            var form = this.getForm();
+            if (form.isValid()) {
+                App.direct.SaveTitles(plugin.context.record.phantom, App.person_Info_Id.getValue(), this.getValues(false, false, false, true), {
+                    success: function (result) {
+                        if (!result.valid) {
+                            Ext.Msg.alert("Error", result.msg);
+                            return;
+                        }
+                        App.Person_Train_Store.reload();
+                    }
+                });
+            }
+        }
+    },
+    works: {
+        del: function () {
+            var grid = this.up('grid');
+            var record = grid.getSelectionModel().getSelection()[0];
+            if (record) {
+                Ext.Msg.confirm("提示信息", "确定要删除记录“" + record.data.Agency + "”吗？", function (r) {
+                    if (r == "yes") {
+                        Ext.net.DirectMethod.request({
+                            url: "/person/deleteWorks/" + record.data.ID,
+                            cleanRequest: true,
+                            success: function () {
+                                grid.deleteSelected();
+                            }
+                        });
+                    }
+                })
+            }
+        },
+        validateSave: function () {
+            var plugin = this.editingPlugin;
+            var form = this.getForm();
+            if (form.isValid()) {
+                App.direct.SaveWorks(plugin.context.record.phantom, App.person_Info_Id.getValue(), this.getValues(false, false, false, true), {
+                    success: function (result) {
+                        if (!result.valid) {
+                            Ext.Msg.alert("Error", result.msg);
+                            return;
+                        }
+                        App.Person_Train_Store.reload();
+                    }
+                });
+            }
+        }
+    },
+    certs: {
+        del: function () {
+            var grid = this.up('grid');
+            var record = grid.getSelectionModel().getSelection()[0];
+            if (record) {
+                Ext.Msg.confirm("提示信息", "确定要删除记录“" + record.data.Agency + "”吗？", function (r) {
+                    if (r == "yes") {
+                        Ext.net.DirectMethod.request({
+                            url: "/person/deletecerts/" + record.data.ID,
+                            cleanRequest: true,
+                            success: function () {
+                                grid.deleteSelected();
+                            }
+                        });
+                    }
+                })
+            }
+        },
+        validateSave: function () {
+            var plugin = this.editingPlugin;
+            var form = this.getForm();
+            if (form.isValid()) {
+                App.direct.SaveCerts(plugin.context.record.phantom, App.person_Info_Id.getValue(), this.getValues(false, false, false, true), {
+                    success: function (result) {
+                        if (!result.valid) {
+                            Ext.Msg.alert("Error", result.msg);
+                            return;
+                        }
+                        App.Person_Train_Store.reload();
+                    }
+                });
+            }
+        }
     }
 }

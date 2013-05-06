@@ -125,5 +125,52 @@ namespace PSIMP.Web.Controllers
             return null;
         }
         #endregion
+
+        #region 职称信息
+        public ActionResult GetTitles()
+        {
+            return this.Store(null, 0);
+        }
+        [DirectMethod]
+        public ActionResult SaveTitles(bool isPhantom, string personId, string values)
+        {
+            return Json(new { Id = 0, valid = false, msg = "数据库交互还没有做" });
+        }
+        public ActionResult DeleteTitles()
+        {
+            return null;
+        }
+        #endregion
+        #region 工作经历
+        public ActionResult GetWorks()
+        {
+            return this.Store(null, 0);
+        }
+        [DirectMethod]
+        public ActionResult SaveWorks(bool isPhantom, string personId, string values)
+        {
+            return Json(new { Id = 0, valid = false, msg = "数据库交互还没有做" });
+        }
+        public ActionResult DeleteWorks()
+        {
+            return null;
+        }
+        #endregion
+
+        #region 证书证件
+        public ActionResult GetCerts()
+        {
+            return this.Store(null, 0);
+        }
+        [DirectMethod]
+        public ActionResult SaveCerts(bool isPhantom, string personId, string values)
+        {
+            return Json(new { Id = 0, valid = false, msg = "数据库交互还没有做" });
+        }
+        public ActionResult DeleteCerts()
+        {
+            return null;
+        }
+        #endregion
     }
 }

@@ -1,0 +1,51 @@
+﻿@model PM_PersonCertificateInfo
+@{
+    Layout = null;
+}
+@(
+Html.X().GridPanel()
+    .EmptyText("没有证书/证件记录")
+    .Store(Html.X().StoreFor<PM_PersonCertificateInfo>().ID("Person_Certs_Store").AutoLoad(false))
+    .ColumnModel(
+        Html.X().ColumnFor(m=>m.ID).ToBuilder<Column.Builder>().Editor(Html.X().Hidden().Name("ID"))
+       ,Html.X().ColumnFor(m=>m.CertificateName).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.CertificateName))
+       ,Html.X().ColumnFor(m=>m.CertificateType).ToBuilder<Column.Builder>().Editor(Html.X().ComboBoxFor(m=>m.CertificateType).Editable(false).ItemsFromEnum(typeof(Enums.CertType)))
+       ,Html.X().ColumnFor(m=>m.CertificateNumber).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.CertificateNumber))
+       ,Html.X().ColumnFor(m=>m.GotDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateFieldFor(m=>m.GotDate))
+       ,Html.X().ColumnFor(m=>m.Authority).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.Authority))
+       ,Html.X().ColumnFor(m=>m.Descriptions).ToBuilder<Column.Builder>().Editor(Html.X().TextField().Name("Descriptions"))
+    )
+    .TopBar(
+        Html.X().Toolbar()
+            .Items(
+                Html.X().Button()
+                    .Text("新增")
+                    .Icon(Icon.Add)
+                    .Listeners(events =>
+                    {
+                        events.Click.Fn = "person.editGrid.create";
+                    }),
+                Html.X().Button()
+                    .ItemID("btnRemove")
+                    .Text("删除")
+                    .Icon(Icon.Exclamation)
+                    .Listeners(events =>
+                    {
+                        events.Click.Fn = "person.certs.del";
+                    })
+                  )
+        )
+        .Plugins(Html.X()
+             .RowEditing()
+             .ErrorSummary(false)
+             .SaveHandler("person.certs.validateSave")
+             .Listeners(events =>
+             {
+                 events.CancelEdit.Handler = "if(e.record.phantom){e.store.remove(e.record);}";
+             })
+             .SaveBtnText("保存")
+             .CancelBtnText("取消")
+        )
+)
+    
+    
