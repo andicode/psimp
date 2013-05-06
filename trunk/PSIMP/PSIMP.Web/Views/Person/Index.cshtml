@@ -31,12 +31,12 @@
                 events.ItemClick.Handler = "App.Person_View.getLayout().setActiveItem(parseInt(record.data.id))";
             })
         , Html.X()
-              .Panel()
+              .Panel()              
               .ID("Person_View")
               .Cls("person-view")
               .Region(Region.Center)
-              .Border(false)
               .Layout(LayoutType.Card)
+              .Border(false)
               //功能区域分布视图
               .ItemsFromPartial("PersonUI_View")
         )

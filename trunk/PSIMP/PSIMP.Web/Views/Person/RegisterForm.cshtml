@@ -7,13 +7,19 @@
  Html.X().FormPanel()
     .BodyPadding(20)
     .Items(
-        Html.X().HiddenFor(m=>m.PM_PersonBaseInfo.ID).ID("RegisterPersonID")
-        ,Html.X().TriggerFieldFor(m => m.PM_PersonBaseInfo.PersonName).ID("RegisterPersonName").FieldLabel("人员名称")
+        Html.X().HiddenFor(m => m.PM_PersonBaseInfo.ID).ID("RegisterPersonID")
+        , Html.X().TriggerFieldFor(m => m.PM_PersonBaseInfo.PersonName).Editable(false).ID("RegisterPersonName").FieldLabel("人员名称")
             .Triggers(
                 Html.X().FieldTrigger().Icon(TriggerIcon.Ellipsis).Qtip("选择人员")
             )
-            .DirectEvents(events => {
+            .DirectEvents(events =>
+            {
+                events.TriggerClick.EventMask.ShowMask = true;
+                events.TriggerClick.EventMask.Msg = "在加载人员选择器...";
                 events.TriggerClick.Url = Url.Action("PersonDlg", new { backID = "RegisterPersonID", backName = "RegisterPersonName" });
+            })
+            .Listeners(events => {
+                events.Focus.Handler = "this.fireEvent('triggerClick')";
             })
        , Html.X().DateFieldFor(m => m.RegisterDate).Editable(false)
        , Html.X().TextFieldFor(m => m.RegisterCompany)
