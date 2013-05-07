@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/03/2013 19:27:16
--- Generated from EDMX file: G:\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
+-- Date Created: 05/07/2013 10:26:59
+-- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Models\PSIMPDB.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -747,8 +747,6 @@ GO
 CREATE TABLE [dbo].[PM_PersonInsuranceInfo] (
     [ID] uniqueidentifier  NOT NULL,
     [PersonID] uniqueidentifier  NOT NULL,
-    [Sex] nvarchar(max)  NOT NULL,
-    [IDNumber] nvarchar(40)  NOT NULL,
     [InsuranceNumber] nvarchar(50)  NOT NULL,
     [InsuranceType] nvarchar(max)  NOT NULL,
     [EffectiveDate] datetime  NOT NULL,

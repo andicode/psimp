@@ -10,6 +10,9 @@ using System.Web;
 
 namespace PSIMP.Models
 {
+    /// <summary>
+    /// 教育背景
+    /// </summary>
     [Proxy(Read = "~/Person/GetEdus")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonEducationalBackground_MetaData))]

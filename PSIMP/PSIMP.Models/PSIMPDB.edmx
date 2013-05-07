@@ -676,8 +676,6 @@
     </Key>
     <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="InsuranceNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="InsuranceType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
@@ -2175,8 +2173,6 @@
           </Key>
           <Property Type="Guid" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Type="Guid" Name="PersonID" Nullable="false" />
-          <Property Type="String" Name="Sex" Nullable="false" />
-          <Property Type="String" Name="IDNumber" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="InsuranceNumber" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="InsuranceType" Nullable="false" />
           <Property Type="DateTime" Name="EffectiveDate" Nullable="false" />
@@ -3101,8 +3097,6 @@
         <MappingFragment StoreEntitySet="PM_PersonInsuranceInfo">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
           <ScalarProperty Name="InsuranceNumber" ColumnName="InsuranceNumber" />
           <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
           <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />

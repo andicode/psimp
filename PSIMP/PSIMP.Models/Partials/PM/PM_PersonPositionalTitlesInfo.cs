@@ -10,6 +10,9 @@ using System.Web;
 
 namespace PSIMP.Models
 {
+    /// <summary>
+    /// 职称信息
+    /// </summary>
     [Proxy(Read = "~/Person/GetTitles")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonPositionalTitlesInfo_MetaData))]

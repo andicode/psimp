@@ -19,8 +19,6 @@ namespace PSIMP.Models
         //主键被写在BaseEntity中,已忽略生成
         //public Guid ID{ get; set; }
         public System.Guid PersonID { get; set; }
-        public string Sex { get; set; }
-        public string IDNumber { get; set; }
         public string InsuranceNumber { get; set; }
         public string InsuranceType { get; set; }
         public System.DateTime EffectiveDate { get; set; }

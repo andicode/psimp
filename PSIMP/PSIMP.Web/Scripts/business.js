@@ -233,5 +233,10 @@ var person = {
         create: function () {
             App.Person_Register.show();
         }            
+    },
+    insurance: {
+        create: function () {
+            App.Person_Insurance.show();
+        }
     }
 }

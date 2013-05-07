@@ -1,0 +1,34 @@
+﻿@model PM_PersonInsuranceInfo
+@{
+    Layout = null;  
+}
+@(
+ Html.X().FormPanel()
+    .BodyPadding(20)
+    .Defaults(new { width=330})
+    .Items(
+        Html.X().HiddenFor(m => m.PersonID).ID("InsurancePersonID")
+       , Html.X().TriggerFieldFor(m => m.PersonDisplayName).ID("InsurancePersonName")
+              .Triggers(
+                 Html.X().FieldTrigger().Icon(TriggerIcon.Ellipsis)
+              )
+              .DirectEvents(events =>
+              {
+                  events.TriggerClick.EventMask.ShowMask = true;
+                  events.TriggerClick.EventMask.Target = MaskTarget.Page;
+                  events.TriggerClick.EventMask.Msg = "在加载人员选择器...";
+                  events.TriggerClick.Url = Url.Action("PersonDlg", new { backID = "InsurancePersonID", backName = "InsurancePersonName", callback = "App.InsurancePersonName.setValue(record.data.PersonName+','+(record.data.Sex?'男':'女')+','+record.data.IDNumber);" });
+              })
+        , Html.X().TriggerFieldFor(m => m.ProjectID)
+             .Triggers(Html.X().FieldTrigger().Icon(TriggerIcon.Ellipsis))
+        , Html.X().TextFieldFor(m => m.PositionName)
+        , Html.X().TextFieldFor(m => m.InsuranceNumber)
+        , Html.X().TextFieldFor(m => m.InsuranceType)
+        , Html.X().DateFieldFor(m => m.EffectiveDate)
+        , Html.X().DateFieldFor(m => m.ExpiryDate)
+        , Html.X().TextFieldFor(m => m.PositionStatus)
+        , Html.X().TextFieldFor(m => m.InsuredNumber)
+        , Html.X().TextAreaFor(m => m.InsuranceContent).Width(430)
+        , Html.X().TextAreaFor(m => m.Description).Width(430)
+    )
+)

@@ -157,6 +157,7 @@
     <Compile Include="Partials\PM\PM_PersonBaseInfo.cs" />
     <Compile Include="Partials\PM\PM_PersonCertificateInfo.cs" />
     <Compile Include="Partials\PM\PM_PersonEducationalBackground.cs" />
+    <Compile Include="Partials\PM\PM_PersonInsuranceInfo.cs" />
     <Compile Include="Partials\PM\PM_PersonTrainingExperience.cs" />
     <Compile Include="Partials\PM\PM_PersonPositionalTitlesInfo.cs" />
     <Compile Include="Partials\PM\PM_PersonWorkExperienceInfo.cs" />

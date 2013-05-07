@@ -101,10 +101,16 @@ namespace PSIMP.Web.Controllers
             return this.Direct();
         }
 
-        public ActionResult PersonDlg(string backID, string backName)
+        public ActionResult PersonDlg(string backID, string backName, string callback = "")
         {
-            ViewBag.BackID = backID;
-            ViewBag.BackName = backName;
+            var scripts = "";           
+            scripts += "App." + backID + ".setValue(record.data.ID);";            
+            scripts += "App." + backName + ".setValue(record.data.PersonName);";
+            if (callback != "")
+            {
+                scripts += callback;
+            }
+            ViewBag.Scripts = scripts;
             return this.PartialExtView();
         }
         #region 教育信息
@@ -194,6 +200,13 @@ namespace PSIMP.Web.Controllers
             return this.Store(null,0);
         }
 
+        #endregion
+
+        #region 保险信息
+        public ActionResult GetInsurances()
+        {
+            return this.Store(null, 0);
+        }
         #endregion
     }
 }

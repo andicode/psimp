@@ -10,6 +10,9 @@ using System.Web;
 
 namespace PSIMP.Models
 {
+    /// <summary>
+    /// 注册信息
+    /// </summary>
     [Proxy(Read = "~/Person/GetRegisters")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonRegister_MetaData))]
