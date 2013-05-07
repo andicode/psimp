@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_ExtLayout.cshtml";
+}
+
+@(
+ Html.X().Viewport()
+    .Layout(LayoutType.Fit)
+    .Loader(
+        Html.X().ComponentLoader()
+            .Url(Url.Action("Index"))
+            .Mode(LoadMode.Frame)
+            .LoadMask(mask =>
+            {
+                mask.ShowMask = true;
+                mask.Msg = "请稍后...";
+                mask.AutoDataBind = true;
+            })
+            
+
+    )
+)
