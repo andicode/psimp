@@ -1,34 +1,7 @@
 ﻿body { font-size: 12px; font-family: Verdana, Geneva, sans-serif; margin: 0; padding: 0; background: url(../images/login_bg.jpg); color: #3b6e81; }
-.second_body {
-     margin: 0 auto; 
-     width: 330px; 
-     height: 243px; 
-     margin-top: 10%; 
-     padding-left: 300px; 
-     padding-top: 110px; 
-     background: url(../images/login_panel.png) no-repeat;
-     position:relative;
-}
-.logo { 
-    position:absolute;
-    top:47px;
-    left:80px;
-    display:block;
-    width:100px;
-    height:100px;
-    background:#f00;
-}
-.appName { 
-    position:absolute;
-    top:160px;
-    left:50px;
-    text-align:center;
-    display:block;
-    width:160px;
-    height:40px;
-    font-size:26px;
-    font-weight:bold;
-}
+.second_body { margin: 0 auto; width: 330px; height: 243px; margin-top: 10%; padding-left: 300px; padding-top: 110px; background: url(../images/login_panel.png) no-repeat; position: relative; }
+.logo { position: absolute; top: 47px; left: 80px; display: block; width: 100px; height: 100px; background: #f00; }
+.appName { position: absolute; top: 160px; left: 50px; text-align: center; display: block; width: 160px; height: 40px; font-size: 26px; font-weight: bold; }
 .login, .login2 { margin-top: 2px; width: 200px; border: 1px solid #7fb5c1; height: 22px; vertical-align: text-bottom; }
 .login2 { width: 125px; }
 .login_button, .reset_botton { width: 58px; height: 26px; border: none; color: #FFF; font-weight: bold; background: url(../images/login1.jpg); margin-left: 15px; }
