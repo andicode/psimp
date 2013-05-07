@@ -48,7 +48,7 @@
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonCertificateInfo" Width="1.5" PointX="1.5" PointY="10.125" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonContractInfo" Width="1.5" PointX="0.75" PointY="18.375" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonEducationalBackground" Width="1.5" PointX="5.25" PointY="13.375" />
-        <EntityTypeShape EntityType="PSIMPDB.PM_PersonInsuranceInfo" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="PSIMPDB.PM_PersonInsuranceInfo" Width="1.75" PointX="5.25" PointY="16.875" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonPositionalTitlesInfo" Width="1.5" PointX="5.25" PointY="21.625" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonRegister" Width="1.5" PointX="5.25" PointY="25" />
         <EntityTypeShape EntityType="PSIMPDB.PM_PersonTrainingExperience" Width="1.5" PointX="5.25" PointY="30" />

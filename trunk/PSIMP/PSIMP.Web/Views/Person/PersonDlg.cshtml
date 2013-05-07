@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
-    var bid = ViewBag.BackID;
-    var bname = ViewBag.BackName;
+    var scripts = ViewBag.Scripts;
+        
 }
 @model PM_PersonBaseInfo
 @(
@@ -25,11 +25,7 @@
                 ,Html.X().ColumnFor(m => m.IDNumber).ToBuilder<Column.Builder>().MenuDisabled(true).Flex(1)
             )
             .Listeners(events => {
-                events.ItemDblClick.Handler =@"
-App." + bid + @".setValue(record.data.ID);
-App." + bname + @".setValue(record.data.PersonName);
-this.up('window').close();
-";  
+                events.ItemDblClick.Handler =scripts+@"this.up('window').close();";  
             })
             .BottomBar(Html.X().PagingToolbar())
     )

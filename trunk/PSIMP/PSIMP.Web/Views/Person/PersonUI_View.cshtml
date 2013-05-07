@@ -62,8 +62,24 @@
         .Title("证件管理")
 )
 @(
-    Html.X().Panel()
+    Html.X().GridPanelFor<PM_PersonInsuranceInfo>()
         .Title("保险信息")
+        .EmptyText("没有人员保险信息记录")
+        .TopBar(
+            Html.X().Toolbar()
+                .Items(
+                    Html.X()
+                        .TextField()
+                        .FieldLabel("姓名")
+                        .Width(150)
+                        .LabelAlign(LabelAlign.Right)
+                        .LabelWidth(35)
+                   , Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                   , Html.X().ToolbarFill()
+                   , Html.X().Button().Text("新增人员保险信息").Icon(Icon.Add).Handler("person.insurance.create")
+                )
+        )
+        .BottomBar(Html.X().PagingToolbar())
 )
 @(
     Html.X().Panel()

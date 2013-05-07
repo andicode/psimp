@@ -9,6 +9,9 @@ using System.Text;
 
 namespace PSIMP.Models
 {
+    /// <summary>
+    /// 证书信息
+    /// </summary>
     [Proxy(Read = "~/Person/GetCerts")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonCertificateInfo_MetaData))]
