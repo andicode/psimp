@@ -11,14 +11,16 @@ namespace PSIMP.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "工程监理信息化管理平台";
             if (!WebMatrix.WebData.WebSecurity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
+            ViewBag.StartupMask = new StartupMask { 
+                Message="正在准备桌面..."
+            };
+            ViewBag.Title = "工程监理信息化管理平台";
             return View(DesktopFrame.Modules());
         }
-
         public ActionResult Test()
         {
             return View();
