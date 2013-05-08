@@ -29,8 +29,7 @@ namespace PSIMP.Application.Implement
         public void Add(Dept obj)
         {
             DeptRepository.Add(obj);
-            EmployeeRepository.Add(obj.listEmp.FirstOrDefault<Employee>());
-            //UnitOfWork.Commit();
+            UnitOfWork.Commit();
         }
     }
 }
