@@ -56,7 +56,7 @@ namespace PSIMP.Infrastructure.BasicRepository
 
         public virtual IEnumerable<T> GetAll()
         {
-            return dbset.ToList<T>();
+            return dbset.Where(m => true);//.ToList<T>();
         }
         public virtual IEnumerable<T> GetByCondition(Func<T, bool> where)
         {
