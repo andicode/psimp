@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("PSIMP.Repository")]
+[assembly: AssemblyTitle("PSIMP.Application.Implement")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("PSIMP.Repository")]
+[assembly: AssemblyProduct("PSIMP.Application.Implement")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("1048195e-c78c-494b-a59f-c179937c507d")]
+[assembly: Guid("596c584d-c34c-49f6-bd9b-6768c0cca2b7")]
 
 // 程序集的版本信息由下面四个值组成:
 //

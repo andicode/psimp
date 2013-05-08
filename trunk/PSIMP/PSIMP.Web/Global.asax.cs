@@ -7,6 +7,14 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using WebMatrix.WebData;
+using PSIMP.Infrastructure.IOC;
+using PSIMP.Application.Interface;
+using PSIMP.Business.Interface;
+using PSIMP.Infrastructure.BasicRepository;
+using PSIMP.Repository;
+using PSIMP.Application.Implement;
+using Microsoft.Practices.Unity.InterceptionExtension;
+using Microsoft.Practices.Unity;
 
 namespace PSIMP.Web
 {
@@ -24,6 +32,25 @@ namespace PSIMP.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             SetupConfig.Setup();
+            IUnityContainer container = GetUnityContainer();
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+        }
+        private IUnityContainer GetUnityContainer()
+        {
+            //Create UnityContainer          
+            IUnityContainer container = new UnityContainer();
+            container.AddNewExtension<Interception>();
+            container.RegisterType<IControllerActivator, CustomControllerActivator>()
+            .RegisterType<IDeptService, DeptService>(new HttpContextLifetimeManager<IDeptService>(), new Interceptor<InterfaceInterceptor>())
+            .RegisterType<IDeptRepository, DeptRepository>(new HttpContextLifetimeManager<IDeptRepository>())
+            .RegisterType<IEmployeeRepository, EmployeeRepository>(new HttpContextLifetimeManager<IEmployeeRepository>())
+            .RegisterType<IUnitOfWork, UnitOfWork>(new HttpContextLifetimeManager<IUnitOfWork>())
+            .RegisterType<IDBFactory, DBFactory>(new HttpContextLifetimeManager<IDBFactory>());
+
+            //.RegisterType<IDeptService, DeptService>(new InjectionProperty("_deptRepository",typeof(IDeptRepository)))) 
+
+
+            return container;
         }
     }
 }

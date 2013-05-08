@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{43ED1E96-3AF4-4CF9-A044-7C7533B58E14}</ProjectGuid>
+    <ProjectGuid>{9060DA83-E39E-4F8F-81CA-AF721204647D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PSIMP.Repository</RootNamespace>
-    <AssemblyName>PSIMP.Repository</AssemblyName>
+    <RootNamespace>PSIMP.Application.Implement</RootNamespace>
+    <AssemblyName>PSIMP.Application.Implement</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>Svn</SccProjectName>
@@ -35,6 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\study\IOC+AOP\unity\unity2.1\UnityQuickStarts\Lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\study\IOC+AOP\unity\unity2.1\UnityQuickStarts\Lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,11 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeptRepository.cs" />
-    <Compile Include="EmployeeRepository.cs" />
+    <Compile Include="DeptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PSIMP.Application\PSIMP.Application.csproj">
+      <Project>{478A971A-2FEC-4A84-A30F-4645AC03B3C7}</Project>
+      <Name>PSIMP.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PSIMP.Business\PSIMP.Business.csproj">
       <Project>{51E2A016-BD3C-41FE-BE41-E07072AEFA43}</Project>
       <Name>PSIMP.Business</Name>
