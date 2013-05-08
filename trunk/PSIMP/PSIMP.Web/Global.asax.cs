@@ -40,15 +40,16 @@ namespace PSIMP.Web
             //Create UnityContainer          
             IUnityContainer container = new UnityContainer();
             container.AddNewExtension<Interception>();
-            container.RegisterType<IControllerActivator, CustomControllerActivator>()
-            .RegisterType<IDeptService, DeptService>(new HttpContextLifetimeManager<IDeptService>(), new Interceptor<InterfaceInterceptor>())
-            .RegisterType<IDeptRepository, DeptRepository>(new HttpContextLifetimeManager<IDeptRepository>())
-            .RegisterType<IEmployeeRepository, EmployeeRepository>(new HttpContextLifetimeManager<IEmployeeRepository>())
-            .RegisterType<IUnitOfWork, UnitOfWork>(new HttpContextLifetimeManager<IUnitOfWork>())
+            container.RegisterType<IControllerActivator, CustomControllerActivator>();
+            #region 应用层
+            container.RegisterType<IDeptService, DeptService>(new HttpContextLifetimeManager<IDeptService>(), new Interceptor<InterfaceInterceptor>());
+            #endregion 
+            #region 底层业务
+            container.RegisterType<IDeptRepository, DeptRepository>(new HttpContextLifetimeManager<IDeptRepository>())
+            .RegisterType<IEmployeeRepository, EmployeeRepository>(new HttpContextLifetimeManager<IEmployeeRepository>());
+            #endregion 
+            container.RegisterType<IUnitOfWork, UnitOfWork>(new HttpContextLifetimeManager<IUnitOfWork>())
             .RegisterType<IDBFactory, DBFactory>(new HttpContextLifetimeManager<IDBFactory>());
-
-            //.RegisterType<IDeptService, DeptService>(new InjectionProperty("_deptRepository",typeof(IDeptRepository)))) 
-
 
             return container;
         }
