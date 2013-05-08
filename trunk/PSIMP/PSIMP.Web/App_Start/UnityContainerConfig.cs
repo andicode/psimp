@@ -12,6 +12,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebMatrix.WebData;
+using PSIMP.Application.Interface.Person;
+using PSIMP.Business.Interface.Person;
+using PSIMP.Repository.Person;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(PSIMP.Web.UnityContainerConfig), "Start")]
 namespace PSIMP.Web
@@ -32,17 +35,17 @@ namespace PSIMP.Web
             container.RegisterType<IControllerActivator, CustomControllerActivator>();
 
             #region 应用层
-
-            container.RegisterType<IDeptService, DeptService>(new HttpContextLifetimeManager<IDeptService>(), new Interceptor<InterfaceInterceptor>());
+            //container.RegisterType<IDeptService, DeptService>(new HttpContextLifetimeManager<IDeptService>(), new Interceptor<InterfaceInterceptor>());
+            container.RegisterType<IPersonService, PersonService>(new HttpContextLifetimeManager<IPersonService>(), new Interceptor<InterfaceInterceptor>());
             
             #endregion
 
 
 
             #region 底层业务
-
-            container.RegisterType<IDeptRepository, DeptRepository>(new HttpContextLifetimeManager<IDeptRepository>())
-                     .RegisterType<IEmployeeRepository, EmployeeRepository>(new HttpContextLifetimeManager<IEmployeeRepository>());
+            //container.RegisterType<IDeptRepository, DeptRepository>(new HttpContextLifetimeManager<IDeptRepository>());
+            //container.RegisterType<IEmployeeRepository, EmployeeRepository>(new HttpContextLifetimeManager<IEmployeeRepository>());
+            container.RegisterType<IPersonBaseRepository, PersonBaseRepository>(new HttpContextLifetimeManager<IPersonBaseRepository>());
             
             #endregion
 
