@@ -33,7 +33,30 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSIMP.Application", "PSIMP.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSIMP.Application.Implement", "PSIMP.Application.Implement\PSIMP.Application.Implement.csproj", "{9060DA83-E39E-4F8F-81CA-AF721204647D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LibFiles", "LibFiles", "{C73B6E3D-7EA4-453E-A0E3-BAA3FC2BD6AF}"
+	ProjectSection(SolutionItems) = preProject
+		LibFiles\EntityFramework.5.0.0\lib\net40\EntityFramework.dll = LibFiles\EntityFramework.5.0.0\lib\net40\EntityFramework.dll
+		LibFiles\EntityFramework.5.0.0\lib\net40\EntityFramework.xml = LibFiles\EntityFramework.5.0.0\lib\net40\EntityFramework.xml
+		LibFiles\Microsoft.Practices.ServiceLocation.dll = LibFiles\Microsoft.Practices.ServiceLocation.dll
+		LibFiles\Microsoft.Practices.Unity.Configuration.dll = LibFiles\Microsoft.Practices.Unity.Configuration.dll
+		LibFiles\Microsoft.Practices.Unity.Configuration.pdb = LibFiles\Microsoft.Practices.Unity.Configuration.pdb
+		LibFiles\Microsoft.Practices.Unity.Configuration.xml = LibFiles\Microsoft.Practices.Unity.Configuration.xml
+		LibFiles\Microsoft.Practices.Unity.dll = LibFiles\Microsoft.Practices.Unity.dll
+		LibFiles\Microsoft.Practices.Unity.Interception.Configuration.dll = LibFiles\Microsoft.Practices.Unity.Interception.Configuration.dll
+		LibFiles\Microsoft.Practices.Unity.Interception.Configuration.pdb = LibFiles\Microsoft.Practices.Unity.Interception.Configuration.pdb
+		LibFiles\Microsoft.Practices.Unity.Interception.Configuration.xml = LibFiles\Microsoft.Practices.Unity.Interception.Configuration.xml
+		LibFiles\Microsoft.Practices.Unity.Interception.dll = LibFiles\Microsoft.Practices.Unity.Interception.dll
+		LibFiles\Microsoft.Practices.Unity.Interception.pdb = LibFiles\Microsoft.Practices.Unity.Interception.pdb
+		LibFiles\Microsoft.Practices.Unity.Interception.xml = LibFiles\Microsoft.Practices.Unity.Interception.xml
+		LibFiles\Microsoft.Practices.Unity.pdb = LibFiles\Microsoft.Practices.Unity.pdb
+		LibFiles\Microsoft.Practices.Unity.xml = LibFiles\Microsoft.Practices.Unity.xml
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -88,9 +111,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VisualSVNWorkingCopyRoot = .
-	EndGlobalSection
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

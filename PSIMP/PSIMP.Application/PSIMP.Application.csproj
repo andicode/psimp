@@ -55,6 +55,15 @@
   <ItemGroup>
     <Compile Include="DTOModel\DeptDTO.cs" />
     <Compile Include="DTOModel\EmployeeDTO.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonBaseInfo.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonCertificateInfo.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonEducationalBackground.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonInsuranceInfo.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonPositionalTitlesInfo.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonRegister.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonTrainingExperience.cs" />
+    <Compile Include="DTOModel\Partials\PM\PM_PersonWorkExperienceInfo.cs" />
+    <Compile Include="DTOModel\Partials\RM\FolderView.cs" />
     <Compile Include="Interface\IDeptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
