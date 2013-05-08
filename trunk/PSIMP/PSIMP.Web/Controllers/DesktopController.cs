@@ -11,10 +11,10 @@ namespace PSIMP.Web.Controllers
     {
         public ActionResult Index()
         {
-            if (!WebMatrix.WebData.WebSecurity.IsAuthenticated)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+            //if (!WebMatrix.WebData.WebSecurity.IsAuthenticated)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
             ViewBag.StartupMask = new StartupMask { 
                 Message="正在准备桌面..."
             };
