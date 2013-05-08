@@ -21,6 +21,10 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,6 +76,14 @@
       <HintPath>..\packages\Ext.NET.Utilities.2.2.1\lib\Ext.Net.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\study\IOC+AOP\unity\unity2.1\UnityQuickStarts\Lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\study\IOC+AOP\unity\unity2.1\UnityQuickStarts\Lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -310,13 +322,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PSIMP.Application.Implement\PSIMP.Application.Implement.csproj">
+      <Project>{9060DA83-E39E-4F8F-81CA-AF721204647D}</Project>
+      <Name>PSIMP.Application.Implement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIMP.Application\PSIMP.Application.csproj">
+      <Project>{478A971A-2FEC-4A84-A30F-4645AC03B3C7}</Project>
+      <Name>PSIMP.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIMP.Business\PSIMP.Business.csproj">
+      <Project>{51E2A016-BD3C-41FE-BE41-E07072AEFA43}</Project>
+      <Name>PSIMP.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIMP.Infrastructure\PSIMP.Infrastructure.csproj">
+      <Project>{3065047C-7731-414E-B646-464A4F9EB89B}</Project>
+      <Name>PSIMP.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PSIMP.Models\PSIMP.Models.csproj">
       <Project>{daa958fb-abca-4262-a20a-f8aae806d247}</Project>
       <Name>PSIMP.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\PSIMP.Repository\PSIMP.Repository.csproj">
-      <Project>{2d8a1185-a844-45d4-a0b3-2e01cf9fcb32}</Project>
+      <Project>{43ED1E96-3AF4-4CF9-A044-7C7533B58E14}</Project>
       <Name>PSIMP.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIMP.Repository_test\PSIMP.Repository_test.csproj">
+      <Project>{2D8A1185-A844-45D4-A0B3-2E01CF9FCB32}</Project>
+      <Name>PSIMP.Repository_test</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

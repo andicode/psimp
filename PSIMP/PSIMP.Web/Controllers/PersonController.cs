@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using Ext.Net.MVC;
 using PSIMP.Models;
 using System.IO;
-using PSIMP.Repository;
+using PSIMP.Repository_test;
 namespace PSIMP.Web.Controllers
 {
     [DirectController(GenerateProxyForOtherAreas=true,GenerateProxyForOtherControllers=true)]

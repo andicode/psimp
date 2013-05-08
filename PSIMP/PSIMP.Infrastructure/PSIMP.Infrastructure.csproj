@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{43ED1E96-3AF4-4CF9-A044-7C7533B58E14}</ProjectGuid>
+    <ProjectGuid>{3065047C-7731-414E-B646-464A4F9EB89B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PSIMP.Repository</RootNamespace>
-    <AssemblyName>PSIMP.Repository</AssemblyName>
+    <RootNamespace>PSIMP.Infrastructure</RootNamespace>
+    <AssemblyName>PSIMP.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>Svn</SccProjectName>
@@ -35,8 +35,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\Mvc4Application2\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\study\IOC+AOP\unity\unity2.1\UnityQuickStarts\Lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\study\IOC+AOP\unity\unity2.1\UnityQuickStarts\Lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,18 +58,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeptRepository.cs" />
-    <Compile Include="EmployeeRepository.cs" />
+    <Compile Include="BasicRepository\DBFactory.cs" />
+    <Compile Include="BasicRepository\Disposable.cs" />
+    <Compile Include="BasicRepository\IDBFactory.cs" />
+    <Compile Include="BasicRepository\IUnitOfWork.cs" />
+    <Compile Include="BasicRepository\Repository.cs" />
+    <Compile Include="BasicRepository\UnitOfWork.cs" />
+    <Compile Include="IOC\CustomControllerActivator.cs" />
+    <Compile Include="IOC\TransactionAttribute.cs" />
+    <Compile Include="IOC\TransactionHandler.cs" />
+    <Compile Include="IOC\UnityControllerFactory .cs" />
+    <Compile Include="IOC\UnityDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommonData\" />
+    <Folder Include="CommonUtil\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PSIMP.Business\PSIMP.Business.csproj">
       <Project>{51E2A016-BD3C-41FE-BE41-E07072AEFA43}</Project>
       <Name>PSIMP.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PSIMP.Infrastructure\PSIMP.Infrastructure.csproj">
-      <Project>{3065047C-7731-414E-B646-464A4F9EB89B}</Project>
-      <Name>PSIMP.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
