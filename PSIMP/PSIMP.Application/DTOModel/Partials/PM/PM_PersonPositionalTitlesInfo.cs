@@ -1,14 +1,14 @@
 ﻿using Ext.Net;
 using Ext.Net.MVC;
 using Newtonsoft.Json;
-using PSIMP.Models.Extensions;
+using PSIMP.Application.DTOModel.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace PSIMP.Models
+namespace PSIMP.Application.DTOModel
 {
     /// <summary>
     /// 职称信息

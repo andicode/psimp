@@ -44,11 +44,11 @@
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LibFiles\Microsoft.Practices.Unity.dll</HintPath>
+      <HintPath>..\LibFiles\unity 2.1\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LibFiles\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <HintPath>..\LibFiles\unity 2.1\Microsoft.Practices.Unity.Interception.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="DTOModel\DeptDTO.cs" />
     <Compile Include="DTOModel\EmployeeDTO.cs" />
+    <Compile Include="DTOModel\Extensions\ComboBox.cs" />
+    <Compile Include="DTOModel\Extensions\UploadPhotoField.cs" />
     <Compile Include="DTOModel\Partials\PM\PM_PersonBaseInfo.cs" />
     <Compile Include="DTOModel\Partials\PM\PM_PersonCertificateInfo.cs" />
     <Compile Include="DTOModel\Partials\PM\PM_PersonEducationalBackground.cs" />
