@@ -40,11 +40,11 @@
       <Launcher Text="设备管理" IconCls="asset-shortcut16"/>
       <Window Title="设备管理" Width="1000" Height="568" IconCls="asset-shortcut16" CloseAction="hide"/>
     </Module>
-    <Module ModuleID="FolderModule" Action="Index" Controller="Resource">
+    <!--<Module ModuleID="FolderModule" Action="Index" Controller="Resource">
       <Shortcut Name="资源管理" SortIndex="0" IconCls="folder-shortcut32"/>
       <Launcher Text="资源管理" IconCls="folder-shortcut16"/>
       <Window Title="资源管理" Width="1000" Height="568" IconCls="folder-shortcut16" CloseAction="hide"/>
-    </Module>
+    </Module>-->
     <Module ModuleID="QueryModule" Action="Index" Controller="Query">
       <Shortcut Name="综合查询" SortIndex="0" IconCls="query-shortcut32"/>
       <Launcher Text="综合查询" IconCls="query-shortcut16"/>
