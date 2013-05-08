@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace PSIMP.Repository
+namespace PSIMP.Repository_test
 {
     public class DBContext<T> where T :BaseEntity
     {
