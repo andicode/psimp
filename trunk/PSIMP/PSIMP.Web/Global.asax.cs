@@ -21,7 +21,16 @@ namespace PSIMP.Web
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);       
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+            //初始化权限管理功能
+            WebSecurity.InitializeDatabaseConnection("PSIMPContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+            if (!WebSecurity.UserExists("admin"))
+            {
+                //创建管理员帐号
+                WebSecurity.CreateUserAndAccount("admin", "admin");
+            }
         }
         
     }
