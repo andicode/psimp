@@ -305,6 +305,7 @@
     <Content Include="Views\Person\RegisterForm.cshtml" />
     <Content Include="Views\Person\PersonDlg.cshtml" />
     <Content Include="Views\Person\InsuranceForm.cshtml" />
+    <Content Include="Views\Person\Frame.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
