@@ -69,6 +69,7 @@
     <Compile Include="DTOModel\DeptDTO.cs" />
     <Compile Include="DTOModel\EmployeeDTO.cs" />
     <Compile Include="Interface\IDeptService.cs" />
+    <Compile Include="Interface\Person\IPersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
