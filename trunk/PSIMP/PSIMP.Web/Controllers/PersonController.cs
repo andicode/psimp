@@ -25,7 +25,7 @@ namespace PSIMP.Web.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            return this.ComponentConfig();
         }
 
         #region 人员基础信息
