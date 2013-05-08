@@ -11,7 +11,7 @@ using Ext.Net.MVC;
 
 namespace PSIMP.Web.Controllers
 {
-    public class ResourceController : Controller
+    /*public class ResourceController : Controller
     {
         //
         // GET: /Resource/
@@ -116,5 +116,5 @@ namespace PSIMP.Web.Controllers
             }
             return this.Store(result);
         }
-    }
+    }*/
 }

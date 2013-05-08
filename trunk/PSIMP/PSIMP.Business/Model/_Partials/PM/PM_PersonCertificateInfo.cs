@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace PSIMP.Application.DTOModel
+namespace PSIMP.Models
 {
     /// <summary>
     /// 证书信息

@@ -338,10 +338,6 @@
       <Project>{3065047C-7731-414E-B646-464A4F9EB89B}</Project>
       <Name>PSIMP.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PSIMP.Models\PSIMP.Models.csproj">
-      <Project>{daa958fb-abca-4262-a20a-f8aae806d247}</Project>
-      <Name>PSIMP.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PSIMP.Repository\PSIMP.Repository.csproj">
       <Project>{43ED1E96-3AF4-4CF9-A044-7C7533B58E14}</Project>
       <Name>PSIMP.Repository</Name>

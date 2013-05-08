@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace PSIMP.Application.DTOModel
 {
-    public class DeptDTO
+    public partial class DeptDTO
     {
       
         public string Name { get; set; }
