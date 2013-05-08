@@ -304,7 +304,6 @@
     <Content Include="Views\Person\_CertInfo.cshtml" />
     <Content Include="Views\Person\RegisterForm.cshtml" />
     <Content Include="Views\Person\PersonDlg.cshtml" />
-    <Content Include="Views\Desktop\Frame.cshtml" />
     <Content Include="Views\Person\InsuranceForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
