@@ -10,6 +10,7 @@ using System.Text;
 namespace PSIMP.Business.BaseModel
 {
     using X = Ext.Net.MVC;
+    [X.Model(IDProperty = "ID")]
     public abstract partial class BaseEntity
     {
         private string _id = "";
