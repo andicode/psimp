@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PSIMP.Infrastructure.CommonData
 {
-    public class Enums
+    public class Enums 
     {
         public enum Sex
         {
