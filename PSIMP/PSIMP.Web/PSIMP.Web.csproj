@@ -346,10 +346,6 @@
       <Project>{43ED1E96-3AF4-4CF9-A044-7C7533B58E14}</Project>
       <Name>PSIMP.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PSIMP.Repository_test\PSIMP.Repository_test.csproj">
-      <Project>{2D8A1185-A844-45D4-A0B3-2E01CF9FCB32}</Project>
-      <Name>PSIMP.Repository_test</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />
