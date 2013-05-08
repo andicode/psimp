@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace PSIMP.Repository
+namespace PSIMP.Repository_test
 {
     public class PersonRepository:DBContext<PM_PersonBaseInfo>
     {
