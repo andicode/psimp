@@ -19,6 +19,10 @@ namespace PSIMP.Web.Controllers
             PersonService = new PersonRepository();
             base.Initialize(requestContext);
         }
+        public ActionResult Frame()
+        {
+            return View();
+        }
 
         /// <summary>
         /// 人员管理主界面
