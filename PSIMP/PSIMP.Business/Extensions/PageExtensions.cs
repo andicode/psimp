@@ -11,7 +11,7 @@ namespace System
         public static IEnumerable<T> GetPagesData<T>(this IEnumerable<T> data,int start,int count,out int total) where T :BaseEntity
         {
             total = data.Count();
-            return data.OrderBy(m => m.CreateTime).Skip(start).Take(count);
+            return data.OrderByDescending(m => m.CreateTime).Skip(start).Take(count);
         }
     }
 }
