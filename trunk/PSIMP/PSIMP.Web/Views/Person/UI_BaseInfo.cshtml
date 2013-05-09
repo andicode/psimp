@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+@(Html.X().GridPanelFor<PM_PersonBaseInfo>()
+          .Title("人员信息")
+          .TopBar(
+               Html.X().Toolbar()
+                   .Items(
+                        Html.X()
+                           .TextField()
+                           .FieldLabel("姓名")
+                           .Width(150)
+                           .LabelAlign(LabelAlign.Right)
+                           .LabelWidth(35)
+                        , Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                        , Html.X().ToolbarFill()
+                        , Html.X().Button().Text("新增人员").Icon(Icon.Add).Handler("person.create")
+                 )
+
+          )
+          .Control(grid =>
+          {
+              grid.GetStore().ID = "Person_Store";
+              grid.ColumnModel.Columns.Insert(0,
+                  Html.X().ComponentColumn().Text("操作").Width(70).Align(Alignment.Center)
+                  .Component(
+                        Html.X().Container().Layout(LayoutType.VBox)
+                            .Items(
+                                Html.X().Button().Text("编辑").Icon(Icon.PageEdit).Margin(5).Handler("person.edit(this.up('container').record)"),
+                                Html.X().Button().Text("删除").Icon(Icon.PageDelete).Margin(5).Handler("person.del(this.up('container').record)")
+                            )
+                  )
+              );
+          })
+          .Listeners(evnets =>
+          {
+              evnets.ItemDblClick.Handler = @"App.Person_Details.show();App.Person_Details.load({params:{id:record.data.ID}})";
+          })
+          .EmptyText("没有人员记录")
+          .BottomBar(Html.X().PagingToolbar())
+)
+
+@(
+ //人员信息弹出窗口
+ Html.EditorWindow()
+     .ID("Person_Window")
+     .Title("人员信息")
+     .Border(false)
+     .Hidden(true)
+     .Width(700)
+     .Layout(LayoutType.Border)
+     .Height(450)
+     .ItemsFromPartial("PersonInfo")
+)
+@(
+ //人员详情弹出窗口
+ Html.EditorWindow()
+    .ID("Person_Details")
+    .Title("人员详情")
+    .Hidden(true)
+    .Width(800)
+    .Height(500)
+    .AutoScroll(true)
+    .TopBar(
+            Html.X().Toolbar()
+                .Items(
+                    Html.X().Button().Text("导出").Icon(Icon.ReportWord)
+                    ,Html.X().Button().Text("打印").Icon(Icon.Printer)
+                )
+        )
+    .Loader(
+        //人员详情内容
+        Html.X().ComponentLoader()
+            .RemoveAll(true)
+            .Url(Url.Action("details"))
+            .Mode(LoadMode.Component)
+            .LoadMask(mask =>
+            {
+                mask.ShowMask = true;
+                mask.Msg = "加载中...";
+            })
+            .AutoLoad(false)
+            .Listeners(events => {
+                events.BeforeLoad.Handler = "App.Person_Details.removeAll()";
+            })
+    )
+)

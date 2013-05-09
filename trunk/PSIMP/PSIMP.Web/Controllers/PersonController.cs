@@ -14,20 +14,27 @@ namespace PSIMP.Web.Controllers
     {
         //private PersonRepository PersonService { get; set; }
 
-        public ActionResult Frame()
-        {
-            return View();
-        }
-
         /// <summary>
         /// 人员管理主界面
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
         {
-            return this.ComponentConfig();
+            return View();
         }
 
+        public ActionResult UI_BaseInfo()
+        {
+            return this.ComponentConfig();
+        }
+        public ActionResult UI_PersonRegister()
+        {
+            return this.ComponentConfig();
+        }
+        public ActionResult UI_PersonInsuranceInfo()
+        {
+            return this.ComponentConfig();
+        }
         #region 人员基础信息
 
         public ActionResult GetPersons()
@@ -36,11 +43,15 @@ namespace PSIMP.Web.Controllers
             //var data = PersonService.GetAll();
             //return this.Store(data, PersonService.Count());
         }
-
+        public ActionResult PersonWindow(string id)
+        {
+            return this.PartialExtView();
+        }
         public ActionResult PersonInfo(string id)
         {
             return this.ComponentConfig();
         }
+
 
         [HttpPost]
         public ActionResult Save(PM_PersonBaseInfo person, HttpPostedFileBase TempPicture)

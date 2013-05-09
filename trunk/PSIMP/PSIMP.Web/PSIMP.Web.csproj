@@ -326,6 +326,10 @@
     <Content Include="Views\Query\Frame.cshtml" />
     <Content Include="Views\Resource\Frame.cshtml" />
     <Content Include="Views\Tender\Frame.cshtml" />
+    <Content Include="Views\Person\PersonWindow.cshtml" />
+    <Content Include="Views\Person\UI_BaseInfo.cshtml" />
+    <Content Include="Views\Person\UI_PersonRegister.cshtml" />
+    <Content Include="Views\Person\UI_PersonInsuranceInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

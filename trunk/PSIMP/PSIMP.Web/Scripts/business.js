@@ -11,15 +11,25 @@ function moduleShow() {
         this.setPagePosition((winWidth - width) / 2, (winHeight - height) / 2-20);
     }
 }
+function open(url, target)
+{
+    Ext.net.DirectMethod.request({
+        url: url,
+        cleanRequest: true,
+        params: {
+            target: target
+        }
+    });
+}
 var person = {
     create: function () {
+        //parent.open('/Person/PersonWindow', "win_PersonModule")
         App.PersonForm_MenuPanel.setSelectedIndex(0);
         App.Person_Card.getLayout().setActiveItem(0);
         App.Person_Basic_Info.getForm().reset();
         App.person_Info_Id.setValue("");
         App.person_info_image.setImageUrl("/images/person/default.jpg");
         person.setDisabledMenuItem(true);
-
         App.Person_Window.show();
     },
     edit: function (record) {

@@ -47,6 +47,14 @@
             module.Window(window =>
             {
                 var win = Html.X().Window(item.Window);
+                //win.Loader(Html.X().ComponentLoader()
+                //               .Url(Url.Action(item.Action, item.Controller))
+                //               .Mode(LoadMode.Frame)
+                //               .LoadMask(mask => {
+                //                   mask.ShowMask = true;
+                //                   mask.Msg = "正在载入" + item.Window.Title + "界面...";
+                //               })
+                //    );
                 win.ItemsFromAction(item.Action, item.Controller);
                 window.Add(win);
             });
