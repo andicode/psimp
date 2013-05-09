@@ -18,12 +18,11 @@ namespace PSIMP.Models
     {
 
         public string SchoolName { get; set; }
-        public System.DateTime EduStartDate { get; set; }
-        public System.DateTime EduEndDate { get; set; }
+        public DateTime? EduStartDate { get; set; }
+        public DateTime? EduEndDate { get; set; }
         public string SpecialtyName { get; set; }
         public string Degree { get; set; }
-        public string Descriptions { get; set; }
-        public System.Guid PersonID { get; set; }
+        public string Description { get; set; }
     
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }

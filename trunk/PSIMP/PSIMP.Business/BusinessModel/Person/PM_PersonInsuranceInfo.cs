@@ -16,20 +16,31 @@ namespace PSIMP.Models
     
     public partial class PM_PersonInsuranceInfo : BaseEntity
     {
-
-        public System.Guid PersonID { get; set; }
         public string InsuranceNumber { get; set; }
+        /// <summary>
+        /// 保险类别
+        /// </summary>
         public string InsuranceType { get; set; }
-        public System.DateTime EffectiveDate { get; set; }
-        public System.DateTime ExpiryDate { get; set; }
+        public DateTime EffectiveDate { get; set; }
+        public DateTime ExpiryDate { get; set; }
+        /// <summary>
+        /// 在职状态(true:在职,false：不在)
+        /// </summary>
         public bool PositionStatus { get; set; }
         public string InsuredNumber { get; set; }
         public string InsuranceContent { get; set; }
-        public System.Guid ProjectID { get; set; }
+        
+        /// <summary>
+        /// 目前岗位
+        /// </summary>
         public string PositionName { get; set; }
-        public int InsuranceStatus { get; set; }
+        //public int InsuranceStatus { get; set; }
         public string Description { get; set; }
     
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
+        /// <summary>
+        /// 所在项目
+        /// </summary>
+        public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
     }
 }

@@ -17,11 +17,13 @@ namespace PSIMP.Models
     public partial class PM_PersonPositionalTitlesInfo : BaseEntity
     {
         public string PositionalName { get; set; }
+        /// <summary>
+        /// 职称类别
+        /// </summary>
         public string PositionalType { get; set; }
-        public System.DateTime AssessmentDate { get; set; }
+        public DateTime? AssessmentDate { get; set; }
         public string AssessmentBody { get; set; }
-        public string Descriptions { get; set; }
-        public System.Guid PersonID { get; set; }
+        public string Description { get; set; }
     
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }

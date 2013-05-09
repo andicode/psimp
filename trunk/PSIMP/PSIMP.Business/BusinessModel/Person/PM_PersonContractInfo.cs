@@ -16,18 +16,16 @@ namespace PSIMP.Models
     
     public partial class PM_PersonContractInfo : BaseEntity
     {
-
-        public bool Sex { get; set; }
-        public string IDNumber { get; set; }
         public string ContractNumber { get; set; }
-        public System.DateTime EffectiveDate { get; set; }
-        public bool ExpiryDate { get; set; }
-        public System.DateTime SigningDate { get; set; }
+        public DateTime? SignDate { get; set; }
+        public DateTime? ContractBeginDate { get; set; }
+        public DateTime? ContractEndDate { get; set; }
+        /// <summary>
+        /// 合同岗位
+        /// </summary>
         public string ContractPosition { get; set; }
         public decimal ContractSalary { get; set; }
         public string Description { get; set; }
-        public System.Guid PersonID { get; set; }
-    
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }
