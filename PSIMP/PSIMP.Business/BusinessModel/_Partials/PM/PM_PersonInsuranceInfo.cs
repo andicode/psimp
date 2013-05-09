@@ -87,6 +87,10 @@ namespace PSIMP.Models
             [Column(Ignore = true)]
             [JsonIgnore]
             public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
+
+            [Column(Ignore = true)]
+            [JsonIgnore]
+            public EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
         }
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string PersonDisplayName
