@@ -318,6 +318,14 @@
     <Content Include="Views\Person\PersonDlg.cshtml" />
     <Content Include="Views\Person\InsuranceForm.cshtml" />
     <Content Include="Views\Person\Frame.cshtml" />
+    <Content Include="Views\Performance\Frame.cshtml" />
+    <Content Include="Views\Desktop\Frame.cshtml" />
+    <Content Include="Views\Contract\Frame.cshtml" />
+    <Content Include="Views\Asset\Frame.cshtml" />
+    <Content Include="Views\Project\Frame.cshtml" />
+    <Content Include="Views\Query\Frame.cshtml" />
+    <Content Include="Views\Resource\Frame.cshtml" />
+    <Content Include="Views\Tender\Frame.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

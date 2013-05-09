@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Ext.Net.MVC;
 namespace PSIMP.Web.Controllers
 {
     public class ContractController : Controller
@@ -11,9 +11,13 @@ namespace PSIMP.Web.Controllers
         //
         // GET: /Contract/
 
-        public ActionResult Index()
+        public ActionResult Frame()
         {
             return View();
+        }
+        public ActionResult Index()
+        {
+            return this.ComponentConfig();
         }
         public ActionResult ContractUI()
         {
