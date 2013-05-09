@@ -30,15 +30,20 @@ var person = {
         App.person_Info_Id.setValue("");
         App.person_info_image.setImageUrl("/images/person/default.jpg");
         person.setDisabledMenuItem(true);
+        App.Person_Window.animateTarget = this;
         App.Person_Window.show();
     },
-    edit: function (record) {
+    edit: function () {
+        var record = this.up('container').record;
+        App.Person_Window.animateTarget = target;
         App.PersonForm_MenuPanel.setSelectedIndex(0)
         App.Person_Card.getLayout().setActiveItem(0)
         App.Person_Basic_Info.getForm().setValues(record.data);
+        App.Person_Window.animateTarget = this;
         App.Person_Window.show();
     },
-    del: function (record) {
+    del: function () {
+        var record = this.up('container').record;
         Ext.Msg.confirm("提示信息", "确定要删除“" + record.data.PersonName + "”吗？", function (r) {
             if (r == "yes") {
                 Ext.net.DirectMethod.request({
@@ -53,7 +58,6 @@ var person = {
         App.PersonForm_Menu.items.items[2].setDisabled(b);
         App.PersonForm_Menu.items.items[3].setDisabled(b);
         App.PersonForm_Menu.items.items[4].setDisabled(b);
-        //App.PersonForm_Menu.items.items[5].setDisabled(b);
     },
     setFormState: function () {
         if (App.person_Info_Id.getValue() == '') {
