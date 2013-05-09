@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel\BaseEntity.cs" />
+    <Compile Include="BusinessModel\_Partials\PM\PM_PersonContractInfo.cs" />
     <Compile Include="Context\IRepository.cs" />
     <Compile Include="Context\PSIMPContext.cs" />
     <Compile Include="Interface\IDeptRepository.cs" />

@@ -252,5 +252,10 @@ var person = {
         create: function () {
             App.Person_Insurance.show();
         }
+    },
+    certificate: {
+        create: function () {
+            App.Person_Certificate.show();
+        }
     }
 }

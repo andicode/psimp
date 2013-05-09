@@ -327,6 +327,8 @@
     <Content Include="Views\Person\UI_BaseInfo.cshtml" />
     <Content Include="Views\Person\UI_PersonRegister.cshtml" />
     <Content Include="Views\Person\UI_PersonInsuranceInfo.cshtml" />
+    <Content Include="Views\Person\UI_PersonCertificateManager.cshtml" />
+    <Content Include="Views\Person\UI_PersonContractInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
