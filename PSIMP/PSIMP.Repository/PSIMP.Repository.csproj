@@ -46,6 +46,15 @@
   <ItemGroup>
     <Compile Include="DeptRepository.cs" />
     <Compile Include="EmployeeRepository.cs" />
+    <Compile Include="Person\PersonCertificateInfoRepository.cs" />
+    <Compile Include="Person\PersonContractRepository.cs" />
+    <Compile Include="Person\PersonEducationalRepository.cs" />
+    <Compile Include="Person\PersonInsuranceRepository.cs" />
+    <Compile Include="Person\PersonPositionalRepository.cs" />
+    <Compile Include="Person\PersonRegisterRepository.cs" />
+    <Compile Include="Person\PersonTrainingRepository.cs" />
+    <Compile Include="Person\PersonWorkExperienceRepository.cs" />
+    <Compile Include="Person\PMCertificateManageRepository.cs" />
     <Compile Include="Person\PersonBaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
