@@ -120,11 +120,36 @@
     <Compile Include="BusinessModel\Vehicle\VM_VehicleUseInfo.cs" />
     <Compile Include="BusinessModel\Vehicle\VM_VehicleYearInspection.cs" />
     <Compile Include="Interface\Person\IPersonBaseRepository.cs" />
+    <Compile Include="Interface\Person\IPMCertificateManageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessModel\_Partials\AM\" />
     <Folder Include="BusinessModel\_Partials\RM\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonContractRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonEducationalRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonInsuranceRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonPositionalRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonRegisterRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonTrainingRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonWorkExperienceRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\Person\IPersonCertificateInfoRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
