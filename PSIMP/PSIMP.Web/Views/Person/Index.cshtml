@@ -5,7 +5,7 @@
     .Container()
     .Layout(LayoutType.Border)
     .Items(
-         //功能菜单
+        //功能菜单
          Html.X().TreePanel()
             .SelectionModel(
                 Html.X().TreeSelectionModel().SelectedIndex(0)
@@ -26,95 +26,19 @@
                           Html.X().Node().Text("人员查询").NodeID("6").Icon(Icon.TagGreen).Leaf(true)
                       )
             )
-            .Listeners(events => {
+            .Listeners(events =>
+            {
                 //通过树节点的ID来判断打开的是那个功能
                 events.ItemClick.Handler = "App.Person_View.getLayout().setActiveItem(parseInt(record.data.id))";
             })
         , Html.X()
-              .Panel()              
+              .Panel()
               .ID("Person_View")
               .Cls("person-view")
               .Region(Region.Center)
               .Layout(LayoutType.Card)
               .Border(false)
-              //功能区域分布视图
+        //功能区域分布视图
               .ItemsFromPartial("PersonUI_View")
         )
-)
-
-@(
- //人员信息弹出窗口
- Html.EditorWindow()
-     .ID("Person_Window")
-     .Title("人员信息")
-     .Border(false)
-     .Hidden(true)
-     .Width(700)
-     .Layout(LayoutType.Border)
-     .Height(450)
-     .ItemsFromPartial("PersonInfo")
-)
-
-@(
- //人员详情弹出窗口
- Html.EditorWindow()
-    .ID("Person_Details")
-    .Title("人员详情")
-    .Hidden(true)
-    .Width(800)
-    .Height(500)
-    .AutoScroll(true)
-    .TopBar(
-            Html.X().Toolbar()
-                .Items(
-                    Html.X().Button().Text("导出").Icon(Icon.ReportWord)
-                    ,Html.X().Button().Text("打印").Icon(Icon.Printer)
-                )
-        )
-    .Loader(
-        //人员详情内容
-        Html.X().ComponentLoader()
-            .RemoveAll(true)
-            .Url(Url.Action("details"))
-            .Mode(LoadMode.Component)
-            .LoadMask(mask =>
-            {
-                mask.ShowMask = true;
-                mask.Msg = "加载中...";
-            })
-            .AutoLoad(false)
-            .Listeners(events => {
-                events.BeforeLoad.Handler = "App.Person_Details.removeAll()";
-            })
-    )
-)
-@(
-Html.EditorWindow()
-    .ID("Person_Register")
-    .Title("人员注册信息")
-    .Hidden(true)
-    .Width(500)
-    .Layout( LayoutType.Fit)
-    .AutoScroll(true)
-    .Border(false)
-    .ItemsFromPartial("RegisterForm")
-    .Buttons(
-        Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
-        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
-    )
-)
-@(
-Html.EditorWindow()
-    .ID("Person_Insurance")
-    .Title("人员注册信息")
-    .Hidden(true)
-    .Width(500)
-    .Layout( LayoutType.Fit)
-    .AutoScroll(true)
-    .Border(false)
-    .ItemsFromPartial("InsuranceForm")
-    .Buttons(
-        Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
-        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
-    )
 )

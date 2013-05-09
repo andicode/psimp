@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+@(
+ //人员信息弹出窗口
+ Html.EditorWindow()
+     .ID("Person_Window")
+     .Title("人员信息")
+     .Border(false)
+     .Width(700)
+     .Layout(LayoutType.Border)
+     .Height(450)
+     .ItemsFromPartial("PersonInfo")
+)

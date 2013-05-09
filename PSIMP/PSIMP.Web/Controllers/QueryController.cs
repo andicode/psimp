@@ -16,7 +16,7 @@ namespace PSIMP.Web.Controllers
         }
         public ActionResult Index()
         {
-            return this.ComponentConfig();
+            return View();
         }
         public ActionResult QueryUI()
         {

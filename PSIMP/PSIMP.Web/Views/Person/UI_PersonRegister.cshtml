@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+    }
+@(Html.X().GridPanelFor<PM_PersonRegister>()
+        .Title("注册管理")
+        .EmptyText("没有人员注册记录")
+        .TopBar(
+            Html.X().Toolbar()
+                .Items(
+                    Html.X()
+                        .TextField()
+                        .FieldLabel("姓名")
+                        .Width(150)
+                        .LabelAlign(LabelAlign.Right)
+                        .LabelWidth(35)
+                   , Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                   , Html.X().ToolbarFill()
+                   , Html.X().Button().Text("新增人员注册信息").Icon(Icon.Add).Handler("person.register.create")
+                )
+        )
+        .BottomBar(Html.X().PagingToolbar())
+    )
+@(
+Html.EditorWindow()
+    .ID("Person_Register")
+    .Title("人员注册信息")
+    .Hidden(true)
+    .Width(500)
+    .Layout( LayoutType.Fit)
+    .AutoScroll(true)
+    .Border(false)
+    .ItemsFromPartial("RegisterForm")
+    .Buttons(
+        Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
+        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
+    )
+)
