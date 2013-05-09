@@ -7,12 +7,15 @@ using System.Web.Mvc;
 using Ext.Net.MVC;
 using PSIMP.Models;
 using System.IO;
+using PSIMP.Application.Interface.Person;
+using Microsoft.Practices.Unity;
 namespace PSIMP.Web.Controllers
 {
     [DirectController(GenerateProxyForOtherAreas=true,GenerateProxyForOtherControllers=true)]
     public class PersonController : Controller
     {
-        //private PersonRepository PersonService { get; set; }
+        [Dependency]
+        public IPersonService PersonService { get; set; }
 
         /// <summary>
         /// 人员管理主界面
@@ -40,12 +43,8 @@ namespace PSIMP.Web.Controllers
         public ActionResult GetPersons()
         {
             return this.Store(null, 0);
-            //var data = PersonService.GetAll();
-            //return this.Store(data, PersonService.Count());
-        }
-        public ActionResult PersonWindow(string id)
-        {
-            return this.PartialExtView();
+            var data = PersonService.GetAll();
+            return this.Store(data, data.Count());
         }
         public ActionResult PersonInfo(string id)
         {
@@ -56,26 +55,26 @@ namespace PSIMP.Web.Controllers
         [HttpPost]
         public ActionResult Save(PM_PersonBaseInfo person, HttpPostedFileBase TempPicture)
         {
-            //if (person.IsCreate)
-            //{
-            //    if (TempPicture != null)
-            //    {
-            //        var buff = new byte[TempPicture.InputStream.Length];
-            //        TempPicture.InputStream.Read(buff, 0, (int)TempPicture.InputStream.Length);
-            //        person.TwoInchPhoto = buff;
-            //    }
-            //    PersonService.Add(person);
-            //}
-            //else
-            //{
-            //    if (TempPicture != null)
-            //    {
-            //        var buff = new byte[TempPicture.InputStream.Length];
-            //        TempPicture.InputStream.Read(buff, 0, (int)TempPicture.InputStream.Length);
-            //        person.TwoInchPhoto = buff;
-            //    }
-            //    PersonService.Update(person);
-            //}
+            if (person.IsCreate)
+            {
+                if (TempPicture != null)
+                {
+                    var buff = new byte[TempPicture.InputStream.Length];
+                    TempPicture.InputStream.Read(buff, 0, (int)TempPicture.InputStream.Length);
+                    person.TwoInchPhoto = buff;
+                }
+                PersonService.Add(person);
+            }
+            else
+            {
+                if (TempPicture != null)
+                {
+                    var buff = new byte[TempPicture.InputStream.Length];
+                    TempPicture.InputStream.Read(buff, 0, (int)TempPicture.InputStream.Length);
+                    person.TwoInchPhoto = buff;
+                }
+                PersonService.Add(person);
+            }
             X.GetCmp<FormPanel>("Person_Basic_Info").SetValues(person);//重置表单
             X.GetCmp<Store>("Person_Store").Reload();//刷新表格
             X.AddScript("person.setFormState();");//修改表单图片

@@ -12,6 +12,25 @@
                 events.Click.Before = "return confirm('您确定要退出系统吗？')";
                 events.Click.Url = Url.Action("LogOff", "Account");
             }));
+    desktop.TaskBar.Tray.Add(
+        Html.X().Toolbar()
+            .Items(
+                Html.X().ToolbarFill(),
+                Html.X().Button()
+                    .Text("消息")
+                    .Menu(
+                        Html.X().Menu()
+                            .Frame(true)                                               
+                            .Items(
+                                Html.X().Panel()                                    
+                                    .ID("Desktop_MessageBus")
+                                    .AlignTo("body", "tl-tr", 0, 0)
+                                    .Width(300)
+                                    .MinHeight(250)
+                            )
+                    )
+            )
+     );
 }
  )
 .DesktopConfig(Html.X().DesktopConfig()
@@ -64,7 +83,7 @@
     }
 })
 )
-<div style="position: fixed; min-width: 300px;top:10px; right:10px">
+<div style="position: fixed;min-width: 300px;top:10px; right:10px">
 @(
  Html.X().Panel()
         .Title(" 待办事宜")
@@ -73,16 +92,4 @@
         .MinHeight(250)
         .Collapsible(false)
 )
-
-</div>
-<div style="position: fixed; min-width: 300px;bottom:45px; right:10px">
-@(
- Html.X().Panel()
-        .Title(" 提示信息")
-        .Frame(true)
-        .Width(300)
-        .MinHeight(250)
-        .Collapsible(true)
-)
-
 </div>

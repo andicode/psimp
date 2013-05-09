@@ -15,6 +15,7 @@
     .Modal(true)
     .Items(
         Html.X().GridPanel()
+            .EmptyText("没有可选人员")
             .View(Html.X().GridView().LoadingText("正加载可选人员..."))
             .Store(
                 Html.X().StoreFor<PM_PersonBaseInfo>()

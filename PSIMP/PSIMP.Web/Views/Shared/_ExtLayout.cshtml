@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    <script src="~/Scripts/Test.js"></script>
+    <script src="~/Scripts/global.js"></script>
     @Scripts.Render("~/business")
 </head>
 <body id="mainBody">
@@ -17,8 +17,7 @@
     .Listeners(events => {
         events.AjaxRequestException.Handler = "alert('异常')";
     })
-)
-    @Html.X().ResourcesRegistrator().RegisterAllResources(true)
+)    
     @RenderBody()
 </body>
 </html>
