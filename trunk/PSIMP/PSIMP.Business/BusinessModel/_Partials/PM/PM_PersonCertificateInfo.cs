@@ -42,11 +42,11 @@ namespace PSIMP.Models
             public string Authority { get; set; }
             [Column(Text = "备注", Order = 6)]
             [Field(HideLabel = true)] 
-            public string Descriptions { get; set; }
+            public string Description { get; set; }
 
 
-            [Column(Hideable = false, Hidden = true)]
-            public Guid PersonID { get; set; }
+            //[Column(Hideable = false, Hidden = true)]
+            //public Guid PersonID { get; set; }
 
             [Column(Ignore = true)]
             [JsonIgnore]

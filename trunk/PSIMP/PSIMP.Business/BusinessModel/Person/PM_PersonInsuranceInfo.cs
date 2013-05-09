@@ -34,7 +34,7 @@ namespace PSIMP.Models
         /// 目前岗位
         /// </summary>
         public string PositionName { get; set; }
-        //public int InsuranceStatus { get; set; }
+        public int InsuranceStatus { get; set; }
         public string Description { get; set; }
     
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }

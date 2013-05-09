@@ -29,9 +29,9 @@ namespace PSIMP.Models
             [Field(FieldLabel = "注册日期")]
             public System.DateTime RegisterDate { get; set; }
 
-            [Column(Text = "所在项目", Order = 4)]
-            [Field(FieldLabel = "所在项目")]
-            public System.Guid ProjectID { get; set; }
+            //[Column(Text = "所在项目", Order = 4)]
+            //[Field(FieldLabel = "所在项目")]
+            //public System.Guid ProjectID { get; set; }
 
             [Column(Text = "在岗状态", Order = 5)]
             [Field(FieldLabel = "在岗状态")]
@@ -62,10 +62,10 @@ namespace PSIMP.Models
             public bool IsGivebackSecurityCertificate { get; set; }
             public bool IsGivebackConservationCertificate { get; set; }
             public bool IsGivebackIdentificationCard { get; set; }
-            public string Descriptions { get; set; }
+            public string Description { get; set; }
 
-            [Column(Hideable = false, Hidden = true)]
-            public string PersonID { get; set; }
+            //[Column(Hideable = false, Hidden = true)]
+            //public string PersonID { get; set; }
 
             [Column(Ignore = true)]
             [JsonIgnore]

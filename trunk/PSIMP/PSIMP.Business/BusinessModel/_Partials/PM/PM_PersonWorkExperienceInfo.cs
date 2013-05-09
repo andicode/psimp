@@ -76,8 +76,8 @@ namespace PSIMP.Models
             //[Field(HideLabel = true)]
             //public string Descriptions { get; set; }
 
-            [Column(Hideable = false, Hidden = true)]
-            public Guid PersonID { get; set; }
+            //[Column(Hideable = false, Hidden = true)]
+            //public Guid PersonID { get; set; }
 
             [Column(Ignore = true)]
             [JsonIgnore]
