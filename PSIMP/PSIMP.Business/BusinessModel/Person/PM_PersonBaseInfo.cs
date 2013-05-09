@@ -16,23 +16,9 @@ namespace PSIMP.Models
     
     public partial class PM_PersonBaseInfo : BaseEntity
     {
-        public PM_PersonBaseInfo()
-        {
-            this.Sex = true;
-            this.PM_CertificateManage = new HashSet<PM_CertificateManage>();
-            this.PM_PersonRegister = new HashSet<PM_PersonRegister>();
-            this.PM_PersonCertificateInfo = new HashSet<PM_PersonCertificateInfo>();
-            this.PM_PersonInsuranceInfo = new HashSet<PM_PersonInsuranceInfo>();
-            this.PM_PersonTrainingExperience = new HashSet<PM_PersonTrainingExperience>();
-            this.PM_PersonPositionalTitlesInfo = new HashSet<PM_PersonPositionalTitlesInfo>();
-            this.PM_PersonEducationalBackground = new HashSet<PM_PersonEducationalBackground>();
-            this.PM_PersonWorkExperienceInfo = new HashSet<PM_PersonWorkExperienceInfo>();
-            this.PM_PersonContractInfo = new HashSet<PM_PersonContractInfo>();
-        }
-        
         public string PersonName { get; set; }
         public bool Sex { get; set; }
-        public System.DateTime Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public string IDNumber { get; set; }
         public string RegisterAddress { get; set; }
         public string ContactPhoneNumber { get; set; }

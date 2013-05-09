@@ -14,20 +14,36 @@ namespace PSIMP.Models
 {
     public partial class PM_PersonWorkExperienceInfo : BaseEntity
     {
-       
-        public System.DateTime WorkStartDate { get; set; }
-        public System.DateTime WorkEndDate { get; set; }
         public string CompanyName { get; set; }
         public string Character { get; set; }
+        /// <summary>
+        /// 规模
+        /// </summary>
+       // public string Scale { get; set; }
         public string SectorClass { get; set; }
+        /// <summary>
+        /// 参与监理的项目名称
+        /// </summary>
         public string AtProject { get; set; }
+        /// <summary>
+        /// 职位名称，详见枚举:Position
+        /// </summary>
         public string PositionName { get; set; }
+        public DateTime? WorkStartDate { get; set; }
+        public DateTime? WorkEndDate { get; set; }
         public decimal Salary { get; set; }
-        public bool ContractStatus { get; set; }
+        /// <summary>
+        /// 是否购买保险(true:购买，false：未购买)
+        /// </summary>
+        public bool IsHaveInsurance { get; set; }
+        /// <summary>
+        /// 见枚举ContractStatus,0:解除，1未解除
+        /// </summary>
+        public int ContractStatus { get; set; }
         public string WorkContent { get; set; }
         public string RefereesName { get; set; }
         public string RefereesPhoneNumber { get; set; }
-        public System.Guid PersonID { get; set; }
+        public string Remark { get; set; }
     
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }

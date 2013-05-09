@@ -17,8 +17,7 @@ namespace PSIMP.Models
     
     public partial class PM_PersonRegister : BaseEntity
     {
-        public System.Guid PersonID { get; set; }
-        public System.DateTime RegisterDate { get; set; }
+        public DateTime RegisterDate { get; set; }
         public string RegisterCompany { get; set; }
         public string OldDBDesc { get; set; }
         public string NewDBDesc { get; set; }
@@ -29,9 +28,12 @@ namespace PSIMP.Models
         public bool IsHaveSecurityCertificate { get; set; }
         public bool IsHaveConservationCertificate { get; set; }
         public bool IshaveTwoInchPhoto { get; set; }
+        /// <summary>
+        /// 见枚举:RegisterStatus
+        /// </summary>
         public int RegisterStatus { get; set; }
         public string NoCanRegisterCause { get; set; }
-        public string Descriptions { get; set; }
+        public string Description { get; set; }
     
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }

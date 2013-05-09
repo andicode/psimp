@@ -18,14 +18,16 @@ namespace PSIMP.Models
     {
         
         public string InstitutionsName { get; set; }
-        public System.DateTime TrainingStartDate { get; set; }
-        public System.DateTime TrainingEndDate { get; set; }
+        public DateTime? TrainingStartDate { get; set; }
+        public DateTime? TrainingEndDate { get; set; }
         public string TrainingAddress { get; set; }
         public string TrainingContent { get; set; }
         public string GotCertificate { get; set; }
-        public string Descriptions { get; set; }
-        public System.Guid PersonID { get; set; }
-    
+        public string Description { get; set; }
+        /// <summary>
+        /// 培训证书原件扫描附件（存路径）
+        /// </summary>
+        public string Attachment { get; set; }
         public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }
