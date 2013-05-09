@@ -24,21 +24,21 @@ namespace PSIMP.Models
             [Field(FieldType = typeof(Hidden))]
             public Guid ID { get; set; }
 
-            [Column(Ignore = true)]
-            [Field(FieldLabel = "合同人员")]
-            public string PersonDisplayName { get; set; }
+            //[Column(Ignore = true)]
+            //[Field(FieldLabel = "合同人员")]
+            //public string PersonDisplayName { get; set; }
 
-            [Column(Text = "姓名", Order = 1)]
-            [Field(FieldLabel = "姓名")]
-            public string PersonName { get; set; }
+            //[Column(Text = "姓名", Order = 1)]
+            //[Field(FieldLabel = "姓名")]
+            //public string PersonName { get; set; }
 
-            [Column(Text = "性别", Order = 2)]
-            [Field(FieldLabel = "性别")]
-            public string Sex { get; set; }
+            //[Column(Text = "性别", Order = 2)]
+            //[Field(FieldLabel = "性别")]
+            //public string Sex { get; set; }
 
-            [Column(Text = "身份证号", Order = 3)]
-            [Field(FieldLabel = "身份证号")]
-            public string IDNumber { get; set; }
+            //[Column(Text = "身份证号", Order = 3)]
+            //[Field(FieldLabel = "身份证号")]
+            //public string IDNumber { get; set; }
 
             [Column(Text ="合同编号",Order=4)]
             [Field(FieldLabel="合同编号")]

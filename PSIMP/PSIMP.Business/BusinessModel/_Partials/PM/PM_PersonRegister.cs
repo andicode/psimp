@@ -24,13 +24,13 @@ namespace PSIMP.Models
             [Field(FieldType = typeof(Hidden))]
             public Guid ID { get; set; }
 
-            [Column(Ignore = true)]
-            [Field(FieldLabel="注册人员")]
-            public System.Guid PersonID { get; set; }
+            //[Column(Ignore = true)]
+            //[Field(FieldLabel="注册人员")]
+            //public System.Guid PersonID { get; set; }
 
-            [Column(Text = "注册人员姓名", Order = 1)]
-            [Field(Ignore=true)]
-            public string PersonName { get; set; }
+            //[Column(Text = "注册人员姓名", Order = 1)]
+            //[Field(Ignore=true)]
+            //public string PersonName { get; set; }
 
 
             [DateColumn(Text = "登记日期", Order = 2, Format = "yyyy年M月d日")]
@@ -85,7 +85,7 @@ namespace PSIMP.Models
 
             [Column(Text = "备注", Order = 15)]
             [Field(FieldLabel = "备注",FieldType=typeof(TextArea))]
-            public string Descriptions { get; set; }
+            public string Description { get; set; }
 
 
             [Column(Ignore=true)]

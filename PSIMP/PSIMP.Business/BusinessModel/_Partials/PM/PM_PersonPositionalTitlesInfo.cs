@@ -43,11 +43,11 @@ namespace PSIMP.Models
 
             [Column(Text = "备注", Width = 200, Order = 5)]
             [Field(HideLabel = true)]
-            public string Descriptions { get; set; }
+            public string Description { get; set; }
 
 
-            [Column(Hideable = false, Hidden = true)]
-            public Guid PersonID { get; set; }
+            //[Column(Hideable = false, Hidden = true)]
+            //public Guid PersonID { get; set; }
 
             [Column(Ignore = true)]
             [JsonIgnore]
