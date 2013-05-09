@@ -62,6 +62,7 @@
     <Compile Include="BusinessModel\_Partials\PM\PM_PersonContractInfo.cs" />
     <Compile Include="Context\IRepository.cs" />
     <Compile Include="Context\PSIMPContext.cs" />
+    <Compile Include="Extensions\PageExtensions.cs" />
     <Compile Include="Interface\IDeptRepository.cs" />
     <Compile Include="Interface\IEmployeeRepository.cs" />
     <Compile Include="BusinessModel\Account\AccountModels.cs" />
@@ -88,8 +89,8 @@
     <Compile Include="BusinessModel\Engineering\EM_ProjectExpandInfo.cs" />
     <Compile Include="BusinessModel\Engineering\EM_ProjectPersonManage.cs" />
     <Compile Include="BusinessModel\Engineering\EM_ProjectTestPutOnFile.cs" />
-    <Compile Include="BusinessModel\_Partials\Extensions\ComboBox.cs" />
-    <Compile Include="BusinessModel\_Partials\Extensions\UploadPhotoField.cs" />
+    <Compile Include="Extensions\ComboBox.cs" />
+    <Compile Include="Extensions\UploadPhotoField.cs" />
     <Compile Include="BusinessModel\_Partials\PM\PM_CertificateManage.cs" />
     <Compile Include="BusinessModel\_Partials\PM\PM_PersonBaseInfo.cs" />
     <Compile Include="BusinessModel\_Partials\PM\PM_PersonCertificateInfo.cs" />
