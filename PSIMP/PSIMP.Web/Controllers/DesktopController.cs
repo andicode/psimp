@@ -1,4 +1,5 @@
 ﻿using Ext.Net;
+using Ext.Net.MVC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace PSIMP.Web.Controllers
 {
+    [DirectController(GenerateProxyForOtherControllers=true,GenerateProxyForOtherAreas=true)]
     public class DesktopController : Controller
     {
         public ActionResult Index()
@@ -21,6 +23,8 @@ namespace PSIMP.Web.Controllers
             ViewBag.Title = "工程监理信息化管理平台";
             return View(DesktopFrame.Modules());
         }
+
+        
         public ActionResult Test()
         {
             return View();

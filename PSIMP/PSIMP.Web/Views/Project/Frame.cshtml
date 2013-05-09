@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+@(
+ Html.X().Container()
+        .Layout(LayoutType.Fit)
+        .Loader(
+            Html.X().ComponentLoader()
+                .Url(Url.Action("Index"))
+                .Mode(LoadMode.Component)
+                .LoadMask(mask => {
+                    mask.ShowMask = true;
+                    mask.Msg = "加载中...";
+                })
+        )
+)

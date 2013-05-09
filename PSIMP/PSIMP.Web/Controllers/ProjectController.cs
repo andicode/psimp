@@ -11,10 +11,13 @@ namespace PSIMP.Web.Controllers
     {
         //
         // GET: /Project/
-
-        public ActionResult Index()
+        public ActionResult Frame()
         {
             return View();
+        }
+        public ActionResult Index()
+        {
+            return this.ComponentConfig();
         }
 
         public ActionResult ProjectUI()
