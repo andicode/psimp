@@ -28,9 +28,9 @@ namespace PSIMP.Models
             //[Field(FieldLabel="注册人员")]
             //public System.Guid PersonID { get; set; }
 
-            //[Column(Text = "注册人员姓名", Order = 1)]
-            //[Field(Ignore=true)]
-            //public string PersonName { get; set; }
+            [Column(Text = "注册人员姓名", Order = 1)]
+            [Field(Ignore = true)]
+            public string PersonName { get; set; }
 
 
             [DateColumn(Text = "登记日期", Order = 2, Format = "yyyy年M月d日")]
