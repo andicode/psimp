@@ -38,6 +38,15 @@ namespace PSIMP.Web.Controllers
         {
             return this.ComponentConfig();
         }
+        public ActionResult UI_PersonCertificateManager()
+        {
+            return this.ComponentConfig();
+        }
+
+        public ActionResult UI_PersonContractInfo()
+        {
+            return this.ComponentConfig();
+        }
         #region 人员基础信息
 
         public ActionResult GetPersons()
@@ -214,6 +223,20 @@ namespace PSIMP.Web.Controllers
 
         #region 保险信息
         public ActionResult GetInsurances()
+        {
+            return this.Store(null, 0);
+        }
+        #endregion
+
+        #region 证书管理
+        public ActionResult GetCertificates()
+        {
+            return this.Store(null, 0);
+        }
+        #endregion
+
+        #region 合同管理
+        public ActionResult GetContracts()
         {
             return this.Store(null, 0);
         }

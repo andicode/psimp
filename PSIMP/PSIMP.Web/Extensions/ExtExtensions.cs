@@ -23,6 +23,31 @@ namespace System.Web
                 });
         }
 
+        public static Container.Builder LayzContainer(this BuilderFactory x,string url,string msg="界面载入中...")
+        {
+            return x.Container()
+                .Layout(LayoutType.Fit)
+                .Loader(
+                     Html.X().ComponentLoader()
+                         .Mode(LoadMode.Component)
+                         .AutoLoad(false)
+                         .Url(url)
+                         .LoadMask(mask =>
+                         {
+                             mask.ShowMask = true;
+                             mask.Msg = msg;
+                         })
+                )
+                .CustomConfig(config =>
+                {
+                    config.Add(new { isLoad = JRawValue.From(false) });
+                })
+                .Listeners(events =>
+                {
+                    events.Activate.Handler = "if(!this.isLoad){ this.reload();this.isLoad=true; }";
+                });
+        }
+
         public static ComboBox.Builder SexComboBox<TModel,TProperty>(this BuilderFactory<TModel> x ,Expression<Func<TModel, TProperty>> expression, bool setId = true, Func<object, object> convert = null, string format = null)
         {
             return x.ComboBoxFor(expression, setId, convert, format).Items(new List<ListItem> { 
@@ -30,6 +55,7 @@ namespace System.Web
                 new ListItem{ Text="女", Value="false", Mode= ParameterMode.Raw}
             });
         }
+
 
         public static Notification NotifyTop(this MessageBox msgbox, string msg)
         {

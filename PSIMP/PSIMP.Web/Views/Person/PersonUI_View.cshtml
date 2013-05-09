@@ -1,77 +1,13 @@
-﻿@*人员管理*@
-@(
- Html.X().Container()
-    .Layout(LayoutType.Fit)    
-    .Loader(
-         Html.X().ComponentLoader()
-             .Mode(LoadMode.Component)
-             .AutoLoad(false)
-             .Url(Url.Action("UI_BaseInfo"))
-             .LoadMask(mask =>
-             {
-                 mask.ShowMask = true;
-                 mask.Msg = "正在加载人员管理界面...";
-             })
-    )
-    .CustomConfig(config =>
-    {
-        config.Add(new { isLoad = JRawValue.From(false) });
-    })
-    .Listeners(events => {
-        events.Activate.Handler = "if(!this.isLoad){ this.reload();this.isLoad=true; }";
-    })
-)
-@*注册管理*@
-@(
-Html.X().Container()
-    .Layout(LayoutType.Fit)
-    .Loader(
-         Html.X().ComponentLoader()
-             .Mode(LoadMode.Component)
-             .AutoLoad(false)
-             .Url(Url.Action("UI_PersonRegister"))
-             .LoadMask(mask => { 
-                 mask.ShowMask = true;
-                 mask.Msg = "正在加载人员注册信息管理界面...";
-             })
-    ) 
-    .CustomConfig(config =>
-    {
-        config.Add(new { isLoad = JRawValue.From(false) });
-    })
-    .Listeners(events => {
-        events.Activate.Handler = "if(!this.isLoad){ this.reload();this.isLoad=true; }";
-    })
-)
-@(
-    Html.X().Panel()
-        .Title("证件管理")
-)
-@(
-Html.X().Container()
-    .Layout(LayoutType.Fit)
-    .Loader(
-         Html.X().ComponentLoader()
-             .Mode(LoadMode.Component)
-             .AutoLoad(false)
-             .Url(Url.Action("UI_PersonInsuranceInfo"))
-             .LoadMask(mask => { 
-                 mask.ShowMask = true;
-                 mask.Msg = "正在加载人员保险信息管理界面...";
-             })
-    ) 
-    .CustomConfig(config =>
-    {
-        config.Add(new { isLoad = JRawValue.From(false) });
-    })
-    .Listeners(events => {
-        events.Activate.Handler = "if(!this.isLoad){ this.reload();this.isLoad=true; }";
-    })   
-)
-@(
-    Html.X().Panel()
-        .Title("合同信息")
-)
+﻿@{
+    Layout = null;
+}
+@*人员管理*@
+
+@Html.X().LayzContainer(Url.Action("UI_BaseInfo"),"正在加载人员管理界面...")
+@Html.X().LayzContainer(Url.Action("UI_PersonRegister"),"正在加载人员注册信息管理界面...")
+@Html.X().LayzContainer(Url.Action("UI_PersonCertificateManager"),"正在加载证件管理界面...")
+@Html.X().LayzContainer(Url.Action("UI_PersonInsuranceInfo"),"正在加载人员保险信息管理界面...")
+@Html.X().LayzContainer(Url.Action("UI_PersonContractInfo"),"正在加载人员合同信息管理界面...")
 @(
     Html.X().Panel()
         .Title("预警提示信息")

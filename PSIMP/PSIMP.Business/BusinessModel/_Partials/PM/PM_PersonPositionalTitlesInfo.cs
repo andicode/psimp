@@ -53,7 +53,33 @@ namespace PSIMP.Models
             [JsonIgnore]
             public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }           
         }
-       
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string PersonDisplayName
+        {
+            get { return this.PersonName + "," + this.Sex + "," + this.IDNumber; }
+            set { }
+        }
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string PersonName
+        {
+            get { return this.PM_PersonBaseInfo.PersonName; }
+        }
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string Sex
+        {
+            get
+            {
+                return this.PM_PersonBaseInfo.Sex ? "男" : "女";
+            }
+        }
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string IDNumber
+        {
+            get
+            {
+                return this.PM_PersonBaseInfo.IDNumber;
+            }
+        }
     }
 
 
