@@ -68,9 +68,9 @@ namespace PSIMP.Models
             public string InsuranceContent { get; set; }
 
 
-            //[Column(Text = "所在项目", Order = 11)]
-            //[Field(FieldLabel = "所在项目")]
-            //public System.Guid ProjectID { get; set; }
+            [Column(Text = "所在项目", Order = 11)]
+            [Field(FieldLabel = "所在项目")]
+            public string ProjectName { get; set; }
 
             [Column(Text = "目前岗位", Order = 12)]
             [Field(FieldLabel = "目前岗位")]
@@ -92,6 +92,9 @@ namespace PSIMP.Models
             [JsonIgnore]
             public EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
         }
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string ProjectName { get { return this.EM_ProjectBaseInfo.ProjectName; } set { } }
+
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string PersonDisplayName
         {
