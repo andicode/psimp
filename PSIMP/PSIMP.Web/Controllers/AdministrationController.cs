@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Ext.Net.MVC;
 namespace PSIMP.Web.Controllers
 {
-    public class PerformanceController : Controller
+    public class AdministrationController : Controller
     {
         //
         // GET: /Performance/

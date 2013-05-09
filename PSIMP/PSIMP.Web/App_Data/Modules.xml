@@ -20,20 +20,15 @@
       <Launcher Text="项目管理" IconCls="project-shortcut16"/>
       <Window Title="项目管理" Width="1000" Height="568" IconCls="project-shortcut16" CloseAction="hide"/>
     </Module>
-    <Module ModuleID="PerformanceModule" Action="Index" Controller="Performance">
-      <Shortcut Name="履约管理" SortIndex="0" IconCls="performance-shortcut32"/>
-      <Launcher Text="履约管理" IconCls="performance-shortcut16"/>
-      <Window Title="履约管理" Width="1000" Height="568" IconCls="performance-shortcut16" CloseAction="hide"/>
+    <Module ModuleID="AdministrationModule" Action="Index" Controller="Administration">
+      <Shortcut Name="行政管理" SortIndex="0" IconCls="admin-shortcut32"/>
+      <Launcher Text="行政管理" IconCls="admin-shortcut16"/>
+      <Window Title="行政管理" Width="1000" Height="568" IconCls="admin-shortcut16" CloseAction="hide"/>
     </Module>    
-    <Module ModuleID="TenderModule" Action="Index" Controller="Tender">
-      <Shortcut Name="招投标管理" SortIndex="0" IconCls="tender-shortcut32"/>
-      <Launcher Text="招投标管理" IconCls="tender-shortcut16"/>
-      <Window Title="招投标管理" Width="1000" Height="568" IconCls="tender-shortcut16" CloseAction="hide"/>
-    </Module>
-    <Module ModuleID="ContractModule" Action="Index" Controller="Contract">
-      <Shortcut Name="合同管理" SortIndex="0" IconCls="contract-shortcut32"/>
-      <Launcher Text="合同管理" IconCls="contract-shortcut16"/>
-      <Window Title="合同管理" Width="1000" Height="568" IconCls="contract-shortcut16" CloseAction="hide"/>
+    <Module ModuleID="VehicleModule" Action="Index" Controller="Vehicle">
+      <Shortcut Name="车辆管理" SortIndex="0" IconCls="car-shortcut32"/>
+      <Launcher Text="车辆管理" IconCls="car-shortcut16"/>
+      <Window Title="车辆管理" Width="1000" Height="568" IconCls="car-shortcut16" CloseAction="hide"/>
     </Module>
     <Module ModuleID="AssetModule" Action="Index" Controller="Asset">
       <Shortcut Name="设备管理" SortIndex="0" IconCls="asset-shortcut32"/>

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Ext.Net.MVC;
 namespace PSIMP.Web.Controllers
 {
-    public class TenderController : Controller
+    public class VehicleController : Controller
     {
         //
         // GET: /Tender/
