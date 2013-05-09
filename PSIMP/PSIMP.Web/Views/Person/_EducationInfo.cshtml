@@ -20,7 +20,6 @@
                     , Html.X().ColumnFor(m => m.EducationalBackground.EduEndDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateField().Name("EduEndDate"))
                     , Html.X().ColumnFor(m => m.EducationalBackground.SpecialtyName).ToBuilder<Column.Builder>().Editor(Html.X().TextField().Name("SpecialtyName"))
                     , Html.X().ColumnFor(m => m.EducationalBackground.Degree).ToBuilder<Column.Builder>().Editor(Html.X().TextField().Name("Degree"))
-                    , Html.X().ColumnFor(m => m.EducationalBackground.Descriptions).ToBuilder<Column.Builder>().Editor(Html.X().TextField().Name("Descriptions"))
                 )
                 .TopBar(
                     Html.X().Toolbar()

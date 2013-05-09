@@ -7,7 +7,7 @@
     .BodyPadding(20)
     .Defaults(new { width=330})
     .Items(
-        Html.X().HiddenFor(m => m.PersonID).ID("InsurancePersonID")
+        Html.X().HiddenFor(m => m.PM_PersonBaseInfo.ID).ID("InsurancePersonID")
        , Html.X().TriggerFieldFor(m => m.PersonDisplayName).ID("InsurancePersonName")
               .Triggers(
                  Html.X().FieldTrigger().Icon(TriggerIcon.Ellipsis)
@@ -19,7 +19,7 @@
                   events.TriggerClick.EventMask.Msg = "在加载人员选择器...";
                   events.TriggerClick.Url = Url.Action("PersonDlg", new { backID = "InsurancePersonID", backName = "InsurancePersonName", callback = "App.InsurancePersonName.setValue(record.data.PersonName+','+(record.data.Sex?'男':'女')+','+record.data.IDNumber);" });
               })
-        , Html.X().TriggerFieldFor(m => m.ProjectID)
+        , Html.X().TriggerFieldFor(m => m.EM_ProjectBaseInfo.ID)
              .Triggers(Html.X().FieldTrigger().Icon(TriggerIcon.Ellipsis))
         , Html.X().TextFieldFor(m => m.PositionName)
         , Html.X().TextFieldFor(m => m.InsuranceNumber)

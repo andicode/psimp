@@ -13,7 +13,6 @@ Html.X().GridPanel()
        ,Html.X().ColumnFor(m=>m.CertificateNumber).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.CertificateNumber))
        ,Html.X().ColumnFor(m=>m.GotDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateFieldFor(m=>m.GotDate))
        ,Html.X().ColumnFor(m=>m.Authority).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.Authority))
-       ,Html.X().ColumnFor(m=>m.Descriptions).ToBuilder<Column.Builder>().Editor(Html.X().TextField().Name("Descriptions"))
     )
     .TopBar(
         Html.X().Toolbar()

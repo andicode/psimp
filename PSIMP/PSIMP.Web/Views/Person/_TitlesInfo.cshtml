@@ -12,7 +12,6 @@ Html.X().GridPanel()
        ,Html.X().ColumnFor(m=>m.PositionalType).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.PositionalType))
        ,Html.X().ColumnFor(m=>m.AssessmentDate).ToBuilder<DateColumn.Builder>().Editor(Html.X().DateFieldFor(m=>m.AssessmentDate))
        ,Html.X().ColumnFor(m=>m.AssessmentBody).ToBuilder<Column.Builder>().Editor(Html.X().TextFieldFor(m=>m.AssessmentBody))
-       ,Html.X().ColumnFor(m=>m.Descriptions).ToBuilder<Column.Builder>().Editor(Html.X().TextField().Name("Descriptions"))
     )
     .TopBar(
         Html.X().Toolbar()
