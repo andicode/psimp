@@ -8,21 +8,20 @@ namespace PSIMP.Web.Controllers
 {
     public class VehicleController : Controller
     {
-        //
-        // GET: /Tender/
 
-        public ActionResult Frame()
-        {
-            return View();
-        }
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult TenderUI()
+        //基础信息
+        public ActionResult UI_BasicInfo()
         {
-            return View();
+            return this.ComponentConfig();
         }
-
+        //贷款/还款信息
+        public ActionResult UI_LoanRepayment()
+        {
+            return this.ComponentConfig();
+        }
     }
 }
