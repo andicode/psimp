@@ -11,16 +11,8 @@ function moduleShow() {
         this.setPagePosition((winWidth - width) / 2, (winHeight - height) / 2-20);
     }
 }
-function open(url, target)
-{
-    Ext.net.DirectMethod.request({
-        url: url,
-        cleanRequest: true,
-        params: {
-            target: target
-        }
-    });
-}
+
+//#region 人员管理
 var person = {
     create: function () {
         //parent.open('/Person/PersonWindow', "win_PersonModule")
@@ -259,3 +251,12 @@ var person = {
         }
     }
 }
+//#endregion
+
+//#region 项目管理
+var project = {
+    create: function () {
+        App.ProjectInfo_Window.show()
+    }
+}
+//#endregion

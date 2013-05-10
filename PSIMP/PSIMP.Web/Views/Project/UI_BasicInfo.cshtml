@@ -4,5 +4,36 @@
 @(
     Html.X().GridPanelFor<EM_ProjectBaseInfo>()
         .Title("项目基本信息")
+        .EmptyText("没有项目信息的记录")
+        .TopBar(
+            Html.X().Toolbar()
+                   .Items(
+                        Html.X()
+                           .TextField()
+                           .FieldLabel("项目名称")
+                           .Width(180)
+                           .LabelAlign(LabelAlign.Right)
+                           .LabelWidth(65)
+                        , Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                        , Html.X().ToolbarFill()
+                        , Html.X().Button().Text("新增项目记录").Icon(Icon.Add).Handler("project.create")
+                 )
+        )
         .BottomBar(Html.X().PagingToolbar())
+)
+
+@(
+Html.EditorWindow()
+    .Title("项目信息")
+    .Layout(LayoutType.Fit)
+    .ID("ProjectInfo_Window")
+    .Border(false)
+    .Hidden(true)
+    .Width(600)
+    .Height(520)
+    .ItemsFromPartial("UI_Project")
+    .Buttons(
+        Html.X().Button().Text("保存").Icon(Icon.Disk),
+        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
+    )
 )

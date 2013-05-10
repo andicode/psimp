@@ -22,32 +22,19 @@
             )
             .Root(Html.X().Node().Text("root").NodeID("root")
                       .Children(
-                              Html.X().Node().Text("项目信息").NodeID("0").Icon(Icon.TagGreen).Expanded(true).CustomAttributes(attr => { attr.Add(new { type = "menu" }); })
-                              .Children(
-                                           Html.X().Node().Text("XXX项目").NodeID("project-001").CustomAttributes(attr => { attr.Add(new { type = "project" }); }).Leaf(true)
-                              )
-                          ,
+                            Html.X().Node().Text("项目信息").NodeID("0").Icon(Icon.TagGreen).Leaf(true),
                             Html.X().Node().Text("合同信息").NodeID("1").Icon(Icon.TagGreen).Leaf(true),
                             Html.X().Node().Text("项目人员管理").NodeID("2").Icon(Icon.TagGreen).Leaf(true),
                             Html.X().Node().Text("人员履约管理").NodeID("3").Icon(Icon.TagGreen).Leaf(true),
-                              Html.X().Node().Text("项目实验备案").NodeID("4").Icon(Icon.TagGreen).Leaf(true).CustomAttributes(attr => { attr.Add(new { type = "menu" }); }),
-                              Html.X().Node().Text("预警或提示信息").NodeID("5").Icon(Icon.TagGreen).Leaf(true).CustomAttributes(attr => { attr.Add(new { type = "menu" }); }),
-                              Html.X().Node().Text("项目查询").NodeID("6").Icon(Icon.TagGreen).Leaf(true).CustomAttributes(attr => { attr.Add(new { type = "menu" }); })
+                            Html.X().Node().Text("项目实验备案").NodeID("4").Icon(Icon.TagGreen).Leaf(true),
+                            Html.X().Node().Text("预警或提示信息").NodeID("5").Icon(Icon.TagGreen).Leaf(true),
+                            Html.X().Node().Text("项目查询").NodeID("6").Icon(Icon.TagGreen).Leaf(true)
                       )
             )
             .Listeners(events =>
             {
                 //通过树节点的ID来判断打开的是那个功能
-                events.ItemClick.Handler = @"
-if(record.data.type=='menu'){
-    App.Project_View.getLayout().setActiveItem(parseInt(record.data.id))
-}
-else{
-    App.Project_View.getLayout().setActiveItem(7);
-    App.Project_Details_Card.removeAll();
-    App.Project_Details_Card.reload();
-}
-";
+                events.ItemClick.Handler = @"App.Project_View.getLayout().setActiveItem(parseInt(record.data.id))";
             })
         , Html.X()
               .Panel()
@@ -57,8 +44,8 @@ else{
               .Border(false)
         //功能区域分布视图
               .Items(
-                   Html.X().LayzContainer(Url.Action("UI_BasicInfo"), "正在加载车辆基本信息界面..."),
-                   Html.X().Panel().Title("合同信息"),
+                   Html.X().LayzContainer(Url.Action("UI_BasicInfo"), "正在加载项目基本信息界面..."),
+                   Html.X().LayzContainer(Url.Action("UI_Contracts"), "正在加载项目合同信息界面..."),
                    Html.X().Panel().Title("人员管理"),
                    Html.X().Panel().Title("人员履约"),
                    Html.X().Panel().Title("试验备案"),
