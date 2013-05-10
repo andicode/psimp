@@ -13,7 +13,7 @@ namespace PSIMP.Business.BaseModel
     [X.Model(IDProperty = "ID")]
     public abstract partial class BaseEntity
     {
-        private string _id = "";
+        internal string _id = "";
         [Key]
         public string ID
         {
@@ -23,7 +23,10 @@ namespace PSIMP.Business.BaseModel
             }
             set 
             {
-                IsCreate = false;
+                if (!string.IsNullOrEmpty(ID))
+                {
+                    IsCreate = false;
+                }
                 _id = value;
             }
         }
@@ -48,14 +51,14 @@ namespace PSIMP.Business.BaseModel
         [X.Field(Ignore = true)]
         public bool IsDelete { get; set; }
 
-        private bool _isCreate=true;
+        internal bool _isCreate = true;
 
         [NotMapped]
         [X.Column(Ignore = true)]
         [X.Field(Ignore = true)]
         public bool IsCreate
         {
-            get { return _isCreate=true; }
+            get { return _isCreate; }
             private set { _isCreate = value; }
         }
 
