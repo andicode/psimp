@@ -55,6 +55,6 @@ namespace PSIMP.Models
         public string RewardAndPunishment { get; set; }
         public string Description { get; set; }
     
-        public virtual EM_ProjectContractBaseInfo EM_ProjectContractBaseInfo { get; set; }
+        public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
     }
 }

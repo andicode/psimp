@@ -38,7 +38,8 @@ namespace PSIMP.Models
         /// </summary>
         public int DefectsLiabilityPeriod { get; set; }
         public string Description { get; set; }
-    
+
+        public virtual EM_ProjectExpandInfo EM_ProjectExpandInfo { get; set; }
         public virtual ICollection<EM_ProjectContractBaseInfo> EM_ProjectContractBaseInfo { get; set; }
         public virtual ICollection<EM_ProjectPersonManage> EM_ProjectPersonManage { get; set; }
         public virtual ICollection<EM_ProjectContractPerformance> EM_ProjectContractPerformance { get; set; }
