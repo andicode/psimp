@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+@model EM_ProjectBaseInfo
+@(
+Html.X().TabPanel()
+    .Title("这里显示项目名称")
+    .Items(
+        Html.X().FormPanel()
+            .Title("基本信息")
+            .BodyPadding(20)
+            .Items( 
+                Html.X().TextFieldFor(m=>m.ProjectFullName),
+                Html.X().TextFieldFor(m=>m.ProjectName),
+                Html.X().TextFieldFor(m=>m.ConstructionCompany),
+                Html.X().ComboBoxFor(m=>m.ProjectType).ItemsFromEnum(typeof(Enums.ProjectType)).Editable(false),
+                Html.X().TextFieldFor(m=>m.ProjectScale),
+                Html.X().TextFieldFor(m=>m.ProjectAddress),
+                Html.X().DateFieldFor(m=>m.EntryDate),
+                Html.X().DateFieldFor(m=>m.StartDate),
+                Html.X().DateFieldFor(m=>m.CompletionDate),
+                Html.X().DateFieldFor(m=>m.FinishedDate),
+                Html.X().TextFieldFor(m=>m.DefectsLiabilityPeriod),
+                Html.X().TextAreaFor(m=>m.Description)
+            )
+       ,Html.X().Panel().Title("扩展信息").Html("扩展信息")
+    )
+)

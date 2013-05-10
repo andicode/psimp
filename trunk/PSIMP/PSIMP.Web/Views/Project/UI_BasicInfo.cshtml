@@ -1,0 +1,8 @@
+﻿@{
+    Layout = null;
+    }
+@(
+    Html.X().GridPanelFor<EM_ProjectBaseInfo>()
+        .Title("项目基本信息")
+        .BottomBar(Html.X().PagingToolbar())
+)
