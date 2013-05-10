@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+@(
+Html.X().TabPanel()
+    .Items(
+        Html.X().GridPanelFor<VM_VehicleLoanInfo>()
+            .Title("贷款信息")
+        ,Html.X().GridPanelFor<VM_PaymentDetailInfo>()
+            .Title("还款信息")
+    )
+)

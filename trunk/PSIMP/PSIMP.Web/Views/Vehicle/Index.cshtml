@@ -1,21 +1,48 @@
-﻿
-
-@{
+﻿@{
     Layout = null;
 }
-
 @(Html.X()
     .Container()
     .Layout(LayoutType.Border)
-        .ItemsFromPartial("TenderUI")
-        //.Loader(Html.X().ComponentLoader()
-        //            .Url(Url.Action("PersionUI"))
-        //            .Mode(LoadMode.Component)
-        //            .Params(new { containerId = JRawValue.From("this.id") })
-        //            .LoadMask(mask =>
-        //            {
-        //                mask.ShowMask = true;
-        //                mask.Msg = "加载中...";
-        //            })
-        //)
+    .Items(
+        //功能菜单
+         Html.X().TreePanel()
+            .SelectionModel(
+                Html.X().TreeSelectionModel().SelectedIndex(0)
+            )
+            .Region(Region.West)
+            .Split(true)
+            .Width(150)
+            .RootVisible(false)
+            .UseArrows(true)
+            .Root(Html.X().Node().Text("root").NodeID("root")
+                      .Children(
+                          Html.X().Node().Text("基本信息").NodeID("0").Icon(Icon.TagGreen).Leaf(true),
+                          Html.X().Node().Text("贷款/还款信息").NodeID("1").Icon(Icon.TagGreen).Leaf(true),
+                          Html.X().Node().Text("租赁信息").NodeID("2").Icon(Icon.TagGreen).Leaf(true),
+                          Html.X().Node().Text("年审信息").NodeID("3").Icon(Icon.TagGreen).Leaf(true),
+                          Html.X().Node().Text("保险信息").NodeID("4").Icon(Icon.TagGreen).Leaf(true),
+                          Html.X().Node().Text("维修信息").NodeID("5").Icon(Icon.TagGreen).Leaf(true),
+                          Html.X().Node().Text("使用信息").NodeID("6").Icon(Icon.TagGreen).Leaf(true),
+                          Html.X().Node().Text("费用信息").NodeID("7").Icon(Icon.TagGreen).Leaf(true)
+                      )
+            )
+            .Listeners(events =>
+            {
+                //通过树节点的ID来判断打开的是那个功能
+                events.ItemClick.Handler = "App.Vehicel_View.getLayout().setActiveItem(parseInt(record.data.id))";
+            })
+        , Html.X()
+              .Panel()
+              .ID("Vehicel_View")
+              .Cls("vehicel-view")
+              .Region(Region.Center)
+              .Layout(LayoutType.Card)
+              .Border(false)
+              //功能区域分布视图
+              .Items(
+                   Html.X().LayzContainer(Url.Action("UI_BasicInfo"),"正在加载车辆基本信息界面..."),
+                   Html.X().LayzContainer(Url.Action("UI_LoanRepayment"),"正在加载车辆贷款/还款信息界面...")
+              )
+        )
 )
