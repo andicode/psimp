@@ -16,21 +16,22 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectContractBaseInfo : BaseEntity
     {
-        public EM_ProjectContractBaseInfo()
-        {
-            this.EM_ProjectContractDataInfo = new HashSet<EM_ProjectContractDataInfo>();
-            this.EM_ProjectContractPayCondition = new HashSet<EM_ProjectContractPayCondition>();
-            this.EM_ProjectContractPersonInfo = new HashSet<EM_ProjectContractPersonInfo>();
-            this.EM_ProjectExpandInfo = new HashSet<EM_ProjectExpandInfo>();
-        }
-        public System.Guid ProjectID { get; set; }
         public System.DateTime BiddingDate { get; set; }
+        /// <summary>
+        /// 合同工期
+        /// </summary>
         public int ContractPeriod { get; set; }
-        public System.DateTime OpenDate { get; set; }
+        public DateTime OpenDate { get; set; }
+        /// <summary>
+        /// 开口期限
+        /// </summary>
         public int OpeningPeriod { get; set; }
         public string OpeningConditions { get; set; }
         public string Description { get; set; }
-        public byte ContractAttachment { get; set; }
+        /// <summary>
+        /// 合同附件
+        /// </summary>
+        public string ContractAttachment { get; set; }
     
         public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
         public virtual ICollection<EM_ProjectContractDataInfo> EM_ProjectContractDataInfo { get; set; }

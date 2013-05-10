@@ -16,14 +16,13 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectContractPersonInfo : BaseEntity
     {
-        public System.Guid ProjectContractID { get; set; }
         public string ContractDuties { get; set; }
-        public System.Guid PersonID { get; set; }
         public string ContractPosition { get; set; }
         public string HoldCertificate { get; set; }
         public string Other { get; set; }
         public string Description { get; set; }
     
         public virtual EM_ProjectContractBaseInfo EM_ProjectContractBaseInfo { get; set; }
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

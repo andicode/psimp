@@ -16,26 +16,26 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectBaseInfo : BaseEntity
     {
-        public EM_ProjectBaseInfo()
-        {
-            this.EM_ProjectContractBaseInfo = new HashSet<EM_ProjectContractBaseInfo>();
-            this.EM_ProjectPersonManage = new HashSet<EM_ProjectPersonManage>();
-            this.EM_ProjectContractPerformance = new HashSet<EM_ProjectContractPerformance>();
-            this.EM_ProjectTestPutOnFile = new HashSet<EM_ProjectTestPutOnFile>();
-        }
-    
-      
         public string ProjectFullName { get; set; }
         public string ProjectName { get; set; }
         public string ConstructionCompany { get; set; }
-        public System.Guid ProjectType { get; set; }
+        /// <summary>
+        /// 项目类型,见枚举
+        /// </summary>
+        public string ProjectType { get; set; }
         public float ProjectScale { get; set; }
         public string ProjectAddress { get; set; }
-        public System.DateTime EntryDate { get; set; }
-        public System.DateTime StartDate { get; set; }
-        public System.DateTime FinishedDate { get; set; }
-        public System.DateTime CompletionDate { get; set; }
+        public DateTime EntryDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime FinishedDate { get; set; }
+        public DateTime CompletionDate { get; set; }
+        /// <summary>
+        /// 施工期（单位：月 ）
+        /// </summary>
         public int ConstructionPeriod { get; set; }
+        /// <summary>
+        /// 缺陷责任期（单位:月）
+        /// </summary>
         public int DefectsLiabilityPeriod { get; set; }
         public string Description { get; set; }
     
