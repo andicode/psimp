@@ -16,17 +16,18 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectContractPerformance : BaseEntity
     {
-
-        public System.Guid ProjectID { get; set; }
-        public System.Guid PersonID { get; set; }
-        public string PersonName { get; set; }
-        public System.Guid OnProjectID { get; set; }
-        public System.DateTime InPresentDate { get; set; }
-        public System.Guid PerformanceProjectID { get; set; }
+        public DateTime InPresentDate { get; set; }
         public string PerformanceDuties { get; set; }
-        public System.DateTime OutDate { get; set; }
+        public DateTime OutDate { get; set; }
         public string Description { get; set; }
-    
-        public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
+        /// <summary>
+        /// 所在项目
+        /// </summary>
+        public virtual EM_ProjectBaseInfo EM_OnProject { get; set; }
+        /// <summary>
+        /// 履约项目
+        /// </summary>
+        public virtual EM_ProjectBaseInfo EM_PerformanceProject { get; set; }
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

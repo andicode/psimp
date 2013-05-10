@@ -16,10 +16,8 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectTestPutOnFile : BaseEntity
     {
-        public System.Guid ProjectID { get; set; }
-        public string ProjectName { get; set; }
-        public System.DateTime PutonfileStartDate { get; set; }
-        public System.DateTime PutonfileEndDate { get; set; }
+        public DateTime PutonfileStartDate { get; set; }
+        public DateTime PutonfileEndDate { get; set; }
         public int PutonfileTimes { get; set; }
         public string Description { get; set; }
     

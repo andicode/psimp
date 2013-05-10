@@ -16,15 +16,19 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectContractPayCondition : BaseEntity
     {
-
-        public System.Guid ContractID { get; set; }
         public string MeasurePayCondition { get; set; }
         public string AgainstRiskPayCondition { get; set; }
         public string GuaranteePayMoney { get; set; }
         public string GuaranteePayCondition { get; set; }
         public string MobilizeAdvanceMoneyLetter { get; set; }
         public string PerformanceBondPayCondition { get; set; }
+        /// <summary>
+        /// 支付方式，见枚举
+        /// </summary>
         public string PayMode { get; set; }
+        /// <summary>
+        /// 纳税方式,见枚举
+        /// </summary>
         public string PayDutyMode { get; set; }
     
         public virtual EM_ProjectContractBaseInfo EM_ProjectContractBaseInfo { get; set; }

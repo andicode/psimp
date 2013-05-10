@@ -16,8 +16,6 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectExpandInfo : BaseEntity
     {
-        public System.Guid ProjectID { get; set; }
-        public string ProjectName { get; set; }
         public decimal ContractMoney { get; set; }
         public float Mileage { get; set; }
         public string RoadGrade { get; set; }

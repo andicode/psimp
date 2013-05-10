@@ -16,25 +16,31 @@ namespace PSIMP.Models
     
     public partial class EM_ProjectPersonManage : BaseEntity
     {
-        public System.Guid ProjectID { get; set; }
-        public string ProjectName { get; set; }
         public string DutiesName { get; set; }
-        public System.Guid PersonID { get; set; }
-        public string PersonName { get; set; }
+        /// <summary>
+        /// 人员类别，见枚举(履约、变更、增配)
+        /// </summary>
         public string PersonComeType { get; set; }
+        /// <summary>
+        /// 在场状态,见枚举PersonSceneStatus(在现场、不在现场)
+        /// </summary>
         public int IsOnScene { get; set; }
-        public System.DateTime EntryDate { get; set; }
+        public DateTime EntryDate { get; set; }
         public string ProjectPosition { get; set; }
-        public System.DateTime ExitDate { get; set; }
+        public DateTime ExitDate { get; set; }
         public string ExitReason { get; set; }
         public bool IsHaveOwnerReplied { get; set; }
-        public System.DateTime RepliedDate { get; set; }
+        public DateTime RepliedDate { get; set; }
         public bool RepliedResult { get; set; }
         public string RepliedSuggestion { get; set; }
         public string RepliedNumber { get; set; }
-        public byte RepliedAttachment { get; set; }
+        /// <summary>
+        /// 批复文件
+        /// </summary>
+        public string RepliedAttachment { get; set; }
         public string Description { get; set; }
     
         public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
+        public virtual PM_PersonBaseInfo PM_PersonBaseInfo { get; set; }
     }
 }

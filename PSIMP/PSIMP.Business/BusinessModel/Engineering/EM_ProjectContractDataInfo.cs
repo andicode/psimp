@@ -26,7 +26,6 @@ namespace PSIMP.Models
         public decimal GuaranteeMoney { get; set; }
         public decimal AgainstRiskMoney { get; set; }
         public decimal ReviewMoeny { get; set; }
-        public System.Guid ContractID { get; set; }
     
         public virtual EM_ProjectContractBaseInfo EM_ProjectContractBaseInfo { get; set; }
     }
