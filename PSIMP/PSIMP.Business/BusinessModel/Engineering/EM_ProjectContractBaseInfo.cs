@@ -37,6 +37,5 @@ namespace PSIMP.Models
         public virtual ICollection<EM_ProjectContractDataInfo> EM_ProjectContractDataInfo { get; set; }
         public virtual ICollection<EM_ProjectContractPayCondition> EM_ProjectContractPayCondition { get; set; }
         public virtual ICollection<EM_ProjectContractPersonInfo> EM_ProjectContractPersonInfo { get; set; }
-        public virtual ICollection<EM_ProjectExpandInfo> EM_ProjectExpandInfo { get; set; }
     }
 }
