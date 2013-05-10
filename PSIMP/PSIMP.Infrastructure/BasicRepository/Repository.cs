@@ -6,6 +6,7 @@ using System.Text;
 using System.Data.Entity;
 using PSIMP.Business.Context;
 using PSIMP.Business.BaseModel;
+using System.Linq.Expressions;
 
 
 namespace PSIMP.Infrastructure.BasicRepository
@@ -43,7 +44,7 @@ namespace PSIMP.Infrastructure.BasicRepository
         {
             dbset.Remove(entity);
         }
-        public void Delete(Func<T, Boolean> where)
+        public void Delete(Expression<Func<T, Boolean>> where)
         {
             IEnumerable<T> objects = dbset.Where<T>(where).AsEnumerable();
             foreach (T obj in objects)
@@ -58,11 +59,11 @@ namespace PSIMP.Infrastructure.BasicRepository
         {
             return dbset.Where(m => true);//.ToList<T>();
         }
-        public virtual IEnumerable<T> GetByCondition(Func<T, bool> where)
+        public virtual IEnumerable<T> GetByCondition(Expression<Func<T, bool>> where)
         {
             return dbset.Where(where).ToList();
         }
-        public T Get(Func<T, Boolean> where)
+        public T Get(Expression<Func<T, Boolean>> where)
         {
             return dbset.Where(where).FirstOrDefault<T>();
         }
