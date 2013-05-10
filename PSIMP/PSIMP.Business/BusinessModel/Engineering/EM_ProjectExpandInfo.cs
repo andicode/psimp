@@ -54,7 +54,5 @@ namespace PSIMP.Models
         public string ConstructionCompanyPhoneNum { get; set; }
         public string RewardAndPunishment { get; set; }
         public string Description { get; set; }
-    
-        public virtual EM_ProjectBaseInfo EM_ProjectBaseInfo { get; set; }
     }
 }
