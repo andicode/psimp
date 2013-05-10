@@ -13,7 +13,7 @@ namespace PSIMP.Business.Context
         void Update(T entity);
         void Delete(T entity);
         T GetById(string Id);
-        T Get(Func<T, bool> where);
+        T Get(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAll();
         IEnumerable<T> GetByCondition(Expression<Func<T, bool>> where);
     }
