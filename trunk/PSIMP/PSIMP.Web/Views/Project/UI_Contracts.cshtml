@@ -1,0 +1,9 @@
+﻿@{
+    Layout = null;
+}
+@model EM_ProjectContractBaseInfo
+@(
+Html.X().GridPanelFor<EM_ProjectContractBaseInfo>()
+    .Title("合同信息")
+    .BottomBar(Html.X().PagingToolbar())
+)

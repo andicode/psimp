@@ -326,6 +326,7 @@
     <Content Include="Views\Project\UI_BasicInfo.cshtml" />
     <Content Include="Views\Project\UI_Project.cshtml" />
     <Content Include="Views\Project\BasicForm.cshtml" />
+    <Content Include="Views\Project\UI_Contracts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

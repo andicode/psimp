@@ -19,9 +19,19 @@ namespace PSIMP.Web.Controllers
         {
             return this.ComponentConfig();
         }
-        public ActionResult UI_Project(string id)
+
+        public ActionResult UI_Contracts()
         {
             return this.ComponentConfig();
+        }
+
+        public ActionResult GetProjects()
+        {
+            return this.Store(null, 0);
+        }
+        public ActionResult GetContracts()
+        {
+            return this.Store(null, 0);
         }
     }
 }

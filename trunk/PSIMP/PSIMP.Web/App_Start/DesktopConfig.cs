@@ -134,7 +134,8 @@ namespace System.Web
                 Frame=true,
                 Layout = "fit",
                 IconCls = element.Attribute("IconCls").Value
-            };           
+            };
+            win.AnimateTarget = null;
             win.Listeners.AfterLayout.Fn = "moduleShow";
             return win;
         }
