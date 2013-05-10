@@ -23,7 +23,7 @@ namespace System.Web
                 });
         }
 
-        public static Container.Builder LayzContainer(this BuilderFactory x,string url,string msg="界面载入中...")
+        public static Container.Builder LayzContainer(this BuilderFactory x,string url,string msg="界面载入中...",object @params=null)
         {
             return x.Container()
                 .Layout(LayoutType.Fit)
@@ -32,6 +32,8 @@ namespace System.Web
                          .Mode(LoadMode.Component)
                          .AutoLoad(false)
                          .Url(url)
+                         .RemoveAll(true)
+                         .Params(@params)
                          .LoadMask(mask =>
                          {
                              mask.ShowMask = true;
@@ -44,7 +46,14 @@ namespace System.Web
                 })
                 .Listeners(events =>
                 {
-                    events.Activate.Handler = "if(!this.isLoad){ this.reload();this.isLoad=true; }";
+                    if (@params==null)
+                    {
+                        events.Activate.Handler = @"
+if(!this.isLoad){ 
+    this.reload();
+    this.isLoad=true; 
+}";
+                    }
                 });
         }
 

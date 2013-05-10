@@ -281,17 +281,10 @@
     <Content Include="Views\Vehicle\Index.cshtml" />
     <Content Include="Views\Vehicle\TenderUI.cshtml" />
     <Content Include="Views\Asset\Index.cshtml" />
-    <Content Include="Views\Project\ProjectForm.cshtml" />
-    <Content Include="Views\Project\_ConstructionInfo.cshtml" />
-    <Content Include="Views\Project\_ContractInfo.cshtml" />
-    <Content Include="Views\Project\_ProjectInfo.cshtml" />
     <Content Include="Views\Asset\AssetUI.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Asset\_CarInfo.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\Project\ProjectUI.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Person\Index.cshtml" />
@@ -319,7 +312,6 @@
     <Content Include="Views\Administration\Frame.cshtml" />
     <Content Include="Views\Desktop\Frame.cshtml" />
     <Content Include="Views\Asset\Frame.cshtml" />
-    <Content Include="Views\Project\Frame.cshtml" />
     <Content Include="Views\Query\Frame.cshtml" />
     <Content Include="Views\Resource\Frame.cshtml" />
     <Content Include="Views\Vehicle\Frame.cshtml" />
@@ -331,6 +323,9 @@
     <Content Include="Views\Person\UI_PersonContractInfo.cshtml" />
     <Content Include="Views\Vehicle\UI_BasicInfo.cshtml" />
     <Content Include="Views\Vehicle\UI_LoanRepayment.cshtml" />
+    <Content Include="Views\Project\UI_BasicInfo.cshtml" />
+    <Content Include="Views\Project\UI_Project.cshtml" />
+    <Content Include="Views\Project\BasicForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
