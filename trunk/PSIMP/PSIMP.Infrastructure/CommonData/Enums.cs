@@ -35,5 +35,26 @@ namespace PSIMP.Infrastructure.CommonData
         /// 合同状态
         /// </summary>
         public enum ContractStatus { 解除 = 0, 未解除 = 1 }
+        /// <summary>
+        /// 项目类型
+        /// </summary>
+        public enum ProjectType { 高速公路 = 0, 等级公路 = 1,其他=2 }
+        /// <summary>
+        /// 支付方式
+        /// </summary>
+        public enum PayMode { 按月度 = 0, 按季度 = 1, 按次数 = 2,按比列=3 }
+        /// <summary>
+        /// 纳税方式
+        /// </summary>
+        public enum PayDutyMode {协作单位=0,监理单位=1,业主代缴=2 }
+        /// <summary>
+        /// 项目人员类别
+        /// </summary>
+        public enum PersonComeType { 履约 = 0, 变更 = 1, 增配 = 2 }
+        /// <summary>
+        /// 项目人员在场状态
+        /// </summary>
+        public enum PersonSceneStatus { 在现场 = 0, 不在现场 = 1 }
+
     }
 }
