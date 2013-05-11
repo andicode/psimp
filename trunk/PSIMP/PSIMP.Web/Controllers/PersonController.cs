@@ -94,13 +94,13 @@ namespace PSIMP.Web.Controllers
 
         public ActionResult Details(string id)
         {
-            //var model = PersonService.Get(id);
-            return this.ComponentConfig("Details", null);
+            var model = PersonService.Get(id);
+            return this.ComponentConfig("Details", model);
         }
 
         public ActionResult Photo(string id)
         {
-            PM_PersonBaseInfo person = null;//PersonService.Get(id);
+            PM_PersonBaseInfo person = PersonService.Get(id);
             if(person.TwoInchPhoto==null)
             {
                 return File(Server.MapPath("~/Images/Person/default.jpg"), "image/jpeg");

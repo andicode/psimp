@@ -30,5 +30,16 @@ namespace PSIMP.Application.Implement
             PersonBaseRepository.Add(obj);
             UnitOfWork.Commit();
         }
+
+        public void Update(PM_PersonBaseInfo obj)
+        {
+            PersonBaseRepository.Update(obj);
+            UnitOfWork.Commit();
+        }
+
+        public PM_PersonBaseInfo Get(string id)
+        {
+            return PersonBaseRepository.Get(m => m.ID == id);
+        }
     }
 }

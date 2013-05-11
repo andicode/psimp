@@ -33,6 +33,7 @@ namespace PSIMP.Infrastructure.BasicRepository
         }
         public virtual void Add(T entity)
         {
+            entity.ID = Guid.NewGuid().ToString();
             dbset.Add(entity);
         }
         public virtual void Update(T entity)

@@ -24,7 +24,14 @@ namespace PSIMP.Business.Context
         public DbSet<PM_CertificateManage> PM_CertificateManage { get; set; }
         public virtual void Commit()
         {
-            base.SaveChanges();
+            try
+            {
+                base.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+               var errors= ex.EntityValidationErrors;
+            }
         }
     }
 }
