@@ -22,12 +22,13 @@ namespace PSIMP.Repository.Person
         /// <param name="entity"></param>
         public override void Update(PM_PersonBaseInfo entity)
         {
-            this.DataContext.PM_PersonBaseInfo.Attach(entity);
-            if (entity.TwoInchPhoto == null)
-            {
-                this.DataContext.Entry(entity).Property(m => m.TwoInchPhoto).CurrentValue = this.DataContext.Entry(entity).GetDatabaseValues().GetValue<byte[]>("TwoInchPhoto");
-            }
-            this.DataContext.Entry(entity).State = EntityState.Modified;
+            //this.DataContext.PM_PersonBaseInfo.Attach(entity);
+            //if (entity.TwoInchPhoto == null)
+            //{
+            //    this.DataContext.Entry(entity).Property(m => m.TwoInchPhoto).CurrentValue = this.DataContext.Entry(entity).GetDatabaseValues().GetValue<byte[]>("TwoInchPhoto");
+            //}
+            //this.DataContext.Entry(entity).State = EntityState.Modified;
+            base.Update(entity);
         }
     }
 }
