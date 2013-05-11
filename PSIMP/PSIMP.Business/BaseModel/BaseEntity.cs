@@ -23,7 +23,7 @@ namespace PSIMP.Business.BaseModel
             }
             set 
             {
-                if (!string.IsNullOrEmpty(ID))
+                if (!string.IsNullOrEmpty(value))
                 {
                     IsCreate = false;
                 }

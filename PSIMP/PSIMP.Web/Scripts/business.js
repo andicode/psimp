@@ -27,7 +27,7 @@ var person = {
     },
     edit: function () {
         var record = this.up('container').record;
-        App.Person_Window.animateTarget = target;
+        App.Person_Window.animateTarget = this;
         App.PersonForm_MenuPanel.setSelectedIndex(0)
         App.Person_Card.getLayout().setActiveItem(0)
         App.Person_Basic_Info.getForm().setValues(record.data);
