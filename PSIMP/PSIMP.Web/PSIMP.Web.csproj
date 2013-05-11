@@ -205,7 +205,7 @@
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
-    <Compile Include="Controllers\QueryController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Extensions\ExtExtensions.cs" />
     <Compile Include="Extensions\MvcExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,8 +293,8 @@
     <Content Include="Views\Desktop\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Views\Query\QueryUI.cshtml" />
-    <Content Include="Views\Query\Index.cshtml" />
+    <Content Include="Views\Statistics\QueryUI.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_ExtLayout.cshtml" />
     <Content Include="Views\Resource\Index.cshtml" />
@@ -312,7 +312,7 @@
     <Content Include="Views\Administration\Frame.cshtml" />
     <Content Include="Views\Desktop\Frame.cshtml" />
     <Content Include="Views\Asset\Frame.cshtml" />
-    <Content Include="Views\Query\Frame.cshtml" />
+    <Content Include="Views\Statistics\Frame.cshtml" />
     <Content Include="Views\Resource\Frame.cshtml" />
     <Content Include="Views\Vehicle\Frame.cshtml" />
     <Content Include="Views\Person\PersonWindow.cshtml" />

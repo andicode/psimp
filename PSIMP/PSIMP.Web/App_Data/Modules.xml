@@ -40,10 +40,10 @@
       <Launcher Text="资源管理" IconCls="folder-shortcut16"/>
       <Window Title="资源管理" Width="1000" Height="568" IconCls="folder-shortcut16" CloseAction="hide"/>
     </Module>-->
-    <Module ModuleID="QueryModule" Action="Index" Controller="Query">
-      <Shortcut Name="综合查询" SortIndex="0" IconCls="query-shortcut32"/>
-      <Launcher Text="综合查询" IconCls="query-shortcut16"/>
-      <Window Title="综合查询" Width="1000" Height="568" IconCls="query-shortcut16" CloseAction="hide"/>
+    <Module ModuleID="StatisticsModule" Action="Index" Controller="Statistics">
+      <Shortcut Name="统计分析" SortIndex="0" IconCls="query-shortcut32"/>
+      <Launcher Text="统计分析" IconCls="query-shortcut16"/>
+      <Window Title="统计分析" Width="1000" Height="568" IconCls="query-shortcut16" CloseAction="hide"/>
     </Module>
   </Modules>
 </Desktop>
