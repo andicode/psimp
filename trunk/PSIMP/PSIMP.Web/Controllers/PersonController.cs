@@ -51,7 +51,6 @@ namespace PSIMP.Web.Controllers
 
         public ActionResult GetPersons()
         {
-            return this.Store(null, 0);
             var data = PersonService.GetAll();
             return this.Store(data, data.Count());
         }
