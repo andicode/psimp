@@ -49,10 +49,11 @@ namespace PSIMP.Web.Controllers
         }
         #region 人员基础信息
 
-        public ActionResult GetPersons()
+        public ActionResult GetPersons(StoreRequestParameters srp)
         {
-            var data = PersonService.GetAll();
-            return this.Store(data, data.Count());
+            var total=0;
+            var data = PersonService.GetAll().GetPagesData(srp.Start,srp.Limit,out total);
+            return this.Store(data, total);
         }
         public ActionResult PersonInfo(string id)
         {
@@ -81,7 +82,7 @@ namespace PSIMP.Web.Controllers
                     TempPicture.InputStream.Read(buff, 0, (int)TempPicture.InputStream.Length);
                     person.TwoInchPhoto = buff;
                 }
-                PersonService.Add(person);
+                PersonService.Update(person);
             }
             X.GetCmp<FormPanel>("Person_Basic_Info").SetValues(person);//重置表单
             X.GetCmp<Store>("Person_Store").Reload();//刷新表格
