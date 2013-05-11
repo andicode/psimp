@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Ext.Net.MVC;
 namespace PSIMP.Web.Controllers
 {
-    public class QueryController : Controller
+    public class StatisticsController : Controller
     {
         //
         // GET: /Query/
