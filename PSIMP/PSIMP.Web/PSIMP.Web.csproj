@@ -212,6 +212,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EduViewModel.cs" />
+    <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +236,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\folder.png" />
+    <Content Include="Images\icon.png" />
     <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
@@ -293,7 +295,6 @@
     <Content Include="Views\Desktop\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Views\Statistics\QueryUI.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_ExtLayout.cshtml" />
@@ -312,7 +313,6 @@
     <Content Include="Views\Administration\Frame.cshtml" />
     <Content Include="Views\Desktop\Frame.cshtml" />
     <Content Include="Views\Asset\Frame.cshtml" />
-    <Content Include="Views\Statistics\Frame.cshtml" />
     <Content Include="Views\Resource\Frame.cshtml" />
     <Content Include="Views\Vehicle\Frame.cshtml" />
     <Content Include="Views\Person\PersonWindow.cshtml" />
@@ -327,6 +327,11 @@
     <Content Include="Views\Project\UI_Project.cshtml" />
     <Content Include="Views\Project\BasicForm.cshtml" />
     <Content Include="Views\Project\UI_Contracts.cshtml" />
+    <Content Include="Views\Statistics\UI_Search.cshtml" />
+    <Content Include="Views\Statistics\UI_AdvancedSearch.cshtml" />
+    <Content Include="Views\Statistics\UI_Reports.cshtml" />
+    <Content Include="Views\Statistics\rp_person.cshtml" />
+    <Content Include="Views\Statistics\UI_Report.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

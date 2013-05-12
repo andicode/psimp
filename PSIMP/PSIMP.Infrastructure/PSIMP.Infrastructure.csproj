@@ -66,6 +66,7 @@
     <Compile Include="BasicRepository\Repository.cs" />
     <Compile Include="BasicRepository\UnitOfWork.cs" />
     <Compile Include="CommonData\Enums.cs" />
+    <Compile Include="CommonData\ReportList.cs" />
     <Compile Include="IOC\CustomControllerActivator.cs" />
     <Compile Include="IOC\TransactionAttribute.cs" />
     <Compile Include="IOC\TransactionHandler.cs" />
