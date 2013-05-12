@@ -66,3 +66,28 @@
     .resumeBody .details dt { background: url('../images/lookResumebg.jpg') no-repeat 5px 0; }
         .resumeBody .details dt label { display: block; height: 26px; line-height: 26px; color: #315AAA; text-indent: 20px; font-size: 14px; }
     .resumeBody .summary, .resumeBody .details dd { padding-left: 10px; margin: 10px; line-height: 1.8em; }
+
+
+
+
+    /*报表相关样式*/
+div.report-ct {
+
+}
+    div.report-ct h1 {
+        text-align:center;
+        font-size:20px;
+        font-weight:bold;
+    }
+    div.report-ct table {
+        width:100%;
+    }
+    div.report-ct th {
+        text-align:center;
+        vertical-align:middle;
+        padding:5px 2px;
+    }
+    div.report-ct table,div.report-ct td,div.report-ct th {
+        border:1px solid;
+        border-collapse:collapse;
+    }
