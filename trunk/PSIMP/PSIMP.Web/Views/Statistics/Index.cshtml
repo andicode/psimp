@@ -4,15 +4,60 @@
 @(Html.X()
     .Container()
     .Layout(LayoutType.Border)
-        .ItemsFromPartial("QueryUI")
-        //.Loader(Html.X().ComponentLoader()
-        //            .Url(Url.Action("PersionUI"))
-        //            .Mode(LoadMode.Component)
-        //            .Params(new { containerId = JRawValue.From("this.id") })
-        //            .LoadMask(mask =>
-        //            {
-        //                mask.ShowMask = true;
-        //                mask.Msg = "加载中...";
-        //            })
-        //)
+    .Items(
+        //功能菜单
+         Html.X().TreePanel()
+            .SelectionModel(
+                Html.X().TreeSelectionModel().ID("Report_SelectionModel").SelectedIndex(0)
+            )
+            .Region(Region.West)
+            .Split(true)
+            .Width(150)
+            .RootVisible(false)
+            .UseArrows(true)
+            .Fields(
+                new ModelField { Name = "text" },
+                new ModelField { Name = "id" },
+                new ModelField { Name = "type" }
+            )
+            .Root(Html.X().Node().Text("root").NodeID("root")
+                      .Children(
+                          Html.X().Node().Text("全文检索").NodeID("0").Icon(Icon.Magnifier).Leaf(true).CustomAttributes(new { type = "menu" }),
+                          Html.X().Node().Text("高级查询").NodeID("1").Icon(Icon.MagnifierZoomIn).Leaf(true).CustomAttributes(new { type = "menu" }),
+                          Html.X().Node().Text("预置报表").NodeID("2").Icon(Icon.Report).Expanded(true).CustomAttributes(new { type = "menu" })
+                              .Children(ReportList.GetReports().Select(m =>
+                              {
+                                  return new Node { Text = m.Name, NodeID = m.ID, Icon = Icon.ChartBar, Leaf = true };
+                              })
+                              )
+                      )
+            )
+            .Listeners(events =>
+            {
+                //通过树节点的ID来判断打开的是那个功能
+                events.ItemClick.Handler = @"
+if(record.data.type=='menu'){
+    App.Statistics_View.getLayout().setActiveItem(parseInt(record.data.id))
+}
+else
+{
+    App.Statistics_View.getLayout().setActiveItem(3)
+    App.ReportDetails.reload();
+}
+";
+            })
+        , Html.X()
+              .Panel()
+              .ID("Statistics_View")
+              .Region(Region.Center)
+              .Layout(LayoutType.Card)
+              .Border(false)
+        //功能区域分布视图
+              .Items(
+                    Html.X().LayzContainer(Url.Action("UI_Search"), "正在加载全文检索界面..."),
+                    Html.X().LayzContainer(Url.Action("UI_AdvancedSearch"), "正在加载高级查询界面..."),
+                    Html.X().LayzContainer(Url.Action("UI_Reports"), "正在加载预置报表界面..."),
+                    Html.X().LayzContainer(Url.Action("UI_Report"), "正在加载报表...", new { id=JRawValue.From("App.Report_SelectionModel.getSelection()[0].data.id") }).ID("ReportDetails")
+              )
+        )
 )

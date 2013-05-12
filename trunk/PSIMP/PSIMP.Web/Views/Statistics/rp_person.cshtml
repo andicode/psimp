@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+@(
+Html.X().Toolbar()
+    .BorderSpec("0 0 1 0")
+    .Items(
+        Html.X().Button().Text("导出").Icon(Icon.PageExcel),
+        Html.X().Button().Text("打印").Icon(Icon.Printer),
+        Html.X().ToolbarSeparator(),
+        Html.X().Button().Text("刷新").Icon(Icon.TableRefresh),
+        Html.X().ToolbarFill(),
+        Html.X().Button().Text("查询条件").Icon(Icon.Magnifier)
+    )
+)     
+@(
+Html.X().Panel()
+    .Border(false)
+    .Html(
+        @<text>
+        </text>
+    )
+)

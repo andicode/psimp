@@ -1,0 +1,9 @@
+﻿@model ReportViewModel
+@{
+    Layout = null;
+}
+@(
+Html.X().Panel()
+    .Title("报表->"+Model.ReportName)
+    .ItemsFromPartial(Model.ReportAction)
+)

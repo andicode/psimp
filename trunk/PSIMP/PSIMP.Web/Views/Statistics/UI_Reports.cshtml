@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+    }
+@(
+Html.X().TabPanel()
+    .Title("预置报表")
+    .Items(
+        Html.X().Panel().Title("所以报表")
+            .Items(
+                Html.X().DataView()
+                .SingleSelect(true)
+                .Cls("images-view")
+                .OverItemCls("x-view-over")
+                .ItemSelector("div.thumb-wrap")
+                .Store(
+                    Html.X().Store()
+                        .Model(
+                            Html.X().Model()
+                                .Fields(
+                                    Html.X().ModelField().Name("Name"),
+                                    Html.X().ModelField().Name("ID")
+                                )
+                        )
+                        .DataSource(ReportList.GetReports())
+                        
+                )
+                .Tpl(@<text>
+                    <tpl for=".">
+                        <div class="thumb-wrap" style="height:130px;">
+                            <div class="thumb">
+                                <tpl if="!Ext.isIE6">
+                                    <img style="width:61px; height:77px;" src="@Url.Content("~/Images/icon.png")" />
+                                </tpl>
+                                <tpl if="Ext.isIE6">
+                                    <div style="width:61px;height:77x;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@Url.Content("~/Images/icon.png")')"></div>
+                                </tpl>                    
+                            </div>
+                            <span>{Name}</span>
+                        </div>
+                    </tpl>
+                </text>)
+                .Listeners(l =>
+                {
+                    //l.SelectionChange.Handler = "if(selections[0]){App.ImgDetailPanel.loadRecord(selections[0]);}";
+                    //l.ItemDblClick.Fn = "insertImage";
+                })
+            )
+    )
+)
