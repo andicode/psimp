@@ -24,33 +24,26 @@ Html.X().Panel()
                 Html.X().XTemplate()
                     .Html(
                     @<text>                  
-                        <div class="report-ct" style="width:1175px;">
+                        <div class="report-ct" style="width:1160px;">
 					        <div class="header">
-						        <h1>人事台账一览表</h1>   
+						        <h1>人员证件汇总表</h1>   
                                 <p>日期：@DateTime.Now.ToString("yyyy-M-d")</p>                                                                     
 					        </div>
 					        <table>
 						        <tr>
-							        <th rowspan="2">投标资格要求</th>
-							        <th rowspan="2">监理职务</th>
-							        <th rowspan="2">变更人员罚款标准(万元)</th>
-							        <th>合同人员</th>
-							        <th colspan="2">第一次变更</th>
-							        <th colspan="2">第二次变更</th>
-							        <th colspan="2">第三次变更</th>
-							        <th rowspan="2">最后一次变更在岗人员情况</th>
-							        <th rowspan="2">是否注册</th>
-							        <th rowspan="2">备注</th>
-						        </tr>
-					            <tr>
-                                   <th>2011.11.11</th>
-                                    <th>万利万达工字【2012】68号</th>
-                                    <th>2012.9.17</th>
-                                    <th>万利万达工字【2013】11号</th>
-                                    <th>2013.3.20</th>
-                                    <th></th>
-                                    <th></th>
-					            </tr>
+							        <th>档案编号</th>
+							        <th>姓名</th>
+							        <th>注册日期</th>
+							        <th>所在项目</th>
+							        <th>在岗情况</th>
+							        <th>提交北京中通日期</th>
+							        <th>提交证件</th>
+							        <th>返还第二事业部日期</th>
+							        <th>返还证件</th>
+							        <th>返还个人日期</th>
+							        <th>返还个人证件</th>
+							        <th>备注</th>
+						        </tr>					           
 						        <tpl for=".">                                          
                                     <tr class="customer-record">
 								        <td>&nbsp;{ContactName}</td>
@@ -64,7 +57,6 @@ Html.X().Panel()
 								        <td>&nbsp;{City}</td>
 								        <td>&nbsp;{Region}</td>
 								        <td>&nbsp;{PostalCode}</td>
-								        <td>&nbsp;{Country}</td>
 								        <td>&nbsp;{Country}</td>
 							        </tr>                                          					
 						        </tpl>                    

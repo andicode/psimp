@@ -15,7 +15,7 @@ namespace PSIMP.Web.Controllers
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             Reports.Add(3, "rp_person");
-            Reports.Add(4, "rp_person");
+            Reports.Add(4, "rp_certificate");
             Reports.Add(5, "rp_person");
             Reports.Add(6, "rp_person");
             Reports.Add(7, "rp_person");
@@ -60,6 +60,10 @@ namespace PSIMP.Web.Controllers
             return this.ComponentConfig("UI_Report", new ReportViewModel { ReportName=name,ReportAction= Reports[id]});
         }
         public ActionResult rp_person()
+        {
+            return View();
+        }
+        public ActionResult rp_certificate()
         {
             return View();
         }
