@@ -333,6 +333,8 @@
     <Content Include="Views\Statistics\rp_person.cshtml" />
     <Content Include="Views\Statistics\UI_Report.cshtml" />
     <Content Include="Views\Statistics\rp_certificate.cshtml" />
+    <Content Include="Views\Statistics\rp_register.cshtml" />
+    <Content Include="Views\Statistics\rp_insurance.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
