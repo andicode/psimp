@@ -16,8 +16,8 @@ namespace PSIMP.Web.Controllers
         {
             Reports.Add(3, "rp_person");
             Reports.Add(4, "rp_certificate");
-            Reports.Add(5, "rp_person");
-            Reports.Add(6, "rp_person");
+            Reports.Add(5, "rp_register");
+            Reports.Add(6, "rp_insurance");
             Reports.Add(7, "rp_person");
             Reports.Add(8, "rp_person");
             Reports.Add(9, "rp_person");
@@ -64,6 +64,15 @@ namespace PSIMP.Web.Controllers
             return View();
         }
         public ActionResult rp_certificate()
+        {
+            return View();
+        }
+        public ActionResult rp_register()
+        {
+            return View();
+        }
+
+        public ActionResult rp_insurance()
         {
             return View();
         }
