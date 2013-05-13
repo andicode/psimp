@@ -21,7 +21,7 @@ namespace PSIMP.Web.Controllers
             Reports.Add(7, "rp_person");
             Reports.Add(8, "rp_person");
             Reports.Add(9, "rp_person");
-            Reports.Add(10, "rp_person");
+            Reports.Add(10, "rp_vehicle");
             Reports.Add(11, "rp_person");
             Reports.Add(12, "rp_person");
             Reports.Add(13, "rp_person");
@@ -73,6 +73,11 @@ namespace PSIMP.Web.Controllers
         }
 
         public ActionResult rp_insurance()
+        {
+            return View();
+        }
+        //车辆统计表
+        public ActionResult rp_vehicle()
         {
             return View();
         }
