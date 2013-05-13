@@ -16,8 +16,7 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleYearInspection : BaseEntity
     {
-        public System.Guid VehicleID { get; set; }
-        public System.DateTime InspectionDate { get; set; }
+        public DateTime InspectionDate { get; set; }
         public bool InspectionResult { get; set; }
         public int InspectionTimes { get; set; }
         public string Other1 { get; set; }

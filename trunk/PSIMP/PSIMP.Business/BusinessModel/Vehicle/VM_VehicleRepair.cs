@@ -16,14 +16,15 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleRepair : BaseEntity
     {
-        public VM_VehicleRepair()
-        {
-            this.VM_VehicleRepairDetailList = new HashSet<VM_VehicleRepairDetailList>();
-        }
-        public System.Guid VehicleID { get; set; }
+        /// <summary>
+        /// 维修申请单号
+        /// </summary>
         public string ApplicationSerialNumber { get; set; }
         public float MileageNumber { get; set; }
         public System.DateTime RepairDate { get; set; }
+        /// <summary>
+        /// 维修级别,详见枚举:VehicleRepairGrade
+        /// </summary>
         public int RepairGrade { get; set; }
         public string RepairFactoryName { get; set; }
         public string RepairPhoneNumber { get; set; }

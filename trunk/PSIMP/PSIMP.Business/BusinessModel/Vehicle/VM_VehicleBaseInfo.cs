@@ -16,29 +16,30 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleBaseInfo : BaseEntity
     {
-        public VM_VehicleBaseInfo()
-        {
-            this.VM_VehicleAllocateInfo = new HashSet<VM_VehicleAllocateInfo>();
-            this.VM_VehicleLeaseInfo = new HashSet<VM_VehicleLeaseInfo>();
-            this.VM_VehicleUseInfo = new HashSet<VM_VehicleUseInfo>();
-            this.VM_VehicleYearInspection = new HashSet<VM_VehicleYearInspection>();
-            this.VM_VehicleOperatingCost = new HashSet<VM_VehicleOperatingCost>();
-            this.VM_VehicleLoanInfo = new HashSet<VM_VehicleLoanInfo>();
-            this.VM_VehicleInsurance = new HashSet<VM_VehicleInsurance>();
-            this.VM_VehicleRepair = new HashSet<VM_VehicleRepair>();
-        }
-    
-        //主键被写在BaseEntity中,已忽略生成
-        //public Guid ID{ get; set; }
+        /// <summary>
+        /// 车辆品牌
+        /// </summary>
         public string VehicleBrand { get; set; }
         public string MotorModelNumber { get; set; }
         public string VehicleLicensePlate { get; set; }
-        public bool VehicleSource { get; set; }
-        public bool PayMode { get; set; }
+        /// <summary>
+        /// 车辆来源,详见枚举：VehicleSource 
+        /// </summary>
+        public int VehicleSource { get; set; }
+        /// <summary>
+        /// 详见枚举：VehiclePayMode（车辆支付方式）
+        /// </summary>
+        public int PayMode { get; set; }
         public decimal BuyCost { get; set; }
+        /// <summary>
+        /// 车主人，若为分期则为承贷人或贷款人
+        /// </summary>
         public string VehicleOwner { get; set; }
         public string DrivingLicense { get; set; }
-        public System.DateTime BuyDate { get; set; }
+        public DateTime? BuyDate { get; set; }
+        /// <summary>
+        /// 车辆状态，详见枚举:VehicleUseStatus
+        /// </summary>
         public int UseStatus { get; set; }
         public string Description { get; set; }
     

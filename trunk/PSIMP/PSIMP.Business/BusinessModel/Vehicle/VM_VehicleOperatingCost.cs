@@ -16,14 +16,18 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleOperatingCost : BaseEntity
     {
-        public System.Guid VehicleID { get; set; }
-        public string VehicleUseType { get; set; }
-        public string VehicleDriver { get; set; }
+        /// <summary>
+        /// 费用产生日期
+        /// </summary>
+        public DateTime? OccurDate { get; set; }
+        /// <summary>
+        /// 费用类别
+        /// </summary>
         public int CostType { get; set; }
         public decimal TotalCost { get; set; }
         public string Other { get; set; }
         public string Description { get; set; }
-    
+        public virtual VM_VehicleUseInfo VM_VehicleUseInfo { get; set; }
         public virtual VM_VehicleBaseInfo VM_VehicleBaseInfo { get; set; }
     }
 }

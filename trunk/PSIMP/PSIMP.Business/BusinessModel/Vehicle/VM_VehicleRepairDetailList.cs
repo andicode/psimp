@@ -16,9 +16,6 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleRepairDetailList : BaseEntity
     {
-
-        public System.Guid VehicleRepairID { get; set; }
-        public System.Guid VehicleID { get; set; }
         public string PartsName { get; set; }
         public int Quantity { get; set; }
         public decimal ApplicationUnitprice { get; set; }

@@ -14,15 +14,19 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     using PSIMP.Business.BaseModel;
-    
+    /// <summary>
+    /// 车辆调配信息
+    /// </summary>
     public partial class VM_VehicleAllocateInfo : BaseEntity
     {
-        public System.Guid VehicleID { get; set; }
-        public System.Guid LeaveFromCompany { get; set; }
-        public System.Guid LeaveToCompany { get; set; }
-        public System.DateTime AllocateDate { get; set; }
+        public string LeaveFromCompany { get; set; }
+        public string LeaveToCompany { get; set; }
+        public DateTime AllocateDate { get; set; }
         public string AllocateReason { get; set; }
-        public System.Guid OperationUserID { get; set; }
+        /// <summary>
+        /// 经办人
+        /// </summary>
+        public string OperationUserID { get; set; }
         public string Description { get; set; }
         public string Other1 { get; set; }
         public string Other2 { get; set; }
