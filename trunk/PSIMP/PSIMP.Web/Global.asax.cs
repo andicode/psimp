@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
 using WebMatrix.WebData;
 
 namespace PSIMP.Web
@@ -22,7 +23,6 @@ namespace PSIMP.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
 
             //初始化权限管理功能
             //WebSecurity.InitializeDatabaseConnection("PSIMPContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
