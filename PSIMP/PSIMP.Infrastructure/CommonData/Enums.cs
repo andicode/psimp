@@ -40,9 +40,9 @@ namespace PSIMP.Infrastructure.CommonData
         /// </summary>
         public enum ProjectType { 高速公路 = 0, 等级公路 = 1,其他=2 }
         /// <summary>
-        /// 支付方式
+        /// 项目合同支付方式
         /// </summary>
-        public enum PayMode { 按月度 = 0, 按季度 = 1, 按次数 = 2,按比列=3 }
+        public enum ContractPayMode { 按月度 = 0, 按季度 = 1, 按次数 = 2,按比列=3 }
         /// <summary>
         /// 纳税方式
         /// </summary>
@@ -55,6 +55,26 @@ namespace PSIMP.Infrastructure.CommonData
         /// 项目人员在场状态
         /// </summary>
         public enum PersonSceneStatus { 在现场 = 0, 不在现场 = 1 }
+        /// <summary>
+        /// 车辆支付方式
+        /// </summary>
+        public enum VehiclePayMode { 一次性支付 = 0, 分期支付 = 1 }
+        /// <summary>
+        /// 车辆来源
+        /// </summary>
+        public enum VehicleSource { 公司 = 0, 租赁 = 1, 业主 = 2 }
+        /// <summary>
+        /// 车辆使用状态
+        /// </summary>
+        public enum VehicleUseStatus { 在用 = 0, 出售 = 1, 报废 = 2 }
+        /// <summary>
+        /// 车辆租赁合同状态
+        /// </summary>
+        public enum VehicleLeaseStatus { 办理中 = 0, 经签 = 1, 未签 = 2 }
+        /// <summary>
+        /// 维修级别
+        /// </summary>
+        public enum VehicleRepairGrade { 大修 = 0, 中修 = 1, 小修 = 2 }
 
     }
 }
