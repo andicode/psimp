@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}   
+@(
+Html.X().Panel()
+    .Layout(LayoutType.Fit)
+    .TopBar(
+        Html.X().Toolbar()           
+            .Items(
+                Html.X().Button().Text("导出").Icon(Icon.PageExcel),
+                Html.X().Button().Text("打印").Icon(Icon.Printer),
+                Html.X().ToolbarSeparator(),
+                Html.X().Button().Text("刷新").Icon(Icon.TableRefresh),
+                Html.X().ToolbarFill(),
+                Html.X().Button().Text("查询条件").Icon(Icon.Magnifier)
+            )
+    ).Items(
+        Html.X().DataView()
+            .EmptyText("没有想过数据") 
+            .ItemSelector("tr.customer-record")
+            .Padding(5)
+            .AutoScroll(true)
+            .Tpl(
+                Html.X().XTemplate()
+                    .Html(
+                    @<text>                  
+                        <div class="report-ct" style="width:1420px;">
+					        <div class="header">
+						        <h1>车辆统计表</h1>   
+                                <p>统计时间：@DateTime.Now.ToString("yyyy-M-d")</p>                                                                     
+					        </div>
+					        <table>
+						        <tr>
+							        <th rowspan="2">使用地点</th>
+							        <th rowspan="2">车牌号码</th>
+							        <th rowspan="2">车辆名称型号</th>
+							        <th colspan="3">车辆来源</th>
+							        <th rowspan="2">是否签订合同</th>
+							        <th rowspan="2">合同截止时间</th>
+							        <th rowspan="2">月租金（元/月）</th>
+							        <th rowspan="2">原件是否寄回公司</th>
+							        <th rowspan="2">年审截止时间</th>
+							        <th rowspan="2">保险截止时间</th>
+							        <th rowspan="2">购置时间</th>
+							        <th rowspan="2">保单是否有原件</th>
+							        <th rowspan="2">出租人</th>
+							        <th rowspan="2">出租人联系电话</th>
+							        <th rowspan="2">备注</th>
+						        </tr>	
+						        <tr>
+							        <th>公司车</th>
+							        <th>租赁</th>
+							        <th>业主</th>							        
+						        </tr>	                                			           
+						        <tpl for=".">                                          
+                                    <tr class="customer-record">
+								       
+							        </tr>                                          					
+						        </tpl>                    
+					        </table>
+				        </div>
+                    </text>
+                    )
+            )
+     )
+)

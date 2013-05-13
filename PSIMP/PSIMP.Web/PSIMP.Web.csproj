@@ -335,6 +335,7 @@
     <Content Include="Views\Statistics\rp_certificate.cshtml" />
     <Content Include="Views\Statistics\rp_register.cshtml" />
     <Content Include="Views\Statistics\rp_insurance.cshtml" />
+    <Content Include="Views\Statistics\rp_vehicle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -392,7 +393,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>7271</DevelopmentServerPort>
+          <DevelopmentServerPort>2873</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:14468/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
