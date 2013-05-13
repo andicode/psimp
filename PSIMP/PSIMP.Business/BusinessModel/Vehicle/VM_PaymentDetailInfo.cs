@@ -14,12 +14,11 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     using PSIMP.Business.BaseModel;
-    
+    /// <summary>
+    /// 还款信息
+    /// </summary>
     public partial class VM_PaymentDetailInfo : BaseEntity
     {
-
-        public string VehicleLoanID { get; set; }
-        public string VehicleID { get; set; }
         public string PaymentDate { get; set; }
         public string MonthlyPlanPrincipal { get; set; }
         public string MonthlyPlaceInterest { get; set; }
@@ -32,9 +31,12 @@ namespace PSIMP.Models
         public string RemainTotalLoans { get; set; }
         public decimal DepositMoney { get; set; }
         public string BankAccountBalance { get; set; }
+        /// <summary>
+        /// 经办人
+        /// </summary>
         public string OperatorUserID { get; set; }
         public string Description { get; set; }
-    
+        public virtual VM_VehicleBaseInfo VM_VehicleBaseInfo { get; set; }
         public virtual VM_VehicleLoanInfo VM_VehicleLoanInfo { get; set; }
     }
 }

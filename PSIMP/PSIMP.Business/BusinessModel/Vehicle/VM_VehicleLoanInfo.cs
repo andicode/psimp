@@ -6,21 +6,18 @@
 //    如果重新生成代码，则将覆盖对此文件的手动更改。
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using System;
+using System.Collections.Generic;
+using PSIMP.Business.BaseModel;
 
 namespace PSIMP.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using PSIMP.Business.BaseModel;
-    
+
+    /// <summary>
+    /// 贷款信息
+    /// </summary>
     public partial class VM_VehicleLoanInfo : BaseEntity
     {
-        public VM_VehicleLoanInfo()
-        {
-            this.VM_PaymentDetailInfo = new HashSet<VM_PaymentDetailInfo>();
-        }
-        public System.Guid VehicleID { get; set; }
         public string Borrowers { get; set; }
         public string GuaranteeUnitName { get; set; }
         public string GuaranteeUnitPhone { get; set; }
@@ -29,16 +26,22 @@ namespace PSIMP.Models
         public decimal LoanSum { get; set; }
         public decimal LoanInterest { get; set; }
         public decimal LoanTotalSum { get; set; }
-        public float DownPaymentRatio { get; set; }
+        /// <summary>
+        /// 首付比列
+        /// </summary>
+        public decimal DownPaymentRatio { get; set; }
+        /// <summary>
+        /// 首付金额
+        /// </summary>
         public decimal DownPayment { get; set; }
         public int LoanPeriod { get; set; }
-        public float YearRate { get; set; }
-        public System.DateTime StatementDate { get; set; }
+        public decimal YearRate { get; set; }
+        public DateTime StatementDate { get; set; }
         public decimal MonthlyPaymentMoney { get; set; }
         public string PaymentBankName { get; set; }
         public string PaymentBankAccountNum { get; set; }
-        public System.DateTime PaymentStartDate { get; set; }
-        public System.DateTime PaymentDueDate { get; set; }
+        public DateTime PaymentStartDate { get; set; }
+        public DateTime PaymentDueDate { get; set; }
         public string Description { get; set; }
     
         public virtual ICollection<VM_PaymentDetailInfo> VM_PaymentDetailInfo { get; set; }

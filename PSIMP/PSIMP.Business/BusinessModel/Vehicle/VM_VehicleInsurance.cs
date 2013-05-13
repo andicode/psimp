@@ -16,10 +16,18 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleInsurance : BaseEntity
     {
-        public System.Guid VehicleID { get; set; }
-        public System.DateTime TakeEffectiveDate { get; set; }
-        public System.DateTime LoseEfficacyDate { get; set; }
-        public System.DateTime ComeinInsuranceDate { get; set; }
+        /// <summary>
+        /// 保险开始时间
+        /// </summary>
+        public DateTime TakeEffectiveDate { get; set; }
+        /// <summary>
+        /// 保险结束时间
+        /// </summary>
+        public DateTime LoseEfficacyDate { get; set; }
+        /// <summary>
+        /// 投保时间
+        /// </summary>
+        public DateTime ComeinInsuranceDate { get; set; }
         public decimal InsuranceMoney { get; set; }
         public string Other1 { get; set; }
         public string Other2 { get; set; }

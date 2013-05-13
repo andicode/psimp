@@ -16,17 +16,22 @@ namespace PSIMP.Models
     
     public partial class VM_VehicleLeaseInfo : BaseEntity
     {
-        public System.Guid VehicleID { get; set; }
+        /// <summary>
+        /// 车辆租赁状态,详见枚举:VehicleLeaseStatus
+        /// </summary>
         public int ContractStatus { get; set; }
-        public System.DateTime ContractStartDate { get; set; }
-        public System.DateTime ContractEndDate { get; set; }
+        public DateTime ContractStartDate { get; set; }
+        public DateTime ContractEndDate { get; set; }
         public decimal MonthlyLeaseMoney { get; set; }
         public string LeasePersonName { get; set; }
         public string LeasePersonPhoneNum { get; set; }
-        public System.DateTime PurchaseDate { get; set; }
+        public DateTime? PurchaseDate { get; set; }
         public bool IsMailToCompany { get; set; }
         public string Description { get; set; }
-        public byte ContractAttachment { get; set; }
+        /// <summary>
+        /// 附件
+        /// </summary>
+        public string ContractAttachment { get; set; }
     
         public virtual VM_VehicleBaseInfo VM_VehicleBaseInfo { get; set; }
     }

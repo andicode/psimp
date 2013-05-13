@@ -13,19 +13,27 @@ namespace PSIMP.Models
     using System;
     using System.Collections.Generic;
     using PSIMP.Business.BaseModel;
-    
+    /// <summary>
+    /// 车辆使用信息
+    /// </summary>
     public partial class VM_VehicleUseInfo : BaseEntity
     {
-        public System.Guid VehicleID { get; set; }
+        /// <summary>
+        /// 所在地点:成都公司、北京中通、监理项目
+        /// </summary>
         public string UseAddress { get; set; }
+        /// <summary>
+        /// 使用对象：项目用车、业主用车
+        /// </summary>
         public string VehicleUseType { get; set; }
         public string VehicleDriver { get; set; }
-        public System.DateTime VehicleStartDate { get; set; }
-        public System.DateTime VehicleEndDate { get; set; }
+        public DateTime VehicleStartDate { get; set; }
+        public DateTime VehicleEndDate { get; set; }
         public string UsePurpose { get; set; }
         public string Description { get; set; }
         public string Other { get; set; }
     
         public virtual VM_VehicleBaseInfo VM_VehicleBaseInfo { get; set; }
+        public virtual ICollection<VM_VehicleOperatingCost> VM_VehicleOperatingCost { get; set; }
     }
 }
