@@ -16,21 +16,21 @@ namespace PSIMP.Models
     
     public partial class AMG_AssetBaseInfo : BaseEntity
     {
-        public AMG_AssetBaseInfo()
-        {
-            this.AMG_AssetAllocateInfo = new HashSet<AMG_AssetAllocateInfo>();
-            this.AMG_AssetRepairInfo = new HashSet<AMG_AssetRepairInfo>();
-            this.AMG_AssetUseInfo = new HashSet<AMG_AssetUseInfo>();
-        }
         public string AssetSerialNumber { get; set; }
+        /// <summary>
+        /// 资产类别,详见枚举
+        /// </summary>
         public int AssetType { get; set; }
         public string AssetName { get; set; }
         public string AssetSpecificationModel { get; set; }
         public string Unit { get; set; }
-        public System.DateTime BuyDate { get; set; }
+        public DateTime? BuyDate { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal SumPrice { get; set; }
+        /// <summary>
+        /// 资产状态
+        /// </summary>
         public int AssetStatus { get; set; }
         public string Description { get; set; }
         public string Other1 { get; set; }

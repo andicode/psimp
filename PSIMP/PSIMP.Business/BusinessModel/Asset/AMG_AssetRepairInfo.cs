@@ -16,13 +16,17 @@ namespace PSIMP.Models
     
     public partial class AMG_AssetRepairInfo : BaseEntity
     {
-       
-        public System.Guid AssetBaseInfoID { get; set; }
+        /// <summary>
+        /// 维修类别,详见枚举：AssetRepairType
+        /// </summary>
         public int RepairType { get; set; }
         public string RepairReason { get; set; }
         public decimal RepairMoney { get; set; }
-        public System.DateTime RepairDate { get; set; }
-        public System.Guid OperationUserID { get; set; }
+        public DateTime? RepairDate { get; set; }
+        /// <summary>
+        /// 经办人
+        /// </summary>
+        public string OperationUserID { get; set; }
         public string Description { get; set; }
         public string Other1 { get; set; }
         public int Other2 { get; set; }
