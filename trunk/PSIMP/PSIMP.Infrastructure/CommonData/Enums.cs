@@ -75,6 +75,30 @@ namespace PSIMP.Infrastructure.CommonData
         /// 维修级别
         /// </summary>
         public enum VehicleRepairGrade { 大修 = 0, 中修 = 1, 小修 = 2 }
+        /// <summary>
+        /// 资产类别
+        /// </summary>
+        public enum AssetType { 办公设备 = 0, 生活用品 = 1, 试验设备 = 2 }
+        /// <summary>
+        /// 资产维修类别
+        /// </summary>
+        public enum AssetRepairType {维修=0,处置=1,报废=2 }
+        /// <summary>
+        /// 车辆类申请类别
+        /// </summary>
+        public enum VehicleApplicationType { 车辆维修申请 = 0, 车辆保养申请 = 1, 车辆年审申请 = 2 }
+        /// <summary>
+        /// 资产类申请类别
+        /// </summary>
+        public enum AssetApplicationType { 资产购置 = 0, 资产维修 = 1, 资产处置 = 2 }
+        /// <summary>
+        /// 来文类别
+        /// </summary>
+        public enum LaiWenType { 业主类 = 0, 质检站类 = 1, 公司总部类 = 2, 事业部通知公告类 = 3 }
+        /// <summary>
+        /// 来文方式
+        /// </summary>
+        public enum LaiWenMode { 邮件 = 0, 传真 = 1, 信函 = 2 }
 
     }
 }
