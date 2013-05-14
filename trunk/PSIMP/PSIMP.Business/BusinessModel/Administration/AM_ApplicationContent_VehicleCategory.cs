@@ -16,18 +16,19 @@ namespace PSIMP.Models
     
     public partial class AM_ApplicationContent_VehicleCategory : BaseEntity
     {
-       
-        public System.Guid ProjectApplicationID { get; set; }
-        public System.Guid ApplicationType { get; set; }
-        public string PlateNumber { get; set; }
+        /// <summary>
+        /// 车辆类申请类别,见枚举
+        /// </summary>
+        public int ApplicationType { get; set; }
+        //public string PlateNumber { get; set; }
         public string Mileage { get; set; }
-        public System.Guid CarPart { get; set; }
+        public string CarPart { get; set; }
         public string ItemName { get; set; }
         public decimal ItemMoney { get; set; }
         public int ItemQuantity { get; set; }
         public decimal TotalMoney { get; set; }
         public string Description { get; set; }
-    
+        public virtual VM_VehicleBaseInfo VM_VehicleBaseInfo { get; set; }
         public virtual AM_ProjectApplicationBaseInfo AM_ProjectApplicationBaseInfo { get; set; }
     }
 }

@@ -16,13 +16,12 @@ namespace PSIMP.Models
     
     public partial class AM_ProjectApplicationRepliedInfo : BaseEntity
     {
-        
-        public System.Guid ProjectApplicationID { get; set; }
         public string ProjectManagerReplied { get; set; }
         public string ChiefDepartmentReplied { get; set; }
         public string CountersignatureReplied { get; set; }
         public string LeadershipReplied { get; set; }
         public string BossReplied { get; set; }
         public string Description { get; set; }
+        public virtual AM_ProjectApplicationBaseInfo AM_ProjectApplicationBaseInfo { get; set; }
     }
 }

@@ -23,7 +23,6 @@ namespace PSIMP.Models
         public bool RepliedResult { get; set; }
         public string RepliedSuggestion { get; set; }
         public System.DateTime RepliedDate { get; set; }
-        public System.Guid LaiWenRecordID { get; set; }
         public string Description { get; set; }
     
         public virtual AM_LaiWenRecordInfo AM_LaiWenRecordInfo { get; set; }

@@ -16,16 +16,18 @@ namespace PSIMP.Models
     
     public partial class AM_ApplicationContent_CapitalFundCategory : BaseEntity
     {
-        public System.Guid ProjectApplicationID { get; set; }
-        public string ApplicationType { get; set; }
-        public string AssetName { get; set; }
-        public string SpecificationMode { get; set; }
+        /// <summary>
+        /// 资产类申请类别,详见枚举：AssetApplicationType
+        /// </summary>
+        public int ApplicationType { get; set; }
+        //public string AssetName { get; set; }
+        //public string SpecificationMode { get; set; }
         public int Quantity { get; set; }
         public string Unit { get; set; }
         public decimal Money { get; set; }
         public decimal TotalMoney { get; set; }
         public string Description { get; set; }
-    
+        public virtual AMG_AssetBaseInfo AMG_AssetBaseInfo { get; set; }
         public virtual AM_ProjectApplicationBaseInfo AM_ProjectApplicationBaseInfo { get; set; }
     }
 }
