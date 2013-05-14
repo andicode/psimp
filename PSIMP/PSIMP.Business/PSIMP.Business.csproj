@@ -128,8 +128,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BusinessModel\_Partials\AMG\" />
     <Folder Include="BusinessModel\_Partials\AM\" />
-    <Folder Include="BusinessModel\_Partials\RM\" />
+    <Folder Include="BusinessModel\_Partials\VM\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\Person\IPersonContractRepository.cs" />

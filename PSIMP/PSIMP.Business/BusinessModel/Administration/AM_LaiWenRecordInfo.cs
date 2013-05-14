@@ -16,23 +16,22 @@ namespace PSIMP.Models
     
     public partial class AM_LaiWenRecordInfo : BaseEntity
     {
-        public AM_LaiWenRecordInfo()
-        {
-            this.AM_LaiWenCircularizeDetail = new HashSet<AM_LaiWenCircularizeDetail>();
-            this.AM_LaiWenRepliedInfo = new HashSet<AM_LaiWenRepliedInfo>();
-        }
-    
-        //主键被写在BaseEntity中,已忽略生成
-        //public Guid ID{ get; set; }
+        
         public string LaiWenUnit { get; set; }
-        public string LaiWenType { get; set; }
-        public string LaiWenMode { get; set; }
+        /// <summary>
+        /// 来文类别,详见枚举：LaiWenType
+        /// </summary>
+        public int LaiWenType { get; set; }
+        /// <summary>
+        /// 来文方式,见枚举(邮件、传真、信函)
+        /// </summary>
+        public int LaiWenMode { get; set; }
         public string FileSubject { get; set; }
         public string LaiWenSerialNumber { get; set; }
-        public System.DateTime IncomeFileDate { get; set; }
+        public DateTime IncomeFileDate { get; set; }
         public int IncomeFileNum { get; set; }
-        public byte FileAttachment { get; set; }
-        public System.Guid ProjectID { get; set; }
+        public string FileAttachment { get; set; }
+        public string ProjectID { get; set; }
     
         public virtual ICollection<AM_LaiWenCircularizeDetail> AM_LaiWenCircularizeDetail { get; set; }
         public virtual ICollection<AM_LaiWenRepliedInfo> AM_LaiWenRepliedInfo { get; set; }
