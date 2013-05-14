@@ -16,8 +16,13 @@ namespace PSIMP.Models
     
     public partial class AMG_AssetUseInfo : BaseEntity
     {
-        public System.Guid AssetBaseInfoID { get; set; }
+        /// <summary>
+        /// 使用单位
+        /// </summary>
         public string AssetUseCompany { get; set; }
+        /// <summary>
+        /// 领用数量
+        /// </summary>
         public int Number { get; set; }
         public decimal UseDate { get; set; }
         public string UsePerson { get; set; }
