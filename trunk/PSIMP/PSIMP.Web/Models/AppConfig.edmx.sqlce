@@ -1,0 +1,74 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 05/24/2013 13:25:17
+-- Generated from EDMX file: C:\Users\Nothing\Documents\Visual Studio 2012\Projects\PSIMP\PSIMP\PSIMP.Web\Models\AppConfig.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    ALTER TABLE [Menus] DROP CONSTRAINT [FK_MenusMenus];
+GO
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [Menus];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Menus'
+CREATE TABLE [Menus] (
+    [ID] bigint IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NOT NULL,
+    [Summary] nvarchar(4000)  NULL,
+    [AreaName] nvarchar(4000)  NULL,
+    [ControllerName] nvarchar(4000)  NOT NULL,
+    [ActionName] nvarchar(4000)  NOT NULL,
+    [Paramater] nvarchar(4000)  NULL,
+    [IconCls] nvarchar(4000)  NULL,
+    [MenusID] bigint  NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [ID] in table 'Menus'
+ALTER TABLE [Menus]
+ADD CONSTRAINT [PK_Menus]
+    PRIMARY KEY ([ID] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [MenusID] in table 'Menus'
+ALTER TABLE [Menus]
+ADD CONSTRAINT [FK_MenusMenus]
+    FOREIGN KEY ([MenusID])
+    REFERENCES [Menus]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_MenusMenus'
+CREATE INDEX [IX_FK_MenusMenus]
+ON [Menus]
+    ([MenusID]);
+GO
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

@@ -10,12 +10,16 @@ using WebMatrix.WebData;
 
 namespace PSIMP.Web.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Authorize]
     public class AccountController : Controller
     {
         [AllowAnonymous]
         public ActionResult Login()
         {
+            
             WebSecurity.Logout();
             return View();
         }

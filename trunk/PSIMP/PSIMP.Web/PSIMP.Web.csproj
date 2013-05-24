@@ -197,10 +197,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityContainerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\WebSetupConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\DesktopController.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
@@ -211,7 +213,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppConfig.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppConfig.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppConfig.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppConfig.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppConfig.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppConfig.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\EduViewModel.cs" />
+    <Compile Include="Models\Menus.cs">
+      <DependentUpon>AppConfig.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -233,6 +253,7 @@
     <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
     <Content Include="App_Readme\Transformer.NET\README.txt" />
     <Content Include="Content\login.css" />
+    <Content Include="Content\Page.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\folder.png" />
@@ -240,6 +261,24 @@
     <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
+    <EntityDeploy Include="Models\AppConfig.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AppConfig.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AppConfig.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AppConfig.edmx</DependentUpon>
+      <LastGenOutput>AppConfig.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AppConfig.edmx.diagram">
+      <DependentUpon>AppConfig.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\AppConfig.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AppConfig.edmx</DependentUpon>
+      <LastGenOutput>AppConfig.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AppConfig.edmx.sqlce" />
     <None Include="Properties\PublishProfiles\PSIMP.pubxml" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\login_bg.jpg" />
@@ -336,6 +375,8 @@
     <Content Include="Views\Statistics\rp_register.cshtml" />
     <Content Include="Views\Statistics\rp_insurance.cshtml" />
     <Content Include="Views\Statistics\rp_vehicle.cshtml" />
+    <Content Include="Views\Shared\_PageLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -375,6 +416,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />
+    <Folder Include="Images\PageImage\" />
     <Folder Include="UserFiles\" />
   </ItemGroup>
   <PropertyGroup>
