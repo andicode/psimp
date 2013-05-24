@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/Views/Shared/_ExtLayout.cshtml";
+}
+<link href="~/Content/Page.css" rel="stylesheet" />
+<script>
+      var loadPage = function (panel, record) {
+          panel.load({ "url": record.data.href });
+      };
+</script>
+@(
+ Html.X().Viewport()
+        .Layout(LayoutType.Border)
+        .Items(
+            Html.X().Container()
+                .Height(90)
+                .Region(Region.North)
+                .Content(
+                        @<text>
+                            <div class="header">
+						        <div class="left">
+							        <div class="title">
+								        XXX系统<span class="title-sub">V1</span>
+							        </div>
+						        </div>
+						        <div class="right">
+                                    <div class="button-group">
+							            <a class="button" href="@Url.Action("Index", "Desktop")">桌面版</a>
+                                    </div>
+						        </div>
+					        </div>
+                        </text>
+                )
+           , Html.X().TreePanel()
+                .Width(200)
+                .Header(false)
+                .Split(true)
+                .RootVisible(false)
+                .Collapsible(true)
+                .CollapseMode(CollapseMode.Mini)
+                .Region(Region.West)
+                .UseArrows(true)
+                .TopBar(
+                    Html.X().Toolbar()
+                        .Items(
+                            Html.X().TriggerField()
+                                .ID("m_SearchField")
+                                .EnableKeyEvents(true)
+                                .Flex(1)
+                                .EmptyText("功能查找...")
+                                .Triggers(
+                                    Html.X().FieldTrigger().HideTrigger(true).Icon(TriggerIcon.Clear)
+                                )
+                        )
+                )
+                .Root(Url.GetMenus())
+                .Listeners(events =>
+                {
+                    events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); loadPage(#{Page_Content}, record); }";
+                })
+           , Html.X().Panel()
+                .ID("Page_Content")
+                .Region(Region.Center)
+                .Layout(LayoutType.Fit)
+                .Border(false)
+                .Loader(
+                    Html.X().ComponentLoader()
+                        .AutoLoad(false)
+                        .RemoveAll(true)
+                        .Mode(LoadMode.Component)
+                        .LoadMask(mask => {
+                            mask.ShowMask = true;
+                            mask.Msg = "界面加载中...";
+                        })
+                )
+                .Items(
+                    Html.X().Panel()
+                        .Title("首页")
+                        .Content(@<text>@RenderBody()</text>)
+                )
+                
+        )
+)

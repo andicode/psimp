@@ -18,8 +18,20 @@ namespace System.Web
                 .ConstrainToElement("mainBody")
                 .Listeners(events =>
                 {
-                    events.Show.Handler = "this.up('window').mask()";
-                    events.Close.Handler = "this.up('window').unmask()";
+                    events.Show.Handler = @"
+if(this.up('window')){
+    this.up('window').mask()
+}
+else{
+    Ext.getBody().mask();
+}";
+                    events.Close.Handler = @"
+if(this.up('window')){
+    this.up('window').unmask()
+}
+else{
+    Ext.getBody().unmask();
+}";
                 });
         }
 

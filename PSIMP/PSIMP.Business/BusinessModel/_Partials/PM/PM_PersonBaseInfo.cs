@@ -25,7 +25,8 @@ namespace PSIMP.Models
 
         public class PM_PersonBaseInfo_MetaData
         {
-           
+
+            [Column(Ignore = true)]
             public Guid ID { get; set; }
 
             [Column(Text = "姓名",Order = 1)]
