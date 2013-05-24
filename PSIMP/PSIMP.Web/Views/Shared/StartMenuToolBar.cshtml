@@ -1,3 +1,5 @@
 ﻿@Html.X().Button().Text("用户管理").Icon(Icon.User)
 @Html.X().Button().Text("权限管理").Icon(Icon.UserKey)
 @Html.X().Button().Text("组织机构").Icon(Icon.Group)
+@Html.X().ToolbarSeparator()
+@Html.X().Button().Text("传统页面版").Icon(Icon.Page).Href(Url.Action("Index","Home")).HrefTarget("_self")
