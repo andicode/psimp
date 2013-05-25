@@ -6,6 +6,7 @@ using Ext.Net;
 using Ext.Net.MVC;
 using System.Web.Mvc;
 using System.Linq.Expressions;
+using MvcSiteMapProvider.Web.Html.Models;
 
 namespace System.Web
 {
@@ -77,6 +78,27 @@ if(!this.isLoad){
             });
         }
 
+        public static Ext.Net.Node ExtSiteMapNode(this SiteMapHelperModel model)
+        {
+            var root = model.First();
+            var rootNode = new Node();
+            GenericNode(rootNode, root);
+            return rootNode;
+ 
+        }
+        private static void GenericNode(Node node, SiteMapNodeModel siteNode)
+        {
+            node.Text = siteNode.Title;
+            node.NodeID = Guid.NewGuid().ToString();
+            node.Leaf = !siteNode.Children.Any();
+            node.Href = siteNode.Url;
+            foreach (var item in siteNode.Children)
+            {
+                var cNode = new Node();
+                GenericNode(cNode, item);
+                node.Children.Add(cNode);
+            }
+        }
 
         public static Notification NotifyTop(this MessageBox msgbox, string msg)
         {

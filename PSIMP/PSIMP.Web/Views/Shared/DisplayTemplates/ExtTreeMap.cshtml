@@ -1,0 +1,27 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapHelperModel
+@using System.Web.Mvc.Html
+@using MvcSiteMapProvider.Web.Html.Models
+@(Html.X().TreePanel()
+      .Header(false)
+      .Border(false)         
+      .RootVisible(false)                
+      .UseArrows(true)
+      .TopBar(
+          Html.X().Toolbar()
+              .Items(
+                  Html.X().TriggerField()
+                      .ID("m_SearchField")
+                      .EnableKeyEvents(true)
+                      .Flex(1)
+                      .EmptyText("功能查找...")
+                      .Triggers(
+                          Html.X().FieldTrigger().HideTrigger(true).Icon(TriggerIcon.Clear)
+                      )
+              )
+      )
+      .Root(Model.ExtSiteMapNode())
+      .Listeners(events =>
+      {
+          events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); loadPage(record); }";
+      })
+)
