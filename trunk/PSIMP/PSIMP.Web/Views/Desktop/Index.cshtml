@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<DesktopItem>
+@{
+    Session["displayMode"] = "desktop";
+}
 @(Html.X().Desktop(DesktopFrame.Config.Desktop())
 .Control(desktop =>
 {

@@ -3,7 +3,7 @@
 }
 @(
  Html.X().GridPanelFor<PM_PersonInsuranceInfo>()
-        .Title("保险信息")
+        .Title(Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel").ToString())
         .EmptyText("没有人员保险信息记录")
         .TopBar(
             Html.X().Toolbar()

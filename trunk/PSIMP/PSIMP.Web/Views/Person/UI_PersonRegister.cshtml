@@ -2,7 +2,7 @@
     Layout = null;
     }
 @(Html.X().GridPanelFor<PM_PersonRegister>()
-        .Title("注册管理")
+        .Title(Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel").ToString())
         .EmptyText("没有人员注册记录")
         .TopBar(
             Html.X().Toolbar()
