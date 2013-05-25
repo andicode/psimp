@@ -5,26 +5,7 @@
 <link href="~/Content/Page.css" rel="stylesheet" />
 <script>
     var loadPage = function (record) {
-        var tab = App.Page_Content.load(record.data.href);
-        //if (!tab) {
-        //    tab = App.Page_Content.add({
-        //        id: record.getId(),
-        //        title: record.data.text,
-        //        layout: 'fit',
-        //        bodyBorder: false,
-        //        closable: true,
-        //        loader: {
-        //            url: record.data.href,
-        //            renderer: "component",
-        //            loadMask: {
-        //                showMask: true,
-        //                msg: "Loading " + record.data.href + "..."
-        //            }
-        //        },
-        //        autoScroll: true
-        //    });
-        //}
-        //App.Page_Content.setActiveTab(tab);
+        var tab = App.Page_Content.load(record.data.href);   
     };
 </script>
 @(
@@ -36,19 +17,19 @@
                 .Region(Region.North)
                 .Content(
                         @<text>
-<div class="header">
-    <div class="left">
-        <div class="title">
-            XXX系统<span class="title-sub">V1</span>
-        </div>
-    </div>
-    <div class="right">
-        <div class="button-group">
-            <a class="button" href="@Url.Action("Index", "Desktop")">桌面版</a>
-        </div>
-    </div>
-</div>
-</text>
+                        <div class="header">
+                            <div class="left">
+                                <div class="title">
+                                    XXX系统<span class="title-sub">V1</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="button-group">
+                                    <a class="button" href="@Url.Action("Index", "Desktop")">桌面版</a>
+                                </div>
+                            </div>
+                        </div>
+                        </text>
                 )
            , Html.X().Panel()
                  .Layout(LayoutType.Fit)
