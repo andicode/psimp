@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
+            enableLocalization="true">
+
+  <mvcSiteMapNode title="首页" controller="Home" action="Index">
+    <mvcSiteMapNode title="人员管理" controller="Home" action="Person">
+      <mvcSiteMapNode title="人员信息" controller="Person" action="UI_BaseInfo"></mvcSiteMapNode>
+      <mvcSiteMapNode title="注册信息" controller="Person" action="UI_PersonRegister"></mvcSiteMapNode>
+      <mvcSiteMapNode title="证件信息" controller="Person" action="UI_PersonCertificateManager"></mvcSiteMapNode>
+      <mvcSiteMapNode title="保险信息" controller="Person" action="UI_PersonInsuranceInfo"></mvcSiteMapNode>
+      <mvcSiteMapNode title="合同信息" controller="Person" action="UI_PersonContractInfo"></mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="项目管理" controller="Home" action="Project"/>
+    <mvcSiteMapNode title="行政管理" controller="Home" action="Administration"/>
+    <mvcSiteMapNode title="车辆管理" controller="Home" action="Vehicle"/>
+    <mvcSiteMapNode title="设备管理" controller="Home" action="Asset"/>
+    <mvcSiteMapNode title="统计分析" controller="Home" action="Statistics"/>
+  </mvcSiteMapNode>
+
+</mvcSiteMap>
