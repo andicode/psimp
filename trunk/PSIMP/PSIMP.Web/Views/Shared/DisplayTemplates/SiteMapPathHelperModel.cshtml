@@ -7,8 +7,14 @@
 {
     foreach (var node in Model)
     { 
-    @Html.DisplayFor(m => node);
-
+        if(node.Controller.ToLower()=="home"&&node.Action.ToLower()!="index")
+        {
+            <a href="@node.Url" onclick="return checkMenuGroup('g_@node.Action')">@node.Title</a>
+        }
+        else
+        {            
+            @Html.DisplayFor(m => node);
+        }
         if (node != Model.Last())
         {
             <text> &gt; </text>
