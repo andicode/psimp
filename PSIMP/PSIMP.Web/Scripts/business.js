@@ -22,16 +22,13 @@ var person = {
         App.person_Info_Id.setValue("");
         App.person_info_image.setImageUrl("/images/person/default.jpg");
         person.setDisabledMenuItem(true);
-        App.Person_Window.animateTarget = this;
         App.Person_Window.show();
     },
     edit: function () {
         var record = this.up('container').record;
-        App.Person_Window.animateTarget = this;
         App.PersonForm_MenuPanel.setSelectedIndex(0)
         App.Person_Card.getLayout().setActiveItem(0)
         App.Person_Basic_Info.getForm().setValues(record.data);
-        App.Person_Window.animateTarget = this;
         App.Person_Window.show();
     },
     del: function () {
