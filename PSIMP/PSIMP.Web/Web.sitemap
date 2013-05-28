@@ -4,19 +4,19 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
             enableLocalization="true">
 
-  <mvcSiteMapNode title="首页" controller="Home" action="Index">
-    <mvcSiteMapNode title="人员管理" controller="Home" action="Person">
+  <mvcSiteMapNode key="g_Home" title="首页" controller="Home" action="Index">
+    <mvcSiteMapNode key="g_Person" title="人员管理" controller="Home" action="Person">
       <mvcSiteMapNode title="人员信息" controller="Person" action="UI_BaseInfo"></mvcSiteMapNode>
       <mvcSiteMapNode title="注册信息" controller="Person" action="UI_PersonRegister"></mvcSiteMapNode>
       <mvcSiteMapNode title="证件信息" controller="Person" action="UI_PersonCertificateManager"></mvcSiteMapNode>
       <mvcSiteMapNode title="保险信息" controller="Person" action="UI_PersonInsuranceInfo"></mvcSiteMapNode>
       <mvcSiteMapNode title="合同信息" controller="Person" action="UI_PersonContractInfo"></mvcSiteMapNode>
     </mvcSiteMapNode>
-    <mvcSiteMapNode title="项目管理" controller="Home" action="Project"/>
-    <mvcSiteMapNode title="行政管理" controller="Home" action="Administration"/>
-    <mvcSiteMapNode title="车辆管理" controller="Home" action="Vehicle"/>
-    <mvcSiteMapNode title="设备管理" controller="Home" action="Asset"/>
-    <mvcSiteMapNode title="统计分析" controller="Home" action="Statistics"/>
+    <mvcSiteMapNode key="g_Project" title="项目管理" controller="Home" action="Project"/>
+    <mvcSiteMapNode key="g_Administration" title="行政管理" controller="Home" action="Administration"/>
+    <mvcSiteMapNode key="g_Vehicle" title="车辆管理" controller="Home" action="Vehicle"/>
+    <mvcSiteMapNode key="g_Asset" title="设备管理" controller="Home" action="Asset"/>
+    <mvcSiteMapNode key="g_Statistics" title="统计分析" controller="Home" action="Statistics"/>
   </mvcSiteMapNode>
 
 </mvcSiteMap>

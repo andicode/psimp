@@ -5,8 +5,12 @@
 <link href="~/Content/Page.css" rel="stylesheet" />
 <script>
     var loadPage = function (record) {
-        var tab = App.Page_Content.load(record.data.href);   
+        var tab = App.Page_Content.load(record.data.href);
     };
+    var checkMenuGroup = function (id) {
+        var panel = Ext.getCmp(id).expand();
+        return false;
+    }
 </script>
 @(
  Html.X().Viewport()
@@ -17,19 +21,19 @@
                 .Region(Region.North)
                 .Content(
                         @<text>
-                        <div class="header">
-                            <div class="left">
-                                <div class="title">
-                                    XXX系统<span class="title-sub">V1</span>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <div class="button-group">
-                                    <a class="button" href="@Url.Action("Index", "Desktop")">桌面版</a>
-                                </div>
-                            </div>
-                        </div>
-                        </text>
+<div class="header">
+    <div class="left">
+        <div class="title">
+            XXX系统<span class="title-sub">V1</span>
+        </div>
+    </div>
+    <div class="right">
+        <div class="button-group">
+            <a class="button" href="@Url.Action("Index", "Desktop")">桌面版</a>
+        </div>
+    </div>
+</div>
+</text>
                 )
            , Html.X().Panel()
                  .Layout(LayoutType.Fit)
@@ -59,7 +63,10 @@
                  .Items(
                     Html.X().Panel()
                         .Title("首页")
-                        .Content(@<text>home</text>)
+                        .Content(@<text>
+                            <a href="#">ry</a>
+                            <a href="#">ry</a>
+                        </text>)
                  )
 
         )

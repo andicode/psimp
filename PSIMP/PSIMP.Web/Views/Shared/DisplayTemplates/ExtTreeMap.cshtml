@@ -1,7 +1,41 @@
 ﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapHelperModel
 @using System.Web.Mvc.Html
 @using MvcSiteMapProvider.Web.Html.Models
-@(Html.X().TreePanel()
+
+@(
+ Html.X().Container()
+    .Layout(LayoutType.Accordion)
+    .ID("left_menu_container")
+    .Items(items => {
+        var root = Model.First();
+        foreach (var item in root.Children)
+        {
+            var panel = Html.X().TreePanel()
+                            .ID("g_"+item.Action)
+                            .RootVisible(false)
+                            .Title(item.Title)
+                            .Root(
+                               Html.X().Node()
+                                   .EmptyChildren(!item.Children.Any())
+                                   .Children(nodes =>
+                                   {
+                                       foreach (var menu in item.Children)
+                                       {
+                                           nodes.Add(Html.X().Node().Text(menu.Title).Href(menu.Url).Leaf(true));
+                                       }
+                                   })
+                            )
+                            .Listeners(events =>
+                            {
+                                events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); loadPage(record); }";
+                            });
+            
+            items.Add(panel);
+        }
+    })
+)
+
+@*@(Html.X().TreePanel()
       .Header(false)
       .Border(false)         
       .RootVisible(false)                
@@ -24,4 +58,4 @@
       {
           events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); loadPage(record); }";
       })
-)
+)*@
