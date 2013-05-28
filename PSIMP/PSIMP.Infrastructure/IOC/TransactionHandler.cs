@@ -13,7 +13,6 @@ namespace PSIMP.Infrastructure.IOC
 {
     public class TransactionInterceptor : ICallHandler
     {
-        [Dependency]
         public IDBFactory _databaseFactory { get; set; }
         private PSIMPContext _dataContext;
 
@@ -22,31 +21,28 @@ namespace PSIMP.Infrastructure.IOC
             get { return _dataContext ?? (_dataContext = _databaseFactory.Get()); }
         }
         public IsolationLevel Level { get; private set; }
-         
 
-        public TransactionInterceptor(IsolationLevel level,int order)
+        public TransactionInterceptor(IsolationLevel level,int order,IDBFactory db)
         {
             this.Level = level;
             this.Order = order;
+            _databaseFactory = db;
         }
 
         #region ICallHandler 成员
 
         public IMethodReturn Invoke(IMethodInvocation input, GetNextHandlerDelegate getNext)
         {
-            using (var ts= DataContext.Database.Connection.BeginTransaction())
+            var result = getNext()(input, getNext);
+            if (result.Exception == null)
             {
-                var result = getNext()(input, getNext);
-                if (result.Exception == null)
-                {
-                    ts.Commit();
-                }
-                else
-                {
-                    ts.Rollback();
-                }
-                return result;
+                DataContext.Commit();
             }
+            else
+            {
+                result.Exception = null;
+            }
+            return result;
         }
 
         public int Order { get; set; }
