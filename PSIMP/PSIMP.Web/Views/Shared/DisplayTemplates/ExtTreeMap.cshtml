@@ -11,20 +11,11 @@
         foreach (var item in root.Children)
         {
             var panel = Html.X().TreePanel()
-                            .ID("g_"+item.Action)
+                            .ID("g_"+item.Url.ToMd5())
                             .RootVisible(false)
                             .Title(item.Title)
-                            .Root(
-                               Html.X().Node()
-                                   .EmptyChildren(!item.Children.Any())
-                                   .Children(nodes =>
-                                   {
-                                       foreach (var menu in item.Children)
-                                       {
-                                           nodes.Add(Html.X().Node().Text(menu.Title).Href(menu.Url).Leaf(true));
-                                       }
-                                   })
-                            )
+                            .UseArrows(true)
+                            .Root(item.ExtSiteMapNode())
                             .Listeners(events =>
                             {
                                 events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); loadPage(record); }";

@@ -7,13 +7,24 @@
 {
     foreach (var node in Model)
     { 
-        if(node.Controller.ToLower()=="home"&&node.Action.ToLower()!="index")
+        if(node.IsRootNode)
         {
-            <a href="@node.Url" onclick="return checkMenuGroup('g_@node.Action')">@node.Title</a>
+             @Html.DisplayFor(m => node)
+        }
+        else if(node.Controller.ToLower()=="home"&&node.Action.ToLower()!="index")
+        {
+            <a href="javascript://@node.Url;" onclick="checkMenuGroup('g_@node.Url.ToMd5()')">@node.Title</a>
         }
         else
-        {            
-            @Html.DisplayFor(m => node);
+        {   
+            if(!node.IsCurrentNode)
+            {
+                <a href="javascript://@node.Url;" onclick="checkMenuGroup('g_@Model.ElementAt(1).Url.ToMd5()','node_@node.Url.ToMd5()')">@node.Title</a>        
+            }
+            else
+            {
+                @Html.DisplayFor(m => node)
+            }
         }
         if (node != Model.Last())
         {

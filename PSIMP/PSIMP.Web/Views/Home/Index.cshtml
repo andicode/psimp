@@ -7,9 +7,16 @@
     var loadPage = function (record) {
         var tab = App.Page_Content.load(record.data.href);
     };
-    var checkMenuGroup = function (id) {
-        var panel = Ext.getCmp(id).expand();
-        return false;
+    var checkMenuGroup = function (id,nodeid) {
+        var panel = Ext.getCmp(id).expand();        
+        if (nodeid) {
+            var node = panel.getStore().getNodeById(nodeid);
+            var path = node.getPath('id');
+            panel.expandPath(path, 'id');
+            panel.getSelectionModel().select(node);
+            node.expand();
+        }
+        Ext.get(id+'_header').frame();
     }
 </script>
 @(
@@ -36,6 +43,7 @@
 </text>
                 )
            , Html.X().Panel()
+                 .Cls("menuPanel")
                  .Layout(LayoutType.Fit)
                  .Split(true)
                  .Header(false)

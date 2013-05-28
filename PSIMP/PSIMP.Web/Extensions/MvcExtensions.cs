@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebMatrix.WebData;
 
-namespace PSIMP.Web.Extensions
+namespace System.Web
 {
     public static class MvcExtensions
     {
@@ -18,5 +19,10 @@ namespace PSIMP.Web.Extensions
         //{
         //    return true;// WebSecurity.Login(user.UserName, user.UserName);
         //}
+
+        public static string ToMd5(this string source)
+        {
+            return FormsAuthentication.HashPasswordForStoringInConfigFile(source, "MD5");
+        }
     }
 }
