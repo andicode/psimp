@@ -7,6 +7,10 @@ using System.Data.Entity;
 using PSIMP.Business.Context;
 using PSIMP.Business.BaseModel;
 using System.Linq.Expressions;
+using System.Reflection;
+using System.Collections;
+using System.Data.Entity.Infrastructure;
+
 
 
 namespace PSIMP.Infrastructure.BasicRepository
@@ -38,8 +42,12 @@ namespace PSIMP.Infrastructure.BasicRepository
         }
         public virtual void Update(T entity)
         {
-            //dbset.Attach(entity);
-            _dataContext.Entry(entity).State = EntityState.Modified;
+            dbset.Attach(entity);
+            var entry = _dataContext.Entry(entity);
+            DbPropertyValues databseValues = entry.GetDatabaseValues();
+            entry.OriginalValues.SetValues(databseValues);
+            entry.CurrentValues["CreateTime"] = databseValues["CreateTime"];
+            entry.CurrentValues["CreateUser"] = databseValues["CreateUser"];
         }
         public virtual void Delete(T entity)
         {
