@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
+using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.InterceptionExtension;
-using System.Data;
+using PSIMP.Infrastructure.BasicRepository;
 
 namespace PSIMP.Infrastructure.IOC
 {
@@ -12,7 +14,8 @@ namespace PSIMP.Infrastructure.IOC
     {
         public override ICallHandler CreateHandler(Microsoft.Practices.Unity.IUnityContainer container)
         {
-            return new TransactionInterceptor(Level, Order);
+            IDBFactory db = (IDBFactory)container.Resolve<IDBFactory>();
+            return new TransactionInterceptor(Level, Order, db);
         }
         /// <summary>
         /// 事务隔离级别
