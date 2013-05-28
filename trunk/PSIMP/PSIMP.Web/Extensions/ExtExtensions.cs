@@ -78,18 +78,17 @@ if(!this.isLoad){
             });
         }
 
-        public static Ext.Net.Node ExtSiteMapNode(this SiteMapHelperModel model)
+        public static Ext.Net.Node ExtSiteMapNode(this SiteMapNodeModel model)
         {
-            var root = model.First();
             var rootNode = new Node();
-            GenericNode(rootNode, root);
+            GenericNode(rootNode, model);
             return rootNode;
  
         }
         private static void GenericNode(Node node, SiteMapNodeModel siteNode)
         {
             node.Text = siteNode.Title;
-            node.NodeID = Guid.NewGuid().ToString();
+            node.NodeID ="node_"+siteNode.Url.ToMd5();
             node.Leaf = !siteNode.Children.Any();
             node.Href = siteNode.Url;
             foreach (var item in siteNode.Children)
