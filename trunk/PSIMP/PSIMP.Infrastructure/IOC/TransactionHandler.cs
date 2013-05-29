@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using Microsoft.Practices.Unity.InterceptionExtension;
 using System.Data;
+using System.Data.Sql;
 using System.Data.Entity;
 using PSIMP.Business.Context;
 using Microsoft.Practices.Unity;
 using PSIMP.Infrastructure.BasicRepository;
+using System.Transactions;
 
 namespace PSIMP.Infrastructure.IOC
 {
@@ -20,9 +22,9 @@ namespace PSIMP.Infrastructure.IOC
         {
             get { return _dataContext ?? (_dataContext = _databaseFactory.Get()); }
         }
-        public IsolationLevel Level { get; private set; }
+        public System.Data.IsolationLevel Level { get; private set; }
 
-        public TransactionInterceptor(IsolationLevel level,int order,IDBFactory db)
+        public TransactionInterceptor(System.Data.IsolationLevel level, int order, IDBFactory db)
         {
             this.Level = level;
             this.Order = order;
@@ -33,16 +35,19 @@ namespace PSIMP.Infrastructure.IOC
 
         public IMethodReturn Invoke(IMethodInvocation input, GetNextHandlerDelegate getNext)
         {
-            var result = getNext()(input, getNext);
-            if (result.Exception == null)
+            using (TransactionScope tran = new TransactionScope())
             {
-                DataContext.Commit();
+                var result = getNext()(input, getNext);
+                if (result.Exception == null)
+                {
+                    tran.Complete();
+                }
+                else
+                {
+                    result.Exception = null;
+                }
+                return result;
             }
-            else
-            {
-                result.Exception = null;
-            }
-            return result;
         }
 
         public int Order { get; set; }
