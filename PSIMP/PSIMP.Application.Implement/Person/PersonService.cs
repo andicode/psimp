@@ -10,6 +10,7 @@ using Microsoft.Practices.Unity;
 using PSIMP.Business.Interface.Person;
 using PSIMP.Application.Interface.Person;
 using PSIMP.Models;
+using PSIMP.Infrastructure.IOC;
 
 
 namespace PSIMP.Application.Implement
@@ -28,13 +29,11 @@ namespace PSIMP.Application.Implement
         public void Add(PM_PersonBaseInfo obj)
         {
             PersonBaseRepository.Add(obj);
-            UnitOfWork.Commit();
+            //UnitOfWork.Commit();
         }
-
         public void Update(PM_PersonBaseInfo obj)
         {
             PersonBaseRepository.Update(obj);
-            UnitOfWork.Commit();
         }
 
         public PM_PersonBaseInfo Get(string id)
