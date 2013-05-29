@@ -39,6 +39,7 @@ namespace PSIMP.Infrastructure.BasicRepository
         {
             entity.ID = Guid.NewGuid().ToString();
             dbset.Add(entity);
+            DataContext.SaveChanges();
         }
         public virtual void Update(T entity)
         {
@@ -48,16 +49,19 @@ namespace PSIMP.Infrastructure.BasicRepository
             entry.OriginalValues.SetValues(databseValues);
             entry.CurrentValues["CreateTime"] = databseValues["CreateTime"];
             entry.CurrentValues["CreateUser"] = databseValues["CreateUser"];
+            DataContext.SaveChanges();
         }
         public virtual void Delete(T entity)
         {
             dbset.Remove(entity);
+            DataContext.SaveChanges();
         }
         public void Delete(Expression<Func<T, Boolean>> where)
         {
             IEnumerable<T> objects = dbset.Where<T>(where).AsEnumerable();
             foreach (T obj in objects)
                 dbset.Remove(obj);
+            DataContext.SaveChanges();
         }
         public virtual T GetById(string id)
         {
