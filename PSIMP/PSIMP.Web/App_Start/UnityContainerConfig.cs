@@ -35,16 +35,13 @@ namespace PSIMP.Web
             container.RegisterType<IControllerActivator, CustomControllerActivator>();
 
             #region 应用层
-            //container.RegisterType<IDeptService, DeptService>(new HttpContextLifetimeManager<IDeptService>(), new Interceptor<InterfaceInterceptor>());
-            container.RegisterType<IPersonService, PersonService>(new HttpContextLifetimeManager<IPersonService>(), new Interceptor<InterfaceInterceptor>());
-            
+            //人员基础信息
+            container.RegisterType<IPersonService, PersonService>(new HttpContextLifetimeManager<IPersonService>());
+            container.Configure<Interception>()
+                     .SetInterceptorFor<IPersonService>(new InterfaceInterceptor());
             #endregion
 
-
-
             #region 底层业务
-            //container.RegisterType<IDeptRepository, DeptRepository>(new HttpContextLifetimeManager<IDeptRepository>());
-            //container.RegisterType<IEmployeeRepository, EmployeeRepository>(new HttpContextLifetimeManager<IEmployeeRepository>());
             container.RegisterType<IPersonBaseRepository, PersonBaseRepository>(new HttpContextLifetimeManager<IPersonBaseRepository>());
             
             #endregion
