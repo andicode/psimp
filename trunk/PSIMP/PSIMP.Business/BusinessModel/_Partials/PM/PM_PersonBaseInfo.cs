@@ -13,7 +13,7 @@ namespace PSIMP.Models
     /// <summary>
     /// 基础信息
     /// </summary>
-    [Proxy(Read = "~/Person/GetPersons")]
+    [Proxy(Read = "~/persons/default/getpersons")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonBaseInfo_MetaData))]
     public partial class PM_PersonBaseInfo 
@@ -57,8 +57,9 @@ namespace PSIMP.Models
             [Field(FieldLabel = "备用电话")]
             public string AlternatePhoneNumber { get; set; }
 
-            [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Person/Photo/{ID}?_dc={_dc}\" alt=\"{PersonName}\">")]
+            [TemplateColumn(Text = "照片", Order = 0, Align = Alignment.Center, TemplateString = "<img style=\"width:38px;height:50px\" src=\"/Persons/Default/Photo/{ID}?_dc={_dc}\" alt=\"{PersonName}\">")]
             [Field(FieldLabel = "照片",FieldType=typeof(FileUploadField))]
+            [JsonIgnore]
             public byte[] TwoInchPhoto { get; set; }
 
             [Column(Ignore = true)]

@@ -4,20 +4,7 @@
 }
 <link href="~/Content/Page.css" rel="stylesheet" />
 <script>
-    var loadPage = function (record) {
-        var tab = App.Page_Content.load(record.data.href);
-    };
-    var checkMenuGroup = function (id,nodeid) {
-        var panel = Ext.getCmp(id).expand();        
-        if (nodeid) {
-            var node = panel.getStore().getNodeById(nodeid);
-            var path = node.getPath('id');
-            panel.expandPath(path, 'id');
-            panel.getSelectionModel().select(node);
-            node.expand();
-        }
-        Ext.get(id+'_header').frame("#0f0");
-    }
+   
 </script>
 @(
  Html.X().Viewport()
@@ -28,19 +15,19 @@
                 .Region(Region.North)
                 .Content(
                         @<text>
-<div class="header">
-    <div class="left">
-        <div class="title">
-            XXX系统<span class="title-sub">V1</span>
-        </div>
-    </div>
-    <div class="right">
-        <div class="button-group">
-            <a class="button" href="@Url.Action("Index", "Desktop")">桌面版</a>
-        </div>
-    </div>
-</div>
-</text>
+                        <div class="header">
+                            <div class="left">
+                                <div class="title">
+                                    XXX系统<span class="title-sub">V1</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="button-group">
+                                    <a class="button" href="@Url.Action("Index", "Desktop")">桌面版</a>
+                                </div>
+                            </div>
+                        </div>
+                        </text>
                 )
            , Html.X().Panel()
                  .Cls("menuPanel")

@@ -13,7 +13,7 @@ namespace PSIMP.Models
     /// <summary>
     /// 培训信息
     /// </summary>
-    [Proxy(Read = "~/Person/GetTrains")]
+    [Proxy(Read = "~/Persons/Default/GetTrains")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonTrainingExperience_MetaData))]
     public partial class PM_PersonTrainingExperience 

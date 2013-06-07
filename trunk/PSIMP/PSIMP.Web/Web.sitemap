@@ -6,11 +6,11 @@
 
   <mvcSiteMapNode title="首页" controller="Home" action="Index">
     <mvcSiteMapNode title="人员管理" controller="Home" action="Person">
-      <mvcSiteMapNode title="人员信息" controller="Person" action="UI_BaseInfo"></mvcSiteMapNode>
-      <mvcSiteMapNode title="注册信息" controller="Person" action="UI_PersonRegister"></mvcSiteMapNode>
-      <mvcSiteMapNode title="证件信息" controller="Person" action="UI_PersonCertificateManager"></mvcSiteMapNode>
-      <mvcSiteMapNode title="保险信息" controller="Person" action="UI_PersonInsuranceInfo"></mvcSiteMapNode>
-      <mvcSiteMapNode title="合同信息" controller="Person" action="UI_PersonContractInfo"></mvcSiteMapNode>
+      <mvcSiteMapNode title="人员信息" controller="Default" action="Index" area="Persons"></mvcSiteMapNode>
+      <mvcSiteMapNode title="注册信息" controller="Registers" action="Index" area="Persons"></mvcSiteMapNode>
+      <mvcSiteMapNode title="证件信息" controller="Certificates" action="Index"  area="Persons"></mvcSiteMapNode>
+      <mvcSiteMapNode title="保险信息" controller="Insurances" action="Index"  area="Persons"></mvcSiteMapNode>
+      <mvcSiteMapNode title="合同信息" controller="Contracts" action="Index"  area="Persons"></mvcSiteMapNode>
     </mvcSiteMapNode>
     <mvcSiteMapNode key="g_Project" title="项目管理" controller="Home" action="Project"/>
     <mvcSiteMapNode key="g_Administration" title="行政管理" controller="Home" action="Administration"/>

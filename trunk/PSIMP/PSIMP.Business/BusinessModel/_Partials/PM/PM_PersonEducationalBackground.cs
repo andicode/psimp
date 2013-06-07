@@ -13,7 +13,7 @@ namespace PSIMP.Models
     /// <summary>
     /// 教育背景
     /// </summary>
-    [Proxy(Read = "~/Person/GetEdus")]
+    [Proxy(Read = "~/Persons/Default/GetEdus")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonEducationalBackground_MetaData))]
     public partial class PM_PersonEducationalBackground 

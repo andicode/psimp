@@ -13,7 +13,7 @@ namespace PSIMP.Models
     /// <summary>
     /// 注册信息
     /// </summary>
-    [Proxy(Read = "~/Person/GetRegisters")]
+    [Proxy(Read = "~/Persons/Registers/GetRegisters")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonRegister_MetaData))]
     public partial class PM_PersonRegister 

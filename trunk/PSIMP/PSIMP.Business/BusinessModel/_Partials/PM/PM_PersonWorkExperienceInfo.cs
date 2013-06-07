@@ -13,7 +13,7 @@ namespace PSIMP.Models
     /// <summary>
     /// 工作经历
     /// </summary>
-    [Proxy(Read = "~/Person/GetWorks")]
+    [Proxy(Read = "~/Persons/Default/GetWorks")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonWorkExperienceInfo_MetaData))]
     public partial class PM_PersonWorkExperienceInfo 

@@ -13,7 +13,7 @@ namespace PSIMP.Models
     /// <summary>
     /// 职称信息
     /// </summary>
-    [Proxy(Read = "~/Person/GetTitles")]
+    [Proxy(Read = "~/Persons/Default/GetTitles")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonPositionalTitlesInfo_MetaData))]
     public partial class PM_PersonPositionalTitlesInfo 

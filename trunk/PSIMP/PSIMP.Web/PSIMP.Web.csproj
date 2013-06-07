@@ -200,12 +200,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityContainerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Persons\Controllers\CertificatesController.cs" />
+    <Compile Include="Areas\Persons\Controllers\ContractsController.cs" />
+    <Compile Include="Areas\Persons\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Persons\Controllers\InsurancesController.cs" />
+    <Compile Include="Areas\Persons\Controllers\RegistersController.cs" />
+    <Compile Include="Areas\Persons\PersonsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\DesktopController.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
@@ -246,7 +251,16 @@
     <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
+    <Content Include="Scripts\app\base.js" />
+    <Content Include="Scripts\app\projects.js" />
     <Content Include="web.sitemap" />
+    <Content Include="Areas\Persons\Views\Web.config" />
+    <Content Include="Areas\Persons\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Persons\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Persons\Views\Registers\Index.cshtml" />
+    <Content Include="Areas\Persons\Views\Insurances\Index.cshtml" />
+    <Content Include="Areas\Persons\Views\Certificates\Index.cshtml" />
+    <Content Include="Areas\Persons\Views\Contracts\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -271,7 +285,7 @@
     <Content Include="Images\row-over.gif" />
     <Content Include="Images\selected.gif" />
     <Content Include="Images\Userpicture\default.png" />
-    <Content Include="Scripts\business.js" />
+    <Content Include="Scripts\app\persons.js" />
     <Content Include="Scripts\FusionCharts.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -299,8 +313,6 @@
     <Content Include="Views\Asset\_CarInfo.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Person\PersonUI_View.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Desktop\Index.cshtml">
       <SubType>Code</SubType>
@@ -309,27 +321,20 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_ExtLayout.cshtml" />
     <Content Include="Views\Resource\Index.cshtml" />
-    <Content Include="Views\Person\PersonInfo.cshtml" />
-    <Content Include="Views\Person\_BaseInfo.cshtml" />
-    <Content Include="Views\Person\Details.cshtml" />
-    <Content Include="Views\Person\_EducationInfo.cshtml" />
-    <Content Include="Views\Person\_TitlesInfo.cshtml" />
-    <Content Include="Views\Person\_WorkInfo.cshtml" />
-    <Content Include="Views\Person\_CertInfo.cshtml" />
-    <Content Include="Views\Person\RegisterForm.cshtml" />
-    <Content Include="Views\Person\PersonDlg.cshtml" />
-    <Content Include="Views\Person\InsuranceForm.cshtml" />
-    <Content Include="Views\Person\Frame.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\PersonInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\_BaseInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\Details.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\_EducationInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\_TitlesInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\_WorkInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\_CertInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Registers\RegisterForm.cshtml" />
+    <Content Include="Areas\Persons\Views\Default\PersonDlg.cshtml" />
+    <Content Include="Areas\Persons\Views\Insurances\InsuranceForm.cshtml" />
     <Content Include="Views\Administration\Frame.cshtml" />
     <Content Include="Views\Asset\Frame.cshtml" />
     <Content Include="Views\Resource\Frame.cshtml" />
     <Content Include="Views\Vehicle\Frame.cshtml" />
-    <Content Include="Views\Person\PersonWindow.cshtml" />
-    <Content Include="Views\Person\UI_BaseInfo.cshtml" />
-    <Content Include="Views\Person\UI_PersonRegister.cshtml" />
-    <Content Include="Views\Person\UI_PersonInsuranceInfo.cshtml" />
-    <Content Include="Views\Person\UI_PersonCertificateManager.cshtml" />
-    <Content Include="Views\Person\UI_PersonContractInfo.cshtml" />
     <Content Include="Views\Vehicle\UI_BasicInfo.cshtml" />
     <Content Include="Views\Vehicle\UI_LoanRepayment.cshtml" />
     <Content Include="Views\Project\UI_BasicInfo.cshtml" />
@@ -391,6 +396,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Persons\Models\" />
+    <Folder Include="Areas\Persons\Views\Shared\" />
     <Folder Include="Filters\" />
     <Folder Include="Images\PageImage\" />
     <Folder Include="UserFiles\" />

@@ -18,7 +18,7 @@
                             .Root(item.ExtSiteMapNode())
                             .Listeners(events =>
                             {
-                                events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); loadPage(record); }";
+                                events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); base.loadPage(record); }";
                             });
             
             items.Add(panel);

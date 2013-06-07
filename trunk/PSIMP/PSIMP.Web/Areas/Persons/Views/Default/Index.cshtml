@@ -1,6 +1,7 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
+
 @(Html.X().GridPanelFor<PM_PersonBaseInfo>()
           .Title(Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel").ToString())
           .DockedItems(

@@ -12,7 +12,7 @@ namespace PSIMP.Models
     /// <summary>
     /// 证书信息
     /// </summary>
-    [Proxy(Read = "~/Person/GetCerts")]
+    [Proxy(Read = "~/Persons/Default/GetCerts")]
     [JsonReader(Root = "data")]
     [MetadataType(typeof(PM_PersonCertificateInfo_MetaData))]
     public partial class PM_PersonCertificateInfo
