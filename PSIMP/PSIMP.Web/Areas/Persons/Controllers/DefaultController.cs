@@ -1,62 +1,37 @@
 ﻿using Ext.Net;
+using Ext.Net.MVC;
+using Microsoft.Practices.Unity;
+using PSIMP.Application.Interface.Person;
+using PSIMP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Ext.Net.MVC;
-using PSIMP.Models;
-using System.IO;
-using PSIMP.Application.Interface.Person;
-using Microsoft.Practices.Unity;
-namespace PSIMP.Web.Controllers
+
+namespace PSIMP.Web.Areas.Persons.Controllers
 {
-    [DirectController(GenerateProxyForOtherAreas=true,GenerateProxyForOtherControllers=true)]
-    public class PersonController : Controller
+    [DirectController(GenerateProxyForOtherAreas = true, GenerateProxyForOtherControllers = true,AreaName="Persons")]    
+    public class DefaultController : Controller
     {
         [Dependency]
         public IPersonService PersonService { get; set; }
+        //
+        // GET: /Persons/Default/
 
-        /// <summary>
-        /// 人员管理主界面
-        /// </summary>
-        /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult UI_BaseInfo()
-        {
             return this.ComponentConfig();
         }
-        public ActionResult UI_PersonRegister()
-        {
-            return this.ComponentConfig();
-        }
-        public ActionResult UI_PersonInsuranceInfo()
-        {
-            return this.ComponentConfig();
-        }
-        public ActionResult UI_PersonCertificateManager()
-        {
-            return this.ComponentConfig();
-        }
-
-        public ActionResult UI_PersonContractInfo()
-        {
-            return this.ComponentConfig();
-        }
-        #region 人员基础信息
 
         public ActionResult GetPersons(StoreRequestParameters srp)
         {
-            var total=0;
-            var data = PersonService.GetAll().GetPagesData(srp.Start,srp.Limit,out total);
+            var total = 0;
+            var data = PersonService.GetAll().GetPagesData(srp.Start, srp.Limit, out total);
             return this.Store(data, total);
         }
 
-        public ActionResult PersonInfo(string id="")
+        public ActionResult PersonInfo(string id = "")
         {
             if (string.IsNullOrEmpty(id))
             {
@@ -110,16 +85,16 @@ namespace PSIMP.Web.Controllers
         public ActionResult Photo(string id)
         {
             PM_PersonBaseInfo person = PersonService.Get(id);
-            if(person.TwoInchPhoto==null)
+            if (person.TwoInchPhoto == null)
             {
                 return File(Server.MapPath("~/Images/Person/default.jpg"), "image/jpeg");
             }
             else
             {
-                return File(person.TwoInchPhoto,"image/jpeg");
+                return File(person.TwoInchPhoto, "image/jpeg");
             }
         }
-        
+
         public ActionResult Delete(string id)
         {
             //PersonService.CompletelyDelete(id);
@@ -130,8 +105,8 @@ namespace PSIMP.Web.Controllers
 
         public ActionResult PersonDlg(string backID, string backName, string callback = "")
         {
-            var scripts = "";           
-            scripts += "App." + backID + ".setValue(record.data.ID);";            
+            var scripts = "";
+            scripts += "App." + backID + ".setValue(record.data.ID);";
             scripts += "App." + backName + ".setValue(record.data.PersonName);";
             if (callback != "")
             {
@@ -140,6 +115,7 @@ namespace PSIMP.Web.Controllers
             ViewBag.Scripts = scripts;
             return this.PartialExtView();
         }
+
         #region 教育信息
 
         public ActionResult GetEdus()
@@ -215,38 +191,6 @@ namespace PSIMP.Web.Controllers
         public ActionResult DeleteCerts()
         {
             return null;
-        }
-        #endregion
-
-        #endregion
-
-        #region 人员注册信息
-
-        public ActionResult GetRegisters()
-        {
-            return this.Store(null,0);
-        }
-
-        #endregion
-
-        #region 保险信息
-        public ActionResult GetInsurances()
-        {
-            return this.Store(null, 0);
-        }
-        #endregion
-
-        #region 证书管理
-        public ActionResult GetCertificates()
-        {
-            return this.Store(null, 0);
-        }
-        #endregion
-
-        #region 合同管理
-        public ActionResult GetContracts()
-        {
-            return this.Store(null, 0);
         }
         #endregion
     }

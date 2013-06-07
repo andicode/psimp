@@ -13,13 +13,13 @@
         }
         else if(node.Controller.ToLower()=="home"&&node.Action.ToLower()!="index")
         {
-            <a href="javascript://@node.Url;" onclick="checkMenuGroup('g_@node.Url.ToMd5()')">@node.Title</a>
+            <a href="javascript:base.cmg('g_@node.Url.ToMd5()')">@node.Title</a>
         }
         else
         {   
             if(!node.IsCurrentNode)
             {
-                <a href="javascript://@node.Url;" onclick="checkMenuGroup('g_@Model.ElementAt(1).Url.ToMd5()','node_@node.Url.ToMd5()')">@node.Title</a>        
+                <a href="javascript:base.cmg('g_@Model.ElementAt(1).Url.ToMd5()','node_@node.Url.ToMd5()')">@node.Title</a>        
             }
             else
             {

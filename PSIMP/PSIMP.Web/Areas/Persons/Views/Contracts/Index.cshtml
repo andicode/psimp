@@ -1,9 +1,10 @@
 ﻿@{
-    Layout = null;
-    }
-@(Html.X().GridPanelFor<PM_PersonRegister>()
+    ViewBag.Title = "Index";
+}
+@(
+ Html.X().GridPanelFor<PM_PersonContractInfo>()
         .Title(Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel").ToString())
-        .EmptyText("没有人员注册记录")
+        .EmptyText("没有人员合同信息记录")
         .DockedItems(
                Html.X().SearchPanel()
                    .Items(
@@ -21,21 +22,21 @@
         .TopBar(
             Html.X().Toolbar()
                 .Items(
-                    Html.X().Button().Text("新增人员注册信息").Icon(Icon.Add).Handler("person.register.create")
+                    Html.X().Button().Text("新增人员合同信息").Icon(Icon.Add).Handler("person.insurance.create")
                 )
         )
         .BottomBar(Html.X().PagingToolbar())
-    )
+)
 @(
 Html.EditorWindow()
-    .ID("Person_Register")
-    .Title("人员注册信息")
+    .ID("Person_Contract")
+    .Title("人员合同信息")
     .Hidden(true)
     .Width(500)
     .Layout( LayoutType.Fit)
     .AutoScroll(true)
     .Border(false)
-    .ItemsFromPartial("RegisterForm")
+    //.ItemsFromPartial("InsuranceForm")
     .Buttons(
         Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
         Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")

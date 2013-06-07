@@ -1,10 +1,10 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
-@(
- Html.X().GridPanelFor<PM_CertificateManage>()
+
+@(Html.X().GridPanelFor<PM_PersonRegister>()
         .Title(Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel").ToString())
-        .EmptyText("没有证件信息记录")
+        .EmptyText("没有人员注册记录")
         .DockedItems(
                Html.X().SearchPanel()
                    .Items(
@@ -22,21 +22,21 @@
         .TopBar(
             Html.X().Toolbar()
                 .Items(
-                    Html.X().Button().Text("新增人员证件信息").Icon(Icon.Add).Handler("person.certificate.create")
+                    Html.X().Button().Text("新增人员注册信息").Icon(Icon.Add).Handler("person.register.create")
                 )
         )
         .BottomBar(Html.X().PagingToolbar())
-)
+    )
 @(
 Html.EditorWindow()
-    .ID("Person_Certificate")
-    .Title("人员证件信息")
+    .ID("Person_Register")
+    .Title("人员注册信息")
     .Hidden(true)
     .Width(500)
-    .Layout(LayoutType.Fit)
+    .Layout( LayoutType.Fit)
     .AutoScroll(true)
     .Border(false)
-    //.ItemsFromPartial("InsuranceForm")
+    .ItemsFromPartial("RegisterForm")
     .Buttons(
         Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
         Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
