@@ -1,24 +1,24 @@
 ﻿using System.Web.Mvc;
 
-namespace PSIMP.Web.Areas.Persons
+namespace PSIMP.Web.Areas.Assets
 {
-    public class PersonsAreaRegistration : AreaRegistration
+    public class AssetsAreaRegistration : AreaRegistration
     {
         public override string AreaName
         {
             get
             {
-                return "Persons";
+                return "Assets";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Persons_default",
-                "Persons/{controller}/{action}/{id}",
+                "Assets_default",
+                "Assets/{controller}/{action}/{id}",
                 new {controller="Default", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "PSIMP.Web.Areas.Persons.Controllers" }
+                namespaces: new[] { "PSIMP.Web.Areas.Assets.Controllers" }
             );
         }
     }

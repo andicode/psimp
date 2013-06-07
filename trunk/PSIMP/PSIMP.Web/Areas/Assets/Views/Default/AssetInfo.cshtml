@@ -1,0 +1,35 @@
+﻿@model AMG_AssetBaseInfo
+@{
+    ViewBag.Title = "AssetInfo";
+}
+@(
+ Html.EditorWindow()
+    .Title("资产基本信息")
+    .Width(500)
+    .CloseAction(CloseAction.Destroy)
+    .Layout(LayoutType.Fit)
+    .AutoScroll(true)
+    .Border(false)
+    .Items(
+        Html.X().FormPanel()
+            .BodyPadding(20)
+            .Items(
+                Html.X().HiddenFor(m =>m.ID)
+               ,Html.X().TextFieldFor(m=>m.AssetSerialNumber)
+               ,Html.X().TextFieldFor(m=>m.AssetName)
+               , Html.X().ComboBoxFor(m => m.AssetType).Editable(false).ItemsFromEnum(typeof(Enums.AssetType))
+               , Html.X().TextFieldFor(m => m.AssetSpecificationModel)
+               , Html.X().TextFieldFor(m => m.Unit)
+               , Html.X().DateFieldFor(m => m.BuyDate)
+               , Html.X().NumberFieldFor(m => m.Quantity)
+               , Html.X().NumberFieldFor(m => m.SumPrice)           
+               , Html.X().TextFieldFor(m => m.AssetStatus)         
+               , Html.X().TextAreaFor(m => m.Description).AnchorHorizontal("100%")
+            )
+
+    )
+    .Buttons(
+        Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
+        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
+    )
+)

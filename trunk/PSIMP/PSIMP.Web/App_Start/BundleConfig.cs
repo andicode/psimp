@@ -13,6 +13,7 @@ namespace PSIMP.Web
             bundles.Add(new ScriptBundle("~/app").Include(
                         "~/Scripts/app/base.js",
                         "~/Scripts/app/persons.js",
+                        "~/Scripts/app/assets.js",
                         "~/Scripts/app/projects.js"
                         ));
 

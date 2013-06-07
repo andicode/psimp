@@ -12,10 +12,14 @@
       <mvcSiteMapNode title="保险信息" controller="Insurances" action="Index"  area="Persons"></mvcSiteMapNode>
       <mvcSiteMapNode title="合同信息" controller="Contracts" action="Index"  area="Persons"></mvcSiteMapNode>
     </mvcSiteMapNode>
-    <mvcSiteMapNode key="g_Project" title="项目管理" controller="Home" action="Project"/>
-    <mvcSiteMapNode key="g_Administration" title="行政管理" controller="Home" action="Administration"/>
-    <mvcSiteMapNode key="g_Vehicle" title="车辆管理" controller="Home" action="Vehicle"/>
-    <mvcSiteMapNode key="g_Asset" title="设备管理" controller="Home" action="Asset"/>
+    <mvcSiteMapNode title="项目管理" controller="Home" action="Project"/>
+    <mvcSiteMapNode title="行政管理" controller="Home" action="Administration"/>
+    <mvcSiteMapNode title="车辆管理" controller="Home" action="Vehicle"/>
+    <mvcSiteMapNode title="资产管理" controller="Home" action="Asset">
+      <mvcSiteMapNode title="资产基本信息" controller="Default" action="Index" area="Assets"></mvcSiteMapNode>
+      <mvcSiteMapNode title="资产领用管理" controller="Use" action="Index" area="Assets"></mvcSiteMapNode>
+      <mvcSiteMapNode title="资产维护信息" controller="Repair" action="Index" area="Assets"></mvcSiteMapNode>
+    </mvcSiteMapNode>
     <mvcSiteMapNode key="g_Statistics" title="统计分析" controller="Home" action="Statistics"/>
   </mvcSiteMapNode>
 

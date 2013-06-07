@@ -36,6 +36,8 @@ var base = {
             panel.getSelectionModel().select(node);
             node.expand();
         }
-        Ext.get(id + '_header').frame("#0f0");
+        setTimeout(function () {
+            Ext.get(id + '_header').frame("#0f0");
+        }, 300);
     }
 }
