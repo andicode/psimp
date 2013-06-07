@@ -22,5 +22,14 @@ namespace PSIMP.Web.Areas.Persons.Controllers
         {
             return this.Store(null, 0);
         }
+
+        public ActionResult CertificateInfo(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return this.PartialExtView();
+            }
+            return this.PartialExtView();
+        }
     }
 }

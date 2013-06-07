@@ -27,18 +27,3 @@
         )
         .BottomBar(Html.X().PagingToolbar())
     )
-@(
-Html.EditorWindow()
-    .ID("Person_Register")
-    .Title("人员注册信息")
-    .Hidden(true)
-    .Width(500)
-    .Layout( LayoutType.Fit)
-    .AutoScroll(true)
-    .Border(false)
-    .ItemsFromPartial("RegisterForm")
-    .Buttons(
-        Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
-        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
-    )
-)
