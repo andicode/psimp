@@ -8,39 +8,61 @@ function moduleShow() {
         this.setPagePosition((winWidth - width) / 2, 0);
     }
     else {
-        this.setPagePosition((winWidth - width) / 2, (winHeight - height) / 2-20);
+        this.setPagePosition((winWidth - width) / 2, (winHeight - height) / 2 - 20);
     }
 }
 
+var base = {
+    Ajax: function (url, data) {
+        var bodyMask = new Ext.LoadMask(Ext.getBody(), { msg: '加载中...', hidden: false });
+        bodyMask.show();
+        Ext.net.DirectMethod.request({
+            url: url,
+            params:data,
+            cleanRequest: true,
+            success: function () {
+                bodyMask.hide();
+            }
+        });
+    }
+}
 //#region 人员管理
 var person = {
     create: function () {
-        //parent.open('/Person/PersonWindow', "win_PersonModule")
-        App.PersonForm_MenuPanel.setSelectedIndex(0);
-        App.Person_Card.getLayout().setActiveItem(0);
-        App.Person_Basic_Info.getForm().reset();
-        App.person_Info_Id.setValue("");
-        App.person_info_image.setImageUrl("/images/person/default.jpg");
-        person.setDisabledMenuItem(true);
-        App.Person_Window.show();
+        base.Ajax("/person/personinfo")
     },
     edit: function () {
-        var record = this.up('container').record;
-        App.PersonForm_MenuPanel.setSelectedIndex(0)
-        App.Person_Card.getLayout().setActiveItem(0)
-        App.Person_Basic_Info.getForm().setValues(record.data);
-        App.Person_Window.show();
+        if (!App.Person_Sm.hasSelection()) {
+            Ext.Msg.alert("提示信息", "请选择一条记录以进行编辑");
+        }
+        if (App.Person_Details) {
+            App.Person_Details.close();
+        }
+        var record = App.Person_Sm.getSelection()[0];
+        base.Ajax("/person/personinfo/" + record.data.ID);
+
     },
     del: function () {
-        var record = this.up('container').record;
+        if (!App.Person_Sm.hasSelection()) {
+            Ext.Msg.alert("提示信息", "请选择一条记录以进行删除");
+        }
+        var record = App.Person_Sm.getSelection()[0];
         Ext.Msg.confirm("提示信息", "确定要删除“" + record.data.PersonName + "”吗？", function (r) {
             if (r == "yes") {
-                Ext.net.DirectMethod.request({
-                    url: "/person/delete/" + record.data.ID,
-                    cleanRequest: true
-                });
+                if (App.Person_Details)
+                {
+                    App.Person_Details.close();
+                }
+                base.Ajax("/person/delete/" + record.data.ID)               
             }
         })
+    },
+    details: function () {
+        if (!App.Person_Sm.hasSelection()) {
+            Ext.Msg.alert("提示信息", "请选择一条记录以进行删除");
+        }
+        var record = App.Person_Sm.getSelection()[0];
+        base.Ajax("/person/details/", { id: record.data.ID });          
     },
     setDisabledMenuItem: function (b) {
         App.PersonForm_Menu.items.items[1].setDisabled(b);
@@ -56,7 +78,7 @@ var person = {
         App.person_info_image.setImageUrl('/person/photo/' + App.person_Info_Id.getValue() + "?_dc=" + new Date().getTime());
         person.setDisabledMenuItem(false);
     },
-    editGrid:{
+    editGrid: {
         create: function () {
             this.up('grid').store.insert(0, {});
             this.up('grid').editingPlugin.startEdit(0, 0);
@@ -96,7 +118,7 @@ var person = {
             }
         }
     },
-    train: {       
+    train: {
         del: function () {
             var grid = this.up('grid');
             var record = grid.getSelectionModel().getSelection()[0];
@@ -235,7 +257,7 @@ var person = {
     register: {
         create: function () {
             App.Person_Register.show();
-        }            
+        }
     },
     insurance: {
         create: function () {

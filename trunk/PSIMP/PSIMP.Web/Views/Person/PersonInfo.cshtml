@@ -1,9 +1,23 @@
-﻿@{
+﻿@model PM_PersonBaseInfo
+@{
     Layout = null;
+    bool Disabled = true;
+    if(Model!=null)
+    {
+        Disabled = Model.IsCreate;
+    }
 }
-@model PM_PersonBaseInfo
 
-@(Html.X()
+@(Html.EditorWindow()
+     .ID("Person_Window")
+     .Title("人员信息")
+     .Border(false)
+     .Width(700)
+    .CloseAction(CloseAction.Destroy)
+     .Layout(LayoutType.Border)
+     .Height(450)
+     .Items(
+        Html.X()
     .MenuPanel()
     .ID("PersonForm_MenuPanel")
     .Width(150)
@@ -14,13 +28,13 @@
     {
         menus.ID = "PersonForm_Menu";
         menus.Items.Add(Html.X().MenuItem().Text("基本信息").Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(0)"));
-        menus.Items.Add(Html.X().MenuItem().Text("教育信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(1)"));
-        menus.Items.Add(Html.X().MenuItem().Text("职称信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
-        menus.Items.Add(Html.X().MenuItem().Text("工作经历").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
-        menus.Items.Add(Html.X().MenuItem().Text("证件信息").Disabled(true).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(4)"));
-    })
-)
-@(Html.X()
+        menus.Items.Add(Html.X().MenuItem().Text("教育信息").Disabled(Disabled).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(1)"));
+        menus.Items.Add(Html.X().MenuItem().Text("职称信息").Disabled(Disabled).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(2)"));
+        menus.Items.Add(Html.X().MenuItem().Text("工作经历").Disabled(Disabled).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(3)"));
+        menus.Items.Add(Html.X().MenuItem().Text("证件信息").Disabled(Disabled).Listeners(events => events.Click.Handler = "App.Person_Card.getLayout().setActiveItem(4)"));
+    }),
+
+Html.X()
     .Container()
     .Border(false)
     .ID("Person_Card")
@@ -52,14 +66,14 @@
             {
                 defaults.Add(new { MsgTarget = "under" });
             })
-            .ItemsFromPartial("_BaseInfo",Model)
+            .ItemsFromPartial("_BaseInfo", Model)
         , Html.X()
             .Panel()
             .Title("教育信息")
             .Header(false)
-            .Layout(LayoutType.Fit)            
+            .Layout(LayoutType.Fit)
             .BodyStyle("border:0px")
-            .ItemsFromPartial("_EducationInfo")
+            .ItemsFromPartial("_EducationInfo", new EduViewModel())
             .Listeners(events =>
             {
                 events.Activate.Handler = @"
@@ -75,7 +89,7 @@ else{
             .Title("职称信息")
             .Layout(LayoutType.Fit)
             .BodyStyle("border:0px")
-            .ItemsFromPartial("_TitlesInfo")
+            .ItemsFromPartial("_TitlesInfo", new PM_PersonPositionalTitlesInfo())
             .Listeners(events =>
             {
                 events.Activate.Handler = "App.Person_Titles_Store.reload({params:{personId:App.person_Info_Id.getValue()}})";
@@ -85,7 +99,7 @@ else{
             .Title("工作经历")
             .BodyStyle("border:0px")
             .Layout(LayoutType.Fit)
-            .ItemsFromPartial("_WorkInfo")
+            .ItemsFromPartial("_WorkInfo", new PM_PersonWorkExperienceInfo())
             .Listeners(events =>
             {
                 events.Activate.Handler = "App.Person_Works_Store.reload({params:{personId:App.person_Info_Id.getValue()}})";
@@ -94,11 +108,14 @@ else{
             .Panel()
             .Title("证件信息")
             .BodyStyle("border:0px")
-            .Layout( LayoutType.Fit)
-            .ItemsFromPartial("_CertInfo", Model)
+            .Layout(LayoutType.Fit)
+            .ItemsFromPartial("_CertInfo", new PM_PersonCertificateInfo())
             .Listeners(events =>
             {
                 events.Activate.Handler = "App.Person_Certs_Store.reload({params:{personId:App.person_Info_Id.getValue()}})";
             })
     )
+
+     )
+
 )

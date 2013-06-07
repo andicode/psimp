@@ -78,3 +78,16 @@
 	background-color: #034c6e;
 	color: #ffffff;
 }
+
+.search,.search .x-panel-header {
+    border-radius:0px;
+}
+    .search .x-docked-bottom {
+        border-top:1px solid #ccc !important;
+    }
+    .search .x-panel-header-default-framed-top {        
+       background-image:none !important;
+    }
+    .search .x-panel-header-default-framed-collapsed-top{
+        border-bottom:0px !important;
+    }

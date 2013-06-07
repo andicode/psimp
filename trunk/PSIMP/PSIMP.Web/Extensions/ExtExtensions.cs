@@ -14,25 +14,28 @@ namespace System.Web
     {
         public static Window.Builder EditorWindow(this HtmlHelper html)
         {
+            bool isPage = false;
+            if ((html.ViewContext.HttpContext.Session["displayMode"]??"page").ToString() == "page")
+            {
+                isPage = true;
+            }
             return html.X().Window()
+                .Modal(isPage)
                 .ConstrainHeader(true)
                 .ConstrainToElement("mainBody")
                 .Listeners(events =>
                 {
-                    events.Show.Handler = @"
+                    if (!isPage)
+                    {
+                        events.Show.Handler = @"
 if(this.up('window')){
     this.up('window').mask()
-}
-else{
-    Ext.getBody().mask();
 }";
-                    events.Close.Handler = @"
+                        events.Close.Handler = @"
 if(this.up('window')){
     this.up('window').unmask()
-}
-else{
-    Ext.getBody().unmask();
 }";
+                    }
                 });
         }
 
@@ -118,6 +121,20 @@ if(!this.isLoad){
                 HideFx = new SlideOut { Anchor = AnchorPoint.Top, Options = new FxConfig { Easing = Easing.EaseInOut } },
                 Html = msg
             });
+        }
+
+        public static FormPanel.Builder SearchPanel(this BuilderFactory x)
+        {
+            return x.FormPanel()
+                   .Title("查询")
+                   .Frame(true)
+                   .Cls("search")
+                   .AnimCollapse(false)
+                   .AnimCollapseDuration(0)
+                   .Collapsible(true)
+                   .CollapseMode(CollapseMode.Default)
+                   .ButtonAlign(Alignment.Left)
+                   .Icon(Icon.Magnifier);
         }
     }
 }

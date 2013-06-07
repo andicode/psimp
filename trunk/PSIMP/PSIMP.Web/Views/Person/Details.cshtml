@@ -2,46 +2,63 @@
 @{
     Layout = null;
 }
+
 @(
- Html.X().Container()        
+ Html.EditorWindow()
+    .ID("Person_Details")
+    .Title("人员详情")
+    .Width(800)
+    .CloseAction(CloseAction.Destroy)
+    .Height(500)
+    .AutoScroll(true)
+    .TopBar(
+            Html.X().Toolbar()
+                .Items(
+                    Html.X().Button().Text("编辑").Icon(Icon.PageEdit).Handler("person.edit")
+                    , Html.X().Button().Text("删除").Icon(Icon.PageDelete).Handler("person.del")
+                )
+        )
+        .Items(
+ Html.X().Container()
         .StyleSpec("background:#fff;")
         .Html(
             @<text>
-                <div class="resumeBody">
-		            <div class="summary">
-                        <img src="@Url.Action("Photo", new {id=Model.ID ,_dc=Model._dc})" alt="@Html.DisplayFor(m=>m.PersonName)" width="70" height="90" align="right" class="headerImg"/>
-                        <h1>@Html.DisplayFor(m=>m.PersonName)</h1>
+<div class="resumeBody">
+    <div class="summary">
+        <img src="@Url.Action("Photo", new { id = Model.ID, _dc = Model._dc })" alt="@Html.DisplayFor(m => m.PersonName)" width="70" height="90" align="right" class="headerImg"/>
+        <h1>@Html.DisplayFor(m => m.PersonName)</h1>
 
-                        @(Model.Sex?"男":"女") <span class="ver-line">|</span>
-                        @(Model.Birthday.ToString("yyyy年M月d日")) <span class="ver-line">|</span>
-                        户籍地：@Html.DisplayFor(m=>m.RegisterAddress) 
-                        <br/> 
-                        身份证： @Html.DisplayFor(m=>m.IDNumber)<br/>
-                        联系电话: @Html.DisplayFor(m=>m.ContactPhoneNumber) &nbsp; @Html.DisplayFor(m=>m.AlternatePhoneNumber)<br/>
-		            </div>
-		            <dl class="details">
-			            @*<dt><label>注册信息</label></dt>
+        @(Model.Sex ? "男" : "女") <span class="ver-line">|</span>
+        @(Model.Birthday.ToString("yyyy年M月d日")) <span class="ver-line">|</span>
+        户籍地：@Html.DisplayFor(m => m.RegisterAddress)
+        <br />
+        身份证： @Html.DisplayFor(m => m.IDNumber)<br />
+        联系电话: @Html.DisplayFor(m => m.ContactPhoneNumber) &nbsp; @Html.DisplayFor(m => m.AlternatePhoneNumber)<br />
+    </div>
+    <dl class="details">
+        @*<dt><label>注册信息</label></dt>
 			            <dd>
                             还没有做
                         </dd>*@
-			            <dt><label>教育信息</label></dt>
-			            <dd>
-                            还没有做                      
-                        </dd>
-			            <dt><label>职称信息</label></dt>
-			            <dd>
-                            还没有做        
-                        </dd>
-			            <dt><label>工作经历</label></dt>
-			            <dd>
-                            还没有做
-                        </dd>
-			            <dt><label>证书证件</label></dt>            
-			            <dd>
-                            还没有做                       
-                        </dd>
-		            </dl>
-	            </div>
-            </text>
+        <dt>
+            <label>教育信息</label></dt>
+        <dd>还没有做                      
+        </dd>
+        <dt>
+            <label>职称信息</label></dt>
+        <dd>还没有做        
+        </dd>
+        <dt>
+            <label>工作经历</label></dt>
+        <dd>还没有做
+        </dd>
+        <dt>
+            <label>证书证件</label></dt>
+        <dd>还没有做                       
+        </dd>
+    </dl>
+</div>
+</text>
         )
+)
 )

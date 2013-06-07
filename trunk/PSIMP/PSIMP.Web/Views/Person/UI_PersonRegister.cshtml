@@ -4,18 +4,24 @@
 @(Html.X().GridPanelFor<PM_PersonRegister>()
         .Title(Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel").ToString())
         .EmptyText("没有人员注册记录")
+        .DockedItems(
+               Html.X().SearchPanel()
+                   .Items(
+                       Html.X()
+                           .TextField()
+                           .FieldLabel("姓名")
+                           .Width(150)
+                           .LabelAlign(LabelAlign.Right)
+                           .LabelWidth(35)
+                   )
+                   .Buttons(
+                        Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                   )
+          )
         .TopBar(
             Html.X().Toolbar()
                 .Items(
-                    Html.X()
-                        .TextField()
-                        .FieldLabel("姓名")
-                        .Width(150)
-                        .LabelAlign(LabelAlign.Right)
-                        .LabelWidth(35)
-                   , Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
-                   , Html.X().ToolbarFill()
-                   , Html.X().Button().Text("新增人员注册信息").Icon(Icon.Add).Handler("person.register.create")
+                    Html.X().Button().Text("新增人员注册信息").Icon(Icon.Add).Handler("person.register.create")
                 )
         )
         .BottomBar(Html.X().PagingToolbar())

@@ -1,7 +1,13 @@
-﻿@{
+﻿@model PM_PersonBaseInfo
+@{
     Layout = null;
+    var imgUrl = "~/Images/person/default.jpg";
+    if(Model!=null&&!Model.IsCreate)
+    {
+        imgUrl = Url.Action("Photo", new { id = Model.ID });
+    }
 }
-@model PM_PersonBaseInfo
+
 @(Html.X()
     .Container()
     .Border(false)
@@ -18,7 +24,7 @@
             .Items(Html.X()
                        .Image()
                        .ID("person_info_image")
-                       .ImageUrl(Url.Content("~/Images/person/default.jpg"))
+                       .ImageUrl(Url.Content(imgUrl))
             )
                 , Html.X()
                     .FileUploadField()
