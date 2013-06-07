@@ -232,17 +232,22 @@ var person = {
     },
     register: {
         create: function () {
-            App.Person_Register.show();
+            base.Ajax("/Persons/Registers/RegisterInfo");
         }
     },
     insurance: {
         create: function () {
-            App.Person_Insurance.show();
+            base.Ajax("/Persons/Insurances/InsuranceInfo");
         }
     },
     certificate: {
         create: function () {
-            App.Person_Certificate.show();
+            base.Ajax("/Persons/Certificates/CertificateInfo");
+        }
+    },
+    contract: {
+        create: function () {
+            base.Ajax("/Persons/Contracts/ContractInfo");
         }
     }
 }

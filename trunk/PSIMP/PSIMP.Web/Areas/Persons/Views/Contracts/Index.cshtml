@@ -22,23 +22,9 @@
         .TopBar(
             Html.X().Toolbar()
                 .Items(
-                    Html.X().Button().Text("新增人员合同信息").Icon(Icon.Add).Handler("person.insurance.create")
+                    Html.X().Button().Text("新增人员合同信息").Icon(Icon.Add).Handler("person.contract.create")
                 )
         )
         .BottomBar(Html.X().PagingToolbar())
 )
-@(
-Html.EditorWindow()
-    .ID("Person_Contract")
-    .Title("人员合同信息")
-    .Hidden(true)
-    .Width(500)
-    .Layout( LayoutType.Fit)
-    .AutoScroll(true)
-    .Border(false)
-    //.ItemsFromPartial("InsuranceForm")
-    .Buttons(
-        Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
-        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
-    )
-)
+

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "CertificateInfo";
+}
+@(
+Html.EditorWindow()
+    .ID("Person_Certificate")
+    .Title("人员证件信息")
+    .Width(500)
+    .CloseAction(CloseAction.Destroy)
+    .Layout(LayoutType.Fit)
+    .AutoScroll(true)
+    .Border(false)
+    //.ItemsFromPartial("InsuranceForm")
+    .Buttons(
+        Html.X().Button().Text("保存").Icon(Icon.Disk).Handler("alert('数据交互未做')"),
+        Html.X().Button().Text("取消").Icon(Icon.Exclamation).Handler("this.up('window').close()")
+    )
+)

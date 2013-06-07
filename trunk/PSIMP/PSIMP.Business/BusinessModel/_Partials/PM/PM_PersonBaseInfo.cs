@@ -18,10 +18,13 @@ namespace PSIMP.Models
     [MetadataType(typeof(PM_PersonBaseInfo_MetaData))]
     public partial class PM_PersonBaseInfo 
     {
-        [Column(Ignore=true)]
-        [Field(Ignore=true)]
+        [Column(Ignore = true)]
+        [Field(Ignore = true)]
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
-        public long _dc { get { return DateTime.Now.Ticks; } }
+        public string _dc
+        {
+            get { return System.Text.Encoding.Default.GetString(this.RowVersion); }
+        }
 
         public class PM_PersonBaseInfo_MetaData
         {

@@ -21,6 +21,13 @@ namespace PSIMP.Web.Areas.Persons.Controllers
         {
             return this.Store(null, 0);
         }
-
+        public ActionResult InsuranceInfo(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return this.PartialExtView();
+            }
+            return this.PartialExtView();
+        }
     }
 }

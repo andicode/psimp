@@ -261,6 +261,10 @@
     <Content Include="Areas\Persons\Views\Insurances\Index.cshtml" />
     <Content Include="Areas\Persons\Views\Certificates\Index.cshtml" />
     <Content Include="Areas\Persons\Views\Contracts\Index.cshtml" />
+    <Content Include="Areas\Persons\Views\Registers\RegisterInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Insurances\InsuranceInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Certificates\CertificateInfo.cshtml" />
+    <Content Include="Areas\Persons\Views\Contracts\ContractInfo.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
