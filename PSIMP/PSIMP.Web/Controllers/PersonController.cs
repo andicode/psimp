@@ -55,11 +55,19 @@ namespace PSIMP.Web.Controllers
             var data = PersonService.GetAll().GetPagesData(srp.Start,srp.Limit,out total);
             return this.Store(data, total);
         }
-        public ActionResult PersonInfo(string id)
-        {
-            return this.ComponentConfig();
-        }
 
+        public ActionResult PersonInfo(string id="")
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return this.PartialExtView();
+            }
+            else
+            {
+                var model = PersonService.Get(id);
+                return this.PartialExtView(model);
+            }
+        }
 
         [HttpPost]
         public ActionResult Save(PM_PersonBaseInfo person, HttpPostedFileBase TempPicture)
@@ -96,7 +104,7 @@ namespace PSIMP.Web.Controllers
         public ActionResult Details(string id)
         {
             var model = PersonService.Get(id);
-            return this.ComponentConfig("Details", model);
+            return this.PartialExtView(model);
         }
 
         public ActionResult Photo(string id)
@@ -116,7 +124,7 @@ namespace PSIMP.Web.Controllers
         {
             //PersonService.CompletelyDelete(id);
             X.GetCmp<Store>("Person_Store").Reload();
-            X.Msg.NotifyTop("操作成功");
+            X.Msg.NotifyTop("功能未实现");
             return this.Direct();
         }
 
