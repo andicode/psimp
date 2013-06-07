@@ -192,10 +192,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
     </Reference>
-    <Reference Include="Wilco.SyntaxHighlighter, Version=0.5.0.0, Culture=neutral, PublicKeyToken=fb87150479c2990b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Wilco.SyntaxHighlighter.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -219,25 +215,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AppConfig.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppConfig.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AppConfig.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppConfig.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AppConfig.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppConfig.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\EduViewModel.cs" />
-    <Compile Include="Models\Menus.cs">
-      <DependentUpon>AppConfig.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -268,24 +246,6 @@
     <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
-    <EntityDeploy Include="Models\AppConfig.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AppConfig.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AppConfig.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AppConfig.edmx</DependentUpon>
-      <LastGenOutput>AppConfig.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AppConfig.edmx.diagram">
-      <DependentUpon>AppConfig.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\AppConfig.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AppConfig.edmx</DependentUpon>
-      <LastGenOutput>AppConfig.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AppConfig.edmx.sqlce" />
     <Content Include="web.sitemap" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
