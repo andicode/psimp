@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@(Html.X().GridPanelFor<AMG_AssetBaseInfo>()
+          .Title(Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel").ToString())
+          .DockedItems(
+               Html.X().SearchPanel()
+                   .Items(
+                       Html.X()
+                           .TextField()
+                           .FieldLabel("姓名")
+                           .Width(150)
+                           .LabelAlign(LabelAlign.Right)
+                           .LabelWidth(35)
+                   )
+                   .Buttons(
+                        Html.X().Button().Text("查询").Icon(Icon.Magnifier).Margins("0 0 0 10")
+                   )
+          )
+          .TopBar(
+               Html.X().Toolbar()
+                   .Items(
+                        Html.X().Button().Text("新增").Icon(Icon.Add).Handler("assets.create"),
+                        Html.X().ToolbarSeparator(),
+                        Html.X().Button().Text("编辑").Icon(Icon.PageEdit).Handler("assets.edit"),                        
+                        Html.X().Button().Text("删除").Icon(Icon.PageDelete).Handler("assets.del")
+                 )
+
+          )
+          .Control(grid =>
+          {
+              grid.GetStore().ID = "Assets_Store";
+          })
+          .SelectionModel(Html.X().RowSelectionModel().ID("Assets_Sm"))
+          .Listeners(evnets =>
+          {
+              //evnets.ItemDblClick.Fn = @"person.details";
+          })
+          .EmptyText("没有资产记录")
+          .BottomBar(Html.X().PagingToolbar())
+)

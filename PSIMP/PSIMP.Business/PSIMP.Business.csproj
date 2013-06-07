@@ -62,9 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel\BaseEntity.cs" />
+    <Compile Include="BusinessModel\_Partials\AMG\AMG_AssetBaseInfo.cs" />
     <Compile Include="BusinessModel\_Partials\EM\EM_ProjectBaseInfo.cs" />
     <Compile Include="BusinessModel\_Partials\EM\EM_ProjectContractBaseInfo.cs" />
     <Compile Include="BusinessModel\_Partials\PM\PM_PersonContractInfo.cs" />
+    <Compile Include="CommonData\Enums.cs" />
     <Compile Include="Context\IRepository.cs" />
     <Compile Include="Context\PSIMPContext.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
@@ -131,7 +133,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessModel\_Partials\AMG\" />
     <Folder Include="BusinessModel\_Partials\AM\" />
     <Folder Include="BusinessModel\_Partials\VM\" />
   </ItemGroup>

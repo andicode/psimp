@@ -200,6 +200,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityContainerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Assets\AssetsAreaRegistration.cs" />
+    <Compile Include="Areas\Assets\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Assets\Controllers\RepairController.cs" />
+    <Compile Include="Areas\Assets\Controllers\UseController.cs" />
     <Compile Include="Areas\Persons\Controllers\CertificatesController.cs" />
     <Compile Include="Areas\Persons\Controllers\ContractsController.cs" />
     <Compile Include="Areas\Persons\Controllers\DefaultController.cs" />
@@ -225,7 +229,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Menus.xml" />
     <Content Include="App_Data\Modules.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -251,6 +254,7 @@
     <Content Include="Images\login1.jpg" />
     <Content Include="Images\login_panel.psd" />
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
+    <Content Include="Scripts\app\assets.js" />
     <Content Include="Scripts\app\base.js" />
     <Content Include="Scripts\app\projects.js" />
     <Content Include="web.sitemap" />
@@ -265,6 +269,12 @@
     <Content Include="Areas\Persons\Views\Insurances\InsuranceInfo.cshtml" />
     <Content Include="Areas\Persons\Views\Certificates\CertificateInfo.cshtml" />
     <Content Include="Areas\Persons\Views\Contracts\ContractInfo.cshtml" />
+    <Content Include="Areas\Assets\Views\Web.config" />
+    <Content Include="Areas\Assets\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Assets\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Assets\Views\Use\Index.cshtml" />
+    <Content Include="Areas\Assets\Views\Repair\Index.cshtml" />
+    <Content Include="Areas\Assets\Views\Default\AssetInfo.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -400,6 +410,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Assets\Models\" />
+    <Folder Include="Areas\Assets\Views\Shared\" />
     <Folder Include="Areas\Persons\Models\" />
     <Folder Include="Areas\Persons\Views\Shared\" />
     <Folder Include="Filters\" />
