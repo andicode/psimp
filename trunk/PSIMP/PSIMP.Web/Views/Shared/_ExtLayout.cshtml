@@ -9,15 +9,6 @@
     @Scripts.Render("~/app")
 </head>
 <body id="mainBody">
-@(
- Html.X()
-    .ResourceManager()
-    .ScriptMode(Ext.Net.ScriptMode.Debug)
-    .StartupMask((StartupMask)ViewBag.StartupMask)
-    .Listeners(events => {
-        //events.AjaxRequestException.Handler = "";
-    })
-)    
-    @RenderBody()
+    @(Html.X().ResourceManager().ScriptMode(Ext.Net.ScriptMode.Debug).StartupMask((StartupMask)ViewBag.StartupMask))@RenderBody()
 </body>
 </html>
