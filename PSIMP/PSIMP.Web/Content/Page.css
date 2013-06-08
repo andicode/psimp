@@ -78,7 +78,7 @@
         color: #ffffff;
     }
 
-/*.search, .search .x-panel-header {
+.search, .search .x-panel-header {
     border-radius: 0px;
 }
 
@@ -86,7 +86,7 @@
         border-top: 1px solid #ccc !important;
     }
 
-    .search .x-panel-header-default-framed-top {
+    /*.search .x-panel-header-default-framed-top {
         background-image: none !important;
     }
 
