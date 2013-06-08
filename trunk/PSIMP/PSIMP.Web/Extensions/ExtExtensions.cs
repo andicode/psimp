@@ -139,5 +139,10 @@ if(!this.isLoad){
                    .ButtonAlign(Alignment.Left)
                    .Icon(Icon.Magnifier);
         }
+
+        public static GridPanel.Builder SearchPanel(this GridPanel.Builder grid,AbstractComponent panel)
+        {
+            return grid.DockedItems(panel);
+        }
     }
 }
