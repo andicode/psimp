@@ -92,6 +92,7 @@ if(!this.isLoad){
         {
             node.Text = siteNode.Title;
             node.NodeID ="node_"+siteNode.Url.ToMd5();
+            node.IconCls = siteNode.ImageUrl ?? "";
             node.Leaf = !siteNode.Children.Any();
             node.Href = siteNode.Url;
             foreach (var item in siteNode.Children)
@@ -126,13 +127,12 @@ if(!this.isLoad){
         public static FormPanel.Builder SearchPanel(this BuilderFactory x)
         {
             return x.FormPanel()
-                   .Title("查询")
+                   .Title("查询")                 
                    .Frame(true)
                    .Cls("search")
                    .AnimCollapse(false)
                    .AnimCollapseDuration(0)
                    .Collapsible(true)
-                   .CollapseMode(CollapseMode.Default)
                    .ButtonAlign(Alignment.Left)
                    .Icon(Icon.Magnifier);
         }

@@ -201,6 +201,7 @@
     <Compile Include="App_Start\UnityContainerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Assets\AssetsAreaRegistration.cs" />
+    <Compile Include="Areas\Assets\Controllers\AllocateController.cs" />
     <Compile Include="Areas\Assets\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Assets\Controllers\RepairController.cs" />
     <Compile Include="Areas\Assets\Controllers\UseController.cs" />
@@ -275,6 +276,7 @@
     <Content Include="Areas\Assets\Views\Use\Index.cshtml" />
     <Content Include="Areas\Assets\Views\Repair\Index.cshtml" />
     <Content Include="Areas\Assets\Views\Default\AssetInfo.cshtml" />
+    <Content Include="Areas\Assets\Views\Allocate\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

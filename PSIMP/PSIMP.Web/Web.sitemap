@@ -19,6 +19,7 @@
       <mvcSiteMapNode title="资产基本信息" controller="Default" action="Index" area="Assets"></mvcSiteMapNode>
       <mvcSiteMapNode title="资产领用管理" controller="Use" action="Index" area="Assets"></mvcSiteMapNode>
       <mvcSiteMapNode title="资产维护信息" controller="Repair" action="Index" area="Assets"></mvcSiteMapNode>
+      <mvcSiteMapNode title="资产调配信息" controller="Allocate" action="Index" area="Assets"></mvcSiteMapNode>
     </mvcSiteMapNode>
     <mvcSiteMapNode key="g_Statistics" title="统计分析" controller="Home" action="Statistics"/>
   </mvcSiteMapNode>

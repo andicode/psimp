@@ -13,6 +13,7 @@
             var panel = Html.X().TreePanel()
                             .ID("g_"+item.Url.ToMd5())
                             .RootVisible(false)
+                            .IconCls(item.ImageUrl)
                             .Title(item.Title)
                             .UseArrows(true)
                             .Root(item.ExtSiteMapNode())
