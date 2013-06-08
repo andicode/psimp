@@ -23,5 +23,4 @@
     </mvcSiteMapNode>
     <mvcSiteMapNode key="g_Statistics" title="统计分析" controller="Home" action="Statistics"/>
   </mvcSiteMapNode>
-
 </mvcSiteMap>
