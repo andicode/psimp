@@ -127,9 +127,12 @@ if(!this.isLoad){
         public static FormPanel.Builder SearchPanel(this BuilderFactory x)
         {
             return x.FormPanel()
-                   .Title("查询")                 
+                   .Title("查询")
                    .Frame(true)
                    .Cls("search")
+                   .HeaderConfig(new PanelHeader { 
+                        StyleSpec ="background-image:none"
+                   })
                    .AnimCollapse(false)
                    .AnimCollapseDuration(0)
                    .Collapsible(true)

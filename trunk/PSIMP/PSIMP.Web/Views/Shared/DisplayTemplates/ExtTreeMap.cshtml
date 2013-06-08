@@ -5,13 +5,21 @@
 @(
  Html.X().Container()
     .Layout(LayoutType.Accordion)
+    .LayoutConfig(cfg => {
+        cfg.Add(new AccordionLayoutConfig
+        {
+            OriginalHeader = true,
+            TitleCollapse = true
+        });
+    })
     .ID("left_menu_container")
-    .Items(items => {
+    .Items(items =>
+    {
         var root = Model.First();
         foreach (var item in root.Children)
         {
             var panel = Html.X().TreePanel()
-                            .ID("g_"+item.Url.ToMd5())
+                            .ID("g_" + item.Url.ToMd5())
                             .RootVisible(false)
                             .IconCls(item.ImageUrl)
                             .Title(item.Title)
@@ -21,7 +29,7 @@
                             {
                                 events.ItemClick.Handler = "if (record.data.href) { e.stopEvent(); base.loadPage(record); }";
                             });
-            
+
             items.Add(panel);
         }
     })
