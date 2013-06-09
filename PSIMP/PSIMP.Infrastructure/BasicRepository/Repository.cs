@@ -95,7 +95,6 @@ namespace PSIMP.Infrastructure.BasicRepository
             totalCount = 0;
             int skipCount = (pageIndex - 1) * pageSize;
             var result = where != null ? dbset.Where(where).AsQueryable() : dbset.AsQueryable();
-
             totalCount = result.Count();
             result = skipCount == 0 ? result.OrderBy(propertyName, asc).Take(pageSize) : result.OrderBy(propertyName, asc).Skip(skipCount).Take(pageSize);
             return result.AsQueryable().ToList();
