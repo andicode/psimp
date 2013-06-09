@@ -80,5 +80,42 @@ namespace PSIMP.Infrastructure.BasicRepository
         {
             return dbset.Where(where).FirstOrDefault<T>();
         }
+        /// <summary>
+        /// 分页查询方法
+        /// </summary>
+        /// <param name="where">查询条件</param>
+        /// <param name="propertyName">排序属性</param>
+        /// <param name="asc">是否升序</param>
+        /// <param name="pageSize">每页显示的记录数</param>
+        /// <param name="pageIndex">当前页数，默认从1开始</param>
+        /// <param name="totalCount">总记录数</param>
+        /// <returns></returns>
+        public virtual IEnumerable<T> GetPagesData(Expression<Func<T, bool>> where, string propertyName, bool asc, int pageSize, int pageIndex, out long totalCount)
+        {
+            totalCount = 0;
+            int skipCount = (pageIndex - 1) * pageSize;
+            var result = where != null ? dbset.Where(where).AsQueryable() : dbset.AsQueryable();
+
+            totalCount = result.Count();
+            result = skipCount == 0 ? result.OrderBy(propertyName, asc).Take(pageSize) : result.OrderBy(propertyName, asc).Skip(skipCount).Take(pageSize);
+            return result.AsQueryable().ToList();
+        }
+        /// <summary>
+        /// 分页查询方法
+        /// </summary>
+        /// <param name="where">查询条件</param>
+        /// <param name="pageSize">每页显示的记录数</param>
+        /// <param name="pageIndex">当前页数，默认从1开始</param>
+        /// <param name="totalCount">总记录数</param>
+        /// <returns></returns>
+        public virtual IEnumerable<T> GetPagesData(Expression<Func<T, bool>> where, int pageSize, int pageIndex, out long totalCount)
+        {
+            totalCount = 0;
+            int skipCount = (pageIndex - 1) * pageSize;
+            var result = where != null ? dbset.Where(where).AsQueryable() : dbset.AsQueryable();
+            totalCount = result.Count();
+            result = skipCount == 0 ? result.OrderBy(m => m.CreateTime).Take(pageSize) : result.OrderBy(m => m.CreateTime).Skip(skipCount).Take(pageSize);
+            return result.AsQueryable().ToList();
+        }
     }
 }
