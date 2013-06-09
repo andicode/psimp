@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="BasicRepository\DBFactory.cs" />
     <Compile Include="BasicRepository\Disposable.cs" />
+    <Compile Include="BasicRepository\Extension.cs" />
     <Compile Include="BasicRepository\IDBFactory.cs" />
     <Compile Include="BasicRepository\IUnitOfWork.cs" />
     <Compile Include="BasicRepository\Repository.cs" />
